@@ -22,17 +22,16 @@ class Alumno_model extends CI_Model
         } 	
 		return "";
 	}
-        public function obtener_Alumno_ID($id)
-	   {
 
-            $query = $this->db->get_where('persona', array('id_persona' => $id));   
-
-          if($query->num_rows() >= 1 )
-            {
-                return $query->result_array();
-            } 	
-            return "";
-	   }
+    public function obtener_Alumno_ID($id)
+    {
+        $query = $this->db->get_where('persona', array('id_persona' => $id));   
+        if($query->num_rows() >= 1 )
+        {
+            return $query->result_array();
+        } 	
+        return "";
+    }
 }
 
 ?>

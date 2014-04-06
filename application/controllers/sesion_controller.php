@@ -23,7 +23,7 @@ class Sesion_controller extends CI_Controller {
 
 	public function verificar_login()
 	{
-		if(!isset($_POST['password']))
+		if(!isset($_POST['username']))
 		{
 			$this->login_formulario(); //si no recibimos datos por post, cargamos la vista del formulario
 		}
@@ -52,7 +52,8 @@ class Sesion_controller extends CI_Controller {
 		$datos_de_session = array(
 			'id_usuario' => $persona_usuario['id_persona'],
 			'nombre_usuario' => $persona_usuario['nombre_persona'].' '.$persona_usuario['apellido_persona'],
-			'tipo_usuario'=> $persona_usuario['tipo']
+			'tipo_usuario'=> $persona_usuario['tipo'],
+			'estaLogeado'=> TRUE
 		);
 		$this->session->set_userdata($datos_de_session);
 		$data['main_content'] = 'sesiones/index_bienvenida_view';

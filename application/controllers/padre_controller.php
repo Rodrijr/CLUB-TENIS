@@ -6,7 +6,7 @@ class Padre_controller extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        if(!isset($this->session->userdata['username']))
+        if(!$this->session->userdata('estaLogeado'))
         {
             $data['main_content'] = 'sesiones/form_login_views';
             $this->load->view('main_template', $data);

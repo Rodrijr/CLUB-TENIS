@@ -5,18 +5,30 @@ class Alumno_controller extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        if(!isset($this->session->userdata['username']))
+        if(!$this->session->userdata('estaLogeado'))
         {
             $data['main_content'] = 'sesiones/form_login_views';
             $this->load->view('main_template', $data);
         }
 	}
+
     public function index()
 	{
         $data['main_content'] = 'alumnos/lista_hijos_views';
 		$this->load->view('main_template', $data);
         $this->load->library('form_validation');
 	}
+
+    public function registrar_alumno()
+    {
+        //if(!isset($_POST['username']))
+        //{
+        //    $this->login_formulario(); //si no recibimos datos por post, cargamos la vista del formulario
+        //}
+
+        $data['main_content'] = 'alumnos/registrar_alumno_view';
+        $this->load->view('main_template', $data);   
+    }
     
     public function ver_lista_hijos()
 	{        
