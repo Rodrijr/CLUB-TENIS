@@ -25,7 +25,6 @@ class Sesion_controller extends CI_Controller {
 	{
 		if(!isset($_POST['password']))
 		{
-			echo 'entro aqui<br>';
 			$this->login_formulario(); //si no recibimos datos por post, cargamos la vista del formulario
 		}
 		else
@@ -35,9 +34,21 @@ class Sesion_controller extends CI_Controller {
 			$password = $this->input->post('password');
 			$esLoginValido = $this->sesion_model->login($user,$password); 
 			if($esLoginValido)
+			{
 				$this->iniciar_sesion($user, $password);
+			}
 			else
-				$this->login_formulario();
+			{
+				//$datos_de_session = array(
+				//	'mensaje_de_error' => 'Login o contrasenia incorrectos.',
+				//	'error' => TRUE
+				//	);
+				//$this->session->set_userdata($datos_de_session);
+				//$this->login_formulario();
+				$data['error'] = TRUE;
+				$data['main_content'] = 'sesiones/form_login_views';
+				$this->load->view('main_template', $data);
+			}
 		}
 	}
 

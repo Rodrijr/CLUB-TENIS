@@ -29,6 +29,21 @@
               </div>
 
               <div class="form-group">
+                    <label class="col-lg-offset-2 control-label" >
+                      <?php 
+                        if(isset($error))
+                          echo '<p class="text-warning">Login o Contrasenia incorrectos.</p>'                  
+                      ?>
+                    </label> 
+              </div>
+
+              <div class="form-group">
+                            <label>
+                                
+                            </label>
+                        </div>
+
+              <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
                   <button class="btn btn-default" type="reset" >Cancelar</button> 
                   <button type="submit" class="btn btn-primary">Ingresar</button> 
