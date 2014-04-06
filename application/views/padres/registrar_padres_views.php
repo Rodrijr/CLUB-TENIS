@@ -123,8 +123,9 @@
                     </div>                  
                     
                     <div class='control-group'>
+                         <label for="inputEmail" class="col-lg-2 control-label">E-MAIL:<font color='#FF0000'>*</font></label>
                         <div class='controls'>
-                            <label for="inputEmail" class="col-lg-2 control-label">E-MAIL:<font color='#FF0000'>*</font></label>
+                           
                             
                             <INPUT TYPE='text' class="form-control" NAME='EMAIL' <?php  if(isset($padre)) {  echo "                                                     value ='".$padre['email']."'"; } ?> maxlength='30' ><BR>
                         </div>
