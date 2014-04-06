@@ -39,12 +39,6 @@ class Sesion_controller extends CI_Controller {
 			}
 			else
 			{
-				//$datos_de_session = array(
-				//	'mensaje_de_error' => 'Login o contrasenia incorrectos.',
-				//	'error' => TRUE
-				//	);
-				//$this->session->set_userdata($datos_de_session);
-				//$this->login_formulario();
 				$data['error'] = TRUE;
 				$data['main_content'] = 'sesiones/form_login_views';
 				$this->load->view('main_template', $data);
@@ -61,6 +55,15 @@ class Sesion_controller extends CI_Controller {
 			'tipo_usuario'=> $persona_usuario['tipo']
 		);
 		$this->session->set_userdata($datos_de_session);
+		$data['main_content'] = 'sesiones/index_bienvenida_view';
+		$this->load->view('main_template', $data);
+	}
+
+	public function cerrar_sesion()
+	{
+		$this->session->sess_destroy();
+		$data['main_content'] = 'sesiones/index_bienvenida_view';
+		$this->load->view('main_template', $data);
 	}
 }
 
