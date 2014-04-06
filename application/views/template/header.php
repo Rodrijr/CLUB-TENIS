@@ -69,6 +69,9 @@
             <li><a href="<?php echo base_url(); ?>index.php/Entrenador_controller/registrar_entrenador">Registrar Entrenador</a></li>
           </ul>        
         </li>
+           <li class="">
+            <a href="<?php echo base_url(); ?>index.php/Entrenador_controller/registrar_entrenador" >Registrar entrenador</a>
+        </li>
       </ul>
         <!--   GRUPOS  -->
       <ul class="nav navbar-nav">

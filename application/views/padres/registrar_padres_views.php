@@ -47,10 +47,6 @@
     }
 
 </script>
-
-
-  
-              
               
                     <div class="row-fluid">
                           <div class="span4"> 
@@ -84,6 +80,7 @@
                                 <div class='controls'>                           
                                     <INPUT TYPE='text' class="form-control" NAME='CI' onkeypress='return validarNro(event)' 
                                            
+
                                            <?php if(isset($padre)) {  echo "value ='".$padre['ci_persona']."'"; 
                                                 }
                                            ?> maxlength='10'>
@@ -93,13 +90,17 @@
                                 <div class='control-group'>
                              <label  class="col-lg-2 control-label">NOMBRE:<font color='#FF0000'>*</font></label>
                         <div class='controls'>                           
+
                             <INPUT TYPE='text' class="form-control" NAME='NOMBRE' <?php  if(isset($padre)) {  echo "                                                     value ='".$padre['nombre_persona']."'"; } ?> onkeypress='return isNumberKey(event)' maxlength='35'><BR>
+
                         </div>
                     </div>
                         <div class='control-group'>                            
                         <div class='controls'>         
                              <label for="inputEmail" class="col-lg-2 control-label">APELLIDO:<font color='#FF0000'>*</font></label>
+
                             <INPUT TYPE='text' class="form-control" NAME='APELLIDO' <?php  if(isset($padre)) {  echo "                                                     value ='".$padre['apellido_persona']."'"; } ?> onkeypress='return isNumberKey(event)' maxlength='35'><BR>
+
                         </div>
                     </div>
                                
@@ -113,7 +114,9 @@
                     <div class='control-group'>
                         <div class='controls'>
                            <label class="col-lg-2 control-label"> DIRECCION:<font color='#FF0000'>*</font></label>
-                            <INPUT TYPE='text' class="form-control" NAME='DIRECCION' <?php  if(isset($padre)) {  echo "                                                     value ='".$padre['direccion']."'"; } ?>  maxlength='50' onkeypress='return isNumberKey(event)'><BR>
+
+                            <INPUT TYPE='text' class="form-control" NAME='DIRECCION' <?php  if(isset($padre)) {  echo "                                                     value ='".$padre['ocupacion']."'"; } ?>  maxlength='50' onkeypress='return isNumberKey(event)'><BR>
+
                         </div>
                     </div>                  
                     
