@@ -24,3 +24,18 @@
 </head>
 <body>
 	<script src="<?php echo base_url(); ?>dist/js/bsa.js"></script>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="" class="navbar-brand">Club de Tennis CBBA</a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav navbar-right">
+      <li><a href="" >Iniciar Sesion</a></li>
+        <li class="active">
+            <a href="<?php echo base_url(); ?>index.php/Padre_controller/registrar_padre" >Registrar Padres</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
