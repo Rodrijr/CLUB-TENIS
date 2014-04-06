@@ -35,6 +35,9 @@
         <li class="active">
             <a href="<?php echo base_url(); ?>index.php/Padre_controller/registrar_padre" >Registrar Padres</a>
         </li>
+           <li class="">
+            <a href="<?php echo base_url(); ?>index.php/Entrenador_controller/registrar_entrenador" >Registrar entrenador</a>
+        </li>
       </ul>
     </div>
   </div>
