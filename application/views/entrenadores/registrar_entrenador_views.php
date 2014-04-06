@@ -47,7 +47,9 @@
     }
 
 </script>
-     
+
+<div class="container">
+    <div class="col-lg-6">
                     <div class="row-fluid">
                           <div class="span4"> 
                           </div>
@@ -136,3 +138,5 @@
                         <div class="span4">    
                           </div>
                     </div>
+    </div>
+</div>
