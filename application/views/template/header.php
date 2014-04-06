@@ -67,35 +67,22 @@
             <li><a href="#">Registrar Alumno</a></li>
             <li class="divider"></li>
             <li><a href="<?php echo base_url(); ?>index.php/Entrenador_controller/registrar_entrenador">Registrar Entrenador</a></li>
-          </ul>        
-        </li>
-           <li class="">
-            <a href="<?php echo base_url(); ?>index.php/Entrenador_controller/registrar_entrenador" >Registrar entrenador</a>
-        </li>
+          </ul> 
       </ul>
-        <!--   GRUPOS  -->
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GRUPOS <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Ver lita de Grupos</a></li> 
-              <li class="divider"></li>
-            <li><a href="#">Seleccionar Planilla</a></li>
-          </ul>        
-        </li>
-          </ul>
-          <!--   PLANILLAS  -->
+        <!--   PLANILLAS  -->
         
         <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">PLANILLAS <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GRUPOS <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">Crear Grupo</a></li> 
               <li class="divider"></li>
             <li><a href="#">Ver lista de grupos</a></li>
+              <li class="divider"></li>
+            <li><a href="#">Seleccionar Planilla</a></li>
           </ul>        
         </li>
-      </ul>  
+      </ul>       
          <!--   MULTIMEDIA  -->
           <ul class="nav navbar-nav">
             <li class="dropdown">
@@ -103,7 +90,6 @@
               <ul class="dropdown-menu">
                 <li><a href="#">Subir fotos</a></li> <!--   solo el entrenador  -->
                 <li><a href="#">Ver fotos</a></li> 
-
                   <li class="divider"></li>
                 <li><a href="#">Subir videos</a></li><!--   solo el entrenador  -->
                 <li><a href="#">Ver videos</a></li>
