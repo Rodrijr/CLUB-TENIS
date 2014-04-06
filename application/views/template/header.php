@@ -145,7 +145,7 @@
             <li><a href="#">Buscar Notificaciones</a></li>            
           </ul>
         </li>
-        
+        <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/login_formulario">Ingresar</a></li>
         <li><a href="#">SALIR</a></li>
       </ul>
         
