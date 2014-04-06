@@ -115,7 +115,7 @@
                         <div class='controls'>
                            <label class="col-lg-2 control-label"> DIRECCION:<font color='#FF0000'>*</font></label>
 
-                            <INPUT TYPE='text' class="form-control" NAME='DIRECCION' <?php  if(isset($padre)) {  echo "                                                     value ='".$padre['ocupacion']."'"; } ?>  maxlength='50' onkeypress='return isNumberKey(event)'><BR>
+                            <INPUT TYPE='text' class="form-control" NAME='DIRECCION' <?php  if(isset($padre)) {  echo " value ='".$padre['direccion']."'"; } ?>  maxlength='50' onkeypress='return isNumberKey(event)'><BR>
 
                         </div>
                     </div>                  

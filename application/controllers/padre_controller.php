@@ -17,7 +17,8 @@ class Padre_controller extends CI_Controller {
          $this->form_validation->set_rules('APELLIDO','APELLIDO','trim|required|xss_clean');        
          $this->form_validation->set_rules('TELEFONO','TELEFONO','trim|required|xss_clean|numeric');  
          $this->form_validation->set_rules('DIRECCION','DIRECCION','trim|required|xss_clean'); 
-        $this->form_validation->set_rules('EMAIL', 'E-MAIL', 'valid_email|is_unique[users.email]|required');
+      //  $this->form_validation->set_rules('EMAIL','E-MAIL','valid_email|is_unique[users.email]|required');
+         
           $padre = array(
                     'ci_persona'=> $this->input->post('CI'),
                     'nombre_persona' => $this->input->post('NOMBRE'),

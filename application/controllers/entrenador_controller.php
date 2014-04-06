@@ -16,7 +16,7 @@ class Entrenador_controller extends CI_Controller{
          $this->form_validation->set_rules('APELLIDO','APELLIDO','trim|required|xss_clean');        
          $this->form_validation->set_rules('TELEFONO','TELEFONO','trim|required|xss_clean|numeric');  
          $this->form_validation->set_rules('DIRECCION','DIRECCION','trim|required|xss_clean'); 
-         $this->form_validation->set_rules('EMAIL', 'E-MAIL', 'valid_email|is_unique[users.email]|required');
+         //$this->form_validation->set_rules('EMAIL', 'E-MAIL', 'valid_email|is_unique[users.email]|required');
          $entrenador = array(
                     'ci_persona'=> $this->input->post('CI'),
                     'nombre_persona' => $this->input->post('NOMBRE'),
@@ -39,6 +39,10 @@ class Entrenador_controller extends CI_Controller{
         $data['Entrenador'] =$entrenador;
         $data['main_content'] = 'entrenadores/registrar_entrenador_views';
         $this->load->view('main_template', $data);
+        
+        
+        
+        
     }
 }
 
