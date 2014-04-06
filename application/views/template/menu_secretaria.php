@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Club tenis CBBA: Secretaria</a>
+      <a class="navbar-brand" href="#">Club tenis CBBA</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -55,17 +55,6 @@
         </ul>
         <!--   PERFIL  -->
         <ul class="nav navbar-nav navbar-right">      
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> PERFIL <b class="caret"></b></a>
-	          <ul class="dropdown-menu">
-	            <li><a href="#">Ver Perfil</a></li>
-	            <li><a href="#">Modificar Perfil</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">Cambiar contraceña</a></li>         
-	          </ul>
-	        </li>
-	      
-	        
 	        <!--   NOFICACIONES  -->
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> NOTIFICACIONES <b class="caret"></b></a>
@@ -75,8 +64,22 @@
 	            <li><a href="#">Buscar Notificaciones</a></li>            
 	          </ul>
 	        </li>
-	        <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/login_formulario">Ingresar</a></li>
-	        <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">SALIR</a></li>
+
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+	          	<span class="glyphicon glyphicon-user"></span> 
+	          	<strong>Secretaria: </strong><?php echo $this->session->userdata('nombre_usuario') ?>
+	          	<b class="caret"></b>
+	          </a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Ver Perfil</a></li>
+	            <li><a href="#">Modificar Perfil</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">Cambiar contraceña</a></li>
+	            <li class="divider"></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesion</a></li>                 
+	          </ul>
+	        </li>
         </ul>
         
     </div><!-- /.navbar-collapse -->

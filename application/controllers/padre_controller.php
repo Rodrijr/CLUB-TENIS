@@ -3,7 +3,17 @@
 	
 class Padre_controller extends CI_Controller {
 
-	public function index()
+	public function __construct()
+    {
+        parent::__construct();
+        if(!isset($this->session->userdata['username']))
+        {
+            $data['main_content'] = 'sesiones/form_login_views';
+            $this->load->view('main_template', $data);
+        }
+    }
+
+    public function index()
 	{
         $data['main_content'] = 'registrar_padre';
 		$this->load->view('main_template', $data);

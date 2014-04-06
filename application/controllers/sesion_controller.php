@@ -51,7 +51,7 @@ class Sesion_controller extends CI_Controller {
 		$persona_usuario = $this->sesion_model->obtenerPersonaPorUsernamePassword($username,$password);
 		$datos_de_session = array(
 			'id_usuario' => $persona_usuario['id_persona'],
-			'nombre_usuario' => $persona_usuario['nombre_persona'],
+			'nombre_usuario' => $persona_usuario['nombre_persona'].' '.$persona_usuario['apellido_persona'],
 			'tipo_usuario'=> $persona_usuario['tipo']
 		);
 		$this->session->set_userdata($datos_de_session);

@@ -5,7 +5,13 @@ class Persona_controller extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+        if(!isset($this->session->userdata['username']))
+        {
+            $data['main_content'] = 'sesiones/form_login_views';
+            $this->load->view('main_template', $data);
+        }
 	}
+    
     public function index()
 	{
 	}
