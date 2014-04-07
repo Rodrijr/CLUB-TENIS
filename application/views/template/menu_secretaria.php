@@ -72,11 +72,7 @@
 	          	<b class="caret"></b>
 	          </a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Ver Perfil</a></li>
-	            <li><a href="#">Modificar Perfil</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">Cambiar contraceña</a></li>
-	            <li class="divider"></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_mi_perfil">Ver Perfil</a></li>
 	            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesion</a></li>                 
 	          </ul>
 	        </li>
