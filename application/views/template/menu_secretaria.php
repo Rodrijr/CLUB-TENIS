@@ -34,7 +34,7 @@
 	          <ul class="dropdown-menu">
 	            <li><a href="#">Crear Grupo</a></li> 
 	              <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos">Ver lista de grupos</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos">Buscar Grupos</a></li>
 	              <li class="divider"></li>
 	            <li><a href="#">Seleccionar Planilla</a></li>
 	          </ul>        
@@ -47,7 +47,6 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">REPORTES <b class="caret"></b></a>
               <ul class="dropdown-menu">
                   <!--   solo el padres  -->
-                <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/ver_lista_hijos">Ver lista de hijos</a></li> 
                 <li><a href="#">Ver lista entrenadores</a></li> <!--  secretaria y administrador -->
                 <li><a href="#">Ver lista de alumnos</a></li><!--   solo el administrador  -->
               </ul>        
