@@ -35,8 +35,6 @@
 	            <li><a href="#">Crear Grupo</a></li> 
 	              <li class="divider"></li>
 	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos">Buscar Grupos</a></li>
-	              <li class="divider"></li>
-	            <li><a href="#">Seleccionar Planilla</a></li>
 	          </ul>        
 	        </li>
         </ul>       
@@ -76,7 +74,6 @@
 	          </ul>
 	        </li>
         </ul>
-        
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
