@@ -1,3 +1,24 @@
+
+
+<!-- Este archivo es temporal ser eliminado en cuando cupla su proposito mi buen cuate mancasuu  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->

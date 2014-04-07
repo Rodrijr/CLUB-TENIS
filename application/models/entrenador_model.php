@@ -41,6 +41,33 @@ class Entrenador_model extends CI_Model
        
     }
 
+    public function obtener_todos_los_entrenadores()
+    {       
+        $data = array(
+            'tipo' => 'Entrenador'
+        );
+        $query = $this->db->get_where('persona',$data);
+        return $query->result_array();
+    }
+
+    public function obtener_todos_los_cursos_entrenador($ci)
+    {
+        $data = array(
+            'id_entrenador' => $ci
+        );
+        $query = $this->db->get_where('grupo', $data);
+        return $query->result_array();
+    }
+
+    public function buscar_entrenador_por_nombre($nombre)
+    {
+        $this->db->select('*');
+        $this->db->like('nombre_persona', $nombre);
+        $this->db->where('tipo', 'Entrenador');
+        $query=$this->db->get('persona');
+        return $query->result_array();
+    }
+
 }
 
 ?>

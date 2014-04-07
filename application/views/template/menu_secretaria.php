@@ -34,7 +34,7 @@
 	          <ul class="dropdown-menu">
 	            <li><a href="#">Crear Grupo</a></li> 
 	              <li class="divider"></li>
-	            <li><a href="#">Ver lista de grupos</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos">Ver lista de grupos</a></li>
 	              <li class="divider"></li>
 	            <li><a href="#">Seleccionar Planilla</a></li>
 	          </ul>        

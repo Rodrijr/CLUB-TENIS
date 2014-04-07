@@ -13,7 +13,18 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        
+        <!--   MULTIMEDIA  -->
+    	<ul class="nav navbar-nav">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">MULTIMEDIA <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Ver Fotos</a></li> <!--   solo el entrenador  -->
+	              <li class="divider"></li>
+	            <li><a href="#">Ver Videos</a></li><!--   solo el entrenador  -->
+	          </ul>        
+	        </li>
+        </ul>
+
         <!--   PERFIL  -->
 	    <ul class="nav navbar-nav navbar-right">   
 
