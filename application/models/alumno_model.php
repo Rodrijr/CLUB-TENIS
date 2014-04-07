@@ -12,10 +12,8 @@ class Alumno_model extends CI_Model
 	{
         $id='8';
        //$id= $_SESSION["id_padre"];
-
         $query = $this->db->get_where('padre_alumno', array('id_padre' => $id));   
-  
-      if($query->num_rows() >= 1 )
+        if($query->num_rows() >= 1 )
         {
           
             return $query->result_array();

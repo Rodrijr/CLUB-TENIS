@@ -1,4 +1,52 @@
+<script language="javascript">
 
+    function validarNro(e) {
+
+        var key;
+
+        if(window.event) // IE
+
+        {
+
+            key = e.keyCode;
+
+        }
+
+        else if(e.which) // Netscape/Firefox/Opera
+
+        {
+
+            key = e.which;
+
+        }
+
+        if (key < 48 || key > 57)
+
+        {
+
+            if(key == 46 || key == 8 ) // Detectar . (punto) y backspace (retroceso)
+
+            { return true; }
+            else 
+            { return false; }
+
+        }
+
+        return true;
+
+    }
+
+
+    function isNumberKey(evt)
+    {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return true;
+ 
+        return false;
+    }
+
+</script>
 
 
 
@@ -8,18 +56,14 @@
 
 
     <ul id="myTab" class="nav nav-pills">
-      <li class="active"><a href="#perfil" data-toggle="tab">Perfil</a></li>
+      <li class="<?php echo $perfil; ?>"><a href="#perfil" data-toggle="tab">Perfil</a></li>
       
-      <li class="dropdown">
-        <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Modificar <b class="caret"></b></a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
-          <li><a href="#dropdown1" tabindex="-1" data-toggle="tab">Modificar Perfil</a></li>
-          <li><a href="#dropdown2" tabindex="-1" data-toggle="tab">Cambiar Contraceña</a></li>
-        </ul>
-      </li>
+         <li class ="<?php echo $modificarPerfil; ?>"><a href="#modificarPerfil" tabindex="-1" data-toggle="tab">Modificar Perfil</a></li>
+          <li class ="<?php echo $contracenia; ?>"><a href="#contracenia" tabindex="-1" data-toggle="tab">Cambiar Contraceña</a></li>
+        
     </ul>
     <div id="myTabContent" class="tab-content">
-      <div class="tab-pane fade in active" id="perfil">
+      <div class="tab-pane fade in <?php echo $perfil;?>" id="perfil">
      <div class="container">
      <div class="col-lg-3">   
          
@@ -97,72 +141,78 @@
           </div>  
       </div>
      
-      <div class="tab-pane fade" id="dropdown1">
+      <div class="tab-pane fade in <?php echo $modificarPerfil;?>" id="modificarPerfil">
          <div class="container">
              <div class="col-lg-3">   
          
          
          </div>
-     <div class="col-lg-4">   
+     <div class="col-lg-6">   
                  
          
-                    <?php echo form_open('Persona_controller/modificar_mi_perfil'); 
+                    <?php 
                         if(isset($persona))
                         {
+                        echo form_open('Persona_controller/modificar_mi_perfil/'.$persona['id_persona']."'"); 
+                         
                     ?>
          <fieldset>
-    <legend><H3><label >MODIFICAR PERFIL</label></H3>
-            
-                        </legend>
+    <legend><H3><label >MODIFICAR PERFIL</label></H3></legend>
+            <?php if(isset($MSN))
+                            {
+                               if(isset($tipo)){
+                               echo '<div class="'.$tipo.'">';
+     echo  '<div class="panel-heading">';
+     echo   ' <h3 class="panel-title">ALERTA!</h3>';
+      echo '</div>';
+      echo '<div class="panel-body">';
+       echo "<label>".$MSN."</label>";
+       echo '</div>';
+     echo '</div>';
+                         
+                        } 
+                            }?>
                     <div class="input-group">
                       <span class="input-group-addon"><label>CI</label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['ci_persona'];?>"
                              onkeypress ='return validarNro(event)'
                              maxlength='10'
-                             name ="CI"
-                      >
+                             name ='CI'>
                     </div>
                     <div class="input-group">
                       <span class="input-group-addon"><label>NOMBRE    </label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['nombre_persona'];?>"
-                             onkeypress ='return validarNro(event)'
-                             maxlength='10'
-                             name ="NOMBRE"
-                      >
+                             onkeypress='return isNumberKey(event)'
+                             maxlength='35'
+                             name ='NOMBRE'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>APELLIDO  </label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['apellido_persona'];?>"
-                             onkeypress ='return validarNro(event)'
-                             maxlength='10'
-                             name ="APELLIDO"
-                      >
+                              onkeypress='return isNumberKey(event)'
+                             maxlength='35'
+                             name ='APELLIDO'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>TELEFONO  </label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['telefono'];?>"
                              onkeypress ='return validarNro(event)'
                              maxlength='10'
-                             name ="TELEFONO"
-                      >
+                             name ='TELEFONO'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>DIRECCION </label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['direccion'];?>"
-                             onkeypress ='return validarNro(event)'
-                             maxlength='10'
-                             name ="DIRECCION"
-                      >
+                             maxlength='50'
+                             name ='DIRECCION'>
                     </div>        <div class="input-group">
                       <span class="input-group-addon"><label>E-MAIL    </label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['email'];?>"
-                             onkeypress ='return validarNro(event)'
-                             maxlength='10'
-                             name ="EMAIL"
-                      >
+                             maxlength='30'
+                             name ='EMAIL'>
                     </div>
           <BR>
                     <div class='control-group'>
@@ -179,7 +229,7 @@
       </div>
              </div>
           </div>
-      <div class="tab-pane fade" id="dropdown2">
+      <div class="tab-pane fade in <?php echo $contracenia;?>" id="contracenia">
      
            
            <div class="container">
@@ -190,31 +240,50 @@
      <div class="col-lg-4">   
                  
          
-                    <?php echo form_open('Persona_controller/cambiar_contraceña'); 
+                    <?php 
                         if(isset($persona))
                         {
+                            echo form_open('Persona_controller/cambiar_contracena/'.$persona['id_persona']); 
+                            
+                           
                     ?>
          <fieldset>
-    <legend><H3><label >MODIFICAR PERFIL</label></H3></legend>
+    <legend><H3><label >CAMBIAR CONTRACEÑA </label></H3></legend>
+             
+             <?php if(isset($MSN))
+                            {
+                        if(isset($tipo)){
+    echo '<div class="'.$tipo.'">';
+     echo  '<div class="panel-heading">';
+     echo   ' <h3 class="panel-title">ALERTA!</h3>';
+      echo '</div>';
+      echo '<div class="panel-body">';
+       echo "<label><p>".$MSN."</p></label>";
+       echo '</div>';
+     echo '</div>';
+                            
+                            
+                            
+                        } 
+                            }?>
                <div class="input-group">
                       <span class="input-group-addon"><label>ACTUAL</label></span>
-                      <input type="text" class="form-control"
+                      <input type="password" class="form-control"
                              name ="ACTUAL"
                       >
                     </div>
           <div class="input-group">
                       <span class="input-group-addon"><label>NUEVA</label></span>
-                      <input type="text" class="form-control" 
+                      <input type="password" class="form-control" 
                              name ="NUEVA1"
                       >
                     </div>
            <div class="input-group">
                       <span class="input-group-addon"><label>REPITA</label></span>
-                      <input type="text" class="form-control" 
-                             
+                      <input type="password" class="form-control"                              
                              name ="NUEVA2"
                       >
-                    </div>
+            </div>
              <BR>
                     <div class='control-group'>
                     <div class='controls'>
@@ -225,7 +294,7 @@
                     </div>
                     </div>
              </fieldset>
-               <?php } echo form_close(); ?>
+               <?php  } echo form_close(); ?>
              </div>
          </div>
       </div>

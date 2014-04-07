@@ -18,7 +18,7 @@
                               ?>
                         <?php echo form_open('Alumnos_controller/ver_lista_hijos'); ?>
                            <fieldset>
-                         <div class="bs-example bs-example-tabs">
+                         
                             <ul id="myTab" class="nav nav-tabs">
 
                                <?php 
@@ -79,7 +79,7 @@
      
       
     </div>
-  </div>
+
 							 </fieldset>
                     <?php echo form_close(); ?>
                         </div>

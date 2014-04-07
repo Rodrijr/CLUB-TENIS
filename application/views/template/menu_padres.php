@@ -27,23 +27,17 @@
 	          </ul>
 	        </li>
 	        <!--   PERFIL  -->
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+	        <li >
+	          <a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_mi_perfil" > 
 	          	<span class="glyphicon glyphicon-user"></span> 
 	          	<strong>Padre: </strong><?php echo $this->session->userdata('nombre_usuario') ?>
 	          	<b class="caret"></b>
-	          </a>
-	          <ul class="dropdown-menu">
-	            <li><a href="#">Ver Perfil</a></li>
-	            <li><a href="#">Modificar Perfil</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">Cambiar contraceña</a></li> 
-	            <li class="divider"></li>   
-	            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesion</a></li>        
-	          </ul>
+	          </a>	         
 	        </li>
+            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesion</a></li>   
 	    </ul>
         
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<li>

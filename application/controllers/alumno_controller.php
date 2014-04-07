@@ -33,11 +33,15 @@ class Alumno_controller extends CI_Controller {
     public function ver_lista_hijos()
 	{        
         $padre_alumno = $this->alumno_model->obtener_Padre_Alumno_ID();
+       
         $alumnos = array();
-         foreach($padre_alumno as $Hijo)
-         {    
-            $alumno = $this->alumno_model->obtener_alumno_ID($Hijo['id_alumno']);
-            array_push($alumnos,$alumno[0]);              
+        if($padre_alumno >= 1 )
+        {          
+            foreach($padre_alumno as $Hijo)
+             {    
+                $alumno = $this->alumno_model->obtener_alumno_ID($Hijo['id_alumno']);
+                array_push($alumnos,$alumno[0]);              
+             }
          }
         $data['lista_hijos'] = $alumnos;
         $data['main_content'] = 'alumnos/lista_hijos_views';

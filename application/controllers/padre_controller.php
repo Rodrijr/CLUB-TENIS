@@ -39,23 +39,18 @@ class Padre_controller extends CI_Controller {
                     'tipo' => 'Padre',
                 );      
         if($this->form_validation->run())
-        {
-                  
+        {                  
                 $registro = $this->padre_model->registrar_padre($padre);    
                 $MSN = $registro;
-                $data['MSN'] = $MSN;
-                $data['padre'] =$padre;
-                $data['main_content'] = 'padres/registrar_padres_views';
-                $this->load->view('main_template', $data);            
         }
         else
         {
                 $MSN = $this->form_validation->run();
-                $data['MSN'] = $MSN;
-                $data['padre'] =$padre;
-                $data['main_content'] = 'padres/registrar_padres_views';
-                $this->load->view('main_template', $data);
-        }      
+        }
+        $data['MSN'] = $MSN;
+        $data['padre'] =$padre;
+        $data['main_content'] = 'padres/registrar_padres_views';
+        $this->load->view('main_template', $data);  
     }
 }
 

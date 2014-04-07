@@ -19,9 +19,9 @@ class Persona_model extends CI_Model
     public function ver_mi_perfil()
 	{
        //$ci= $_SESSION["ci_persona"];
-        $ci="123";
-        $query = $this->db->get_where('persona', array('ci_persona' => $ci)); 
-   
+       // $id_persona = $this->session->userdata('id_persona');        
+        $id_persona = "9";
+        $query= $this->db->get_where('persona',array('id_persona'=> $id_persona));
         if($query->num_rows() >= 1 )
         {
             return $query->result_array();            
@@ -31,6 +31,38 @@ class Persona_model extends CI_Model
     public function editar_perfil_Persona_ID($id)
 	{
     }
+    public function modificar_mi_perfil($id,$persona)
+    {
+        $this->db->where('id_persona',$id);
+        return $this->db->update('persona',$persona);
+        
+    }
+    public function cambiar_contracenas($id, $usuario)
+    {
+         $this->db->where('id_persona',$id);
+        return $this->db->update('usuario',$usuario);
+    }
+    public function obtener_usuario($id)
+    {
+        $query = $this->db->get_where('usuario', array('id_persona' => $id)); 
+        if($query->num_rows() >= 1 )
+        {
+            return $query->result_array();
+        }
+        return "";
+    }
+    
+     function actualizar_mensaje($id, $nombre, $email, $asunto, $mensaje) {
+        $data = array(
+            'nombre' => $nombre,
+            'email' => $email,
+            'asunto' => $asunto,
+            'mensaje' => $mensaje
+        );
+        $this->db->where('id', $id);
+        return $this->db->update('mensajes', $data);
+    }
+
 }
 
 ?>

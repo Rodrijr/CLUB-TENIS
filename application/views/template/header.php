@@ -41,3 +41,5 @@
 
 <body>
 	<script src="<?php echo base_url(); ?>dist/js/bsa.js"></script>
+
+  
