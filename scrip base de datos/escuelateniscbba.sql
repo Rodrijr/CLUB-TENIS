@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-04-2014 a las 09:01:04
+-- Tiempo de generación: 07-04-2014 a las 10:56:24
 -- Versión del servidor: 5.1.41
 -- Versión de PHP: 5.3.1
 
@@ -151,8 +151,8 @@ CREATE TABLE IF NOT EXISTS `persona` (
 --
 
 INSERT INTO `persona` (`id_persona`, `ci_persona`, `nombre_persona`, `apellido_persona`, `telefono`, `direccion`, `email`, `tipo`) VALUES
-(1, '1234567', 'entrenador1', 'apellido entrenador 1', '12345678', 'direccion entrenador 1', '', 'Entrenador'),
-(3, '1234567', 'entrenador2', 'apellido3', '87654321', 'direccion entrenador 2', '', 'Entrenador'),
+(1, '1234567', 'Daniel', 'Campos Peredo', '12345678', 'direccion entrenador 1', '', 'Entrenador'),
+(3, '1234567', 'Dominic', 'Araoz Mendizabal', '87654321', 'direccion entrenador 2', '', 'Entrenador'),
 (4, '4564564', 'alumno 1', 'apellido alumno 1', '12312312', 'direccion aumno 1', '', 'Alumno'),
 (6, '1324564', 'alumno 2', 'apellido alumno 2', '12314562', 'direccion aumno 2', '', 'Alumno'),
 (8, '123', 'padre 1', 'apellido padre 1', '1234123412', 'qwedqwed', '1adscasdcad', 'Padre'),
