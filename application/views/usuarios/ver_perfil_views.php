@@ -106,7 +106,7 @@
      <div class="col-lg-4">   
                  
          
-                    <?php echo form_open('Persona_controller/modificar_perfil'); 
+                    <?php echo form_open('Persona_controller/modificar_mi_perfil'); 
                         if(isset($persona))
                         {
                     ?>
