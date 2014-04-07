@@ -28,6 +28,15 @@ class Persona_model extends CI_Model
         }
         return "";
 	}
+    public function ver_perfil($id_persona)
+    {
+        $query= $this->db->get_where('persona',array('id_persona'=> $id_persona));
+        if($query->num_rows() >= 1 )
+        {
+            return $query->result_array();            
+        }
+        return "";
+	}
     public function editar_perfil_Persona_ID($id)
 	{
     }
@@ -52,16 +61,6 @@ class Persona_model extends CI_Model
         return "";
     }
     
-     function actualizar_mensaje($id, $nombre, $email, $asunto, $mensaje) {
-        $data = array(
-            'nombre' => $nombre,
-            'email' => $email,
-            'asunto' => $asunto,
-            'mensaje' => $mensaje
-        );
-        $this->db->where('id', $id);
-        return $this->db->update('mensajes', $data);
-    }
 
 }
 

@@ -13,9 +13,17 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    	<ul class="nav navbar-nav">
-	      <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/ver_lista_hijos">Ver lista de hijos</a></li> 
-	    </ul>
+    	 <ul class="nav navbar-nav navbar-left"> 
+        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> REPORTES <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/ver_lista_hijos">Ver lista de hijos</a></li>
+	                      
+	          </ul>
+	        </li>
+        
+             </ul>
+       
 	    <ul class="nav navbar-nav navbar-right">      
 	        <!--   NOFICACIONES  -->
 	        <li class="dropdown">

@@ -10,7 +10,7 @@ class Alumno_model extends CI_Model
 	}
     public function obtener_Padre_Alumno_ID()
 	{
-        $id='8';
+        $id='9';
        //$id= $_SESSION["id_padre"];
         $query = $this->db->get_where('padre_alumno', array('id_padre' => $id));   
         if($query->num_rows() >= 1 )
@@ -23,13 +23,22 @@ class Alumno_model extends CI_Model
 
     public function obtener_Alumno_ID($id)
     {
-        $query = $this->db->get_where('persona', array('id_persona' => $id));   
+        $query = $this->db->get_where('persona', array('id_persona' => $id));  
         if($query->num_rows() >= 1 )
         {
             return $query->result_array();
         } 	
         return "";
     }
+    public function ver_perfil($id_persona)
+    {
+        $query= $this->db->get_where('persona',array('id_persona'=> $id_persona));
+        if($query->num_rows() >= 1 )
+        {
+            return $query->result_array();            
+        }
+        return "";
+	}
 }
 
 ?>

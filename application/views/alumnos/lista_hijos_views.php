@@ -1,88 +1,126 @@
 
- <div class="row-fluid">
-                         
-                          <div class="span7">
-                              
-                              
-                              <h1> Lista de Hijos </h1>
-                    
-                          <?php $attributes = array('class'=>'bs exaple form-horizontal'); ?>
-                    <?php     if(isset($MSN))
-                                {
-                                        echo"<div class='alert fade in'>";
-										echo"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
-										echo"<strong>ALERTA!</strong> <input  readonly='readonly' type='text_Rodri' name='numero' value='$MSN' style=' text-shadow: 0 0 0.2em #8F7; border:none; width:350px; height:30px'>";
-                             echo validation_errors(); 
-										echo"</div>"; 
-                                }                 
-                              ?>
-                        <?php echo form_open('Alumnos_controller/ver_lista_hijos'); ?>
-                           <fieldset>
-                         
-                            <ul id="myTab" class="nav nav-tabs">
-
-                               <?php 
-                                       if(isset($lista_hijos))
-                                       {
-                                           foreach($lista_hijos as $Hijo)
-                                           {   ?>         
-                                               
-                     <li class="">
-                         <a href='#<?php echo $Hijo["nombre_persona"]; ?>' data-toggle="tab">
-                             <font><font>
-                                 <?php echo $Hijo['nombre_persona']; ?>
-                            </font></font>
-                         </a>
-                    </li>
-                                               
-                                <?php    
-                                           }                                   
-                                       } 
-
-
-
-
-                                ?>
-								 </ul> 
-                            
-                              
-                              
-						
-    <div id="myTabContent" class="tab-content">	 
-							 <?php 
-                                       if(isset($lista_hijos))
-                                       {
-                                           foreach($lista_hijos as $Hijo)
-                                           {   ?>         
-                                               
-		
-		 <div class="tab-pane fade" id='<?php echo $Hijo["nombre_persona"]; ?>'>
-        		<?php			 			
-				echo $Hijo['ci_persona'];
-				echo $Hijo['nombre_persona'];
-                echo $Hijo['apellido_persona'];
-			 	echo $Hijo['telefono'];
-			 	?>
-      </div>
-                    
-                                               
-                                <?php    
-                                           }                                   
-                                       } 
-
-
-
-
-                                ?>
- 
-     
-     
-      
-    </div>
-
-							 </fieldset>
-                    <?php echo form_close(); ?>
-                        </div>
-                        <div class="span4">    
-                          </div>
+    <ul id="myTab" class="nav nav-tabs">
+        <?php
+            foreach ($lista as $hijo)
+            {
+                echo '<li class=""><a href="#'.$hijo['ci_persona'].'" data-toggle="tab">'.$hijo['nombre_persona'].'</a></li>';
+            }
+        ?>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        
+        <?php 
+            foreach ($lista as $hijo)
+            {
+                echo  '<div class="tab-pane fade" id="'.$hijo['ci_persona'].'">' ;
+                ?>
+     <div class="container">
+     <div class="col-lg-3">   
+         
+         <div class="row">
+  
+    <a href="" class="thumbnail">
+        <!-- BOTONOES LATERALES -->
+            <div class="col-lg-2">
+            
+                    <div class="btn-group-vertical">
+                      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+                          <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
                     </div>
+    
+            </div>
+        
+        <img src="C:/wamp/www/EscuelaTenisCbba/application/imagenes/user.png"; />
+      
+    </a>
+  </div>
+         </div>
+
+        <div class="row-fluid">
+            <div class="col-lg-6">
+                  <fieldset>
+    <legend><H3><label ></label></H3> </legend>
+                 <?php echo form_open(base_url().'index.php/Alumno_controller/modificar_perfil/'.$hijo['id_persona']); ?>
+                <H3><label >ES EL PERFIL DE:</label></H3>
+                      <h1> 
+                   
+                <?php
+                    if(isset($hijo))
+                    {
+                        echo "<font color='#386CC4'>";
+                        echo $hijo['nombre_persona']."  ";
+                        echo $hijo['apellido_persona'];
+                        echo "</font>";                       
+                ?>
+                </h1>                 
+                  <h3>
+                         <fieldset>
+                    <div class='control-group'>
+                        <label >CI:
+                            <font color='#386CC4'>
+                        <?php 
+                           echo $hijo['ci_persona']; 
+                        ?>
+                            </font>
+                        </label><br>                
+                   
+                        <label >TELEFONO:
+                             <font color='#386CC4'>
+                        <?php
+                           echo $hijo['telefono'];
+                        ?>
+                            </font>
+                        </label><br>
+                   
+                        <label >DIRECCION:
+                             <font color='#386CC4'>
+                        <?php
+                            echo $hijo['direccion']; 
+                        ?>
+                             </font>
+                        </label><br>
+                   
+                        
+                    </div>  
+                       </fieldset>
+                      </h3> 
+                <?php
+                    } // if(isset($hijo)) close
+                ?>
+                  </fieldset>
+                
+                 <div class='control-group'>
+                    <div class='controls'>
+                            <input class='btn btn-default'  type='button' 
+                                   value='CANCELAR' onclick='history.back()'> 
+                            <INPUT VALUE='Modificar' class='btn btn-success' TYPE='submit'><BR>
+
+                    </div>
+                    </div>
+                
+  
+                <?php echo form_close(); ?>
+                       
+        </div>
+    </div>  
+         
+         
+          </div>  
+        
+        <!-- BOTONOES LATERALES -->
+         <div class="col-lg-3">   
+         
+            <div class="row">
+                    <div class="btn-group-vertical">
+  ...
+</div>
+    
+            </div>
+         </div>
+                <?php
+                echo  '</div>';
+            }
+        ?>        
+    </div>
