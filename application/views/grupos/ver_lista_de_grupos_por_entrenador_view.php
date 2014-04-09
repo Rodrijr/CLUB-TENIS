@@ -44,6 +44,7 @@
 		                <th></th>
 		                <th></th>
 		                <th></th>
+		                <th></th>
 		              </tr>
 		            </thead>
 		            <tbody>
@@ -54,7 +55,7 @@
 		                    echo "<td>".$cont."</td>";
 		                    echo "<td>".$itemGrupos['nombreGrupo']."</td>";
 		                    echo '<td><a href="">Ver</a></td>';
-		                    echo '<td><a href="">Editar</a></td>';
+		                    echo '<td><a href="Grupo_controller/editar_grupo/'.$itemGrupos['idGrupo'].'">Editar</a></td>';
 							echo '<td><a href="">Eliminar</a></td>';
 		                  echo "</tr>";
 		                  $cont++;
