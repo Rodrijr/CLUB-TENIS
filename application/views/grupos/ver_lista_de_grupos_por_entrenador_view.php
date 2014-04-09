@@ -48,26 +48,21 @@
 		              </tr>
 		            </thead>
 		            <tbody>
+		            <!--<td><a href="<?php # echo base_url(); ?>grupos/Grupo_controller/ver_grupo/">Ver</a></td> -->
 		              <?php  
 		                $cont = 1;
 		                foreach($entrenador['grupos'] as $itemGrupos){
 		                  echo "<tr>";
-                      
 		                    echo "<td>".$cont."</td>";
-
-		                    echo "<td>".$itemGrupos['nombreGrupo']."</td>";?>
+                            echo "<td>".$itemGrupos['nombreGrupo']."</td>";?>
 		                    <td><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_grupo/<?php echo $itemGrupos['idGrupo']; ?>">Ver</a></td>
-                   
-		                    <td><a href="">Editar</a></td>
+                  <?php  echo '<td><a href="'.base_url().'index.php/Grupo_controller/editar_grupo/'.$itemGrupos['idGrupo'].'">
+                        Editar</a></td>';?>
+		                   
 							<td><a href="">Eliminar</a></td>
 		                 
                         <?php
                         echo "</tr>";
-		                    echo "<td>".$itemGrupos['nombreGrupo']."</td>";
-		                    echo '<td><a href="">Ver</a></td>';
-		                    echo '<td><a href="Grupo_controller/editar_grupo/'.$itemGrupos['idGrupo'].'">Editar</a></td>';
-							echo '<td><a href="">Eliminar</a></td>';
-		                  echo "</tr>";
 		                  $cont++;
 		                }
 		              ?>

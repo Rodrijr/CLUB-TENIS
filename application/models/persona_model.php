@@ -48,7 +48,7 @@ class Persona_model extends CI_Model
     }
     public function cambiar_contracenas($id, $usuario)
     {
-         $this->db->where('id_persona',$id);
+        $this->db->where('id_persona',$id);
         return $this->db->update('usuario',$usuario);
     }
     public function obtener_usuario($id)

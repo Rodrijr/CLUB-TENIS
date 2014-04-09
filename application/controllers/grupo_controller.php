@@ -83,9 +83,11 @@ class Grupo_controller extends CI_Controller {
         $this->load->view('main_template', $data);
     }
 
-    public function editar_grupo($ci_grupo)
+    public function editar_grupo($id_grupo)
     {
-        echo 'ci:'.$ci_grupo;
+        #$data['grupo'] = $arrayName = array('nombre_grupo' => , );
+        $data['main_content'] = 'grupos/editar_grupo_view';
+        $this->load->view('main_template', $data);
     }
 
 }
