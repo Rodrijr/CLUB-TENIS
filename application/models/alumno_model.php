@@ -10,7 +10,7 @@ class Alumno_model extends CI_Model
 	}
     public function obtener_Padre_Alumno_ID()
 	{
-        $id='9';
+        $id=$this->session->userdata('id_usuario');
        //$id= $_SESSION["id_padre"];
         $query = $this->db->get_where('padre_alumno', array('id_padre' => $id));   
         if($query->num_rows() >= 1 )

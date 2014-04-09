@@ -69,9 +69,7 @@
          
          <div class="row">
   
-    <a href="" class="thumbnail">
-      <img data-src="C:\wamp\www\EscuelaTenisCbba\application\imagenes\silhouette.jpeg/100%x180" >
-    </a>
+    <img src="<?php echo base_url(); ?>imagenes\p.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
   </div>
          </div>
 
@@ -79,7 +77,7 @@
             <div class="col-lg-5">
                   <fieldset>
     <legend><H3><label >SU PERFIL</label></H3> </legend>
-                 <?php echo form_open(''); ?>
+                 <?php echo form_open_multipart(''); ?>
                 <H3><label >SU NOMBRE ES:</label></H3>
                       <h1> 
                    

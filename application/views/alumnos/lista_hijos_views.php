@@ -32,7 +32,7 @@
     
             </div>
         
-        <img src="C:/wamp/www/EscuelaTenisCbba/application/imagenes/user.png"; />
+        <img src="<?php echo base_url(); ?>imagenes/silhouette.jpg/100%x180"; />
       
     </a>
   </div>

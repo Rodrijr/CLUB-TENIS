@@ -121,13 +121,17 @@
 
                         </div>
                     </div>                  
-                    
+                   
                     <div class='control-group'>
-                         <label for="inputEmail" class="col-lg-2 control-label">E-MAIL:<font color='#FF0000'>*</font></label>
+                         <label for="inputEmail" class="col-lg-2 control-label">E-MAIL:<font color='#FF0000'  >*</font></label>
                         <div class='controls'>
                            
                             
-                            <INPUT TYPE='text' class="form-control" NAME='EMAIL' <?php  if(isset($padre)) {  echo "                                                     value ='".$padre['email']."'"; } ?> maxlength='30' ><BR>
+                            <INPUT TYPE='email' class="form-control" NAME='EMAIL' <?php  if(isset($padre))                                      {  echo " value ='".$padre['email']."'"; } ?>
+                                        maxlength='30'
+                                    pattern="[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]+" 
+                                   placeholder = "ejemplo@hotmail.com"
+                                   required="required" ><BR>
                         </div>
                     </div>
                   

@@ -68,7 +68,7 @@
          <div class="row">
   
     <a href="" class="thumbnail">
-      <img data-src="application/imagenes/silhouette.jpg/100%x180" >
+      <img data-src="<?php echo base_url(); ?>imagenes/silhouette.jpg/100%x180" >
     </a>
   </div>
          </div>
