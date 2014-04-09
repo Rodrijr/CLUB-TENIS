@@ -1,11 +1,11 @@
- <div class="tab-pane fade in <?php echo $perfil;?>" id="perfil">
+
      <div class="container">
         <div class="row-fluid">
-            <div class="col-lg-5">
+            <div class="col-lg-6">
                   <fieldset>
    
                  <?php echo form_open_multipart(''); ?>
-                <H3><label >GRUPO</label></H3>
+                <H3><label >ES EL GRUPO:</label></H3>
                       <h1> 
                    
                 <?php
@@ -35,10 +35,15 @@
                         <label >HORARIOS:
                             <font color='#386CC4'>
                         <?php 
+                         echo "<br>";
+                            
                           foreach($horarios as $horario)
                           {
-                            echo $horario['horario']; 
+                             
+                                echo " | ".$horario['horario'].""; 
+                               
                           }
+                        echo " | ";
                         ?>
                             </font>
                         </label><br>       
@@ -56,4 +61,3 @@
         </div>
     </div>  
           </div>  
-      </div>

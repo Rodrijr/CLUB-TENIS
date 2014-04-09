@@ -13,7 +13,12 @@ class Grupo_model extends CI_Model
         return $query->result_array();
        
     }
+    public function obtener_grupo_ID($id_grupo)
+    {
+         $query = $this->db->get_where('grupo', array('id_grupo' => $id_grupo)); 
+        return $query->result_array();
+    }
 
 
-
+}
 ?>

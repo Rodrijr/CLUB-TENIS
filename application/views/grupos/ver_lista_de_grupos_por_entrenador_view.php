@@ -56,7 +56,7 @@
 		                    echo "<td>".$cont."</td>";
 
 		                    echo "<td>".$itemGrupos['nombreGrupo']."</td>";?>
-		                    <td><a href="<?php echo base_url(); ?>grupos/Grupo_controller/ver_grupo/">Ver</a></td>
+		                    <td><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_grupo/<?php echo $itemGrupos['idGrupo']; ?>">Ver</a></td>
                    
 		                    <td><a href="">Editar</a></td>
 							<td><a href="">Eliminar</a></td>
