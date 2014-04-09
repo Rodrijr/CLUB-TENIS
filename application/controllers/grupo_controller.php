@@ -42,6 +42,7 @@ class Grupo_controller extends CI_Controller {
             $listaGruposEntrenador = $this->entrenador_model->obtener_todos_los_cursos_entrenador($entrenador['id_persona']);
             foreach ($listaGruposEntrenador as $grupos) {
                 $itemGrupo = array();
+                $itemGrupo['idGrupo'] = $grupos['id_grupo'];
                 $itemGrupo['nombreGrupo'] = $grupos['nombre_grupo'];
                 //$itemGrupo['horarioGrupo'] = $grupos['horario_grupo'];
                 $gruposEntrenador[] = $itemGrupo;
@@ -70,6 +71,7 @@ class Grupo_controller extends CI_Controller {
             $listaGruposEntrenador = $this->entrenador_model->obtener_todos_los_cursos_entrenador($entrenador['id_persona']);
             foreach ($listaGruposEntrenador as $grupos) {
                 $itemGrupo = array();
+                $itemGrupo['idGrupo'] = $grupos['id_grupo'];
                 $itemGrupo['nombreGrupo'] = $grupos['nombre_grupo'];
                 $gruposEntrenador[] = $itemGrupo;
             }
@@ -79,6 +81,11 @@ class Grupo_controller extends CI_Controller {
         $data['gruposEntrenador'] = $listaDeGruposPorEntrenador;
         $data['main_content'] = 'grupos/ver_lista_de_grupos_por_entrenador_view';
         $this->load->view('main_template', $data);
+    }
+
+    public function editar_grupo($ci_grupo)
+    {
+        echo 'ci:'.$ci_grupo;
     }
 
 }
