@@ -7,8 +7,9 @@ class Grupo_controller extends CI_Controller {
 		parent::__construct();
         if(!$this->session->userdata('estaLogeado'))
         {
-            $data['main_content'] = 'sesiones/form_login_views';
-            $this->load->view('main_template', $data);
+            #$data['main_content'] = 'sesiones/form_login_views';
+            #$this->load->view('main_template', $data);
+            redirect('Sesion_controller/login_formulario', 'refresh');
         }
 	}
 

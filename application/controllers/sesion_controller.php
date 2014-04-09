@@ -52,10 +52,10 @@ class Sesion_controller extends CI_Controller {
 		$datos_de_session = array(
 			'id_usuario' => $persona_usuario['id_persona'],
 			'nombre_usuario' => $persona_usuario['nombre_persona'].' '.$persona_usuario['apellido_persona'],
-			'tipo_usuario'=> $persona_usuario['tipo'],
-			'estaLogeado'=> TRUE
+			'tipo_usuario'=> $persona_usuario['tipo']
 		);
 		$this->session->set_userdata($datos_de_session);
+		$this->session->set_userdata('estaLogeado', TRUE);
 		$data['main_content'] = 'sesiones/index_bienvenida_view';
 		$this->load->view('main_template', $data);
 	}
@@ -63,6 +63,10 @@ class Sesion_controller extends CI_Controller {
 	public function cerrar_sesion()
 	{
 		$this->session->sess_destroy();
+		$datos_de_session = array(
+			'estaLogeado'=> FALSE
+		);
+		$this->session->set_userdata($datos_de_session);
 		$data['main_content'] = 'sesiones/index_bienvenida_view';
 		$this->load->view('main_template', $data);
 	}

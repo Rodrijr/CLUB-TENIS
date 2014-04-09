@@ -10,7 +10,7 @@
                     <label class="col-lg-2 control-label">Buscar Por: </label>
                     <div class="col-lg-7">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="nombreEntrenador" placeholder="Nombre de Entrenador">
+                            <input type="text" class="form-control" name="nombreEntrenador" placeholder="Nombre de Entrenador" pattern="[a-zA-Z]+" title="Solo se aceptan Letras">
                             <span class="input-group-addon"> <span class="glyphicon glyphicon-search"></span> </span>
                         </div>
                     </div>

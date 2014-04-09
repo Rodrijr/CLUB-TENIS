@@ -5,18 +5,17 @@ class Persona_controller extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        
         if(!$this->session->userdata('estaLogeado'))
         {
-            $data['main_content'] = 'sesiones/form_login_views';
-            $this->load->view('main_template', $data);
-              $this->load->library('form_validation');
+            #$data['main_content'] = 'sesiones/form_login_views';
+            #$this->load->view('main_template', $data);
+            #$this->load->library('form_validation');
+            redirect('Sesion_controller/login_formulario', 'refresh');
         }
 	}
     
     public function index()
 	{
-       
         $this->load->library('form_validation');
 	}  
     public function ver_mi_perfil()
