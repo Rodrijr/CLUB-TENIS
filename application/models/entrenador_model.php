@@ -58,7 +58,13 @@ class Entrenador_model extends CI_Model
         $query = $this->db->get_where('grupo', $data);
         return $query->result_array();
     }
-
+    
+    public function obtener_entrenador_ID($id_entrenador)
+    {
+         $query = $this->db->get_where('persona', array('id_persona' => $id_entrenador));
+         return $query->result_array();
+    }
+    
     public function buscar_entrenador_por_nombre($nombre)
     {
         $this->db->select('*');

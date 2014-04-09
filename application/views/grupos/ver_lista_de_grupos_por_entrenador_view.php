@@ -51,12 +51,16 @@
 		                $cont = 1;
 		                foreach($entrenador['grupos'] as $itemGrupos){
 		                  echo "<tr>";
+                      
 		                    echo "<td>".$cont."</td>";
-		                    echo "<td>".$itemGrupos['nombreGrupo']."</td>";
-		                    echo '<td><a href="">Ver</a></td>';
-		                    echo '<td><a href="">Editar</a></td>';
-							echo '<td><a href="">Eliminar</a></td>';
-		                  echo "</tr>";
+		                    echo "<td>".$itemGrupos['nombreGrupo']."</td>";?>
+		                    <td><a href="<?php echo base_url(); ?>grupos/Grupo_controller/ver_grupo/">Ver</a></td>
+                   
+		                    <td><a href="">Editar</a></td>
+							<td><a href="">Eliminar</a></td>
+		                 
+                        <?php
+                        echo "</tr>";
 		                  $cont++;
 		                }
 		              ?>
