@@ -103,8 +103,7 @@
                  <label for="inputEmail" class="col-lg-2 control-label">APELLIDO:<font color='#FF0000'>*</font></label>
                 <INPUT TYPE='text' class="form-control" NAME='APELLIDO' <?php  if(isset($entrenador)) {                     echo "value ='".$entrenador['apellido_entrenador']."'"; } ?>
                   onkeypress='return isNumberKey(event)' maxlength='35'
-                   pattern="[a-zA-Z]+" title="Solo se aceptan letras"
-                       required="required" 
+                   pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required" 
                        ><BR>
             </div>
         </div>
@@ -123,7 +122,7 @@
             <div class='controls'>
                <label class="col-lg-2 control-label"> DIRECCION:<font color='#FF0000'>*</font></label>
                 <INPUT TYPE='text' class="form-control" NAME='DIRECCION' <?php  if(isset($entrenador)) {                        echo " value ='".$entrenador['ocupacion']."'"; } ?>  maxlength='50' 
-                       onkeypress='return isNumberKey(event)' required="required"  ><BR>
+                       required="required"  ><BR>
             </div>
         </div>                  
         

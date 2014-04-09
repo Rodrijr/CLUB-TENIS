@@ -76,51 +76,62 @@
                                
                               ?>
                     <?php echo form_open('Padre_controller/registrar_padre'); ?>
-                           <fieldset>
-                               <div class='control-group'>
-                                <label class="col-lg-2 control-label">CI:<font color='#FF0000'>*</font></label>
-                                <div class='controls'>                           
-                                    <INPUT TYPE='text' class="form-control" NAME='CI' onkeypress='return validarNro(event)' 
-                                           
-
-                                           <?php if(isset($padre)) {  echo "value ='".$padre['ci_persona']."'"; 
-                                                }
-                                           ?> maxlength='10'>
-                                    <BR>                                   
-                                </div>
-                            </div>
-                                <div class='control-group'>
-                             <label  class="col-lg-2 control-label">NOMBRE:<font color='#FF0000'>*</font></label>
-                        <div class='controls'>                           
-
-                            <INPUT TYPE='text' class="form-control" NAME='NOMBRE' <?php  if(isset($padre)) {  echo "                                                     value ='".$padre['nombre_persona']."'"; } ?> onkeypress='return isNumberKey(event)' maxlength='35'><BR>
-
-                        </div>
+                              
+                              
+                              <fieldset>
+        
+                              <div class='control-group'>
+                    <label class="col-lg-2 control-label">CI:<font color='#FF0000'>*</font></label>
+                    <div class='controls'>                           
+                        <INPUT TYPE='text' class="form-control" NAME='CI'
+                               onkeypress='return validarNro(event)'
+                               <?php if(isset($entrenador)) {  echo "value ='var_dump(".$entrenador['ci_entrenador'].")'"; 
+                                    }
+                               ?> maxlength='10'  required="required" 
+                               pattern="[0-9]+" title="Ingrese numeros">
+                        <BR>                                   
                     </div>
-                        <div class='control-group'>                            
-                        <div class='controls'>         
-                             <label for="inputEmail" class="col-lg-2 control-label">APELLIDO:<font color='#FF0000'>*</font></label>
-
-                            <INPUT TYPE='text' class="form-control" NAME='APELLIDO' <?php  if(isset($padre)) {  echo "                                                     value ='".$padre['apellido_persona']."'"; } ?> onkeypress='return isNumberKey(event)' maxlength='35'><BR>
-
-                        </div>
-                    </div>
-                               
+                </div>
+                                   
                     <div class='control-group'>
-                        <div class='controls'>
-                           <label class="col-lg-2 control-label"> TELEFONO:<font color='#FF0000'>*</font></label>
-                            <INPUT TYPE='text' class="form-control" NAME='TELEFONO' <?php  if(isset($padre)) {  echo "                                                     value ='".$padre['telefono']."'"; } ?>  onkeypress='javascript:return validarNro(event)' maxlength='10'><BR>
-                        </div>
-                    </div>
-                               
-                    <div class='control-group'>
-                        <div class='controls'>
-                           <label class="col-lg-2 control-label"> DIRECCION:<font color='#FF0000'>*</font></label>
-
-                            <INPUT TYPE='text' class="form-control" NAME='DIRECCION' <?php  if(isset($padre)) {  echo " value ='".$padre['direccion']."'"; } ?>  maxlength='50' onkeypress='return isNumberKey(event)'><BR>
-
-                        </div>
-                    </div>                  
+                 <label  class="col-lg-2 control-label">NOMBRE:<font color='#FF0000'>*</font></label>
+            <div class='controls'>                           
+                <INPUT TYPE='text' class="form-control" NAME='NOMBRE' <?php  if(isset($entrenador)) {                           echo " value ='".$entrenador['nombre_entrenador']."'"; } ?>
+                       onkeypress='return isNumberKey(event)' required="required" 
+                       maxlength='35' required="required" maxlength="30" 
+                       pattern="[a-zA-Z]+" title="Ingrese solo letras"><BR>
+            </div>
+        </div>
+                         
+                         <div class='control-group'>                            
+            <div class='controls'>         
+                 <label for="inputEmail" class="col-lg-2 control-label">APELLIDO:<font color='#FF0000'>*</font></label>
+                <INPUT TYPE='text' class="form-control" NAME='APELLIDO' <?php  if(isset($entrenador)) {                     echo "value ='".$entrenador['apellido_entrenador']."'"; } ?>
+                  onkeypress='return isNumberKey(event)' maxlength='35'
+                   pattern="[a-zA-Z]+" title="Solo se aceptan letras"
+                       required="required" 
+                       ><BR>
+            </div>
+        </div>          
+                      
+                                
+        <div class='control-group'>
+            <div class='controls'>
+               <label class="col-lg-2 control-label"> TELEFONO:<font color='#FF0000'>*</font></label>
+                <INPUT TYPE='text' class="form-control" NAME='TELEFONO' <?php  if(isset($entrenador)) {  echo " value ='".$entrenador['telefono']."'"; } ?>
+                onkeypress='javascript:return validarNro(event)' maxlength='10'
+                       pattern="[0-9]+" title="Ingrese solo Numeros" required="required" 
+                       ><BR>
+            </div>
+        </div>
+                   
+        <div class='control-group'>
+            <div class='controls'>
+               <label class="col-lg-2 control-label"> DIRECCION:<font color='#FF0000'>*</font></label>
+                <INPUT TYPE='text' class="form-control" NAME='DIRECCION' <?php  if(isset($entrenador)) {                        echo " value ='".$entrenador['ocupacion']."'"; } ?>  maxlength='50' 
+                       required="required"  ><BR>
+            </div>
+        </div>                
                    
                     <div class='control-group'>
                          <label for="inputEmail" class="col-lg-2 control-label">E-MAIL:<font color='#FF0000'  >*</font></label>

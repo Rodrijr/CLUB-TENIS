@@ -176,6 +176,7 @@
                              value="<?php echo $persona['ci_persona'];?>"
                              onkeypress ='return validarNro(event)'
                              maxlength='10'
+                             pattern="[0-9]+" title="Ingrese solo Numeros" required="required" 
                              name ='CI'>
                     </div>
                     <div class="input-group">
@@ -184,6 +185,7 @@
                              value="<?php echo $persona['nombre_persona'];?>"
                              onkeypress='return isNumberKey(event)'
                              maxlength='35'
+                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
                              name ='NOMBRE'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>APELLIDO  </label></span>
@@ -191,6 +193,7 @@
                              value="<?php echo $persona['apellido_persona'];?>"
                               onkeypress='return isNumberKey(event)'
                              maxlength='35'
+                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
                              name ='APELLIDO'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>TELEFONO  </label></span>
@@ -198,18 +201,23 @@
                              value="<?php echo $persona['telefono'];?>"
                              onkeypress ='return validarNro(event)'
                              maxlength='10'
+                             pattern="[0-9]+" title="Ingrese solo Numeros" required="required" 
                              name ='TELEFONO'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>DIRECCION </label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['direccion'];?>"
                              maxlength='50'
+                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
                              name ='DIRECCION'>
                     </div>        <div class="input-group">
                       <span class="input-group-addon"><label>E-MAIL    </label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['email'];?>"
                              maxlength='30'
+                             pattern="[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]+" 
+                             placeholder = "ejemplo@hotmail.com"
+                             required="required"
                              name ='EMAIL'>
                     </div>
           <BR>
