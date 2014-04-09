@@ -85,10 +85,28 @@ class Grupo_controller extends CI_Controller {
 
     public function editar_grupo($id_grupo)
     {
-        #$data['grupo'] = $arrayName = array('nombre_grupo' => , );
+        $grupo = $this->grupo_model->obtener_grupo_por_id($id_grupo);
+        $data['grupo'] = $grupo;
         $data['main_content'] = 'grupos/editar_grupo_view';
         $this->load->view('main_template', $data);
     }
 
+    public function actualizar_grupo()
+    {
+        $id = $this->input->post('idGrupo');
+        $nuevo_grupo = array(
+            'nombre_grupo' =>  $this->input->post('nombreGrupo')
+        );
+        $actualizar = $this->grupo_model->actualizar_grupo($id,$nuevo_grupo);
+        if($actualizar)
+        {
+
+        }
+        else
+        {
+
+        }
+        $this->ver_lista_grupos();
+    }
 }
 ?>
