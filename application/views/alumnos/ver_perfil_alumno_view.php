@@ -68,7 +68,14 @@
          <div class="row">
   
     <a href="" class="thumbnail">
-      <img data-src="<?php echo base_url(); ?>imagenes/silhouette.jpg/100%x180" >
+         <?php  
+        if(isset($persona))
+                    { ?>
+    <img src="<?php echo base_url(); ?>imagenes\<?php echo $persona['id_persona']; ?>.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
+              <?php
+                    }
+             ?>
+     
     </a>
   </div>
          </div>
@@ -77,7 +84,7 @@
             <div class="col-lg-5">
                   <fieldset>
     <legend><H3><label >ESTA EN EL PERFIL DE:</label></H3> </legend>
-                 <?php echo form_open(''); ?>
+                 <?php echo form_open_multipart(''); ?>
                 
                       <h1> 
                    
@@ -116,14 +123,7 @@
                         ?>
                              </font>
                         </label><br>
-                   
-                        <label >EMAIL:
-                             <font color='#386CC4'>
-                        <?php 
-                           echo $persona['email']; 
-                        ?>
-                             </font>
-                        </label><br>
+                   <br>
                     </div>  
                        </fieldset>
                       </h3> 
@@ -190,7 +190,7 @@
                              value="<?php echo $persona['nombre_persona'];?>"
                              onkeypress='return isNumberKey(event)'
                              maxlength='35'
-                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
+                           
                              name ='NOMBRE'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>APELLIDO  </label></span>
@@ -198,7 +198,7 @@
                              value="<?php echo $persona['apellido_persona'];?>"
                               onkeypress='return isNumberKey(event)'
                              maxlength='35'
-                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
+                             required="required"
                              name ='APELLIDO'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>TELEFONO  </label></span>
@@ -206,14 +206,14 @@
                              value="<?php echo $persona['telefono'];?>"
                              onkeypress ='return validarNro(event)'
                              maxlength='10'
-                             pattern="[0-9]+" title="Ingrese solo Numeros" required="required" 
+                             required="required" 
                              name ='TELEFONO'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>DIRECCION </label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['direccion'];?>"
                              maxlength='50'
-                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
+                             required="required"
                              name ='DIRECCION'>
                     </div>       
              
