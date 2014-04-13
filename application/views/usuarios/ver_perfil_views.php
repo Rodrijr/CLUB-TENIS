@@ -68,13 +68,8 @@
      <div class="col-lg-3">   
          
          <div class="row">
-  <?php
-           if(isset($persona))
-                    { ?>
-    <img src="<?php echo base_url(); ?>imagenes\<?php echo $persona['id_persona']; ?>.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
-              <?php
-                    }
-             ?>
+  
+    <img src="<?php echo base_url(); ?>imagenes\p.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
   </div>
          </div>
 
@@ -190,7 +185,7 @@
                              value="<?php echo $persona['nombre_persona'];?>"
                              onkeypress='return isNumberKey(event)'
                              maxlength='35'
-                             required="required"
+                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
                              name ='NOMBRE'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>APELLIDO  </label></span>
@@ -198,7 +193,7 @@
                              value="<?php echo $persona['apellido_persona'];?>"
                               onkeypress='return isNumberKey(event)'
                              maxlength='35'
-                             required="required"
+                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
                              name ='APELLIDO'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>TELEFONO  </label></span>
@@ -213,7 +208,7 @@
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['direccion'];?>"
                              maxlength='50'
-                             required="required"
+                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
                              name ='DIRECCION'>
                     </div>        <div class="input-group">
                       <span class="input-group-addon"><label>E-MAIL    </label></span>
@@ -281,24 +276,18 @@
                       <span class="input-group-addon"><label>ACTUAL</label></span>
                       <input type="password" class="form-control"
                              name ="ACTUAL"
-                             required="required"
-                             title = "Ingrese la contraceña que usa actualmente.";
                       >
                     </div>
           <div class="input-group">
                       <span class="input-group-addon"><label>NUEVA</label></span>
                       <input type="password" class="form-control" 
                              name ="NUEVA1"
-                             required="required"
-                             title = "Ingrese la contraceña que desea usar.";
                       >
                     </div>
            <div class="input-group">
                       <span class="input-group-addon"><label>REPITA</label></span>
                       <input type="password" class="form-control"                              
                              name ="NUEVA2"
-                            required="required"
-                              title = "Repita la contraceña que desea usar.";
                       >
             </div>
              <BR>

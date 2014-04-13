@@ -95,7 +95,7 @@
                 <INPUT TYPE='text' class="form-control" NAME='NOMBRE' <?php  if(isset($entrenador)) {                           echo " value ='".$entrenador['nombre_entrenador']."'"; } ?>
                        onkeypress='return isNumberKey(event)' required="required" 
                        maxlength='35' required="required" maxlength="30" 
-                       ><BR>
+                       pattern="[a-zA-Z]+" title="Ingrese solo letras"><BR>
             </div>
         </div>
             <div class='control-group'>                            
@@ -103,7 +103,7 @@
                  <label for="inputEmail" class="col-lg-2 control-label">APELLIDO:<font color='#FF0000'>*</font></label>
                 <INPUT TYPE='text' class="form-control" NAME='APELLIDO' <?php  if(isset($entrenador)) {                     echo "value ='".$entrenador['apellido_entrenador']."'"; } ?>
                   onkeypress='return isNumberKey(event)' maxlength='35'
-                  required="required" 
+                   pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required" 
                        ><BR>
             </div>
         </div>
@@ -135,7 +135,7 @@
                                         maxlength='30'
                                     pattern="[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]+" 
                                    placeholder = "ejemplo@hotmail.com"
-                                   required="required"  title="ejemplo_email@hotmail.com"><BR>
+                                   required="required" ><BR>
                         </div>
                     </div>
                    

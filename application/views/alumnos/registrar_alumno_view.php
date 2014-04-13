@@ -34,7 +34,7 @@
 		    		<label class="control-label" for="inputDefault">Sexo</label>
 		    	</div>
 		        <div class="col-lg-5 col-lg-offset-1">
-		            <input type="date" class="form-control" id="fecha_de_contrato" name="fecha_de_contrato">
+		            <input type="date" class="form-control" name="fecha_de_nacimiento">
 		        </div>
 		    	<div class="col-lg-5 col-lg-offset-1">
 		            <div class="radio">
