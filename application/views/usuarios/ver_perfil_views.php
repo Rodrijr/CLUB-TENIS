@@ -54,6 +54,8 @@
 
 
 
+<div>
+
 
     <ul id="myTab" class="nav nav-pills">
       <li class="<?php echo $perfil; ?>"><a href="#perfil" data-toggle="tab">Perfil</a></li>
@@ -318,7 +320,7 @@
     </div>
 
 
-
+</div>
 
 
 
