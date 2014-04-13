@@ -12,7 +12,7 @@
                 <label class="col-lg-2 control-label">Usuario</label>
                 <div class="col-lg-10">
                 	<div class="input-group">
-                  	<input type="text" class="form-control" id="inputNombre" name="username" placeholder="Nombre de usuario" required="required" maxlength="30" pattern="[a-zA-Z0-9]+" title="Solo se aceptan letras y numeros">
+                  	<input type="text" class="form-control" id="inputNombre" name="username" placeholder="Nombre de usuario" required="required" maxlength="30" pattern="[a-zA-Z0-9]+" title="Solo se aceptan letras y números sin espacio. Ejemplo: Alumno">
                   	<span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span> </span>
                   </div>
                 </div>

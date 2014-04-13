@@ -59,6 +59,7 @@ class Entrenador_model extends CI_Model
         return $query->result_array();
     }
     
+    #esta consulta devuelve una lista con un entrenador result_array()
     public function obtener_entrenador_ID($id_entrenador)
     {
          $query = $this->db->get_where('persona', array('id_persona' => $id_entrenador));
@@ -72,6 +73,13 @@ class Entrenador_model extends CI_Model
         $this->db->where('tipo', 'Entrenador');
         $query=$this->db->get('persona');
         return $query->result_array();
+    }
+
+    # row->array() esta consulta me devuelve un entrenador, devuelve una fila, no un array
+    public function obtener_entrenador_por_id($id_entrenador)
+    {
+        $query = $this->db->get_where('persona', array('id_persona' => $id_entrenador));
+        return $query->row_array();
     }
 
 }
