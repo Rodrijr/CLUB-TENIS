@@ -40,8 +40,9 @@ class Persona_controller extends CI_Controller {
          $this->form_validation->set_rules('NOMBRE','NOMBRE','trim|required|xss_clean');
          $this->form_validation->set_rules('APELLIDO','APELLIDO','trim|required|xss_clean');        
          $this->form_validation->set_rules('TELEFONO','TELEFONO','trim|required|xss_clean|numeric');  
-         $this->form_validation->set_rules('DIRECCION','DIRECCION','trim|required|xss_clean');
-       
+         $this->form_validation->set_rules('DIRECCION','DIRECCION','trim|required|xss_clean'); 
+        
+        
         $persona = array(
             'ci_persona' => $this->input->post('CI'),
             'nombre_persona' =>$this->input->post('NOMBRE'),
@@ -59,8 +60,6 @@ class Persona_controller extends CI_Controller {
                 {
                      $MSN ="Modificacion Exitosa.";
                      $tipo ="panel panel-success";
-                        $nombre_usuario = $persona['nombre_persona'].' '.$persona['apellido_persona'];
-		              $this->session->set_userdata('nombre_usuario', $nombre_usuario);
                 }
                 else
                 {

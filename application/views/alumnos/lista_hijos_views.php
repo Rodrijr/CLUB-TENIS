@@ -1,4 +1,5 @@
- <ul id="myTab" class="nav nav-tabs">
+
+    <ul id="myTab" class="nav nav-tabs">
         <?php
             foreach ($lista as $hijo)
             {
@@ -7,9 +8,7 @@
         ?>
     </ul>
     <div id="myTabContent" class="tab-content">
-          <legend><H3><label ></label></H3> </legend>
-                
-                      
+        
         <?php 
             foreach ($lista as $hijo)
             {
@@ -24,16 +23,16 @@
         <!-- BOTONOES LATERALES -->
             <div class="col-lg-2">
             
-                    
+                    <div class="btn-group-vertical">
+                      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+                          <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+                    </div>
     
             </div>
-        <?php
-         if(isset($hijo))
-                    { ?>
-    <img src="<?php echo base_url(); ?>imagenes\<?php echo $hijo['id_persona']; ?>.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
-              <?php
-                    }
-             ?>
+        
+        <img src="<?php echo base_url(); ?>imagenes/silhouette.jpg/100%x180"; />
       
     </a>
   </div>
@@ -41,11 +40,11 @@
 
         <div class="row-fluid">
             <div class="col-lg-6">
-  
-                      <?php echo form_open(base_url().'index.php/Alumno_controller/modificar_perfil/'.$hijo['id_persona']); ?>
+                  <fieldset>
+    <legend><H3><label ></label></H3> </legend>
+                 <?php echo form_open(base_url().'index.php/Alumno_controller/modificar_perfil/'.$hijo['id_persona']); ?>
                 <H3><label >ES EL PERFIL DE:</label></H3>
-                 <fieldset>     
-                <h1> 
+                      <h1> 
                    
                 <?php
                     if(isset($hijo))
@@ -55,10 +54,9 @@
                         echo $hijo['apellido_persona'];
                         echo "</font>";                       
                 ?>
-                </h1>  
-                       <fieldset>
+                </h1>                 
                   <h3>
-                        
+                         <fieldset>
                     <div class='control-group'>
                         <label >CI:
                             <font color='#386CC4'>
@@ -86,8 +84,8 @@
                    
                         
                     </div>  
-                       
-                      </h3> </fieldset>
+                       </fieldset>
+                      </h3> 
                 <?php
                     } // if(isset($hijo)) close
                 ?>
@@ -95,58 +93,34 @@
                 
                  <div class='control-group'>
                     <div class='controls'>
-                           
+                            <input class='btn btn-default'  type='button' 
+                                   value='CANCELAR' onclick='history.back()'> 
                             <INPUT VALUE='Modificar' class='btn btn-success' TYPE='submit'><BR>
 
                     </div>
                     </div>
-                </div>
-             <div class="row-fluid">
-           
-                <div class="col-lg-2">
-            
-                    <div class="btn-group-vertical">
-                          <button class="btn btn-primary" data-toggle="modal"
-                                  onclick="google.com"
-                                  data-target=".bs-example-modal-lg">
-                             VER KARDEX
-                          </button> 
-                        <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
-                            VER PLANILLA DE ASISTENCIA
-                        </button>  
-                        <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
-                            
-                        </button>  
-                        <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
-                            Large modal
-                        </button>  
-                        <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
-                            Large modal
-                        </button>
-                    </div>
-    
-            </div>
-            </div>
-                <?php echo form_close(); ?>
+                
   
+                <?php echo form_close(); ?>
+                       
+        </div>
     </div>  
          
          
           </div>  
         
         <!-- BOTONOES LATERALES -->
+         <div class="col-lg-3">   
          
+            <div class="row">
+                    <div class="btn-group-vertical">
+  ...
+</div>
+    
+            </div>
+         </div>
                 <?php
                 echo  '</div>';
             }
         ?>        
     </div>
-
-
-
-
-
-
-
-
-

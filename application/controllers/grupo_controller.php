@@ -85,8 +85,10 @@ class Grupo_controller extends CI_Controller {
 
     public function editar_grupo($id_grupo)
     {
-        $grupo = $this->grupo_model->obtener_grupo_por_id($id_grupo);
-        $data['grupo'] = $grupo;
+        $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
+        $entrenador = $this->entrenador_model->obtener_entrenador_por_id($data['grupo']['id_entrenador']);
+        $data['id_entrenador'] = $entrenador['id_persona'];
+        $data['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
         $data['main_content'] = 'grupos/editar_grupo_view';
         $this->load->view('main_template', $data);
     }
