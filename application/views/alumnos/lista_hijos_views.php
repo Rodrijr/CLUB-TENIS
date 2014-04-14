@@ -1,4 +1,5 @@
 
+     <div class="container">
     <ul id="myTab" class="nav nav-tabs">
         <?php
             foreach ($lista as $hijo)
@@ -31,18 +32,8 @@
                     </div>
     
             </div>
-        <div class="row">
-  
-        <?php 
         
-         if(isset($persona))
-                    {
-        ?>
-        
-        
-        <img data-src="<?php echo base_url(); ?>imagenes/<?php echo $persona['ci_persona']; ?>" >
-
-  </div>
+        <img src="<?php echo base_url(); ?>imagenes/silhouette.jpg/100%x180"; />
       
     </a>
   </div>
@@ -134,3 +125,4 @@
             }
         ?>        
     </div>
+         </div>
