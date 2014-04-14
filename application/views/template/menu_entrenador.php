@@ -61,7 +61,7 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
 	          	<span class="glyphicon glyphicon-user"></span> 
-	          	<strong>Entrenador: </strong><?php echo $this->session->userdata('nombre_usuario') ?>
+	          	<?php echo $this->session->userdata('nombre_usuario') ?>
 	          	<b class="caret"></b>
 	          </a>
 	          <ul class="dropdown-menu">
