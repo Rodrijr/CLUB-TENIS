@@ -35,5 +35,19 @@ class Grupo_model extends CI_Model
         $query = $this->db->get('grupo');
         return $query->result_array();
     }
+
+    public function desasignar_entrenador_de_grupo($id_grupo)
+    {
+        $nuevo_grupo = array(
+            'id_entrenador'=>0
+        );
+        $this->db->where('id_grupo',$id_grupo);
+        $this->db->update('grupo',$nuevo_grupo);
+        $afftected_rows = $this->db->affected_rows();
+        if($afftected_rows==1)
+            return "El Entrenador fue Des-asignado del grupo exitosamente";
+        else
+            return "Error al Des-asignar este Entreador del grupo ";
+    }
 }
 ?>

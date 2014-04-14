@@ -6,6 +6,11 @@
 	<title><?php echo $title; ?></title>    
 	<link href="<?php echo base_url(); ?>dist/css/bootstrap.css" rel="stylesheet" media="screen">
 	<link href="<?php echo base_url(); ?>dist/css/bootswatch.min.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>dist/css/bootstrap-modal.css" rel="stylesheet">
+	<!--<link href="<?php #echo base_url(); ?>dist/css/bootstrap-modal-bs3patch.css" rel="stylesheet"> -->
+	
+	
+
 	<!-- <link href="<?php #echo base_url(); ?>dist/css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
 
 	<!--<link href="<?php #echo base_url(); ?>dist/css/bootstrap-theme.css" rel="stylesheet" >-->
