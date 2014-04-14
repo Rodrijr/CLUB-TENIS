@@ -1,4 +1,5 @@
 
+     <div class="container">
     <ul id="myTab" class="nav nav-tabs">
         <?php
             foreach ($lista as $hijo)
@@ -124,3 +125,4 @@
             }
         ?>        
     </div>
+         </div>

@@ -52,6 +52,7 @@
 </script>
 
 
+<div class="container">
 
     <ul id="myTab" class="nav nav-pills">
       <li class="<?php echo $perfil; ?>"><a href="#perfil" data-toggle="tab">Perfil</a></li>
@@ -67,9 +68,15 @@
          
          <div class="row">
   
-    <a href="" class="thumbnail">
-      <img data-src="<?php echo base_url(); ?>imagenes/silhouette.jpg/100%x180" >
-    </a>
+        <?php 
+        
+         if(isset($persona))
+                    {
+        ?>
+        
+        
+        <img data-src="<?php echo base_url(); ?>imagenes/<?php echo $persona['ci_persona']; ?>" >
+
   </div>
          </div>
 
@@ -82,8 +89,7 @@
                       <h1> 
                    
                 <?php
-                    if(isset($persona))
-                    {
+                   
                         echo "<font color='#386CC4'>";
                         echo $persona['nombre_persona']."  ";
                         echo $persona['apellido_persona'];
@@ -231,3 +237,4 @@
       </div>
              </div>
           </div>
+        </div>
