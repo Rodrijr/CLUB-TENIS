@@ -36,7 +36,7 @@
             <?php 
               if($grupo['id_entrenador'] == 0)
               {
-                echo '<a href="" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Aniadir Entrenador</a><br>';
+                echo '<a data-toggle="modal" href="#myModalAniadirEntrenador" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Aniadir Entrenador</a><br>';
               }
               else
               {
@@ -87,16 +87,38 @@
                   <div class="panel-heading">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h3 class="panel-title">Eliminando Entrenador</h3>
+                      <h3 class="panel-title">Aniadiendo Entrenador</h3>
                     </div>
                   </div>
                   <div class="panel-body">
                     <div class="modal-body">
-                      <p class="text-warning"><strong>Estas Seguro que deseas Eliminar Este Entrenador...!!</strong></p> 
+                      <p class="text-info"><strong>Seleccionar Un Entrenador: </strong></p> 
+                      <table class="table table-striped table-hover">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Nombre</th>
+                          <th>Apellidos</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $cont = 1; ?>
+                        <?php foreach($entrenadores as $entrenador){ ?>
+                        <!--<td><a href="<?php # echo base_url(); ?>grupos/Grupo_controller/ver_grupo/">Ver</a></td> -->
+                          <tr>
+                            <td><?php echo $cont; ?></td>
+                              <td><?php echo $entrenador['nombre_persona']; ?></td>
+                              <td><?php echo $entrenador['apellido_persona']; ?></td>
+                              <td><a Title="Seleccionar Entrenador" href="<?php echo base_url(); ?>index.php/Grupo_controller/asignar_entrenador_a_grupo/<?php echo $grupo['id_grupo']; ?>/<?php echo $entrenador['id_persona']; ?>"><span class="glyphicon glyphicon-check"></span></a></td>
+                          </tr>
+                          <?php $cont++; ?>
+                          <?php } ?>
+                      </tbody>
+                    </table>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                      <button type="button" class="btn btn-primary">Eliminar</button>
                     </div>
                   </div>
                 </div><!-- /.panel panel-primary --> 
