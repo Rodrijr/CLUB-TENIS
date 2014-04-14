@@ -31,8 +31,18 @@
                     </div>
     
             </div>
+        <div class="row">
+  
+        <?php 
         
-        <img src="<?php echo base_url(); ?>imagenes/silhouette.jpg/100%x180"; />
+         if(isset($persona))
+                    {
+        ?>
+        
+        
+        <img data-src="<?php echo base_url(); ?>imagenes/<?php echo $persona['ci_persona']; ?>" >
+
+  </div>
       
     </a>
   </div>
