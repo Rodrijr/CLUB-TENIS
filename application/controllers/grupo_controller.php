@@ -31,27 +31,26 @@ class Grupo_controller extends CI_Controller {
     }
     public function ver_lista_grupos()
     {
-        $listaDeEntrenadores = $this->entrenador_model->obtener_todos_los_entrenadores();
-        $listaDeGruposPorEntrenador = array();
-        foreach ($listaDeEntrenadores as $entrenador) {
-            $itemEntrenador = array();
-            $itemEntrenador['nombreEntrenador']= $entrenador['nombre_persona'];
-            $itemEntrenador['apellidosEntrenador']= $entrenador['apellido_persona'];
-            // lista de grupos por entrenador
-            $gruposEntrenador = array();
-            $listaGruposEntrenador = $this->entrenador_model->obtener_todos_los_cursos_entrenador($entrenador['id_persona']);
-            foreach ($listaGruposEntrenador as $grupos) {
-                $itemGrupo = array();
-                $itemGrupo['idGrupo'] = $grupos['id_grupo'];
-                $itemGrupo['nombreGrupo'] = $grupos['nombre_grupo'];
-                //$itemGrupo['horarioGrupo'] = $grupos['horario_grupo'];
-                $gruposEntrenador[] = $itemGrupo;
+        $grupos = $this->grupo_model->obtener_todos_los_grupos();
+
+        $listaDeGrupos = array();
+        foreach ($grupos as $grupo) {
+            $itemGrupo = array();
+            $itemGrupo['id_grupo'] = $grupo['id_grupo'];
+            $itemGrupo['nombre_grupo'] = $grupo['nombre_grupo'];
+            if($grupo['id_entrenador']==0)
+            {
+                $itemGrupo['nombre_entrenador'] = "";
             }
-            $itemEntrenador['grupos'] = $gruposEntrenador;
-            $listaDeGruposPorEntrenador[] = $itemEntrenador;
+            else
+            {
+                $entrenador = $this->entrenador_model->obtener_entrenador_por_id($grupo['id_entrenador']);
+                $itemGrupo['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
+            }
+            $listaDeGrupos[] = $itemGrupo;
         }
-        $data['gruposEntrenador'] = $listaDeGruposPorEntrenador;
-        $data['main_content'] = 'grupos/ver_lista_de_grupos_por_entrenador_view';
+        $data['lista_de_grupos'] = $listaDeGrupos;
+        $data['main_content'] = 'grupos/ver_lista_de_grupos_view';
         $this->load->view('main_template', $data);
     }
 
@@ -85,10 +84,17 @@ class Grupo_controller extends CI_Controller {
 
     public function editar_grupo($id_grupo)
     {
-        $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
-        $entrenador = $this->entrenador_model->obtener_entrenador_por_id($data['grupo']['id_entrenador']);
-        $data['id_entrenador'] = $entrenador['id_persona'];
-        $data['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
+        $grupo = $this->grupo_model->obtener_grupo_por_id($id_grupo);
+        $data['grupo'] = $grupo;
+        if($grupo['id_entrenador']==0)
+        {
+            $data['nombre_entrenador'] = "";
+        }
+        else
+        {
+            $entrenador = $this->entrenador_model->obtener_entrenador_por_id($grupo['id_entrenador']);
+            $data['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
+        }
         $data['main_content'] = 'grupos/editar_grupo_view';
         $this->load->view('main_template', $data);
     }

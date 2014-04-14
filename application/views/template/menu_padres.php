@@ -38,7 +38,7 @@
 	        <li >
 	          <a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_mi_perfil" > 
 	          	<span class="glyphicon glyphicon-user"></span> 
-	          	<strong>Padre: </strong><?php echo $this->session->userdata('nombre_usuario') ?>
+	          	<?php echo $this->session->userdata('nombre_usuario') ?>
 	          	<b class="caret"></b>
 	          </a>	         
 	        </li>

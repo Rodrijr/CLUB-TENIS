@@ -31,8 +31,7 @@
             <a href="#"><span class="glyphicon glyphicon-edit"></span> Modificar Entrenador</a><br>
             <a href="#"><span class="glyphicon glyphicon-plus-sign"></span> Aniadir Entrenador</a><br>
             <a href="#"><span class="glyphicon glyphicon-minus-sign"></span> Eliminar Entrenador</a><br>
-            <label class="control-label" for="inputDefault">Entrenador: <?php echo $nombre_entrenador?></label>
-            <label class="control-label" for="inputDefault">Id: <?php echo $id_entrenador?></label>
+            <label class="control-label" for="inputDefault">Nombre: <?php echo $nombre_entrenador?></label>
           </div>
           <div class="col-lg-6">
             
