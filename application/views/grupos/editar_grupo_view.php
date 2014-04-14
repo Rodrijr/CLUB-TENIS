@@ -16,7 +16,7 @@
         <div class="col-lg-12">
           <input type="HIDDEN" class="form-control" name="idGrupo" placeholder="Nombre del Grupo" value="<?php echo $grupo['id_grupo'] ?>">
           <div class="col-lg-12">
-            <label class="control-label" for="inputDefault">Nombre</label>
+            <label class="control-label" for="inputDefault">Nombre: </label>
           </div>
           <div class="col-lg-5 col-lg-offset-1">
             <input type="text" class="form-control" name="nombreGrupo" placeholder="Nombre del Grupo" value="<?php echo $grupo['nombre_grupo'] ?>" maxlength="30" pattern="[a-zA-Z0-9]+" title="Solo se aceptan letras y Numeros. Ejemplo: Grupo3"><br>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="form-group">
-        <div class="col-lg-11 col-lg-offset-1">
+        <div class="col-lg-12">
           <legend>Datos de Entrenador</legend>
           <div class="col-lg-12">
             <?php 
@@ -35,8 +35,13 @@
               }
               else
               {
-                echo '<label class="control-label" for="inputDefault">'.$nombre_entrenador.'</label>';
-                echo '<a href="#"><span class="glyphicon glyphicon-minus-sign"></span> Eliminar Entrenador</a><br>';
+                echo '<div class="col-lg-12">';
+                  echo '<label class="control-label" for="inputDefault">Nombre: </label>';
+                echo '</div>';
+                echo '<div class="col-lg-8 col-lg-offset-1">';
+                  echo '<div><label class="control-label" for="inputDefault"><p class="text-success">'.$nombre_entrenador.'</p></label></div>';
+                  echo '<div><a href="#"><span class="glyphicon glyphicon-trash"></span> Eliminar Entrenador</a><br></div>';
+                echo '</div>';
               } 
             ?>
           </div>
@@ -47,7 +52,7 @@
       </div>   
 
       <div class="form-group">
-        <div class="col-lg-11 col-lg-offset-1">
+        <div class="col-lg-12">
           <br>
           <legend>Horarios de Grupo</legend>
           <div class="col-lg-6">
