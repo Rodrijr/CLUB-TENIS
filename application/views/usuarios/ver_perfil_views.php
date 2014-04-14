@@ -70,8 +70,10 @@
      <div class="col-lg-3">   
          
          <div class="row">
-  
-    <img src="<?php echo base_url(); ?>imagenes\p.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
+  <?php if(isset($persona))
+                    {
+                       ?>
+    <img src="<?php echo base_url(); ?>imagenes\<?php echo $persona['id_persona']; } ?>.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
   </div>
          </div>
 
@@ -86,7 +88,7 @@
                 <?php
                     if(isset($persona))
                     {
-                        echo "<font color='#386CC4'>";
+                   echo "<font color='#386CC4'>";
                         echo $persona['nombre_persona']."  ";
                         echo $persona['apellido_persona'];
                         echo "</font>";                       
@@ -133,7 +135,7 @@
                         } // if(isset($persona)) close
                 ?>
                   </fieldset>
-  
+  <br><br>
                 <?php echo form_close(); ?>
                        
         </div>
@@ -232,6 +234,7 @@
                     </div>
                     </div>
                             </fieldset>
+         <br><br>
                     <?php } echo form_close(); ?>
           
       </div>
@@ -301,7 +304,8 @@
 
                     </div>
                     </div>
-             </fieldset>
+             </fieldset><br>
+         <br>
                <?php  } echo form_close(); ?>
              </div>
          </div>

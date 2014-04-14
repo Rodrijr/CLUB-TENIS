@@ -21,20 +21,10 @@
          <div class="row">
   
     <a href="" class="thumbnail">
-        <!-- BOTONOES LATERALES -->
-            <div class="col-lg-2">
-            
-                    <div class="btn-group-vertical">
-                      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-                          <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
-                    </div>
-    
-            </div>
+       
         
-        <img src="<?php echo base_url(); ?>imagenes/silhouette.jpg/100%x180"; />
-      
+
+    <img src="<?php echo base_url(); ?>imagenes\<?php echo $hijo['id_persona'];  ?>.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
     </a>
   </div>
          </div>
@@ -100,7 +90,8 @@
 
                     </div>
                     </div>
-                
+                <br>
+                <br>
   
                 <?php echo form_close(); ?>
                        
@@ -108,18 +99,27 @@
     </div>  
          
          
-          </div>  
-        
-        <!-- BOTONOES LATERALES -->
-         <div class="col-lg-3">   
          
-            <div class="row">
+         <!-- BOTONOES LATERALES -->
+            <div class="col-lg-2">
+            
                     <div class="btn-group-vertical">
-  ...
-</div>
+                      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  evaluacion personal
+</button>
+<button class="btn btn-primary" data-toggle="modal" >Planila de objetivos</button>
+<button class="btn btn-primary" data-toggle="modal" >perfil del jugador</button>
+<button class="btn btn-primary" data-toggle="modal" >objetivos de jugador</button>
+                        
+<button class="btn btn-primary" data-toggle="modal" >planilla de asistencia</button>
+<button class="btn btn-primary" data-toggle="modal" >kardex</button>
+                    </div>
     
             </div>
-         </div>
+        
+         </div>  
+        
+        
                 <?php
                 echo  '</div>';
             }
