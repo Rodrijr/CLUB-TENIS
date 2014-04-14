@@ -41,7 +41,6 @@
 		                <th></th>
 		                <th></th>
 		                <th></th>
-		                <th></th>
 		              </tr>
 		            </thead>
 		            <tbody>
@@ -52,9 +51,9 @@
 		                	<td><?php echo $cont; ?></td>
 		                    <td><?php echo $grupo['nombre_grupo']; ?></td>
 	                        <td><?php echo $grupo['nombre_entrenador']; ?></td>
-		                    <td><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_grupo/<?php echo $grupo['id_grupo']; ?>">Ver</a></td>
-	                  		<td><a href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $grupo['id_grupo']; ?>">Editar</a></td>
-							<td><a href="">Eliminar</a></td>
+		                    <td><a Title="Ver Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_grupo/<?php echo $grupo['id_grupo']; ?>"><center><span class="glyphicon glyphicon-eye-open"></span></center></a></td>
+	                  		<td><a Title="Editar Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $grupo['id_grupo']; ?>"><center><span class="glyphicon glyphicon-edit"></span></center></a></td>
+							<td><a Title="Eliminar Grupo" href=""><center><span class="glyphicon glyphicon-trash"></span></center></a></td>
                         </tr>
 		                <?php $cont++; ?>
 		                <?php } ?>

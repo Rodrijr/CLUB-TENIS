@@ -27,11 +27,18 @@
       <div class="form-group">
         <div class="col-lg-11 col-lg-offset-1">
           <legend>Datos de Entrenador</legend>
-          <div class="col-lg-6">
-            <a href="#"><span class="glyphicon glyphicon-edit"></span> Modificar Entrenador</a><br>
-            <a href="#"><span class="glyphicon glyphicon-plus-sign"></span> Aniadir Entrenador</a><br>
-            <a href="#"><span class="glyphicon glyphicon-minus-sign"></span> Eliminar Entrenador</a><br>
-            <label class="control-label" for="inputDefault">Nombre: <?php echo $nombre_entrenador?></label>
+          <div class="col-lg-12">
+            <?php 
+              if($grupo['id_entrenador'] == 0)
+              {
+                echo '<a href=""><span class="glyphicon glyphicon-plus-sign"></span> Aniadir Entrenador</a><br>';
+              }
+              else
+              {
+                echo '<label class="control-label" for="inputDefault">'.$nombre_entrenador.'</label>';
+                echo '<a href="#"><span class="glyphicon glyphicon-minus-sign"></span> Eliminar Entrenador</a><br>';
+              } 
+            ?>
           </div>
           <div class="col-lg-6">
             
