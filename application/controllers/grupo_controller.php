@@ -84,14 +84,14 @@ class Grupo_controller extends CI_Controller {
 
     public function editar_grupo($id_grupo)
     {
+        $entrenadores = $this->entrenador_model->obtener_todos_los_entrenadores();
         $grupo = $this->grupo_model->obtener_grupo_por_id($id_grupo);
         $data['grupo'] = $grupo;
-        if($grupo['id_entrenador']==0)
-        {
+        $data['entrenadores'] = $entrenadores;
+        if($grupo['id_entrenador']==0){
             $data['nombre_entrenador'] = "";
         }
-        else
-        {
+        else{
             $entrenador = $this->entrenador_model->obtener_entrenador_por_id($grupo['id_entrenador']);
             $data['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
         }
@@ -115,6 +115,50 @@ class Grupo_controller extends CI_Controller {
 
         }
         $this->ver_lista_grupos();
+    }
+
+    public function desasignar_entrenador_de_grupo($id_grupo)
+    {
+        # datos para mostrar el mensaje
+        $mensaje = $this->grupo_model->desasignar_entrenador_de_grupo($id_grupo);
+        $data['mensaje'] = $mensaje;
+        # datos para mostrar grupos
+        $entrenadores = $this->entrenador_model->obtener_todos_los_entrenadores();
+        $grupo = $this->grupo_model->obtener_grupo_por_id($id_grupo);
+        $data['grupo'] = $grupo;
+        $data['entrenadores'] = $entrenadores;
+        if($grupo['id_entrenador']==0){
+            $data['nombre_entrenador'] = "";
+        }
+        else{
+            $entrenador = $this->entrenador_model->obtener_entrenador_por_id($grupo['id_entrenador']);
+            $data['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
+        }
+
+        $data['main_content'] = 'grupos/editar_grupo_view';
+        $this->load->view('main_template', $data);
+    }
+
+    public function asignar_entrenador_a_grupo($id_grupo, $id_entrenador)
+    {
+        # datos para mostrar el mensaje
+        $mensaje = $this->grupo_model->asignar_entrenador_de_grupo($id_grupo, $id_entrenador);
+        $data['mensaje'] = $mensaje;
+        # datos para mostrar grupos
+        $entrenadores = $this->entrenador_model->obtener_todos_los_entrenadores();
+        $grupo = $this->grupo_model->obtener_grupo_por_id($id_grupo);
+        $data['grupo'] = $grupo;
+        $data['entrenadores'] = $entrenadores;
+        if($grupo['id_entrenador']==0){
+            $data['nombre_entrenador'] = "";
+        }
+        else{
+            $entrenador = $this->entrenador_model->obtener_entrenador_por_id($grupo['id_entrenador']);
+            $data['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
+        }
+
+        $data['main_content'] = 'grupos/editar_grupo_view';
+        $this->load->view('main_template', $data);
     }
 }
 ?>
