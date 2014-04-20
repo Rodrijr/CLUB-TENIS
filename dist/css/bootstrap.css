@@ -742,12 +742,12 @@ background-color: #ffffff;
 }
 @media (min-width: 768px) {
   .container {
-    width: 75%px;
+    width: 98%;
   }
 }
 @media (min-width: 992px) {
   .container {
-    width: 85%;
+    width: 98%;
   }
 }
 @media (min-width: 1200px) {
@@ -3631,6 +3631,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .tab-content > .tab-pane {
   display: none;
+    
 }
 .tab-content > .active {
   display: block;
@@ -3788,7 +3789,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-nav {
   margin: 6.5px -30px;
   font-family: "glyphicons halflings";
-  font-size: 18px;
+  font-size: 100%;
 }
 .navbar-nav > li > a {
   padding-top: 5px;
@@ -3864,7 +3865,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     vertical-align: middle;
   }
   .navbar-form .input-group > .form-control {
-    width: 100%;
+    width: 98%;
   }
   .navbar-form .control-label {
     margin-bottom: 0;
@@ -3904,7 +3905,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     box-shadow: none;
   }
   .navbar-form.navbar-right:last-child {
-    margin-right: -15px;
+    
   }
 }
 .navbar-nav > li > .dropdown-menu {
@@ -3935,8 +3936,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-text {
     float: left;
-    margin-left: 15px;
-    margin-right: 15px;
   }
   .navbar-text.navbar-right:last-child {
     margin-right: 0;
@@ -4029,8 +4028,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
   background-color: #0094FF;
   border-color: #7FC9FF;
 }
