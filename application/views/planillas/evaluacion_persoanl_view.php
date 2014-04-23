@@ -14,15 +14,17 @@
     <tbody>		            	
         <tr>
             <td>
+            <div >
             <div class='controls'>                           
-                        <INPUT TYPE='text' class="form-control" 
-                        maxlength='10'  
-                        required="required" 
-                        pattern="[0-9]+"
-                        title="Ingrese numeros">
-                        <BR>                                   
-                    </div>
-            
+                <INPUT TYPE='text'
+                       class="form-control" 
+                       maxlength='10'  
+                       required="required" 
+                       pattern="[0-9]+"
+                       title="Ingrese numeros">
+                <BR>                                   
+            </div>
+            </div>
             </td>
             <td>
              <div class='controls'>                           

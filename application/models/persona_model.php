@@ -86,6 +86,12 @@ class Persona_model extends CI_Model
          return $alumnos_horario;
     
     }
+    public function ver_lista_entrenadores()
+    {
+       $query = $this->db->get_where('persona', array('tipo' => 'Entrenador')); 
+       return $query->result_array();
+    }
+    
     
     
 

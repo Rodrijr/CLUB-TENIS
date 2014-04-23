@@ -30,6 +30,14 @@
 	            <li><a href="#">Crear Grupo</a></li> 
 	              <li class="divider"></li>
 	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos">Buscar Grupos</a></li>
+                  
+                  <!-- eliminar luego -->
+                  
+                  
+	              <li class="divider"></li>  <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_mis_grupos">Ver lista de mis grupos</a></li>
+	              <li class="divider"></li>
+                  
+                  
 	          </ul>        
 	        </li>
         </ul>       
@@ -39,11 +47,30 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">REPORTES <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                  <!--   solo el padres  -->
-                <li><a href="#">Ver lista entrenadores</a></li> <!--  secretaria y administrador -->
+                  <!--  ELIMINAR solo el padres  -->
+                  <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/ver_lista_hijos">Ver lista de hijos</a></li>
+                  <!--  ELIMINAR s  -->
+                  
+                <li><a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_lista_entrenadores">Ver lista entrenadores</a></li> <!--  secretaria y administrador -->
                 <li><a href="#">Ver lista de alumnos</a></li><!--   solo el administrador  -->
               </ul>        
             </li>
+        </ul>
+        
+        <!--   MULTIMEDIA  eliminar de aqui  -->
+	    <ul class="nav navbar-nav">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">MULTIMEDIA <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Subir fotos</a></li> <!--   solo el entrenador  -->
+	              
+	            <li><a href="#">Subir videos</a></li><!--   solo el entrenador  -->
+                  <li class="divider"></li>
+                  <li><a href="#">Ver Fotos</a></li> <!--   solo el entrenador  -->
+	              
+	            <li><a href="#">Ver Videos</a></li><!--   solo el entrenador  -->
+	          </ul>        
+	        </li>
         </ul>
         <!--   PERFIL  -->
         <ul class="nav navbar-nav navbar-right">      

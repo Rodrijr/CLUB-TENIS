@@ -75,5 +75,23 @@ class Grupo_model extends CI_Model
         else
             return "Error al Asignar este Entreador";
     }
+    public function ver_mis_grupos()
+    {
+        $id_entrenador=$this->session->userdata('id_usuario');
+        $query = $this->db->get_where('grupo', array('id_entrenador' =>$id_entrenador)); 
+        //print_r($query);
+        return $query->result_array();
+    }
+    public function horario_grupo($id_grupo)
+    {
+        $query = $this->db->get_where('horario',array('id_grupo' =>$id_grupo));
+        return $query->result_array();
+    }
+    public function alumnos_horario($id_horario)
+    {
+        $query = $this->db->get_where('alumno_horario',array('id_horario' =>$id_horario));
+        return $query->result_array();
+        
+    }
 }
 ?>

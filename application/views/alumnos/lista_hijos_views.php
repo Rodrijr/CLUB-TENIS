@@ -1,6 +1,6 @@
 
      <div class="container">
-    <ul id="myTab" class="nav nav-tabs">
+    <ul id="myTab" class="nav nav-pills">
         <?php
             foreach ($lista as $hijo)
             {
@@ -123,6 +123,7 @@
                 <?php
                 echo  '</div>';
             }
+            
         ?>        
     </div>
          </div>

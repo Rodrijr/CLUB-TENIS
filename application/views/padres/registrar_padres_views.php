@@ -99,16 +99,17 @@
                 <INPUT TYPE='text' class="form-control" NAME='NOMBRE' <?php  if(isset($entrenador)) {                           echo " value ='".$entrenador['nombre_entrenador']."'"; } ?>
                        onkeypress='return isNumberKey(event)' required="required" 
                        maxlength='35' required="required" maxlength="30" 
-                       pattern="[a-zA-Z]+" title="Ingrese solo letras"><BR>
+                      ><BR>
             </div>
         </div>
                          
                          <div class='control-group'>                            
             <div class='controls'>         
                  <label for="inputEmail" class="col-lg-2 control-label">APELLIDO:<font color='#FF0000'>*</font></label>
-                <INPUT TYPE='text' class="form-control" NAME='APELLIDO' <?php  if(isset($entrenador)) {                     echo "value ='".$entrenador['apellido_entrenador']."'"; } ?>
-                  onkeypress='return isNumberKey(event)' maxlength='35'
-                   pattern="[a-zA-Z]+" title="Solo se aceptan letras"
+                <INPUT TYPE='text' class="form-control"
+                       NAME='APELLIDO' <?php  if(isset($entrenador)) {                     echo "value ='".$entrenador['apellido_entrenador']."'"; } ?>
+                       onkeypress='return isNumberKey(event)' 
+                       maxlength='35'                  
                        required="required" 
                        ><BR>
             </div>
@@ -118,9 +119,12 @@
         <div class='control-group'>
             <div class='controls'>
                <label class="col-lg-2 control-label"> TELEFONO:<font color='#FF0000'>*</font></label>
-                <INPUT TYPE='text' class="form-control" NAME='TELEFONO' <?php  if(isset($entrenador)) {  echo " value ='".$entrenador['telefono']."'"; } ?>
-                onkeypress='javascript:return validarNro(event)' maxlength='10'
-                       pattern="[0-9]+" title="Ingrese solo Numeros" required="required" 
+                <INPUT TYPE='text' class="form-control"
+                       NAME='TELEFONO' <?php  if(isset($entrenador)) {  echo " value ='".$entrenador['telefono']."'"; } ?>
+                       onkeypress='javascript:return validarNro(event)'
+                       maxlength='10'
+                       pattern="[0-9]+" 
+                       title="Ingrese solo Numeros" required="required" 
                        ><BR>
             </div>
         </div>
