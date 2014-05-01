@@ -63,5 +63,35 @@ class Grupo_model extends CI_Model
         else
             return "Error al Asignar este Entreador";
     }
+
+    public function crear_grupo($nombre_grupo)
+    {
+        $nuevo_grupo = array(
+            'nombre_grupo' => $nombre_grupo, 
+            'id_entrenador' => 0);
+
+        $resp = $this->db->insert('grupo', $nuevo_grupo);
+        if($resp==1)
+        {
+            return "El registro fue existoso";
+        }
+        else
+        {
+            return "Revise el formato de los datos";
+        }
+    }
+
+    public function asignar_horarios($id_grupo,$lista_horarios,$id_alumno)
+    {
+        foreach ($lista_horarios as $horario) {
+            $nuevo_horario_grupo_alumno = array(
+            'id_grupo' => $id_grupo, 
+            'id_horario' => $horario,
+            'id_alumno' => $id_alumno);
+
+            $this->db->insert('grupo_horario_alumno', $nuevo_horario_grupo_alumno);
+        }
+        
+    }
 }
 ?>
