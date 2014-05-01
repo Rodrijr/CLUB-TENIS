@@ -166,11 +166,11 @@ class Grupo_controller extends CI_Controller {
         if($grupo['id_entrenador']==0){
             $data['nombre_entrenador'] = "";
         }
-        else{
+        else
+        {
             $entrenador = $this->entrenador_model->obtener_entrenador_por_id($grupo['id_entrenador']);
             $data['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
         }
-
         $data['main_content'] = 'grupos/editar_grupo_view';
         $this->load->view('main_template', $data);
     }
@@ -267,5 +267,47 @@ class Grupo_controller extends CI_Controller {
         $this->load->view('main_template', $data);
     }
     // -------------------- /. Metodos de Horario -------------------- //
+    
+    public function ver_mis_grupos()
+    {
+        $grupos =$this->grupo_model->ver_mis_grupos();
+        $horarios = array();
+        $alumnos_grupo = array();
+        $lista1=array();
+        foreach($grupos as $grupo)
+        {
+$lista= $this->grupo_model->horario_grupo($grupo['id_grupo']);
+            
+        foreach($lista as $hora)
+        {
+            $id_alumnos =$this->grupo_model->alumnos_horario($hora['id_horario']);
+            $elem = array($hora['id_horario']=>$id_alumnos);
+
+            echo "<br>";
+            array_push($lista1,$elem);
+        }
+        $elemento=array($grupo['nombre_grupo']=>$lista1);
+            print_r($lista);
+        array_push($horarios,$elemento);
+            
+        /*foreach($lista as $hora)
+        {
+           // print_r($hora);
+$id_alumnos =$this->grupo_model->alumnos_horario($hora['id_horario']);
+          
+           
+            $elemento1 = array($hora['id_horario']=>$id_alumnos);
+            array_push($alumnos_grupo,$elemento1);
+        }*/
+            
+        }    
+            echo "<br><br>";
+         //echo  print_r($horarios);
+        $data['grupos']=$grupos;
+        $data['lista']=$horarios;
+        $data['main_content'] = 'grupos/ver_mis_grupos_view';
+        $this->load->view('main_template', $data);
+    }
+
 }
 ?>

@@ -47,6 +47,5 @@
 <body background="<?php echo base_url(); ?>imagenes\header.jpg">
 	<script src="<?php echo base_url(); ?>dist/js/bsa.js"></script>
     <div class="container">
-        
 		<img aling ="center" width="100%" height="300" src="<?php echo base_url(); ?>imagenes\portada.jpg" /><br />
 	</div>

@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -18,7 +20,7 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GRUPOS <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Ver lista de grupos</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_mis_grupos">Ver lista de grupos</a></li>
 	              <li class="divider"></li>
 	            <li><a href="#">Seleccionar Planilla</a></li>
 	          </ul>        
@@ -30,7 +32,7 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">PLANILLA <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Llenar Planilla</a></li> 
+	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/lista_planillas">Llenar Planilla</a></li> 
 	          </ul>        
 	        </li>
       	</ul>   

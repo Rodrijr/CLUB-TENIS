@@ -129,5 +129,12 @@ class Persona_controller extends CI_Controller {
 		$this->load->view('main_template', $data);
         
     }
+    public function ver_lista_entrenadores()
+    {
+        $persona = $this->persona_model->ver_lista_entrenadores();
+        $data['entrenadores'] = $persona;
+        $data['main_content'] = 'entrenadores/lista_entrenadores_views';
+		$this->load->view('main_template', $data);
+    }
 }
 ?>

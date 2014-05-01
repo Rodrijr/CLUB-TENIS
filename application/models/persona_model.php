@@ -61,6 +61,39 @@ class Persona_model extends CI_Model
         return "";
     }
     
+    public function lista_alumno_horario()
+    {
+         $id_persona = $this->session->userdata('id_usuario');
+         $grupos = $this->grupo_model->grupos_entrenador($id_persona);
+        //print_r($grupos);
+         $alumnos_horario=array();
+         foreach($grupos as $grupo)
+         {
+//print_r($grupo);echo "<br>";
+         
+                $id_grupo= $grupo['id_grupo'];
+               
+            $horarios= $this->grupo_model->obtener_horario($id_grupo);
+           // print_r($horarios);
+            foreach($horarios as $hora)
+             {
+                 $id_hora=$hora['id_horario'];
+   array_push($alumnos_horario,$this->grupo_model->id_alumno_horario($id_hora));
+              
+             }
+             
+         }
+         return $alumnos_horario;
+    
+    }
+    public function ver_lista_entrenadores()
+    {
+       $query = $this->db->get_where('persona', array('tipo' => 'Entrenador')); 
+       return $query->result_array();
+    }
+    
+    
+    
 
 }
 
