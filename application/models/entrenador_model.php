@@ -66,6 +66,7 @@ class Entrenador_model extends CI_Model
          return $query->result_array();
     }
     
+    /* Funcion Like */
     public function buscar_entrenador_por_nombre($nombre)
     {
         $this->db->select('*');

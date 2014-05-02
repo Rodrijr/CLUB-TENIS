@@ -13,11 +13,6 @@ class Grupo_model extends CI_Model
         //print_r($query);
         return $query->result_array();
     }
-    public function obtener_grupo_ID($id_grupo)
-    {
-         $query = $this->db->get_where('grupo', array('id_grupo' => $id_grupo)); 
-        return $query->result_array();
-    }
 
     public function obtener_grupo_por_id($id_grupo)
     {
@@ -123,9 +118,18 @@ $grupo = $this->db->get_where('grupo',array('id_grupo' => $hora['id_grupo']));
         }
         return $grupos;
     }
+
     public function alumnos_horario($id_horario)
     {
         $query = $this->db->get_where('alumno_horario',array('id_horario' =>$id_horario));
+        return $query->result_array();
+    }
+
+    public function buscar_grupo_por_nombre($nombre_grupo)
+    {
+        $this->db->select('*');
+        $this->db->like('nombre_grupo', $nombre_grupo);
+        $query=$this->db->get('grupo');
         return $query->result_array();
     }
  

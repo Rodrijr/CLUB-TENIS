@@ -4,7 +4,7 @@
             <div class="col-lg-6">
                   <fieldset>
    
-                 <?php echo form_open_multipart(''); ?>
+                <?php echo form_open_multipart(''); ?>
                 <H3><label >ES EL GRUPO:</label></H3>
                       <h1> 
                    
@@ -20,34 +20,13 @@
                     <fieldset>
                               
                     <div class='control-group'>
-                         <label >ENCARGADO:
+                         <label >Descripcion:
                              <font color='#386CC4'>
                         <?php
-                           echo $persona['nombre_persona'];
-                           echo $persona['apellido_persona'];
+                           echo $grupo['descripcion_grupo'];
                         ?>
                             </font>
                         </label><br>
-                    </div>
-                        
-                        
-                    <div class='control-group'>
-                        <label >HORARIOS:
-                            <font color='#386CC4'>
-                        <?php 
-                         echo "<br>";
-                            
-                          foreach($horarios as $horario)
-                          {
-                             
-                                echo " | ".$horario['horario'].""; 
-                               
-                          }
-                        echo " | ";
-                        ?>
-                            </font>
-                        </label><br>       
-                        
                     </div>  
                     </fieldset>
                   </h3> 

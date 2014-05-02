@@ -8,7 +8,7 @@
                     <label class="col-lg-2 control-label">Buscar Por: </label>
                     <div class="col-lg-7">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="nombreEntrenador" placeholder="Nombre de Entrenador" pattern="[a-zA-Z]+" title="Solo se aceptan Letras">
+                            <input type="text" class="form-control" name="nombreGrupo" placeholder="Nombre de Grupo">
                             <span class="input-group-addon"> <span class="glyphicon glyphicon-search"></span> </span>
                         </div>
                     </div>
@@ -34,8 +34,8 @@
 		          	<thead>
 		              <tr>
 		                <th>#</th>
-		                <th>Nombre Grupo</th>
-		                <th>Entrenador</th>
+		                <th>Nombre</th>
+		                <th>Descripci&oacute;n</th>
 		                <th></th>
 		                <th></th>
 		                <th></th>
@@ -43,12 +43,12 @@
 		            </thead>
 		            <tbody>
 		            	<?php $cont = 1; ?>
-		            	<?php	foreach($lista_de_grupos as $grupo){ ?>
+		            	<?php	foreach($grupos as $grupo){ ?>
 		            	<!--<td><a href="<?php # echo base_url(); ?>grupos/Grupo_controller/ver_grupo/">Ver</a></td> -->
 		                <tr>
 		                	<td><?php echo $cont; ?></td>
 		                    <td><?php echo $grupo['nombre_grupo']; ?></td>
-	                        <td><?php echo $grupo['nombre_entrenador']; ?></td>
+		                    <td><?php echo $grupo['descripcion_grupo']; ?></td>
 		                    <td><a Title="Ver Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-eye-open"></span></a></td>
 	                  		<td><a Title="Editar Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-edit"></span></a></td>
 							<td><a Title="Eliminar Grupo" href=""><span class="glyphicon glyphicon-trash"></span></a></td>
