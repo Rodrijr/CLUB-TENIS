@@ -116,8 +116,39 @@ class Persona_model extends CI_Model
        $query = $this->db->get_where('persona', array('tipo' => 'Alumno')); 
        return $query->result_array();
     }
-    
-    
+    public function persona_ci($persona)
+    {
+        $this->db->select('*');
+        if(!empty($persona['ci_persona']))
+        {
+        $this->db->or_like('ci_persona', $persona['ci_persona']);
+        }
+        if(!empty($persona['nombre_persona']))
+        {
+        $this->db->or_like('nombre_persona', $persona['nombre_persona']);
+        }
+        if(!empty($persona['apellido_persona']))
+        {
+        $this->db->or_like('apellido_persona', $persona['apellido_persona']);
+        }
+        $query=$this->db->get('persona');
+        return $query->result_array();
+    }
+   /* public function persona_nombre($persona)
+    {
+        $this->db->select('*');
+        $this->db->like('nombre_persona', $persona['nombre_persona']);
+        $query=$this->db->get('persona');
+      
+        return $query->result_array();
+    }
+    public function persona_apellido($persona)
+    {
+        $this->db->select('*');
+        $this->db->like('apellido_persona', $persona['apellido_persona']);
+        $query=$this->db->get('persona');
+        return $query->result_array();
+    }*/
     
 
 }
