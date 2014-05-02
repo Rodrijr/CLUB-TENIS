@@ -71,11 +71,11 @@ class Grupo_model extends CI_Model
             return "Error al Asignar este Entreador";
     }
 
-    public function crear_grupo($nombre_grupo)
+    public function crear_grupo($nombre_grupo, $descripcion_grupo)
     {
         $nuevo_grupo = array(
             'nombre_grupo' => $nombre_grupo, 
-            'id_entrenador' => 0);
+            'descripcion_grupo' => $descripcion_grupo);
 
         $resp = $this->db->insert('grupo', $nuevo_grupo);
         if($resp==1)

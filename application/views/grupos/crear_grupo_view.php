@@ -18,7 +18,15 @@
             <label class="control-label" for="inputDefault">Nombre: </label>
           </div>
           <div class="col-lg-5 col-lg-offset-1">
-            <input type="text" class="form-control" name="nombreGrupo" placeholder="Nombre del Grupo" maxlength="30" pattern="[a-zA-Z0-9]+" title="Solo se aceptan letras y Numeros. Ejemplo: Grupo3" required="required"><br>
+            <input type="text" class="form-control" name="nombreGrupo" placeholder="Nombre del Grupo" maxlength="30" required="required"><br>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="col-lg-12">
+            <label class="control-label" for="inputDefault">Descripci&oacute;n: </label>
+          </div>
+          <div class="col-lg-5 col-lg-offset-1">
+            <input type="text" class="form-control" name="descripcionGrupo" placeholder="Nombre del Grupo" maxlength="30" required="required"><br>
           </div>
         </div>
       </div>

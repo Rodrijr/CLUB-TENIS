@@ -144,22 +144,9 @@ class Grupo_controller extends CI_Controller {
     public function crear_grupo()
     {
         $nombre_grupo = $this->input->post('nombreGrupo');
-        $mensaje_crear_grupo = $this->grupo_model->crear_grupo($nombre_grupo);
-        $grupos = $this->grupo_model->obtener_todos_los_grupos($nombre_grupo);
-        foreach($grupos as $itemgrupo){
-            $ultimo_grupo = $itemgrupo;
-        }
-        $entrenadores = $this->entrenador_model->obtener_todos_los_entrenadores();
-        $data['grupo'] = $ultimo_grupo;
-        $data['entrenadores'] = $entrenadores;
-        if($grupo['id_entrenador']==0){
-            $data['nombre_entrenador'] = "";
-        }
-        else{
-            $entrenador = $this->entrenador_model->obtener_entrenador_por_id($ultimo_grupo['id_entrenador']);
-            $data['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
-        }
-        $data['main_content'] = 'grupos/editar_grupo_view';
+        $descripcion_grupo = $this->input->post('descripcionGrupo');
+        $mensaje_crear_grupo = $this->grupo_model->crear_grupo($nombre_grupo, $descripcion_grupo);
+        $data['main_content'] = 'grupos/ver_lista_de_grupos_view';
         $this->load->view('main_template', $data);
     }
 
