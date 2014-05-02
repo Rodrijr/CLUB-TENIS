@@ -87,7 +87,7 @@
                                onkeypress='return validarNro(event)'
                                <?php if(isset($entrenador)) {  echo "value ='var_dump(".$entrenador['ci_entrenador'].")'"; 
                                     }
-                               ?> maxlength='10'  required="required" 
+                               ?> maxlength='7'  required="required" 
                                pattern="[0-9]+" title="Ingrese numeros">
                         <BR>                                   
                     </div>

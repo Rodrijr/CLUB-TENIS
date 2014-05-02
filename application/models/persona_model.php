@@ -51,6 +51,21 @@ class Persona_model extends CI_Model
         $this->db->where('id_persona',$id);
         return $this->db->update('usuario',$usuario);
     }
+    public function obtener_persona_CI($persona)
+    {
+         $query = $this->db->get_where('persona', array('ci_persona' => $persona['ci_persona'])); 
+         $per = $query->result_array();
+        if($query->num_rows() >= 1 )
+        {
+            if($per[0] == $persona)
+            {
+               return 0;
+            }
+            else
+                return 1;
+        }
+        return 0;
+    }
     public function obtener_usuario($id)
     {
         $query = $this->db->get_where('usuario', array('id_persona' => $id)); 
@@ -89,6 +104,16 @@ class Persona_model extends CI_Model
     public function ver_lista_entrenadores()
     {
        $query = $this->db->get_where('persona', array('tipo' => 'Entrenador')); 
+       return $query->result_array();
+    }
+    public function obtener_padres()
+    {
+       $query = $this->db->get_where('persona', array('tipo' => 'Padre')); 
+       return $query->result_array();
+    }
+    public function obtener_alumnos()
+    {
+       $query = $this->db->get_where('persona', array('tipo' => 'Alumno')); 
        return $query->result_array();
     }
     

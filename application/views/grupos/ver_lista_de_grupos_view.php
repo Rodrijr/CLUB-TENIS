@@ -4,8 +4,6 @@
       <div class="col-lg-9 col-lg-offset-2">
       	<?php echo form_open('Grupo_controller/buscar_grupos')?>          
             <fieldset>
-                <!-- zzzzzzzzzzzzzzzzzzz Datos Basicos zzzzzzzzzzzzzzzzzzzzzzz -->
-
                 <div class="col-lg-10 form-group">
                     <label class="col-lg-2 control-label">Buscar Por: </label>
                     <div class="col-lg-7">

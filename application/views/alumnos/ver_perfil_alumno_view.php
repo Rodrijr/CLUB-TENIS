@@ -204,7 +204,7 @@
                              value="<?php echo $persona['apellido_persona'];?>"
                               onkeypress='return isNumberKey(event)'
                              maxlength='35'
-                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
+                              required="required"
                              name ='APELLIDO'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>TELEFONO  </label></span>
@@ -219,7 +219,7 @@
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['direccion'];?>"
                              maxlength='50'
-                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
+                              required="required"
                              name ='DIRECCION'>
                     </div>       
              
