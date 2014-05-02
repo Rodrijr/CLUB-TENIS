@@ -22,13 +22,34 @@ class Alumno_controller extends CI_Controller {
 
     public function registrar_alumno()
     {
-        //if(!isset($_POST['username']))
-        //{
-        //    $this->login_formulario(); //si no recibimos datos por post, cargamos la vista del formulario
-        //}
-
+        $this->form_validation->set_rules('CI','CI','trim|required|xss_clean|numeric');
+         $this->form_validation->set_rules('NOMBRE','NOMBRE','trim|required|xss_clean');
+         $this->form_validation->set_rules('APELLIDO','APELLIDO','trim|required|xss_clean');        
+         $this->form_validation->set_rules('TELEFONO','TELEFONO','trim|required|xss_clean|numeric');  
+         $this->form_validation->set_rules('DIRECCION','DIRECCION','trim|required|xss_clean'); 
+        $alumno = array(
+                    'ci_persona'=> $this->input->post('CI'),
+                    'nombre_persona' => $this->input->post('NOMBRE'),
+                    'apellido_persona' => $this->input->post('APELLIDO'),
+                    'telefono' => $this->input->post('TELEFONO'),
+                    'direccion' => $this->input->post('DIRECCION'),  
+                    'email' => $this->input->post('EMAIL'),
+                    'tipo' => 'Alumno',
+                );      
+        if($this->form_validation->run())
+        {                  
+                $registro = $this->alumno_model->registrar_alumno($alumno);    
+                $MSN = $registro;
+        }
+        else
+        {
+                $MSN = $this->form_validation->run();
+        }
+      
+        $data['MSN'] = $MSN;
+        $data['persona'] =$alumno;
         $data['main_content'] = 'alumnos/registrar_alumno_view';
-        $this->load->view('main_template', $data);   
+        $this->load->view('main_template', $data);
     }
     
     public function ver_lista_hijos()
@@ -61,7 +82,7 @@ class Alumno_controller extends CI_Controller {
          $this->form_validation->set_rules('TELEFONO','TELEFONO','trim|required|xss_clean|numeric');  
          $this->form_validation->set_rules('DIRECCION','DIRECCION','trim|required|xss_clean'); 
  
-      $persona = array(
+        $persona = array(
             'ci_persona' => $this->input->post('CI'),
             'nombre_persona' =>$this->input->post('NOMBRE'),
             'apellido_persona' => $this->input->post('APELLIDO'),
@@ -73,7 +94,15 @@ class Alumno_controller extends CI_Controller {
         
         
         if($this->form_validation->run())
-        {                  
+        {     
+             $actualizar = $this->persona_model->obtener_persona_CI($persona);
+            if( $actualizar ==1 )
+            {
+                 $MSN ="El CI ya fue registrado.";
+                $tipo ="panel panel-danger";
+            }
+            else
+            {
                 $actualizar = $this->persona_model->modificar_mi_perfil($id,$persona);
                 if($actualizar)
                 {
@@ -84,7 +113,9 @@ class Alumno_controller extends CI_Controller {
                 {
                     $MSN = "Verifique los datos actual.";
                      $tipo ="panel panel-danger";
-                }                
+                }  
+            }
+            
         }
         else
         {
@@ -103,6 +134,13 @@ class Alumno_controller extends CI_Controller {
         $data['main_content'] = 'alumnos/ver_perfil_alumno_view';
 		$this->load->view('main_template', $data);
         
+    }
+    public function ver_lista_alumnos()
+    {
+        $persona = $this->alumno_model->ver_lista_alumnos();
+        $data['alumnos'] = $persona;
+        $data['main_content'] = 'alumnos/lista_alumnos_views';
+		$this->load->view('main_template', $data);
     }
 }
 ?>

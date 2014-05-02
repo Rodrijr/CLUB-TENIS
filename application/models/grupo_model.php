@@ -108,19 +108,26 @@ class Grupo_model extends CI_Model
     public function ver_mis_grupos()
     {
         $id_entrenador=$this->session->userdata('id_usuario');
-        $query = $this->db->get_where('grupo', array('id_entrenador' =>$id_entrenador)); 
-        //print_r($query);
-        return $query->result_array();
-    }
-    public function horario_grupo($id_grupo)
-    {
-        $query = $this->db->get_where('horario',array('id_grupo' =>$id_grupo));
-        return $query->result_array();
+        $query = $this->db->get_where('horarios', array('id_entrenador' =>$id_entrenador)); 
+        $horarios = $query->result_array();
+        $grupos = array();
+        foreach($horarios as $hora)
+        {
+$grupo = $this->db->get_where('grupo',array('id_grupo' => $hora['id_grupo']));
+            $aux=array();
+            $g = $grupo->result_array();
+         
+            //$aux = array($g['nombre_grupo']=>$hora);
+          /// print_r($aux);
+           array_push($grupos,$g);
+        }
+        return $grupos;
     }
     public function alumnos_horario($id_horario)
     {
         $query = $this->db->get_where('alumno_horario',array('id_horario' =>$id_horario));
         return $query->result_array();
     }
+ 
 }
 ?>

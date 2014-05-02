@@ -48,8 +48,12 @@ class Padre_controller extends CI_Controller {
         {
                 $MSN = $this->form_validation->run();
         }
+        if(strcmp($MSN,"El registro fue existoso"))
+        {
+            $padre = array();
+        }
         $data['MSN'] = $MSN;
-        $data['padre'] =$padre;
+        $data['persona'] =$padre;
         $data['main_content'] = 'padres/registrar_padres_views';
         $this->load->view('main_template', $data);  
     }

@@ -55,6 +55,14 @@ class Persona_controller extends CI_Controller {
         
         if($this->form_validation->run())
         {                  
+            $actualizar = $this->persona_model->obtener_persona_CI($persona);
+            if( $actualizar ==1 )
+            {
+                 $MSN ="El CI ya fue registrado.";
+                $tipo ="panel panel-danger";
+            }
+            else
+            {
                 $actualizar = $this->persona_model->modificar_mi_perfil($id,$persona);
                 if($actualizar)
                 {
@@ -65,7 +73,8 @@ class Persona_controller extends CI_Controller {
                 {
                     $MSN = "Verifique los datos actual.";
                      $tipo ="panel panel-danger";
-                }                
+                }  
+            }
         }
         else
         {
