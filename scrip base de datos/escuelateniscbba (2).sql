@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.4
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-04-2014 a las 10:56:24
--- Versión del servidor: 5.1.41
--- Versión de PHP: 5.3.1
+-- Tiempo de generación: 02-05-2014 a las 19:58:04
+-- Versión del servidor: 5.5.16
+-- Versión de PHP: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -25,18 +26,17 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Estructura de tabla para la tabla `alumno_horario`
 --
 
-DROP TABLE IF EXISTS `alumno_horario`;
 CREATE TABLE IF NOT EXISTS `alumno_horario` (
-  `id_horario` int(11) NOT NULL,
+  `id_grupo` int(11) NOT NULL,
   `id_alumno` int(11) NOT NULL,
-  PRIMARY KEY (`id_horario`,`id_alumno`)
+  PRIMARY KEY (`id_grupo`,`id_alumno`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcar la base de datos para la tabla `alumno_horario`
+-- Volcado de datos para la tabla `alumno_horario`
 --
 
-INSERT INTO `alumno_horario` (`id_horario`, `id_alumno`) VALUES
+INSERT INTO `alumno_horario` (`id_grupo`, `id_alumno`) VALUES
 (0, 21),
 (1, 17),
 (1, 26),
@@ -52,8 +52,30 @@ INSERT INTO `alumno_horario` (`id_horario`, `id_alumno`) VALUES
 (6, 14),
 (7, 13),
 (8, 4),
-(9, 10),
 (10, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `evaluacion_personal`
+--
+
+CREATE TABLE IF NOT EXISTS `evaluacion_personal` (
+  `id_evaluacion` int(11) NOT NULL AUTO_INCREMENT,
+  `id_alumno` int(11) NOT NULL,
+  `comportamiendo` text COLLATE latin1_spanish_ci NOT NULL,
+  `entrega` text COLLATE latin1_spanish_ci NOT NULL,
+  `actitud_cancha` text COLLATE latin1_spanish_ci NOT NULL,
+  `actitud_preparacion` text COLLATE latin1_spanish_ci NOT NULL,
+  `asistencia` text COLLATE latin1_spanish_ci NOT NULL,
+  `puntualidad` text COLLATE latin1_spanish_ci NOT NULL,
+  `rendimiento_torneos` text COLLATE latin1_spanish_ci NOT NULL,
+  `puntaje_total` text COLLATE latin1_spanish_ci NOT NULL,
+  `id_entrenador` int(11) NOT NULL,
+  `id_preparadorfisico` int(11) NOT NULL,
+  `head_pro` int(11) NOT NULL,
+  PRIMARY KEY (`id_evaluacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -61,52 +83,45 @@ INSERT INTO `alumno_horario` (`id_horario`, `id_alumno`) VALUES
 -- Estructura de tabla para la tabla `grupo`
 --
 
-DROP TABLE IF EXISTS `grupo`;
 CREATE TABLE IF NOT EXISTS `grupo` (
   `id_grupo` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_grupo` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `id_entrenador` int(11) NOT NULL,
+  `horario` varchar(12) COLLATE latin1_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_grupo`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=4 ;
 
 --
--- Volcar la base de datos para la tabla `grupo`
+-- Volcado de datos para la tabla `grupo`
 --
 
-INSERT INTO `grupo` (`id_grupo`, `nombre_grupo`, `id_entrenador`) VALUES
-(1, 'Grupo 1', 1),
-(2, 'Grupo 1', 3),
-(3, 'Grupo 2', 3);
+INSERT INTO `grupo` (`id_grupo`, `nombre_grupo`, `horario`) VALUES
+(1, 'Grupo 3', '12'),
+(2, 'Grupo 1', '3'),
+(3, 'Grupo 2', '3');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `horario`
+-- Estructura de tabla para la tabla `horarios`
 --
 
-DROP TABLE IF EXISTS `horario`;
-CREATE TABLE IF NOT EXISTS `horario` (
+CREATE TABLE IF NOT EXISTS `horarios` (
   `id_horario` int(11) NOT NULL AUTO_INCREMENT,
-  `horario` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  `hora` varchar(12) COLLATE latin1_spanish_ci NOT NULL,
   `id_grupo` int(11) NOT NULL,
+  `id_entrenador` int(11) DEFAULT NULL,
+  `tipo` varchar(8) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY (`id_horario`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=4 ;
 
 --
--- Volcar la base de datos para la tabla `horario`
+-- Volcado de datos para la tabla `horarios`
 --
 
-INSERT INTO `horario` (`id_horario`, `horario`, `id_grupo`) VALUES
-(1, '7:00 - 8:00', 1),
-(2, '8:00 - 9:00', 1),
-(3, '10:00 - 11:00', 1),
-(4, '15:00 - 16:00', 2),
-(5, '16:00 - 17:00', 2),
-(6, '18:00 - 19:00', 2),
-(7, '7:00 - 8:00', 3),
-(8, '8:00 - 9:00', 3),
-(9, '9:00 - 10:00', 3),
-(10, '10:00 - 11:00', 3);
+INSERT INTO `horarios` (`id_horario`, `hora`, `id_grupo`, `id_entrenador`, `tipo`) VALUES
+(1, '7:00-8:00', 2, 12, 'Tactico'),
+(2, '8:00-9:30', 2, 3, 'Fisico'),
+(3, '8254', 3, 12, 'Tactico');
 
 -- --------------------------------------------------------
 
@@ -114,18 +129,20 @@ INSERT INTO `horario` (`id_horario`, `horario`, `id_grupo`) VALUES
 -- Estructura de tabla para la tabla `padre_alumno`
 --
 
-DROP TABLE IF EXISTS `padre_alumno`;
 CREATE TABLE IF NOT EXISTS `padre_alumno` (
   `id_padre_alumno` int(11) NOT NULL AUTO_INCREMENT,
   `id_padre` int(11) NOT NULL,
   `id_alumno` int(11) NOT NULL,
   PRIMARY KEY (`id_padre_alumno`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=3 ;
 
 --
--- Volcar la base de datos para la tabla `padre_alumno`
+-- Volcado de datos para la tabla `padre_alumno`
 --
 
+INSERT INTO `padre_alumno` (`id_padre_alumno`, `id_padre`, `id_alumno`) VALUES
+(1, 12, 4),
+(2, 12, 6);
 
 -- --------------------------------------------------------
 
@@ -133,7 +150,6 @@ CREATE TABLE IF NOT EXISTS `padre_alumno` (
 -- Estructura de tabla para la tabla `persona`
 --
 
-DROP TABLE IF EXISTS `persona`;
 CREATE TABLE IF NOT EXISTS `persona` (
   `id_persona` int(10) NOT NULL AUTO_INCREMENT,
   `ci_persona` varchar(7) COLLATE latin1_spanish_ci NOT NULL COMMENT 'almacena el ci de la persona',
@@ -144,22 +160,18 @@ CREATE TABLE IF NOT EXISTS `persona` (
   `email` varchar(50) COLLATE latin1_spanish_ci NOT NULL COMMENT 'es el email de la persona',
   `tipo` varchar(15) COLLATE latin1_spanish_ci NOT NULL COMMENT 'indica el tipo de acceso de la persona',
   PRIMARY KEY (`id_persona`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=46 ;
 
 --
--- Volcar la base de datos para la tabla `persona`
+-- Volcado de datos para la tabla `persona`
 --
 
 INSERT INTO `persona` (`id_persona`, `ci_persona`, `nombre_persona`, `apellido_persona`, `telefono`, `direccion`, `email`, `tipo`) VALUES
-(1, '1234567', 'Daniel', 'Campos Peredo', '12345678', 'direccion entrenador 1', '', 'Entrenador'),
-(3, '1234567', 'Dominic', 'Araoz Mendizabal', '87654321', 'direccion entrenador 2', '', 'Entrenador'),
-(4, '4564564', 'alumno 1', 'apellido alumno 1', '12312312', 'direccion aumno 1', '', 'Alumno'),
-(6, '1324564', 'alumno 2', 'apellido alumno 2', '12314562', 'direccion aumno 2', '', 'Alumno'),
-(8, '123', 'padre 1', 'apellido padre 1', '1234123412', 'qwedqwed', '1adscasdcad', 'Padre'),
-(9, '13241', 'padre2', 'apellido padre 2', '1234123412', 'qwedqwed', '1adscasdcad', 'Padre'),
-(10, '12365', 'dewqdawe', 'dsdsd', '1234123423', 'qwedqwed', 'asdcasdcasd', 'Alumno'),
-(11, '2345234', 'WERFW', 'FWERF', '234523452', 'FWERFWERFW', 'FVSDFVSFDV', 'Padre'),
-(12, '5234524', 'secretaria 1', 'apellidos secretaria 1', '412341234', 'sdfasdfsadfafd', '1adscasdcad', 'Secretaria'),
+(3, '1234567', 'Daniel ', 'Miranda', '87654321', 'direccion entrenador 2', 'daniel@hotmail.com', 'Entrenador'),
+(4, '4564564', 'Jaime', 'Blanco Pozo', '8689572', 'direccion aumno 1', '0', 'Alumno'),
+(6, '9876541', 'Ramiro', 'Blanco Pozo', '12314562', 'direccion aumno 2', '0', 'Alumno'),
+(9, '1324138', 'Gualberto', 'Escobar Mejia', '1234123412', 'av. america', 'gualberto_padre@hotmail.com', 'Padre'),
+(12, '123456', 'Mariana', 'Soto Arce', '412341234', 'sdfasdfsadfafd', 'mariana_secreatria@hotmail.es', 'Secretaria'),
 (13, '7456756', 'Leonardo', 'Mejia Pacheco', '442917438', 'Circunvalacion', 'leo@hotmail.com', 'Alumno'),
 (14, '8463456', 'Jhonny Rodrigo', 'Blanco Pozo', '745674567', 'Villa lobos', 'rodri@hotmail.com', 'Alumno'),
 (15, '4576467', 'Pablo', 'Otondo Alquizalet', '2643562345', 'America Norte', 'pablo@hotmail.com', 'Alumno'),
@@ -173,7 +185,10 @@ INSERT INTO `persona` (`id_persona`, `ci_persona`, `nombre_persona`, `apellido_p
 (23, '5768734', 'Fabiola', 'Pedrazas Peredo', '5635463452', 'Calle Astiruas', 'mary@hotmail.com', 'Alumno'),
 (24, '7856785', 'Daniela', 'Perez Paredez', '4673674567', 'Segunda Circunvalacion', 'mary@hotmail.com', 'Alumno'),
 (25, '6785757', 'Miguel', 'Illanez Vargas', '3456345634', 'calle Sucre', 'miki@hotail.com', 'Alumno'),
-(26, '4523452', 'Marco', 'Potter', '34624645', 'Cruce taquinia', 'mary@hotmail.com', 'Alumno');
+(26, '4523452', 'Marco', 'Potter', '34624645', 'Cruce taquinia', 'mary@hotmail.com', 'Alumno'),
+(33, '3134277', 'mariafernanda', 'jimenezperedo', '72211125', 'gghgghghghghghgcccccccccccccccccccccccbbbbbbbbbbbb', 'm@gmai.com', 'Padre'),
+(35, '44444', 'enrique', 'arriaza', '434434', 'sfsff', 'cscc@gsgg.com', 'Entrenador'),
+(45, '8689572', 'Jhonny Rodrigo', 'Blanco Pozo', '79785382', 'av .america', 'rodri_a_11@hotmail.es', 'Alumno');
 
 -- --------------------------------------------------------
 
@@ -181,23 +196,24 @@ INSERT INTO `persona` (`id_persona`, `ci_persona`, `nombre_persona`, `apellido_p
 -- Estructura de tabla para la tabla `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id_persona` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `password` varchar(300) COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY (`id_persona`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=101 ;
 
 --
--- Volcar la base de datos para la tabla `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`id_persona`, `login`, `password`) VALUES
-(1, 'entrenador', 'entrenador123'),
+(3, 'entrenador', 'entrenador123'),
 (10, 'alumno', 'alumno123'),
 (9, 'padre', 'padre123'),
-(12, 'secretaria', 'secretaria123');
+(12, 'secretaria', 'secre123'),
+(100, 'entrenador', 'entrenador123'),
+(33, 'mariafer', 'mariafer123');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
