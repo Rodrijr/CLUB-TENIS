@@ -51,10 +51,7 @@ class Notificacion_controller extends CI_Controller
         'apellido_persona'=>$this->input->post('apellido_persona')
         );
         $alumnos = array();
-       $alumnos = $this->persona_model->persona_ci($persona);
-            
-        
-       
+        $alumnos = $this->persona_model->persona_ci($persona);  
         $data['alumnos'] = $alumnos;
         $data['main_content'] = 'notificaciones/seleccionar_destinatarios';
         $this->load->view('main_template', $data); 
