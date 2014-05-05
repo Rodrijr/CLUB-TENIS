@@ -18,6 +18,12 @@ class Persona_controller extends CI_Controller {
 	{
         $this->load->library('form_validation');
 	}  
+    
+    public function terminar_registro()
+    {
+        $data['main_content'] = 'usuarios/fin_registro';
+		$this->load->view('main_template', $data);
+    }
     public function ver_mi_perfil()
 	{   
        

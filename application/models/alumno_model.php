@@ -39,19 +39,24 @@ class Alumno_model extends CI_Model
         }
         return "";
 	}
-    
-    public function registrar_alumno($alumno)
+    public function verificar_ci($alumno)
     {
         $ci = $alumno['ci_persona'];
+        $query = $this->db->get_where('persona', array('ci_persona' => $ci));
+            
         
-        $query = $this->db->get_where('persona', array('ci_persona' => $alumno['ci_persona']));        
         if($query->num_rows() >=1 )
         {
             return "El numero de CI ya fue registrado";
         }
         else
         {
-            $resp = $this->db->insert('persona', $alumno);
+            return "registrar";
+        }
+    }
+    public function registrar_alumno($alumno)
+    {
+        $resp = $this->db->insert('persona', $alumno);
 
             if($resp==1)
             {
@@ -61,7 +66,6 @@ class Alumno_model extends CI_Model
             {
                 return "Revise el formato de los datos";
             }
-        }
     }
     
      public function ver_lista_alumnos()

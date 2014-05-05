@@ -13,11 +13,9 @@ class Padre_model extends CI_Model
 		$query = $this->db->get('padre');
 		return $query->result_array();
 	}
-    
-    public function registrar_padre($padre)
+    public function verificar_ci($padre)
     {
         $ci = $padre['ci_persona'];
-        
         $query = $this->db->get_where('persona', array('ci_persona' => $ci));
             
         
@@ -27,6 +25,11 @@ class Padre_model extends CI_Model
         }
         else
         {
+            return "registrar";
+        }
+    }
+    public function registrar_padre($padre)
+    {
             $resp = $this->db->insert('persona', $padre);
 
             if($resp==1)
@@ -37,7 +40,6 @@ class Padre_model extends CI_Model
             {
                 return "Revise el formato de los datos";
             }
-        }
     }
 
 }

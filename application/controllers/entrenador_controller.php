@@ -22,32 +22,23 @@ class Entrenador_controller extends CI_Controller{
    
     public function registrar_entrenador()
     {
-         $this->form_validation->set_rules('CI','CI','trim|required|xss_clean|numeric');
-         $this->form_validation->set_rules('NOMBRE','NOMBRE','trim|required|xss_clean');
-         $this->form_validation->set_rules('APELLIDO','APELLIDO','trim|required|xss_clean');        
-         $this->form_validation->set_rules('TELEFONO','TELEFONO','trim|required|xss_clean|numeric');  
-         $this->form_validation->set_rules('DIRECCION','DIRECCION','trim|required|xss_clean'); 
-         //$this->form_validation->set_rules('EMAIL', 'E-MAIL', 'valid_email|is_unique[users.email]|required');
+        $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
+        $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
          $entrenador = array(
                     'ci_persona'=> $this->input->post('CI'),
                     'nombre_persona' => $this->input->post('NOMBRE'),
                     'apellido_persona' => $this->input->post('APELLIDO'),
-                    'telefono' => $this->input->post('TELEFONO'),
+                    'telefono' => $telefonos,
+                    'celular' => $celular,
                     'direccion' => $this->input->post('DIRECCION'),  
                     'email' => $this->input->post('EMAIL'),
-                    'tipo' => 'Entrenador',
+                    'tipo' => 'Entrenador'
                 );      
-        if($this->form_validation->run())
-        {                  
-                $registro = $this->padre_model->registrar_padre($entrenador);    
-                $MSN = $registro;                    
-        }
-        else
-        {
-                $MSN = $this->form_validation->run();
-        }      
+                        
+        $registro = $this->padre_model->registrar_padre($entrenador);    
+        $MSN = $registro;                    
         $data['MSN'] = $MSN;
-        $data['Entrenador'] =$entrenador;
+        $data['entrenador'] =$entrenador;
         $data['main_content'] = 'entrenadores/registrar_entrenador_views';
         $this->load->view('main_template', $data);
         

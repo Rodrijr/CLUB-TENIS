@@ -20,36 +20,66 @@ class Alumno_controller extends CI_Controller {
         $this->load->library('form_validation');
 	}
 
+    
     public function registrar_alumno()
     {
-        $this->form_validation->set_rules('CI','CI','trim|required|xss_clean|numeric');
-         $this->form_validation->set_rules('NOMBRE','NOMBRE','trim|required|xss_clean');
-         $this->form_validation->set_rules('APELLIDO','APELLIDO','trim|required|xss_clean');        
-         $this->form_validation->set_rules('TELEFONO','TELEFONO','trim|required|xss_clean|numeric');  
-         $this->form_validation->set_rules('DIRECCION','DIRECCION','trim|required|xss_clean'); 
-        $alumno = array(
+    
+        $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
+        $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
+         $alumno = array(
                     'ci_persona'=> $this->input->post('CI'),
                     'nombre_persona' => $this->input->post('NOMBRE'),
                     'apellido_persona' => $this->input->post('APELLIDO'),
-                    'telefono' => $this->input->post('TELEFONO'),
+                    'telefono' => $telefonos,
+                    'celular' => $celular,
                     'direccion' => $this->input->post('DIRECCION'),  
                     'email' => $this->input->post('EMAIL'),
-                    'tipo' => 'Alumno',
-                );      
-        if($this->form_validation->run())
-        {                  
-                $registro = $this->alumno_model->registrar_alumno($alumno);    
-                $MSN = $registro;
+                    'tipo' => 'Alumno'
+                );   
+        $usuario = array (
+            'login' =>$this->input->post('LOGIN'),
+            'password' =>$this->input->post('CONTRACENA')
+        ); 
+        $registro = $this->alumno_model->verificar_ci($alumno);    
+        echo $registro;
+        $registro1 = $this->persona_model->verificar_usuario($usuario);
+        $MSN = $registro;
+        if(!empty($registro1)){
+        $MSN = $registro1;
+        }
+        if(strcmp( "registrar" ,$MSN)==0)
+        {
+            $registro = $this->alumno_model->registrar_alumno($alumno);    
+            $registro1 = $this->persona_model->registrar_usuario($usuario);
+            $padre_alumno = array(
+                'ci_padre' => $ci_padre,
+                'ci_alumno' => $alumno['ci_persona']
+                    
+                                 );
+            $padre_alumno = $this ->persona_model->registrar_padre_alumno($padre_alumno);
+            $MSN = $registro;
+            $MSN = $registro1;
+            $alumno = array(
+                    'ci_persona'=> '',
+                    'nombre_persona' => '',
+                    'apellido_persona' => '',
+                    'telefono' => '*',
+                    'celular' => '*',
+                    'direccion' => '',
+                    'email' => '',
+                    'tipo' => 'Alumno');
+            $data['alumno'] =$alumno;
+            $data['MSN'] = $MSN;
+            $data['main_content'] = 'alumnos/registrar_alumno_view';
         }
         else
         {
-                $MSN = $this->form_validation->run();
+            $data['MSN'] = $MSN;
+            $data['usuario'] = $usuario;
+            $data['alumno'] =$alumno;
+            $data['main_content'] = 'alumnos/registrar_alumno_view';
         }
-      
-        $data['MSN'] = $MSN;
-        $data['persona'] =$alumno;
-        $data['main_content'] = 'alumnos/registrar_alumno_view';
-        $this->load->view('main_template', $data);
+        $this->load->view('main_template', $data);  
     }
     
     public function ver_lista_hijos()
@@ -74,32 +104,31 @@ class Alumno_controller extends CI_Controller {
         return $this->alumno_model->obtener_Alumno_ID($id);
     }
     public function modificar_perfil($id)
-    {
-       
-        $this->form_validation->set_rules('CI','CI','trim|required|xss_clean|numeric');
-         $this->form_validation->set_rules('NOMBRE','NOMBRE','trim|required|xss_clean');
-         $this->form_validation->set_rules('APELLIDO','APELLIDO','trim|required|xss_clean');        
-         $this->form_validation->set_rules('TELEFONO','TELEFONO','trim|required|xss_clean|numeric');  
-         $this->form_validation->set_rules('DIRECCION','DIRECCION','trim|required|xss_clean'); 
- 
+    {    
+         $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
+        $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         $persona = array(
+            'id_persona' => $id,
             'ci_persona' => $this->input->post('CI'),
             'nombre_persona' =>$this->input->post('NOMBRE'),
             'apellido_persona' => $this->input->post('APELLIDO'),
-            'telefono' => $this->input->post('TELEFONO'),
+            'telefono' => $telefonos,
+            'celular' => $celular,
             'direccion' => $this->input->post('DIRECCION'),
             'email' => $this->input->post('EMAIL')
         );
-        
-        
-        
-        if($this->form_validation->run())
-        {     
-             $actualizar = $this->persona_model->obtener_persona_CI($persona);
-            if( $actualizar ==1 )
+        if(empty($persona['ci_persona']))
+        {
+           $persona= $this->persona_model->persona_by_id($id);
+            $persona = $persona[0];
+        }
+        $actualizar = $this->persona_model->obtener_persona_CI($persona);
+
+        if( $actualizar ==1 )
             {
+                
                  $MSN ="El CI ya fue registrado.";
-                $tipo ="panel panel-danger";
+                 $tipo ="panel panel-danger";
             }
             else
             {
@@ -116,13 +145,8 @@ class Alumno_controller extends CI_Controller {
                 }  
             }
             
-        }
-        else
-        {
-            echo $this->form_validation->run();
-                $MSN  = "Verifique el formato de los datos";
-                $tipo ="panel panel-info";
-        }      
+    
+           
         
         $persona = $this->alumno_model->ver_perfil($id);
         $data['MSN']= $MSN ;

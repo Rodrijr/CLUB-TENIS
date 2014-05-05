@@ -114,6 +114,13 @@
                         ?>
                             </font>
                         </label><br>
+                        <label >CELULAR:
+                             <font color='#386CC4'>
+                        <?php
+                           echo $persona['celular'];
+                        ?>
+                            </font>
+                        </label><br>
                    
                         <label >DIRECCION:
                              <font color='#386CC4'>
@@ -159,7 +166,7 @@
                     <?php 
                         if(isset($persona))
                         {
-                        echo form_open('Alumno_controller/modificar_perfil/'.$persona['id_persona']."'"); 
+                        echo form_open('Alumno_controller/modificar_perfil/'.$persona['id_persona'].""); 
                          
                     ?>
          <fieldset>
@@ -206,15 +213,82 @@
                              maxlength='35'
                               required="required"
                              name ='APELLIDO'>
-                    </div>                    <div class="input-group">
-                      <span class="input-group-addon"><label>TELEFONO  </label></span>
+                    </div>                    
+             
+             <div class="row">
+                <div class="col-lg-6">
+                 <div class="input-group">
+                    <span class="input-group-addon">
+                        <label>TELEFONO  </label>
+                    </span>
                       <input type="text" class="form-control" 
-                             value="<?php echo $persona['telefono'];?>"
+                             value="<?php 
+                            $telefono = explode('*',$persona['telefono']);
+                            echo $telefono[0];?>"
                              onkeypress ='return validarNro(event)'
                              maxlength='10'
-                             pattern="[0-9]+" title="Ingrese solo Numeros" required="required" 
-                             name ='TELEFONO'>
-                    </div>                    <div class="input-group">
+                             pattern="[0-9]+" 
+                             title="Ingrese solo Numeros" 
+                             required="required" 
+                             name ='TELEFONO1'>
+                    </div>  
+                    </div>                 
+                 <div class="col-lg-6">
+                 <div class="input-group">
+                    <span class="input-group-addon">
+                        <label>TELEFONO  </label>
+                    </span>
+                      <input type="text" class="form-control" 
+                             value="<?php 
+                            if(isset($telefono[1]))
+                            {
+                            echo $telefono[1];
+                            }?>"
+                             onkeypress ='return validarNro(event)'
+                             maxlength='10'
+                             pattern="[0-9]+" 
+                             title="Ingrese solo Numeros" 
+                             name ='TELEFONO2'>
+                    </div>  
+                    </div>
+                </div>
+             <div class="row">
+                <div class="col-lg-6">
+                 <div class="input-group">
+                    <span class="input-group-addon">
+                        <label>CELULAR  </label>
+                    </span>
+                      <input type="text" class="form-control" 
+                             value="<?php 
+                            $celular = explode('*',$persona['celular']);
+                            echo $celular[0];?>"
+                             onkeypress ='return validarNro(event)'
+                             maxlength='10'
+                             pattern="[0-9]+" 
+                             title="Ingrese solo Numeros" 
+                             name ='CELULAR1'>
+                    </div>  
+                    </div>                 
+                 <div class="col-lg-6">
+                 <div class="input-group">
+                    <span class="input-group-addon">
+                        <label>CELULAR  </label>
+                    </span>
+                      <input type="text" class="form-control" 
+                             value="<?php 
+                            if(isset($celular[1]))
+                            {
+                            echo $celular[1];
+                            }?>"
+                             onkeypress ='return validarNro(event)'
+                             maxlength='10'
+                             pattern="[0-9]+" 
+                             title="Ingrese solo Numeros" 
+                             name ='CELULAR2'>
+                    </div>  
+                    </div>
+                </div>
+                 <div class="input-group">
                       <span class="input-group-addon"><label>DIRECCION </label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['direccion'];?>"
