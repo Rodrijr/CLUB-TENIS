@@ -19,8 +19,13 @@ class Grupo_controller extends CI_Controller {
 
     public function ver_grupo($id_grupo)
     {        
-        $grupo =$this->grupo_model->obtener_grupo_por_id($id_grupo);
-        $data['grupo']= $grupo;
+        $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
+        $data['listaEntrenadores'] = $this->entrenador_model->obtener_todos_los_entrenadores();
+        $horarios = $this->horario_model->obtener_todos_los_horarios_de_grupo($id_grupo);
+        $data['listaHorarios'] = $this->establecer_horario($horarios);
+        $data['alumnos'] = $this->alumno_model->ver_lista_alumnos();
+        $id_alumnos = $this->grupo_model->obtener_id_alumnos_por_id_grupo($id_grupo);
+        $data['listaAlumnos'] = $this->obtener_alumnos($id_alumnos);
         $data['main_content'] = 'grupos/ver_grupo_view';
         $this->load->view('main_template', $data);
     }
