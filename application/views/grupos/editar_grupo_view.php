@@ -126,25 +126,26 @@
       <legend>Alumnos</legend>
 
       <div class="form-group">
+        <?php echo form_open('Grupo_controller/agregar_alumno');?>
+        <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $grupo['id_grupo']?>" /> 
         <div class="col-lg-12">
-          <a href="" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Agregar Alumno</a><br><br>
-        </div>
-
-        <div class="col-lg-12">
-          <div class="col-lg-12">
-            <label class="control-label" for="inputDefault">Alumno: </label>
+          <div class="col-lg-8">
+            <div class="col-lg-12">
+              <label class="control-label" for="inputDefault">Alumno: </label>
+            </div>
+            <div class="col-lg-12">
+              <input type="text" class="form-control" name="nombreAlumno" placeholder="Alumno" list="datalistAlumno" autocomplete="off" maxlength="30" required="required" />
+              <datalist id="datalistAlumno">
+                <?php foreach ($alumnos as $alumno) {
+                  echo '<option value="'.$alumno['nombre_persona']." - ".$alumno['apellido_persona'].'">';
+                } ?>
+              </datalist>
+            </div>
           </div>
-          <div class="col-lg-6">
-            <input type="text" class="form-control" name="nombreEntrenador" placeholder="Alumno" list="datalistAlumno" autocomplete="off" maxlength="30" required="required" />
-            <datalist id="datalistAlumno">
-              <select name="nombreEntrenador">
-                <option value="1">Homer Simpson
-                <option value="1">Homer ya
-                <option value="1">Bart
-                <option value="1">Fred Flinstone
-               </select>
-            </datalist>
+          <div class="col-lg-4">
+            <br><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>Agregar Alumno</button>
           </div>
+        </form>
         </div>
 
         
@@ -158,7 +159,15 @@
               </tr>
             </thead>
             <tbody>
-
+              <?php $cont = 1; ?>
+              <?php foreach ($listaAlumnos as $alumnos) {
+                echo '<tr>';
+                  echo '<td>'.$cont.'</td>';
+                  echo '<td>'.$alumnos['nombre_alumno'].'</td>';
+                  echo '<td>'.$alumnos['apellido_alumno'].'</td>';
+                echo '</tr>';
+                $cont++;
+              } ?>
             </tbody>
           </table> 
         </div>
