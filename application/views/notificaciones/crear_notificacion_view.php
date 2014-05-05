@@ -1,13 +1,3 @@
-<?php 
-
-function sumar()
-{
-    
-}
-
-?>
-
-
 <div class="container">
     <div class="row"><br>
    <div class="col-md-4">
@@ -21,7 +11,7 @@ function sumar()
 <div class="row"><br>
     <br>
    
-    <div class="col-md-1"></div>
+    <div class="col-md-3"></div>
   <div class="col-md-5">
       <?php
         echo form_open('Notificacion_controller/seleccionar_destinatarios');
@@ -39,32 +29,35 @@ function sumar()
    
 </div>
       
-      
+      <br>
       <input class='btn btn-default'  type='button' value='ATRAS' onclick='history.back()'> 
-    <INPUT VALUE='INSERTAR' class='btn btn-success' TYPE='submit'>
+    <INPUT VALUE='DESTINATARIOS' class='btn btn-success' TYPE='submit'>
       
       
 <?php echo form_close(); ?>
+      <br><br>
 </div>
     
 
 <div class="col-md-5">
- 
-</div>
-   
-</div>
+
+    
+
+
+  </div>
+    
+    
+    
+    
+<br>
     
     <div class="row"><br>
    <div class="col-md-5">
        </div>
     <div class="col-md-7">
-        <p>
-            <a href="#" class="btn btn-default" role="button">CANCELAR</a>
-            <a href="#" class="btn btn-primary" role="button">DESTINATARIOS</a>
-        </p>   
-    </div>
+          
+    </div>  </div>
         
     
     </div>
-    <br>
-</div> 
+      </div>

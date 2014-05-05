@@ -64,6 +64,13 @@
                         ?>
                             </font>
                         </label><br>
+                        <label >CELULAR:
+                             <font color='#386CC4'>
+                        <?php
+                           echo $hijo['celular'];
+                        ?>
+                            </font>
+                        </label><br>
                    
                         <label >DIRECCION:
                              <font color='#386CC4'>

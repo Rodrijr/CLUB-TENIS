@@ -1,5 +1,4 @@
-<?php 
-	
+<?php 	
 class Persona_model extends CI_Model
 {
 	var $details;
@@ -56,8 +55,9 @@ class Persona_model extends CI_Model
          $query = $this->db->get_where('persona', array('ci_persona' => $persona['ci_persona'])); 
          $per = $query->result_array();
         if($query->num_rows() >= 1 )
-        {
-            if($per[0] == $persona)
+        { 
+            $per2 = $per[0];
+            if($per2['id_persona'] == $persona['id_persona'])
             {
                return 0;
             }
@@ -74,22 +74,18 @@ class Persona_model extends CI_Model
             return $query->result_array();
         }
         return "";
-    }
-    
+    }    
     public function lista_alumno_horario()
     {
          $id_persona = $this->session->userdata('id_usuario');
          $grupos = $this->grupo_model->grupos_entrenador($id_persona);
-        //print_r($grupos);
          $alumnos_horario=array();
          foreach($grupos as $grupo)
          {
-//print_r($grupo);echo "<br>";
          
                 $id_grupo= $grupo['id_grupo'];
                
             $horarios= $this->grupo_model->obtener_horario($id_grupo);
-           // print_r($horarios);
             foreach($horarios as $hora)
              {
                  $id_hora=$hora['id_horario'];
@@ -98,8 +94,7 @@ class Persona_model extends CI_Model
              }
              
          }
-         return $alumnos_horario;
-    
+         return $alumnos_horario;    
     }
     public function ver_lista_entrenadores()
     {
@@ -116,10 +111,69 @@ class Persona_model extends CI_Model
        $query = $this->db->get_where('persona', array('tipo' => 'Alumno')); 
        return $query->result_array();
     }
-    
-    
-    
+    public function persona_ci($persona)
+    {
+        $this->db->select('*');
+        if(!empty($persona['ci_persona']))
+        {
+        $this->db->or_like('ci_persona', $persona['ci_persona']);
+        }
+        if(!empty($persona['nombre_persona']))
+        {
+        $this->db->or_like('nombre_persona', $persona['nombre_persona']);
+        }
+        if(!empty($persona['apellido_persona']))
+        {
+        $this->db->or_like('apellido_persona', $persona['apellido_persona']);
+        }
+        $query=$this->db->get('persona');
+        return $query->result_array();
+    }
+   /* public function persona_nombre($persona)
+    {
+        $this->db->select('*');
+        $this->db->like('nombre_persona', $persona['nombre_persona']);
+        $query=$this->db->get('persona');
+      
+        return $query->result_array();
+    }
+    public function persona_apellido($persona)
+    {
+        $this->db->select('*');
+        $this->db->like('apellido_persona', $persona['apellido_persona']);
+        $query=$this->db->get('persona');
+        return $query->result_array();
+    }*/
+    public function registrar_padre_alumno($padre_alumno)
+    {
 
+         $resp = $this->db->insert('padre_alumno', $padre_alumno);
+            if($resp!=1)
+            {
+                return "No se pudo registrar el usuario";
+            }
+    }
+    public function verificar_usuario($usuario)
+    {
+        $query = $this->db->get_where('usuario', array('login' => $usuario['login']));       
+        if($query->num_rows() >=1 )
+        {
+            return "El nombre de usuario ya fue usado";
+        }
+    }
+    public function registrar_usuario($usuario)
+    {
+            $resp = $this->db->insert('usuario', $usuario);
+            if($resp!=1)
+            {
+                return "No se pudo registrar el usuario";
+            }
+    }
+    public function persona_by_id($id)
+    {
+         $query = $this->db->get_where('persona', array('id_persona' => $id)); 
+         return $query->result_array();
+    }
 }
 
 ?>
