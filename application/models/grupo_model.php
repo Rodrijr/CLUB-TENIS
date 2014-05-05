@@ -108,7 +108,7 @@ class Grupo_model extends CI_Model
         $grupos = array();
         foreach($horarios as $hora)
         {
-$grupo = $this->db->get_where('grupo',array('id_grupo' => $hora['id_grupo']));
+        $grupo = $this->db->get_where('grupo',array('id_grupo' => $hora['id_grupo']));
             $aux=array();
             $g = $grupo->result_array();
          
@@ -132,6 +132,30 @@ $grupo = $this->db->get_where('grupo',array('id_grupo' => $hora['id_grupo']));
         $query=$this->db->get('grupo');
         return $query->result_array();
     }
+
+    public function asignar_alumno_a_grupo($id_grupo, $id_alumno)
+    {
+        $nuevo_grupo_alumno = array(
+            'id_grupo' => $id_grupo, 
+            'id_alumno' => $id_alumno);
+        $resp = $this->db->insert('alumno_grupo', $nuevo_grupo_alumno);
+    }
+
+    public function obtener_id_alumnos_por_id_grupo($id_grupo)
+    {
+        $this->db->select('*');
+        $this->db->where('id_grupo', $id_grupo);
+        $query=$this->db->get('alumno_grupo');
+        return $query->result_array();
+
+        //$afftected_rows = $this->db->affected_rows();
+        //if($afftected_rows==1)
+        //    return "El Entrenador fue Asignado Exitosamente";
+        //else
+        //   return "Error al Asignar este Entreador";
+    }
+
+
  
 }
 ?>

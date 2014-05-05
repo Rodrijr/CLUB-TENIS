@@ -68,10 +68,27 @@ class Alumno_model extends CI_Model
             }
     }
     
-     public function ver_lista_alumnos()
+    public function ver_lista_alumnos()
     {
        $query = $this->db->get_where('persona', array('tipo' => 'Alumno')); 
        return $query->result_array();
+    }
+
+    public function obtener_id_alumno_por_nombre_apellido($nombre_alumno, $apellido_alumno)
+    {
+        $data = array(
+            'nombre_persona' => $nombre_alumno,
+            'apellido_persona' => $apellido_alumno,
+            'tipo' => 'Alumno'
+            );
+        $query = $this->db->get_where('persona',$data);
+        return $query->row_array();
+    }
+
+    public function obtener_alumno_por_id($id_alumno)
+    {
+       $query = $this->db->get_where('persona', array('id_persona' => $id_alumno, 'tipo' => 'Alumno')); 
+       return $query->row_array();
     }
 }
 

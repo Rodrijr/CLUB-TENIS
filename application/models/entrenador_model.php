@@ -7,12 +7,6 @@ class Entrenador_model extends CI_Model
 	{
 		$this->load->database();
 	}
-
-	public function obtener_todos_los_entrenador()
-	{		
-		$query = $this->db->get('entrenador');
-		return $query->result_array();
-	}
     
     public function registrar_entrenador($entrenador)
     {
@@ -80,6 +74,16 @@ class Entrenador_model extends CI_Model
     public function obtener_entrenador_por_id($id_entrenador)
     {
         $query = $this->db->get_where('persona', array('id_persona' => $id_entrenador));
+        return $query->row_array();
+    }
+
+    public function obtener_id_entrenador_por_nombre_apellido($nombre, $apellido)
+    {
+        $this->db->select('*');
+        $this->db->where('nombre_persona', $nombre);
+        $this->db->where('apellido_persona', $apellido);
+        $this->db->where('tipo', 'Entrenador');
+        $query=$this->db->get('persona');
         return $query->row_array();
     }
 

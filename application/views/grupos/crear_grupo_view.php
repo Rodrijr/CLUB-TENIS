@@ -26,7 +26,7 @@
             <label class="control-label" for="inputDefault">Descripci&oacute;n: </label>
           </div>
           <div class="col-lg-5 col-lg-offset-1">
-            <input type="text" class="form-control" name="descripcionGrupo" placeholder="Nombre del Grupo" maxlength="30" required="required"><br>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px; width: 424px; height: 87px;" placeholder="Descripci&oacute;n del Grupo" name="descripcionGrupo"></textarea>
           </div>
         </div>
       </div>

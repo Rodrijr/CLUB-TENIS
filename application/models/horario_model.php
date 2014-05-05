@@ -23,7 +23,7 @@ class Horario_model extends CI_Model
         $data = array(
             'id_grupo' => $id_grupo
         );
-        $query = $this->db->get_where('grupo_horario_alumno',$data);
+        $query = $this->db->get_where('horarios',$data);
         return $query->result_array();
     }
 
@@ -34,6 +34,17 @@ class Horario_model extends CI_Model
         );
         $query = $this->db->get_where('horario',$data);
         return $query->row_array();
+    }
+
+    public function crear_horario($hora, $id_grupo, $id_entrenador, $tipo)
+    {
+        $horario = array(  
+            'hora' => $hora,
+            'id_grupo' => $id_grupo,
+            'id_entrenador' => $id_entrenador,
+            'tipo' => $tipo
+            );
+        $resp = $this->db->insert('horarios', $horario);
     }
 }
 ?>
