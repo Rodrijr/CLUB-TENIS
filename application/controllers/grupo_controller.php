@@ -168,18 +168,25 @@ class Grupo_controller extends CI_Controller {
     public function agregar_horario()
     {
         $id_grupo = $this->input->post('id_grupo');
-        
-        // ------------- Agregando Horario ------------- //
-        $horario = $this->input->post('desde_hora')."-".$this->input->post('hasta_hora');
+        $desde = $this->input->post('desde_hora');
+        $hasta = $this->input->post('hasta_hora');
         $tipo = $this->input->post('tipo_entrenamiento');
         $entrenador = $this->input->post('entrenador');
-        $nombre_apellido = explode(" - ", $entrenador);
-        $nombre_entrenador = $nombre_apellido[0];
-        $apellido_entrenador = $nombre_apellido[1];
-        $entrenador_grupo = $this->entrenador_model->obtener_id_entrenador_por_nombre_apellido($nombre_entrenador, $apellido_entrenador);
-        $this->horario_model->crear_horario($horario, $id_grupo, $entrenador_grupo['id_persona'], $tipo);
+        // ------------- Agregando Horario ------------- //
+        if($desde<$hasta){
+            $horario = $desde."-".$hasta;
+            $nombre_apellido = explode(" - ", $entrenador);
+            $nombre_entrenador = $nombre_apellido[0];
+            $apellido_entrenador = $nombre_apellido[1];
+            $entrenador_grupo = $this->entrenador_model->obtener_id_entrenador_por_nombre_apellido($nombre_entrenador, $apellido_entrenador);
+            $this->horario_model->crear_horario($horario, $id_grupo, $entrenador_grupo['id_persona'], $tipo);
+            $data['msj'] = "";
+        }
         // ------------- /. Agregando Horario ---------- //
-
+        else
+        {
+            $data['msj'] = "El Horario DESDE no puede ser mayor que Hasta";
+        }
         // ------------- /. Lista Horario ---------- //
         $horarios = $this->horario_model->obtener_todos_los_horarios_de_grupo($id_grupo);
         $data['listaHorarios'] = $this->establecer_horario($horarios);

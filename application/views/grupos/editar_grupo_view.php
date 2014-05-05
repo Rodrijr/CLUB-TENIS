@@ -94,6 +94,9 @@
                 <br><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>Agregar Horario</button>
               </div>
             </div>
+            <div class="form-group has-error">
+              <label class="control-label" for="inputSuccess"><?php if(isset($msj)){ echo $msj;} ?></label>
+            </div>
           </div>
           </form>
         </div>
