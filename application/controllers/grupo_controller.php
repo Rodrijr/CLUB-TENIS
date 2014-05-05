@@ -44,31 +44,8 @@ class Grupo_controller extends CI_Controller {
 
     public function editar_grupo($id_grupo)
     {
-        $entrenadores = $this->entrenador_model->obtener_todos_los_entrenadores();
         $grupo = $this->grupo_model->obtener_grupo_por_id($id_grupo);
         $data['grupo'] = $grupo;
-        $data['entrenadores'] = $entrenadores;
-        if($grupo['id_entrenador']==0){
-            $data['nombre_entrenador'] = "";
-        }
-        else{
-            $entrenador = $this->entrenador_model->obtener_entrenador_por_id($grupo['id_entrenador']);
-            $data['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
-        }
-        // -------------------- Lista de Horarios -------------------- //
-        $data['lista_horarios'] = $this->determinar_turno_horarios();
-        // -------------------- /. Lista de Horarios -------------------- //
-
-        # datos para mostrar sus horarios
-        $lista_horarios = $this->horario_model->obtener_todos_los_horarios_de_grupo($id_grupo);
-        $lista_horarios_grupo = array();
-        foreach ($lista_horarios as $horario) {
-            $lista_horarios_grupo[] = $this->horario_model->obtener_horario_por_id($horario['id_horario']);
-        }
-        $data['lista_horarios_de_grupo'] = $lista_horarios_grupo;
-        $data['cantidad_horarios'] = count($lista_horarios);
-
-        # cargar vistas
         $data['main_content'] = 'grupos/editar_grupo_view';
         $this->load->view('main_template', $data);
     }
@@ -137,6 +114,7 @@ class Grupo_controller extends CI_Controller {
 
     public function nuevo_grupo()
     {
+        $data['listaEntrenadores'] = $this->entrenador_model->obtener_todos_los_entrenadores();
         $data['main_content'] = 'grupos/crear_grupo_view';
         $this->load->view('main_template', $data);
     }
@@ -146,6 +124,7 @@ class Grupo_controller extends CI_Controller {
         $nombre_grupo = $this->input->post('nombreGrupo');
         $descripcion_grupo = $this->input->post('descripcionGrupo');
         $mensaje_crear_grupo = $this->grupo_model->crear_grupo($nombre_grupo, $descripcion_grupo);
+        $data['grupos'] = $this->grupo_model->obtener_todos_los_grupos();
         $data['main_content'] = 'grupos/ver_lista_de_grupos_view';
         $this->load->view('main_template', $data);
     }

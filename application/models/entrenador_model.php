@@ -7,12 +7,6 @@ class Entrenador_model extends CI_Model
 	{
 		$this->load->database();
 	}
-
-	public function obtener_todos_los_entrenador()
-	{		
-		$query = $this->db->get('entrenador');
-		return $query->result_array();
-	}
     
     public function registrar_entrenador($entrenador)
     {
