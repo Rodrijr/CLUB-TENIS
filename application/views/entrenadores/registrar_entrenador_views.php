@@ -309,6 +309,52 @@
             </div><!-- /input-group -->
           </div>
           </div>
+           <div class="row">
+              <br>
+            <legend>Cuenta de Usuario</legend>
+              
+               <div class="col-lg-1">
+               </div>
+        <div class="col-lg-4">
+              
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Usuario</button>
+              </span>
+              <input type="text" 
+                     class="form-control"
+                     required="required"
+                     maxlength='12' 
+                      pattern="[a-zA-Z0-9.+_-]+"
+                     NAME='LOGIN' 
+                     <?php  if(isset($usuario)) 
+                        {  
+                            echo 'value ="'. $usuario['login'].'"'; 
+                        } 
+                     ?>
+                     >
+            </div><!-- /input-group -->
+          </div> 
+        <div class="col-lg-5">
+              
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Contraceña</button>
+              </span>
+              <input type="password" 
+                     class="form-control"
+                     required="required"
+                     maxlength='30' 
+                     pattern="[a-zA-Z0-9.-]+"
+                     NAME='CONTRACENA' 
+                     
+                     >
+            </div><!-- /input-group -->
+          </div>           
+          </div>      
+          
+          
+          
           <div class="row"><br>
           <div class="col-lg-2">
           </div>

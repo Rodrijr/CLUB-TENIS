@@ -53,7 +53,19 @@
         </div>
       <div class="col-lg-6">
         <div class="page-header">
-          <h1 id="forms"> Registrar Padre</h1>
+          <h1 id="forms"> 
+              <?php 
+               if(isset($MSN)&& strcmp("Los datos son validos, puede continuar." ,$MSN)==0)
+               {
+                   $titulo = "Registrar Alumno";
+               }
+                else
+                {
+                    $titulo = "Registrar Padre";
+                }
+              echo $titulo;
+              ?>
+            </h1>
         </div>
       </div>
     </div>
@@ -99,7 +111,7 @@
           <div class="col-lg-2">
           </div>
       <div class="col-lg-7">
-        <?php echo form_open('Padre_controller/registrar_padre'); ?>
+        <?php echo form_open('Padre_controller/registrar_padre1'); ?>
        <div class="row">
            <div class="col-lg-3">
           </div>
@@ -361,8 +373,17 @@
             </div><!-- /input-group -->
           </div>           
           </div>      
-          
-          
+          <?php if(strcmp("Registrar Alumno" ,$titulo)==0)
+             { ?>
+           <div class="row"><br>
+                <br>
+                <div class="col-lg-3">
+                </div>
+                <span class="label label-danger">
+                  PRESIONE SI NO QUIERE REGISTRAR MAS ALUMNOS
+                </span>
+           </div>
+          <?php } ?>
           <div class="row"><br>
           <div class="col-lg-2">
           </div>
@@ -372,6 +393,15 @@
           <div class="col-lg-3">
               <button type="submit" class="btn btn-default btn-lg btn-block">SIGUIENTE</button>
           </div>
+               <?php if( strcmp("Registrar Alumno" ,$titulo)==0)
+             { ?>
+              <div class="col-lg-3">
+              <button 
+                      class="btn btn-default btn-lg btn-block"
+                       onClick="location.href='<?php echo base_url(); ?>index.php/Padre_controller/terminar_registro'" 
+                    >TERMINAR</button>
+          </div>
+               <?php } ?>
           </div>
           
         

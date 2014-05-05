@@ -50,6 +50,11 @@ class Persona_model extends CI_Model
         $this->db->where('id_persona',$id);
         return $this->db->update('usuario',$usuario);
     }
+    public function retornar_persona_por_ci($persona)
+    {        
+         $query = $this->db->get_where('persona', array('ci_persona' => $persona['ci_persona'])); 
+         return $query->result_array();
+    }
     public function obtener_persona_CI($persona)
     {
          $query = $this->db->get_where('persona', array('ci_persona' => $persona['ci_persona'])); 

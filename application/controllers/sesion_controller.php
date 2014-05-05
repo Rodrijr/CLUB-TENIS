@@ -66,6 +66,14 @@ class Sesion_controller extends CI_Controller {
 		$datos_de_session = array(
 			'estaLogeado'=> FALSE
 		);
+        
+       if (isset($_SESSION['lista_registro'])) {
+        $_SESSION['lista_registro'] = array();
+       } 
+        if (isset($_SESSION['count'])) {
+        $_SESSION['count'] =0;
+       } 
+      
 		$this->session->set_userdata($datos_de_session);
 		$data['main_content'] = 'sesiones/index_bienvenida_view';
 		$this->load->view('main_template', $data);
