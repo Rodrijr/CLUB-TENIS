@@ -162,34 +162,34 @@ class Padre_controller extends CI_Controller {
     
     public function terminar_registro()
     {
-        if(count($_SESSION['lista_registro'])>1)
-        {
+        
+       print_r($_SESSION['lista_registro']);
+        echo "<br>";
+        
+        echo "<br>";
+        print_r($_SESSION['usuarios']);
+     echo "<br>";
+            echo "holasd";
             foreach($_SESSION['lista_registro'] as $persona)
             {
                $registro = $this->padre_model->registrar_padre($persona); 
-            }/*
-            foreach($_SESSION['usuarios'] as $usuario)
-            {
-                $per = $this->persona_model->retornar_persona_por_ci($padre);                 $per  = $per[0];
+                
+               $aux= $_SESSION['usuarios'];
+                print_r($aux[0]);
+                 echo "<br>";
+            $per = $this->persona_model->retornar_persona_por_ci($persona);   
+                $per  = $per[0];
                 $usuario1 = array (
                 'id_persona' => $per['id_persona'],
-                'login' =>$usuario['login'],
-                'password' =>$usuario['password']
+                'login' =>$aux['login'],
+                'password' =>$aux['password']
                     ); 
             $registro1 = $this->persona_model->registrar_usuario($usuario1);
-            }*/
-            
-        }
+                    
+            }
+      
         
-        if (isset($_SESSION['lista_registro'])) {
-            $_SESSION['lista_registro'] = array();
-        } 
-        if (isset($_SESSION['usuarios'])) {
-            $_SESSION['usuario'] = array();
-        } 
-        if (isset($_SESSION['count'])) {
-            $_SESSION['count'] =0;
-        }     
+         
         $data['main_content'] = 'usuarios/fin_registro';
         
 		$this->load->view('main_template', $data);
