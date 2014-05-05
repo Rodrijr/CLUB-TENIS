@@ -77,6 +77,16 @@ class Entrenador_model extends CI_Model
         return $query->row_array();
     }
 
+    public function obtener_id_entrenador_por_nombre_apellido($nombre, $apellido)
+    {
+        $this->db->select('*');
+        $this->db->where('nombre_persona', $nombre);
+        $this->db->where('apellido_persona', $apellido);
+        $this->db->where('tipo', 'Entrenador');
+        $query=$this->db->get('persona');
+        return $query->row_array();
+    }
+
 }
 
 ?>
