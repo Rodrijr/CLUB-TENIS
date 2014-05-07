@@ -20,10 +20,14 @@ class Grupo_model extends CI_Model
         return $query->row_array();
     }
 
-    public function actualizar_grupo($id,$nuevo_grupo)
+    public function actualizar_grupo($id,$nombre_grupo, $descripcion_grupo)
     {
+        $datos_grupo = array(
+            'nombre_grupo' => $nombre_grupo,
+            'descripcion_grupo' => $descripcion_grupo
+            );
         $this->db->where('id_grupo',$id);
-        return $this->db->update('grupo',$nuevo_grupo);
+        return $this->db->update('grupo',$datos_grupo);
     }
 
     public function obtener_todos_los_grupos()
@@ -108,13 +112,10 @@ class Grupo_model extends CI_Model
         $grupos = array();
         foreach($horarios as $hora)
         {
-        $grupo = $this->db->get_where('grupo',array('id_grupo' => $hora['id_grupo']));
+            $grupo = $this->db->get_where('grupo',array('id_grupo' => $hora['id_grupo']));
             $aux=array();
             $g = $grupo->result_array();
-         
-            //$aux = array($g['nombre_grupo']=>$hora);
-          /// print_r($aux);
-           array_push($grupos,$g);
+            array_push($grupos,$g);
         }
         return $grupos;
     }
@@ -139,6 +140,22 @@ class Grupo_model extends CI_Model
             'id_grupo' => $id_grupo, 
             'id_alumno' => $id_alumno);
         $resp = $this->db->insert('alumno_grupo', $nuevo_grupo_alumno);
+        if($resp==1 )
+            return "El Alumno Fue Registrado En El Grupo Exitosamente...!!";
+        else
+            return "Error Al Registar Alumno En Este Grupo...!!";
+    }
+
+    public function existe_alumno_en_alumno_grupo($id_grupo, $id_alumno)
+    {
+        $nuevo_grupo_alumno = array(
+            'id_grupo' => $id_grupo, 
+            'id_alumno' => $id_alumno);
+        $query = $this->db->get_where('alumno_grupo',$nuevo_grupo_alumno);
+        if($query->num_rows() >=1 )
+            return 1;
+        else
+            return 0;
     }
 
     public function obtener_id_alumnos_por_id_grupo($id_grupo)

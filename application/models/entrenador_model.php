@@ -40,7 +40,9 @@ class Entrenador_model extends CI_Model
         $data = array(
             'tipo' => 'Entrenador'
         );
+        $this->db->order_by('apellido_persona', 'asc');
         $query = $this->db->get_where('persona',$data);
+
         return $query->result_array();
     }
 

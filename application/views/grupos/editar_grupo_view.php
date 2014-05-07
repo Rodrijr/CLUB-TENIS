@@ -11,8 +11,9 @@
   <div class="col-lg-6">
     
     <legend>Datos de Grupo</legend>
-    <?php echo form_open('Grupo_controller/crear_grupo');?>    
+    <?php echo form_open('Grupo_controller/actualizar_grupo');?>    
       <div class="form-group">
+        <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $grupo['id_grupo']?> ">
         <div class="col-lg-12">
           <div class="col-lg-12">
             <label class="control-label" for="inputDefault">Nombre: </label>
@@ -94,6 +95,16 @@
                 <br><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>Agregar Horario</button>
               </div>
             </div>
+            <div class="form-group has-error">
+              <label class="control-label" for="inputSuccess">
+                <?php 
+                  if($alerta_horario==0)
+                    echo '<p class="text-success">'.$msj_horario.'</p>';
+                  else
+                    echo '<p class="text-danger">'.$msj_horario.'</p>';
+                ?>
+              </label>
+            </div>
           </div>
           </form>
         </div>
@@ -143,11 +154,21 @@
             </div>
           </div>
           <div class="col-lg-4">
-            <br><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>Agregar Alumno</button>
+            <br><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>Agregar Alumno</button><br><br>
           </div>
         </form>
         </div>
 
+        <div class="form-group has-error">
+          <label class="control-label" for="inputSuccess">
+            <?php 
+              if($alerta_alumno==0)
+                echo '<p class="text-success">'.$msj_alumno.'</p>';
+              else
+                echo '<p class="text-danger">'.$msj_alumno.'</p>';
+            ?>
+          </label>
+        </div>
         
         <div class="col-lg-12">
           <table class="table table-striped table-hover ">
