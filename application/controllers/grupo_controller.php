@@ -13,10 +13,6 @@ class Grupo_controller extends CI_Controller {
         }
 	}
 
-    public function index()
-	{
-	}
-
     public function ver_grupo($id_grupo)
     {        
         $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
@@ -48,78 +44,19 @@ class Grupo_controller extends CI_Controller {
     }
 
     public function editar_grupo($id_grupo)
-    {
-        $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
-        $data['listaEntrenadores'] = $this->entrenador_model->obtener_todos_los_entrenadores();
-        $horarios = $this->horario_model->obtener_todos_los_horarios_de_grupo($id_grupo);
-        $data['listaHorarios'] = $this->establecer_horario($horarios);
-        $data['alumnos'] = $this->alumno_model->ver_lista_alumnos();
-        $id_alumnos = $this->grupo_model->obtener_id_alumnos_por_id_grupo($id_grupo);
-        $data['listaAlumnos'] = $this->obtener_alumnos($id_alumnos);
+    { 
+        $data = $this->establecer_datos_necesarios_para_editar_grupo($id_grupo,"",1,"",1);
         $data['main_content'] = 'grupos/editar_grupo_view';
         $this->load->view('main_template', $data);
     }
 
     public function actualizar_grupo()
     {
-        $id = $this->input->post('idGrupo');
-        $nuevo_grupo = array(
-            'nombre_grupo' =>  $this->input->post('nombreGrupo')
-        );
-        $actualizar = $this->grupo_model->actualizar_grupo($id,$nuevo_grupo);
-        if($actualizar)
-        {
-
-        }
-        else
-        {
-
-        }
+        $id_grupo = $this->input->post('id_grupo');
+        $nombre_grupo = $this->input->post('nombreGrupo');
+        $descripcion_grupo = $this->input->post('descripcionGrupo');
+        $this->grupo_model->actualizar_grupo($id_grupo, $nombre_grupo, $descripcion_grupo);
         $this->ver_lista_grupos();
-    }
-
-    public function desasignar_entrenador_de_grupo($id_grupo)
-    {
-        # datos para mostrar el mensaje
-        $mensaje = $this->grupo_model->desasignar_entrenador_de_grupo($id_grupo);
-        $data['mensaje'] = $mensaje;
-        # datos para mostrar grupos
-        $entrenadores = $this->entrenador_model->obtener_todos_los_entrenadores();
-        $grupo = $this->grupo_model->obtener_grupo_por_id($id_grupo);
-        $data['grupo'] = $grupo;
-        $data['entrenadores'] = $entrenadores;
-        if($grupo['id_entrenador']==0){
-            $data['nombre_entrenador'] = "";
-        }
-        else{
-            $entrenador = $this->entrenador_model->obtener_entrenador_por_id($grupo['id_entrenador']);
-            $data['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
-        }
-
-        $data['main_content'] = 'grupos/editar_grupo_view';
-        $this->load->view('main_template', $data);
-    }
-
-    public function asignar_entrenador_a_grupo($id_grupo, $id_entrenador)
-    {
-        # datos para mostrar el mensaje
-        $mensaje = $this->grupo_model->asignar_entrenador_de_grupo($id_grupo, $id_entrenador);
-        $data['mensaje'] = $mensaje;
-        # datos para mostrar grupos
-        $entrenadores = $this->entrenador_model->obtener_todos_los_entrenadores();
-        $grupo = $this->grupo_model->obtener_grupo_por_id($id_grupo);
-        $data['grupo'] = $grupo;
-        $data['entrenadores'] = $entrenadores;
-        if($grupo['id_entrenador']==0){
-            $data['nombre_entrenador'] = "";
-        }
-        else
-        {
-            $entrenador = $this->entrenador_model->obtener_entrenador_por_id($grupo['id_entrenador']);
-            $data['nombre_entrenador'] = $entrenador['nombre_persona']." ".$entrenador['apellido_persona'];
-        }
-        $data['main_content'] = 'grupos/editar_grupo_view';
-        $this->load->view('main_template', $data);
     }
 
     public function nuevo_grupo()
@@ -132,38 +69,11 @@ class Grupo_controller extends CI_Controller {
     {
         $nombre_grupo = $this->input->post('nombreGrupo');
         $descripcion_grupo = $this->input->post('descripcionGrupo');
-        $mensaje_crear_grupo = $this->grupo_model->crear_grupo($nombre_grupo, $descripcion_grupo);
-        $data['grupos'] = $this->grupo_model->obtener_todos_los_grupos();
-        $data['main_content'] = 'grupos/ver_lista_de_grupos_view';
-        $this->load->view('main_template', $data);
+        $this->grupo_model->crear_grupo($nombre_grupo, $descripcion_grupo);
+        $this->ver_lista_grupos();
     }
 
     // -------------------- Metodos de Horario -------------------- //
-
-    function determinar_turno_horarios()
-    {
-        $horarios = $this->horario_model->obtener_todos_los_horarios();
-        $listaDeHorarios = array();
-        $turnoManiana = array();
-        $turnoTarde = array();
-        $turnoNoche = array();
-        foreach ($horarios as $horario) {
-            $itemHorario = array();
-            $itemHorario['id_horario'] = $horario['id_horario'];            
-            $itemHorario['desde'] = $horario['desde'].':00';
-            $itemHorario['hasta'] = $horario['hasta'].':00';
-            if($horario['turno']=='mañana')
-                $turnoManiana[] = $itemHorario;
-            elseif($horario['turno']=='tarde')
-                $turnoTarde[] = $itemHorario;
-            else
-                $turnoNoche[] = $itemHorario;
-        }
-        $listaDeHorarios['turno_dia'] = $turnoManiana;
-        $listaDeHorarios['turno_tarde'] = $turnoTarde;
-        $listaDeHorarios['turno_noche'] = $turnoNoche;
-        return $listaDeHorarios;
-    }
 
     public function agregar_horario()
     {
@@ -173,43 +83,55 @@ class Grupo_controller extends CI_Controller {
         $tipo = $this->input->post('tipo_entrenamiento');
         $entrenador = $this->input->post('entrenador');
         // ------------- Agregando Horario ------------- //
-        if($desde<$hasta){
+        $id_entrenador_grupo = $this->obtener_id_de_entrenador_por_nombre_apellido($entrenador);
+        $alerta = $this->validar_horario($desde, $hasta, $id_grupo, $id_entrenador_grupo);
+        if($alerta==0){
             $horario = $desde."-".$hasta;
-            $nombre_apellido = explode(" - ", $entrenador);
-            $nombre_entrenador = $nombre_apellido[0];
-            $apellido_entrenador = $nombre_apellido[1];
-            $entrenador_grupo = $this->entrenador_model->obtener_id_entrenador_por_nombre_apellido($nombre_entrenador, $apellido_entrenador);
-            $this->horario_model->crear_horario($horario, $id_grupo, $entrenador_grupo['id_persona'], $tipo);
-            $data['msj'] = "";
-        }
-        // ------------- /. Agregando Horario ---------- //
-        else
-        {
-            $data['msj'] = "El Horario DESDE no puede ser mayor que Hasta";
-        }
-        // ------------- /. Lista Horario ---------- //
-        $horarios = $this->horario_model->obtener_todos_los_horarios_de_grupo($id_grupo);
-        $data['listaHorarios'] = $this->establecer_horario($horarios);
-        // ------------- /. Lista Horario ---------- //
-        $data['alumnos'] = $this->alumno_model->ver_lista_alumnos();
-        $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
-        $data['listaEntrenadores'] = $this->entrenador_model->obtener_todos_los_entrenadores();
-        $id_alumnos = $this->grupo_model->obtener_id_alumnos_por_id_grupo($id_grupo);
-        $data['listaAlumnos'] = $this->obtener_alumnos($id_alumnos);
+            $mensaje = $this->horario_model->crear_horario($horario, $id_grupo, $id_entrenador_grupo, $tipo); }
+        else {
+            $mensaje = $this->establecer_mensaje_alerta($alerta); }
+        $data = $this->establecer_datos_necesarios_para_editar_grupo($id_grupo, $mensaje, $alerta,"",3); 
         $data['main_content'] = 'grupos/editar_grupo_view';
         $this->load->view('main_template', $data);
     }
-    // -------------------- /. Metodos de Horario -------------------- //
-    
-    public function ver_mis_grupos()
+
+    public function agregar_alumno()
     {
-        $grupos =$this->grupo_model->ver_mis_grupos();
-        $data['grupos']=$grupos;
-      
-        $data['main_content'] = 'grupos/ver_mis_grupos_view';
+        $id_grupo = $this->input->post('id_grupo');
+        $alumno = $this->input->post('nombreAlumno');
+
+        $id_alumno = $this->obtener_id_de_alumno_por_nombre_apellido($alumno);
+        $alerta = $this->validar_alumno($id_alumno,$id_grupo);
+        if($alerta==0)
+            $mensaje = $this->grupo_model->asignar_alumno_a_grupo($id_grupo, $id_alumno);
+        else
+            $mensaje = "El Alumno ya se encuentra INSCRITO en este GRUPO..!!";
+
+        $data = $this->establecer_datos_necesarios_para_editar_grupo($id_grupo, "",1,$mensaje,$alerta);
+        $data['main_content'] = 'grupos/editar_grupo_view';
         $this->load->view('main_template', $data);
     }
 
+    // ----------------------------------- METODOS PRIVADOS ------------------------- //
+
+    function validar_alumno($id_alumno, $id_grupo)
+    {
+        return $this->grupo_model->existe_alumno_en_alumno_grupo($id_grupo, $id_alumno);
+    }
+
+    function obtener_alumnos($id_alumnos)
+    {
+        $listaAlumnos = array();
+        foreach ($id_alumnos as $alumno) {
+            $itemAlumno = array();
+            $get_alumno = $this->alumno_model->obtener_alumno_por_id($alumno['id_alumno']);
+            $itemAlumno['nombre_alumno'] = $get_alumno['nombre_persona'];
+            $itemAlumno['apellido_alumno'] = $get_alumno['apellido_persona'];
+            $listaAlumnos[] = $itemAlumno;
+        }
+        return $listaAlumnos;
+    }
+    
     function establecer_horario($horarios)
     {
         $listaHorarios = array();
@@ -224,40 +146,68 @@ class Grupo_controller extends CI_Controller {
         return $listaHorarios;
     }
 
-    public function agregar_alumno()
+    function obtener_id_de_alumno_por_nombre_apellido($alumno)
     {
-        $id_grupo = $this->input->post('id_grupo');
-        $alumno = $this->input->post('nombreAlumno');
-        $entrenador = $this->input->post('entrenador');
         $nombre_apellido = explode(" - ", $alumno);
         $nombre_alumno = $nombre_apellido[0];
         $apellido_alumno = $nombre_apellido[1];
         $id_alumno = $this->alumno_model->obtener_id_alumno_por_nombre_apellido($nombre_alumno, $apellido_alumno);
-        $this->grupo_model->asignar_alumno_a_grupo($id_grupo, $id_alumno['id_persona']);
-
-        $horarios = $this->horario_model->obtener_todos_los_horarios_de_grupo($id_grupo);
-        $data['listaHorarios'] = $this->establecer_horario($horarios);
-        // ------------- /. Lista Horario ---------- //
-        $data['alumnos'] = $this->alumno_model->ver_lista_alumnos();
-        $id_alumnos = $this->grupo_model->obtener_id_alumnos_por_id_grupo($id_grupo);
-        $data['listaAlumnos'] = $this->obtener_alumnos($id_alumnos);
-        $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
-        $data['listaEntrenadores'] = $this->entrenador_model->obtener_todos_los_entrenadores();
-        $data['main_content'] = 'grupos/editar_grupo_view';
-        $this->load->view('main_template', $data);
+        return $id_alumno['id_persona'];
     }
 
-    function obtener_alumnos($id_alumnos)
+    function validar_horario($desde, $hasta, $id_grupo, $id_entrenador_grupo)
     {
-        $listaAlumnos = array();
-        foreach ($id_alumnos as $alumno) {
-            $itemAlumno = array();
-            $get_alumno = $this->alumno_model->obtener_alumno_por_id($alumno['id_alumno']);
-            $itemAlumno['nombre_alumno'] = $get_alumno['nombre_persona'];
-            $itemAlumno['apellido_alumno'] = $get_alumno['apellido_persona'];
-            $listaAlumnos[] = $itemAlumno;
-        }
-        return $listaAlumnos;
+        $alerta = $this->horario_model->buscar_horario_por_todos_sus_datos($desde."-".$hasta, $id_grupo, $id_entrenador_grupo);
+        if($desde>=$hasta)
+            return 2;
+        else
+            return $alerta;
+    }
+
+    function establecer_mensaje_alerta($alerta)
+    {
+        if($alerta==2)
+            return "El Horario DESDE no puede ser MAYOR que el Horario HASTA..!!";
+        else
+            return "El Horario ya se encuentra REGISTRADO..!!";
+    }
+
+    function obtener_id_de_entrenador_por_nombre_apellido($entrenador)
+    {
+        $nombre_apellido = explode(" - ", $entrenador);
+        $nombre_entrenador = $nombre_apellido[0];
+        $apellido_entrenador = $nombre_apellido[1];
+        $entrenador_grupo = $this->entrenador_model->obtener_id_entrenador_por_nombre_apellido($nombre_entrenador, $apellido_entrenador);
+        return $entrenador_grupo['id_persona'];
+    }
+
+    function establecer_datos_necesarios_para_editar_grupo($id_grupo, $mensaje_horario, $alerta_horario, $mensaje_alumno, $alerta_alumno)
+    {
+        // ------------- Lista de todo los Alumnos ---------- //
+        $data['alumnos'] = $this->alumno_model->ver_lista_alumnos();
+        // ------------- /. Lista de todo los Alumnos ---------- //
+
+        // ------------- Lista de todos losEntrenadores ---------- //
+        $data['listaEntrenadores'] = $this->entrenador_model->obtener_todos_los_entrenadores();
+        // ------------- /. Lista de todos losEntrenadore ---------- //
+
+        // ------------- Datos de Mensaje y Alerta ---------- //
+        $data['msj_horario'] = $mensaje_horario;
+        $data['alerta_horario'] = $alerta_horario;
+        $data['msj_alumno'] = $mensaje_alumno;
+        $data['alerta_alumno'] = $alerta_alumno;
+        // ------------- /. Datos de Mensaje y Alerta ------- //
+
+        // ------------- Datos de Grupo ---------- //
+        $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
+            // ----- Horarios De Grupo ----- //
+        $horarios = $this->horario_model->obtener_todos_los_horarios_de_grupo($id_grupo);
+        $data['listaHorarios'] = $this->establecer_horario($horarios);
+            // ----- Alumnos De Grupo ----- //
+        $id_alumnos = $this->grupo_model->obtener_id_alumnos_por_id_grupo($id_grupo);
+        $data['listaAlumnos'] = $this->obtener_alumnos($id_alumnos);
+        // ------------- /. Datos de Grupo ---------- //
+        return $data;
     }
 }
 ?>

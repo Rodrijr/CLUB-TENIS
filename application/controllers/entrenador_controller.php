@@ -84,28 +84,6 @@ class Entrenador_controller extends CI_Controller{
             $data['main_content'] = 'entrenadores/registrar_entrenador_views';
         }
         $this->load->view('main_template', $data); 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      
-        
-    
     }
 }
 
