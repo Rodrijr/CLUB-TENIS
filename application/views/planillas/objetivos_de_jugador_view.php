@@ -12,68 +12,166 @@
 
   <div class="col-lg-12 col-lg-offset-1">
     <div class="col-lg-10">
+    <?php echo form_open('Planilla_controller/guardar_datos_planilla_objetivos_de_jugador');?>   
       <div class="form-group">
-        <label for="inputEmail" class="col-lg-2 control-label">Id alumno</label>
-        <div class="col-lg-10">
-          <input type="text" value="<?php echo $id_alumno; ?>">
+        <label for="inputEmail" class="control-label">Alumno: </label><br>
+        <div class="col-lg-4">
+          <input type="text" class="form-control" id="inputDefault" value="<?php echo $objetivos_de_jugador['alumno'];?>" disabled>
         </div>
+        <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $id_alumno;?>">
       </div>
 
       <!-- _______________ Objeticos Tecnicos _______________ -->
-      <legend>Objetios Tecnicos</legend>
-      <div class="form-group">
-        <label class="control-label" for="focusedInput">Focused input</label>
-        <input class="form-control" id="focusedInput" type="text" value="This is focused...">
-      </div>
+      <div class="col-lg-12">
+        <br>
+        <legend style = "color: purple" >Objetios T&eacute;cnicos</legend>
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style = "color: purple" class="control-label" for="inputDefault">Primera Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="primera_evaluacion_obj_tecnicos"><?php echo $objetivos_de_jugador['obj_tecnicos']['primera'] ?></textarea>
+          </div>
+        </div>
 
-      <div class="form-group">
-        <label class="control-label" for="disabledInput">Disabled input</label>
-        <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
-      </div>
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style = "color: purple" class="control-label" for="inputDefault">Segunda Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="segunda_evaluacion_obj_tecnicos"><?php echo $objetivos_de_jugador['obj_tecnicos']['segunda'] ?></textarea>
+          </div>
+        </div>
 
-      <div class="form-group has-warning">
-        <label class="control-label" for="inputWarning">Input warning</label>
-        <input type="text" class="form-control" id="inputWarning">
-      </div>
-
-      <div class="form-group has-error">
-        <label class="control-label" for="inputError">Input error</label>
-        <input type="text" class="form-control" id="inputError">
-      </div>
-
-      <div class="form-group has-success">
-        <label class="control-label" for="inputSuccess">Input success</label>
-        <input type="text" class="form-control" id="inputSuccess">
-      </div>
-
-      <div class="form-group">
-        <label class="control-label" for="inputLarge">Large input</label>
-        <input class="form-control input-lg" type="text" id="inputLarge">
-      </div>
-
-      <div class="form-group">
-        <label class="control-label" for="inputDefault">Default input</label>
-        <input type="text" class="form-control" id="inputDefault">
-      </div>
-
-      <div class="form-group">
-        <label class="control-label" for="inputSmall">Small input</label>
-        <input class="form-control input-sm" type="text" id="inputSmall">
-      </div>
-
-      <div class="form-group">
-        <label class="control-label">Input addons</label>
-        <div class="input-group">
-          <span class="input-group-addon">$</span>
-          <input type="text" class="form-control">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Button</button>
-          </span>
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style = "color: purple" class="control-label" for="inputDefault">Tercera Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="tercera_evaluacion_obj_tecnicos"><?php echo $objetivos_de_jugador['obj_tecnicos']['tercera'] ?></textarea>
+          </div>
         </div>
       </div>
 
-      <!-- _______________ Objeticos Tecnicos _______________ -->
+      <!-- _______________ Objetivos tácticos _______________ -->
+      <div class="col-lg-12">
+        <br>
+        <legend style = "color: green">Objetios T&aacute;ctios</legend>
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style="color: green" class="control-label" for="inputDefault">Primera Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="primera_evaluacion_obj_tacticos" ><?php echo $objetivos_de_jugador['obj_tacticos']['primera'] ?></textarea>
+          </div>
+        </div>
 
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style="color: green" class="control-label" for="inputDefault">Segunda Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="segunda_evaluacion_obj_tacticos" ><?php echo $objetivos_de_jugador['obj_tacticos']['segunda'] ?></textarea>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style="color: green" class="control-label" for="inputDefault">Tercera Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="tercera_evaluacion_obj_tacticos" ><?php echo $objetivos_de_jugador['obj_tacticos']['tercera'] ?></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- _______________ Objetivos psicológicos _______________ -->
+      <div class="col-lg-12">
+        <br>
+        <legend style="color:blue">Objetios Psicol&oacute;gicos</legend>
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style="color:blue" class="control-label" for="inputDefault">Primera Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="primera_evaluacion_obj_psicologicos" ><?php echo $objetivos_de_jugador['obj_psicologicos']['primera'] ?></textarea>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style="color:blue" class="control-label" for="inputDefault">Segunda Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="segunda_evaluacion_obj_psicologicos" ><?php echo $objetivos_de_jugador['obj_psicologicos']['segunda'] ?></textarea>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style="color:blue" class="control-label" for="inputDefault">Tercera Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="tercera_evaluacion_obj_psicologicos" ><?php echo $objetivos_de_jugador['obj_psicologicos']['tercera'] ?></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- _______________ Objetivos de competición _______________ -->
+      <div class="col-lg-12">
+        <br>
+        <legend style="color:brown">Objetios De Competici&oacute;n</legend>
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style="color:brown" class="control-label" for="inputDefault">Primera Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="primera_evaluacion_obj_de_competicion" ><?php echo $objetivos_de_jugador['obj_de_competicion']['primera'] ?></textarea>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style="color:brown" class="control-label" for="inputDefault">Segunda Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="segunda_evaluacion_obj_de_competicion" ><?php echo $objetivos_de_jugador['obj_de_competicion']['segunda'] ?></textarea>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="col-lg-12">
+            <label style="color:brown" class="control-label" for="inputDefault">Tercera Evaluaci&oacute;n: </label>
+          </div>
+          <div class="col-lg-12">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="tercera_evaluacion_obj_de_competicion" ><?php echo $objetivos_de_jugador['obj_de_competicion']['tercera'] ?></textarea>
+          </div>
+        </div>
+      </div>
+       <!-- _______________ Observaciones _______________ -->
+      <div class="col-lg-12">
+        <br>
+        <legend>Observaciones</legend>
+        <div class="col-lg-10 col-lg-offset-2">
+          <div class="col-lg-10">
+            <label class="control-label" for="inputDefault">Descripci&oacute;n: </label>
+          </div>
+          <div class="col-lg-10">
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Observaciones" name="observaciones"><?php echo $objetivos_de_jugador['observaciones']?></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-1">
+            <br>
+            <a type="button" class="btn btn-warning" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_lista_de_alumnos">Cancel</a>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          </div>
+        </div>
+      </div>
+    </form>
     </div>
   </div>
 </div>
