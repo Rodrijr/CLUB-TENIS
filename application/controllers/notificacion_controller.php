@@ -56,5 +56,16 @@ class Notificacion_controller extends CI_Controller
         $data['main_content'] = 'notificaciones/seleccionar_destinatarios';
         $this->load->view('main_template', $data); 
     }
+    public function enviar_notificacion()
+    {
+         
+    if (!isset($_SESSION['destinatarios'])) {
+    $_SESSION['destinatarios'] = array();
+    } 
+    else {
+       print_r($_SESSION['destinatarios']);
+    }
+        echo "fasd";
+    }
     
 }
