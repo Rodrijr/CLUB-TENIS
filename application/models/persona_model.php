@@ -53,7 +53,11 @@ class Persona_model extends CI_Model
     public function retornar_persona_por_ci($persona)
     {        
          $query = $this->db->get_where('persona', array('ci_persona' => $persona['ci_persona'])); 
+        if($query->num_rows() >= 1 )
+        { 
          return $query->result_array();
+        }   
+        return 0;
     }
     public function obtener_persona_CI($persona)
     {
@@ -168,7 +172,7 @@ class Persona_model extends CI_Model
     }
     public function registrar_usuario($usuario)
     {
-            $resp = $this->db->insert('usuario', $usuario);
+        $resp = $this->db->insert('usuario', $usuario);
             if($resp!=1)
             {
                 return "No se pudo registrar el usuario";
@@ -178,7 +182,7 @@ class Persona_model extends CI_Model
     {
          $query = $this->db->get_where('persona', array('id_persona' => $id)); 
          return $query->result_array();
-    }
+    }   
 }
 
 ?>

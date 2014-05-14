@@ -1,3 +1,21 @@
+<?php 
+function agregar_lista($alumno)
+{
+    print_r($alumno);
+    
+    if (!isset($_SESSION['destinatarios'])) {
+    $_SESSION['destinatarios'] = array();
+    } 
+    else {
+        if (!in_array($padre, $_SESSION['destinatarios'])) {
+           array_push($_SESSION['destinatarios'],$alumno);
+        }                
+    }
+    
+}
+
+?>
+
 <div class="container">
 <div class="bs-example bs-example-tabs">
     <ul id="myTab" class="nav nav-pills">
@@ -41,12 +59,7 @@
 		            </thead>
 		            <tbody>
 		            	<?php $cont = 1; 
-$dest = array();
-                        function agregar_lista($id)
-                        {
-                            array_push($dest,$id);
-                            print_r($dest);
-                        }
+                        
                         ?>
 		            	<?php	foreach($alumnos as $alumno){ ?>
 		            	<!--<td><a href="<?php # echo base_url(); ?>grupos/Grupo_controller/ver_grupo/">Ver</a></td> -->
@@ -62,7 +75,7 @@ $dest = array();
                             <input 
                             type="checkbox" 
                             name = "<?php echo $alumno['id_persona']?>"
-                            onchange="agregar_lista(<?php echo $alumno['id_persona']?>)";
+                            onclick="agregar_lista(<?php echo $cont; ?>)";
                                    >   
                             </td>
                            

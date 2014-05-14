@@ -111,7 +111,7 @@
           <div class="col-lg-2">
           </div>
       <div class="col-lg-7">
-        <?php echo form_open('Padre_controller/registrar_padre1'); ?>
+        <?php echo form_open('Padre_controller/registrar_padre'); ?>
        <div class="row">
            <div class="col-lg-3">
           </div>
