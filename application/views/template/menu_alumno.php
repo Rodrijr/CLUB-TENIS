@@ -25,6 +25,22 @@
 	        </li>
         </ul>
 
+        <!--   EVALUACION PLANTILLAS  -->
+    	<ul class="nav navbar-nav">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">EVALUACIONES <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_de_jugador/<?php echo $this->session->userdata('id_usuario') ?>">Objetivos De Jugador</a></li> <!--   solo el entrenador  -->
+	            <li class="divider"></li>
+	            <li><a href="#">Perfil de Jugador</a></li><!--   solo el entrenador  -->
+	            <li class="divider"></li>
+	            <li><a href="#">Evaluacion Personal</a></li> <!--   solo el entrenador  -->
+	            <li class="divider"></li>
+	            <li><a href="#">Objetivos Individuales</a></li><!--   solo el entrenador  -->
+	          </ul>        
+	        </li>
+        </ul>
+
         <!--   PERFIL  -->
 	    <ul class="nav navbar-nav navbar-right">   
 
