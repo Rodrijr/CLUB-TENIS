@@ -24,7 +24,7 @@ class sesion_model extends CI_Model
 	{
 		$ci_user = $this->obtenerCiPorUsernamePassword($username,$password);
 		$data = array(
-        	'id_persona' => $ci_user,
+        	'ci_persona' => $ci_user,
         );
         $query = $this->db->get_where('persona',$data);
         return $query->row_array();
