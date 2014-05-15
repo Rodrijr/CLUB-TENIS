@@ -172,7 +172,7 @@ class Persona_model extends CI_Model
     }
     public function registrar_usuario($usuario)
     {
-            $resp = $this->db->insert('usuario', $usuario);
+        $resp = $this->db->insert('usuario', $usuario);
             if($resp!=1)
             {
                 return "No se pudo registrar el usuario";
@@ -182,7 +182,7 @@ class Persona_model extends CI_Model
     {
          $query = $this->db->get_where('persona', array('id_persona' => $id)); 
          return $query->result_array();
-    }
+    }   
 }
 
 ?>

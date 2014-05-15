@@ -37,7 +37,7 @@ class sesion_model extends CI_Model
         	'password' => $password
         );
         $query = $this->db->get_where('usuario',$data);
-        return $query->row()->id_persona;
+        return $query->row()->ci_persona;
 	}
 }
 
