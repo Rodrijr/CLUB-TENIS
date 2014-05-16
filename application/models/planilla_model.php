@@ -92,5 +92,51 @@ class Planilla_model extends CI_Model
         else
             return 0;
     }
+
+    // ---------------------- Metodos Evaluacion Personal ---------------------- //
+
+    public function llenar_datos_evaluacion_personal($evaluacion_personal)
+    {
+        $id_alumno = $evaluacion_personal['id_alumno'];
+        $evaluacion = array(
+                'id_alumno' => $id_alumno,
+                'comportamiento' => $evaluacion_personal['comportamiento']['primera_evaluacion']."-".$evaluacion_personal['comportamiento']['segunda_evaluacion']."-".$evaluacion_personal['comportamiento']['tercera_evaluacion'],
+                'disposicion_al_trabajo' => $evaluacion_personal['disposicion_al_trabajo']['primera_evaluacion']."-".$evaluacion_personal['disposicion_al_trabajo']['segunda_evaluacion']."-".$evaluacion_personal['disposicion_al_trabajo']['tercera_evaluacion'],
+                'actitud_en_cancha' => $evaluacion_personal['actitud_en_cancha']['primera_evaluacion']."-".$evaluacion_personal['actitud_en_cancha']['segunda_evaluacion']."-".$evaluacion_personal['actitud_en_cancha']['tercera_evaluacion'],
+                'actitud_en_preparacion_fisica' => $evaluacion_personal['actitud_en_preparacion_fisica']['primera_evaluacion']."-".$evaluacion_personal['actitud_en_preparacion_fisica']['segunda_evaluacion']."-".$evaluacion_personal['actitud_en_preparacion_fisica']['tercera_evaluacion'],
+                'asistencia' =>  $evaluacion_personal['asistencia']['primera_evaluacion']."-".$evaluacion_personal['asistencia']['segunda_evaluacion']."-".$evaluacion_personal['asistencia']['tercera_evaluacion'],
+                'puntualidad' =>  $evaluacion_personal['puntualidad']['primera_evaluacion']."-".$evaluacion_personal['puntualidad']['segunda_evaluacion']."-".$evaluacion_personal['puntualidad']['tercera_evaluacion'],
+                'rendimiento_en_torneos' =>  $evaluacion_personal['rendimiento_en_torneos']['primera_evaluacion']."-".$evaluacion_personal['rendimiento_en_torneos']['segunda_evaluacion']."-".$evaluacion_personal['rendimiento_en_torneos']['tercera_evaluacion'],
+            );
+
+        $query = $this->db->get_where('evaluacion_personal', array('id_alumno' => $id_alumno));
+        if($query->num_rows() >=1 )
+            $this->db->update('evaluacion_personal',$evaluacion);
+        else
+            $this->db->insert('evaluacion_personal',$evaluacion);
+    }
+
+    public function obtener_evaluacion_personal_por_id_alumno($id_alumno)
+    {
+        $data = array(
+            'id_alumno' => $id_alumno
+            );
+        $query = $this->db->get_where('evaluacion_personal', $data);
+        return $query->row_array();
+    }
+
+    public function existe_evaluacion_personal_de_alumno($id_alumno)
+    {
+        $data = array(
+            'id_alumno' => $id_alumno
+            );
+        $query = $this->db->get_where('evaluacion_personal', $data);
+        if($query->num_rows() >= 1)
+            return 1;
+        else
+            return 0;
+    }
+
+    
 }
 ?>
