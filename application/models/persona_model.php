@@ -20,7 +20,7 @@ class Persona_model extends CI_Model
        //$ci= $_SESSION["ci_persona"];
        // $id_persona = $this->session->userdata('id_persona');        
         $id_persona = $this->session->userdata('id_usuario');
-        $query= $this->db->get_where('persona',array('id_persona'=> $id_persona));
+        $query= $this->db->get_where('persona',array('ci_persona'=> $id_persona));
         if($query->num_rows() >= 1 )
         {
             return $query->result_array();            

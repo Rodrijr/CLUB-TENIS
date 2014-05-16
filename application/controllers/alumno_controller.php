@@ -21,77 +21,16 @@ class Alumno_controller extends CI_Controller {
 	}
 
     
-    public function registrar_alumno()
-    {
-    
-        $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
-        $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
-         $alumno = array(
-                    'ci_persona'=> $this->input->post('CI'),
-                    'nombre_persona' => $this->input->post('NOMBRE'),
-                    'apellido_persona' => $this->input->post('APELLIDO'),
-                    'telefono' => $telefonos,
-                    'celular' => $celular,
-                    'direccion' => $this->input->post('DIRECCION'),  
-                    'email' => $this->input->post('EMAIL'),
-                    'tipo' => 'Alumno'
-                );   
-        $usuario = array (
-            'login' =>$this->input->post('LOGIN'),
-            'password' =>$this->input->post('CONTRACENA')
-        ); 
-        $registro = $this->alumno_model->verificar_ci($alumno);    
-        echo $registro;
-        $registro1 = $this->persona_model->verificar_usuario($usuario);
-        $MSN = $registro;
-        if(!empty($registro1)){
-        $MSN = $registro1;
-        }
-        if(strcmp( "registrar" ,$MSN)==0)
-        {
-            $registro = $this->alumno_model->registrar_alumno($alumno);    
-            $registro1 = $this->persona_model->registrar_usuario($usuario);
-            $padre_alumno = array(
-                'ci_padre' => $ci_padre,
-                'ci_alumno' => $alumno['ci_persona']
-                    
-                                 );
-            $padre_alumno = $this ->persona_model->registrar_padre_alumno($padre_alumno);
-            $MSN = $registro;
-            $MSN = $registro1;
-            $alumno = array(
-                    'ci_persona'=> '',
-                    'nombre_persona' => '',
-                    'apellido_persona' => '',
-                    'telefono' => '*',
-                    'celular' => '*',
-                    'direccion' => '',
-                    'email' => '',
-                    'tipo' => 'Alumno');
-            $data['alumno'] =$alumno;
-            $data['MSN'] = $MSN;
-            $data['main_content'] = 'alumnos/registrar_alumno_view';
-        }
-        else
-        {
-            $data['MSN'] = $MSN;
-            $data['usuario'] = $usuario;
-            $data['alumno'] =$alumno;
-            $data['main_content'] = 'alumnos/registrar_alumno_view';
-        }
-        $this->load->view('main_template', $data);  
-    }
     
     public function ver_lista_hijos()
 	{        
-        $padre_alumno = $this->alumno_model->obtener_Padre_Alumno_ID();
-       
-        $alumnos = array();
+        $padre_alumno = $this->alumno_model->obtener_Padre_Alumno_ID();       
+        $alumnos = array();     
         if($padre_alumno >= 1 )
         {          
             foreach($padre_alumno as $Hijo)
              {    
-                $alumno = $this->alumno_model->obtener_alumno_ID($Hijo['id_alumno']);
+                $alumno = $this->alumno_model->obtener_Alumno_CI($Hijo['ci_alumno']);
                 array_push($alumnos,$alumno[0]);              
              }
          }

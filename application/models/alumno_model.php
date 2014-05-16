@@ -11,14 +11,9 @@ class Alumno_model extends CI_Model
     public function obtener_Padre_Alumno_ID()
 	{
         $id=$this->session->userdata('id_usuario');
-       //$id= $_SESSION["id_padre"];
-        $query = $this->db->get_where('padre_alumno', array('id_padre' => $id));   
-        if($query->num_rows() >= 1 )
-        {
-          
+        echo $id;
+        $query = $this->db->get_where('padre_alumno', array('ci_padre' => $id));    
             return $query->result_array();
-        } 	
-		return "";
 	}
 
     public function obtener_Alumno_ID($id)
@@ -29,6 +24,12 @@ class Alumno_model extends CI_Model
             return $query->result_array();
         } 	
         return "";
+    }
+    public function obtener_Alumno_CI($id)
+    {
+        $query = $this->db->get_where('persona', array('ci_persona' => $id));  
+        return $query->result_array();
+       
     }
     public function ver_perfil($id_persona)
     {
