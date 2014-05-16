@@ -85,7 +85,7 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> NOTIFICACIONES <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
                 <li>
-                    <a href="<?php echo base_url(); ?>index.php/Notificacion_controller/crear_notificacion">Crear Notificacion</a></li>
+                    <a href="<?php echo base_url(); ?>index.php/Notificacion_controller/do_upload">Crear Notificacion</a></li>
 	            <li><a href="#">Ver lista notificaciones</a></li>
 	            <li class="divider"></li>
 	            <li><a href="#">Buscar Notificaciones</a></li>            
