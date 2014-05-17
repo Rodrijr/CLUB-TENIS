@@ -64,6 +64,8 @@ dfn {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  
+      
 }
 mark {
   background: #ff0;
@@ -181,10 +183,21 @@ optgroup {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+    
 }
-td,
+
 th {
-  padding: 0;
+    padding: 0;
+    
+    font-size: 125%;
+    font-family: "Franklin Gothic Medium Cond";
+    
+}
+td
+{
+    padding: 0;
+    font-size: 120%;
+    font-family: "Rockwell";
 }
 @media print {
   * {
@@ -278,11 +291,12 @@ body {
   line-height: 1.42857143;
   color: #666666;
 }
-input,
-button,
 select,
-textarea {
-  font-family: inherit;
+button,
+input,
+textarea
+{
+  font-family: "Arial Black";
   font-size: inherit;
   line-height: inherit;
 }
@@ -361,7 +375,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Copperplate Gothic Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
   color: #2d2d2d;
@@ -1404,7 +1418,7 @@ table {
   background-color: transparent;
 }
 th {
-  text-align: left;
+  text-align: center;
 }
 .table {
   width: 100%;
@@ -1640,6 +1654,7 @@ legend {
   padding: 0;
   margin-bottom: 20px;
   font-size: 21px;
+font-family: "Franklin Gothic Medium Cond";
   line-height: inherit;
   color: #666666;
   border: 0;
@@ -3305,7 +3320,7 @@ input[type="button"].btn-block {
   position: relative;
   z-index: 2;
   float: left;
-  width: 100%;
+  width: relative;
   margin-bottom: 0;
 }
 .input-group-lg > .form-control,
@@ -4271,6 +4286,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: .2em .6em .3em;
   font-size: 75%;
   font-weight: bold;
+    
+  font-family: "courier new";
   line-height: 1;
   color: #ffffff;
   text-align: center;
