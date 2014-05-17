@@ -34,6 +34,10 @@ class Padre_controller extends CI_Controller {
     }
     public function cargar_padre()
     { 
+         if (!isset($_SESSION['lista_registro'])) {
+                  $_SESSION['lista_registro'] = array();
+                 
+                } 
      if( count($_SESSION['lista_registro'])==0){
             $tipo= "Padre";
      }
@@ -76,7 +80,7 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
                 $MSN = $registro1;
                 if (!isset($_SESSION['lista_registro'])) {
                   $_SESSION['lista_registro'] = array();
-                 // array_push($_SESSION['lista_registro'],$padre);
+                 
                 } 
                 if (!isset($_SESSION['usuarios'])) {
                   $_SESSION['usuarios'] = array();

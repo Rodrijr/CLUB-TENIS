@@ -72,14 +72,14 @@ function agregar_lista($alumno)
                             <td style="min-width: 0px; max-width: 10%">
                                 <?php echo $alumno['telefono']; ?></td>
                             <td style="min-width: 0px; max-width: 300px">
+                       
                             <input 
-                            type="checkbox" 
-                            name = "<?php echo $alumno['id_persona']?>"
-                            onclick="agregar_lista(<?php echo $cont; ?>)";
-                                   >   
-                            </td>
-                           
-                            
+                                type="checkbox" 
+                                id="<?php echo $alumno['ci_persona']; ?>" 
+                                name="destinatarios[]"
+                                value="<?php echo $alumno['ci_persona'];?>"
+                            >
+                            </td> 
                         </tr>
 		                <?php $cont++; ?>
 		                <?php } ?>
