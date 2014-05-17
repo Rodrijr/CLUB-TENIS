@@ -61,12 +61,15 @@ class Persona_model extends CI_Model
     }
     public function obtener_persona_CI($persona)
     {
-         $query = $this->db->get_where('persona', array('ci_persona' => $persona['ci_persona'])); 
+        
+        
+        $query = $this->db->get_where('persona', array('ci_persona' => $persona['ci_persona'])); 
          $per = $query->result_array();
+        
         if($query->num_rows() >= 1 )
         { 
             $per2 = $per[0];
-            if($per2['id_persona'] == $persona['id_persona'])
+            if($per2['ci_persona'] == $persona['ci_persona'])
             {
                return 0;
             }
