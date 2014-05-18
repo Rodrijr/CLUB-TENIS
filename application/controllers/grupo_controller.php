@@ -28,6 +28,7 @@ class Grupo_controller extends CI_Controller {
     public function ver_lista_grupos()
     {
         $grupos = $this->grupo_model->obtener_todos_los_grupos();
+        //$this->eliminar_grupos_repetidos($grupos);
         $data['grupos'] = $grupos;
         $data['main_content'] = 'grupos/ver_lista_de_grupos_view';
         $this->load->view('main_template', $data);
@@ -46,6 +47,7 @@ class Grupo_controller extends CI_Controller {
     public function editar_grupo($id_grupo)
     { 
         $data = $this->establecer_datos_necesarios_para_editar_grupo($id_grupo,"",1,"",1);
+        $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
         $data['main_content'] = 'grupos/editar_grupo_view';
         $this->load->view('main_template', $data);
     }
@@ -54,8 +56,7 @@ class Grupo_controller extends CI_Controller {
     {
         $id_grupo = $this->input->post('id_grupo');
         $nombre_grupo = $this->input->post('nombreGrupo');
-        $descripcion_grupo = $this->input->post('descripcionGrupo');
-        $this->grupo_model->actualizar_grupo($id_grupo, $nombre_grupo, $descripcion_grupo);
+        $this->grupo_model->actualizar_grupo($id_grupo, $nombre_grupo);
         $this->ver_lista_grupos();
     }
 
@@ -68,8 +69,7 @@ class Grupo_controller extends CI_Controller {
     public function crear_grupo()
     {
         $nombre_grupo = $this->input->post('nombreGrupo');
-        $descripcion_grupo = $this->input->post('descripcionGrupo');
-        $this->grupo_model->crear_grupo($nombre_grupo, $descripcion_grupo);
+        $this->grupo_model->crear_grupo($nombre_grupo);
         $this->ver_lista_grupos();
     }
 
@@ -190,23 +190,6 @@ class Grupo_controller extends CI_Controller {
         // ------------- Lista de todos losEntrenadores ---------- //
         $data['listaEntrenadores'] = $this->entrenador_model->obtener_todos_los_entrenadores();
         // ------------- /. Lista de todos losEntrenadore ---------- //
-
-        // ------------- Datos de Mensaje y Alerta ---------- //
-        $data['msj_horario'] = $mensaje_horario;
-        $data['alerta_horario'] = $alerta_horario;
-        $data['msj_alumno'] = $mensaje_alumno;
-        $data['alerta_alumno'] = $alerta_alumno;
-        // ------------- /. Datos de Mensaje y Alerta ------- //
-
-        // ------------- Datos de Grupo ---------- //
-        $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
-            // ----- Horarios De Grupo ----- //
-        $horarios = $this->horario_model->obtener_todos_los_horarios_de_grupo($id_grupo);
-        $data['listaHorarios'] = $this->establecer_horario($horarios);
-            // ----- Alumnos De Grupo ----- //
-        $id_alumnos = $this->grupo_model->obtener_id_alumnos_por_id_grupo($id_grupo);
-        $data['listaAlumnos'] = $this->obtener_alumnos($id_alumnos);
-        // ------------- /. Datos de Grupo ---------- //
         return $data;
     }
 }

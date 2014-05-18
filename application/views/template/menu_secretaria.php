@@ -29,7 +29,7 @@
 	          <ul class="dropdown-menu">
 	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/nuevo_grupo">Crear Grupo</a></li> 
 	              <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos">Buscar Grupos</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos">Ver Lista de Grupos</a></li>
                  
 	          </ul>        
 	        </li>

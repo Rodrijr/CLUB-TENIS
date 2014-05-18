@@ -9,7 +9,6 @@
   </div>
 
   <div class="col-lg-6">
-    
     <legend>Datos de Grupo</legend>
     <?php echo form_open('Grupo_controller/actualizar_grupo');?>    
       <div class="form-group">
@@ -18,182 +17,24 @@
           <div class="col-lg-12">
             <label class="control-label" for="inputDefault">Nombre: </label>
           </div>
-          <div class="col-lg-5 col-lg-offset-1">
-            <input type="text" class="form-control" name="nombreGrupo" placeholder="Nombre del Grupo" maxlength="30" required="required" value="<?php echo $grupo['nombre_grupo']?>" ><br>
-          </div>
-        </div>
-        <div class="col-lg-12">
           <div class="col-lg-12">
-            <label class="control-label" for="inputDefault">Descripci&oacute;n: </label>
-          </div>
-          <div class="col-lg-5 col-lg-offset-1">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px; width: 424px; height: 87px;" placeholder="Descripci&oacute;n del Grupo" name="descripcionGrupo" ><?php echo $grupo['descripcion_grupo']?></textarea>
+            <div class="col-lg-5 col-lg-offset-1">
+              <input type="text" class="form-control" name="nombreGrupo" placeholder="Nombre del Grupo" maxlength="30" required="required" value="<?php echo $grupo['nombre_grupo']?>" ><br>
+            </div>
+            <div class="col-lg-6">  
+              <button type="submit" class="btn btn-primary">Cambiar Nombre</button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="form-group">
-        <div class="col-lg-12">
-          <br>
-          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        </div>
-      </div>
-    </form>
+    <?php echo form_close();?> 
 
-      <legend>Horarios</legend>
-
-      <div class="form-group">
-        <div class="col-lg-12">
-          <?php echo form_open('Grupo_controller/agregar_horario');?>
-          <p class="text-info"><strong><legend>Datos De Horario: </legend> </strong></p> 
-          <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $grupo['id_grupo']?> ">
-          <div class="form-group">
-            <div class="col-lg-6">
-              <div class="col-lg-6">
-                <div class="col-lg-12">
-                  <label class="control-label" for="inputDefault">Desde: </label>
-                </div>
-                <div class="col-lg-11 col-lg-offset-1">
-                  <input type="time" name="desde_hora" required="required" />
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="col-lg-12">
-                  <label class="control-label" for="inputDefault">Hasta: </label>
-                </div>
-                <div class="col-lg-11 col-lg-offset-1">
-                  <input type="time" name="hasta_hora" required="required" />
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="col-lg-12">
-                <label class="control-label" for="inputDefault">Tipo: </label>
-              </div>
-              <div class="col-lg-11 col-lg-offset-1">
-                <select class="form-control" name="tipo_entrenamiento" id="select">
-                  <option value="Tactico" selected>T&aacute;tico</option>
-                  <option value="Fisico">F&iacute;sico</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <div class="col-lg-6">
-                <div class="col-lg-12">
-                  <label class="control-label" for="inputDefault">Entrenador: </label>
-                </div>
-                <div class="col-lg-12 col-lg-offset-1">
-                  <input type="text" class="form-control" name="entrenador" placeholder="Entrenador" list="datalistEntrenador" autocomplete="off" maxlength="30" required="required" /><br>
-                  <datalist id="datalistEntrenador">
-                    <?php foreach ($listaEntrenadores as $entrenador) {
-                      echo '<option value="'.$entrenador['nombre_persona']." - ".$entrenador['apellido_persona'].'">';
-                    } ?>
-                  </datalist>
-
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <br><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>Agregar Horario</button>
-              </div>
-            </div>
-            <div class="form-group has-error">
-              <label class="control-label" for="inputSuccess">
-                <?php 
-                  if($alerta_horario==0)
-                    echo '<p class="text-success">'.$msj_horario.'</p>';
-                  else
-                    echo '<p class="text-danger">'.$msj_horario.'</p>';
-                ?>
-              </label>
-            </div>
-          </div>
-          </form>
-        </div>
-        <div class="col-lg-12">
-          <table class="table table-striped table-hover ">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Hora</th>
-                <th>Entrenador</th>
-                <th>Tipo De Entrenamiento</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php $cont = 1; ?>
-              <?php foreach ($listaHorarios as $horario) {
-                echo '<tr>';
-                  echo '<td>'.$cont.'</td>';
-                  echo '<td>'.$horario['hora'].'</td>';
-                  echo '<td>'.$horario['entrenador'].'</td>';
-                  echo '<td>'.$horario['tipo'].'</td>';
-                echo '</tr>';
-                $cont++;
-                } ?>
-            </tbody>
-          </table> 
-        </div>
-      </div>
-
-      <legend>Alumnos</legend>
-
-      <div class="form-group">
-        <?php echo form_open('Grupo_controller/agregar_alumno');?>
-        <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $grupo['id_grupo']?>" /> 
-        <div class="col-lg-12">
-          <div class="col-lg-8">
-            <div class="col-lg-12">
-              <label class="control-label" for="inputDefault">Alumno: </label>
-            </div>
-            <div class="col-lg-12">
-              <input type="text" class="form-control" name="nombreAlumno" placeholder="Alumno" list="datalistAlumno" autocomplete="off" maxlength="30" required="required" />
-              <datalist id="datalistAlumno">
-                <?php foreach ($alumnos as $alumno) {
-                  echo '<option value="'.$alumno['nombre_persona']." - ".$alumno['apellido_persona'].'">';
-                } ?>
-              </datalist>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <br><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>Agregar Alumno</button><br><br>
-          </div>
-        </form>
-        </div>
-
-        <div class="form-group has-error">
-          <label class="control-label" for="inputSuccess">
-            <?php 
-              if($alerta_alumno==0)
-                echo '<p class="text-success">'.$msj_alumno.'</p>';
-              else
-                echo '<p class="text-danger">'.$msj_alumno.'</p>';
-            ?>
-          </label>
-        </div>
-        
-        <div class="col-lg-12">
-          <table class="table table-striped table-hover ">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php $cont = 1; ?>
-              <?php foreach ($listaAlumnos as $alumnos) {
-                echo '<tr>';
-                  echo '<td>'.$cont.'</td>';
-                  echo '<td>'.$alumnos['nombre_alumno'].'</td>';
-                  echo '<td>'.$alumnos['apellido_alumno'].'</td>';
-                echo '</tr>';
-                $cont++;
-              } ?>
-            </tbody>
-          </table> 
-        </div>
-      </div>
+    <strong><legend>Sub Grupos</legend></strong>
+    <a data-toggle="modal" href="#myModalAniadirEntrenador" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Aniadir Entrenador</a>
   </div>
+
+
+
   <div class="form-group">
     <div class="col-lg-12">
       <br>
@@ -202,6 +43,112 @@
   </div>
 </div>
 
+<!-- ################### Modals Pop Up ######################## -->
+
+<!-- Modal Aniadir Entrenador -->
+<div class="modal fade" id="myModalAniadirEntrenador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="panel-title">Aniadiendo Sub-Grupo</h3>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="modal-body">
+            <p class="text-info"><strong>Sub-Grupo: </strong></p> 
+
+            <div class="form-group">
+              <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $grupo['id_grupo']?> ">
+              <div class="col-lg-12">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <label class="control-label" for="inputDefault">Nombre: </label>
+                </div>
+                <div class="col-lg-6 col-lg-offset-3">
+                  <input type="text" class="form-control" name="nombreGrupo" placeholder="Nombre del Grupo" maxlength="30" required="required" value="<?php echo $grupo['nombre_grupo']?>" ><br>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <label class="control-label" for="inputDefault">Descripci&oacute;n: </label>
+                </div>
+                <div class="col-lg-6 col-lg-offset-3">
+                  <input type="text" class="form-control" name="nombreGrupo" placeholder="Nombre del Grupo" maxlength="30" required="required" value="<?php echo $grupo['nombre_grupo']?>" ><br>
+                </div>
+              </div>
+            </div>
+            <!-- ################### Horario ######################## -->
+            <div class="form-group">
+              <div class="col-lg-12">
+              <?php echo form_open('Grupo_controller/agregar_horario');?>
+                <p class="text-info"><strong>Horario:</strong></p> 
+                <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $grupo['id_grupo']?> ">
+                <div class="form-group">
+                  <div class="col-lg-6 col-lg-offset-2">
+                    <div class="col-lg-6">
+                      <div class="col-lg-12">
+                        <label class="control-label" for="inputDefault">Desde: </label>
+                      </div>
+                      <div class="col-lg-11 col-lg-offset-1">
+                        <input type="time" name="desde_hora" required="required" />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="col-lg-12">
+                        <label class="control-label" for="inputDefault">Hasta: </label>
+                      </div>
+                      <div class="col-lg-11 col-lg-offset-1">
+                        <input type="time" name="hasta_hora" required="required"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    <br><p class="text-info"><strong>Entrenadores:</strong></p>
+                    <table class="table table-striped table-hover">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Nombre</th>
+                          <th>Apellidos</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $cont = 1; ?>
+                        <?php foreach($listaEntrenadores as $entrenador){ ?>
+                        <!--<td><a href="<?php # echo base_url(); ?>grupos/Grupo_controller/ver_grupo/">Ver</a></td> -->
+                          <tr>
+                            <td><?php echo $cont; ?></td>
+                              <td><?php echo $entrenador['nombre_persona']; ?></td>
+                              <td><?php echo $entrenador['apellido_persona']; ?></td>
+                              <!-- <td><a Title="Seleccionar Entrenador" href="<?php echo base_url(); ?>index.php/Grupo_controller/asignar_entrenador_a_grupo/<?php echo $grupo['id_grupo']; ?>/<?php #echo $entrenador['id_persona']; ?>"><span class="glyphicon glyphicon-check"></span></a></td> -->
+                              <td><input id="check_horario" name="horarios_dia[]" value="'.$horario['id_horario'].'" type="checkbox"></td>
+                          </tr>
+                          <?php $cont++; ?>
+                          <?php } ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Agregar Sub-Grupo</button>
+            <?php echo form_close();?>
+          </div>
+        </div>
+      </div><!-- /.panel panel-primary --> 
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <script type="text/javascript">
 

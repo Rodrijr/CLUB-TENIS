@@ -27,17 +27,15 @@
         <div class="page-header">
         	<h1 id="tables" align="center">Lista De Grupos</h1>
         </div>
-        <div class="col-lg-11 col-lg-offset-1">
+        <div class="col-lg-8 col-lg-offset-4">
 	        <div class="bs-component">
-		      <div class="col-lg-10">
+		      <div class="col-lg-6 " >
 		          <table class="table table-striped table-hover">
 		          	<thead>
 		              <tr>
 		                <th>#</th>
-		                <th>Nombre</th>
-		                <th>Descripci&oacute;n</th>
-		                <th></th>
-		                <th></th>
+		                <th>Nombre De Grupo</th>
+		                <th colspan="2">Acciones</th>
 		                <th></th>
 		              </tr>
 		            </thead>
@@ -48,10 +46,8 @@
 		                <tr>
 		                	<td><?php echo $cont; ?></td>
 		                    <td><?php echo $grupo['nombre_grupo']; ?></td>
-		                    <td><?php echo $grupo['descripcion_grupo']; ?></td>
 		                    <td><a Title="Ver Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-eye-open"></span></a></td>
-	                  		<td><a Title="Editar Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-edit"></span></a></td>
-							<td><a Title="Eliminar Grupo" href=""><span class="glyphicon glyphicon-trash"></span></a></td>
+	                  		<td><a style="color: purple" Title="Editar Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-edit"></span></a></td>
                         </tr>
 		                <?php $cont++; ?>
 		                <?php } ?>
