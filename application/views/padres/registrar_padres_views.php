@@ -53,7 +53,7 @@
         </div>
       <div class="col-lg-6">
         <div class="page-header">
-          <h1 id="forms"> 
+          <h1 > 
               <?php 
                if(isset($MSN)&& strcmp("Los datos son validos, puede continuar." ,$MSN)==0)
                {

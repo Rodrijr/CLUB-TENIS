@@ -211,8 +211,8 @@
                         <label>TELEFONO  </label>
                     </span>
                       <input type="text" class="form-control" 
-                             value="<?php 
-                            $telefono = explode('*',$persona['telefono']);
+                             value="<?php
+                             $telefono = explode('*',$persona['telefono']);
                             echo $telefono[0];?>"
                              onkeypress ='return validarNro(event)'
                              maxlength='10'
@@ -286,7 +286,7 @@
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['direccion'];?>"
                              maxlength='50'
-                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
+                             title="Solo se aceptan letras" required="required"
                              name ='DIRECCION'>
                     </div>        <div class="input-group">
                       <span class="input-group-addon"><label>E-MAIL    </label></span>

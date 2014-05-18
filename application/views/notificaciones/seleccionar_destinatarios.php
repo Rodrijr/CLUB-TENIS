@@ -1,20 +1,3 @@
-<?php 
-function agregar_lista($alumno)
-{
-    print_r($alumno);
-    
-    if (!isset($_SESSION['destinatarios'])) {
-    $_SESSION['destinatarios'] = array();
-    } 
-    else {
-        if (!in_array($padre, $_SESSION['destinatarios'])) {
-           array_push($_SESSION['destinatarios'],$alumno);
-        }                
-    }
-    
-}
-
-?>
 
 <div class="container">
 <div class="bs-example bs-example-tabs">
@@ -31,7 +14,7 @@ function agregar_lista($alumno)
     </div>
        <div class="tab-pane fade active in" id="Alumnos">
         <div class="row"><br>   
-           	<?php echo form_open('Notificacion_controller/buscar_alumnos'); ?>
+           	<?php echo form_open('Notificacion_controller/buscar_grupos'); ?>
            <div class="col-md-2">
             
            </div>
@@ -51,9 +34,8 @@ function agregar_lista($alumno)
          <table class="table table-bordered">
 		          	<thead>
 		              <tr>
-		                <th>CI</th>
+		                
 		                <th>Nombre</th>
-		                <th>TELEFONO</th>
 		                <th>SELECCIONAR</th>
 		              </tr>
 		            </thead>
@@ -61,23 +43,18 @@ function agregar_lista($alumno)
 		            	<?php $cont = 1; 
                         
                         ?>
-		            	<?php	foreach($alumnos as $alumno){ ?>
+		            	<?php	foreach($grupos as $grupo){ ?>
 		            	<!--<td><a href="<?php # echo base_url(); ?>grupos/Grupo_controller/ver_grupo/">Ver</a></td> -->
 		                <tr>
 		                    <td style="min-width: 0px; max-width: 10%">
-                            <?php echo $alumno['ci_persona']; ?></td>
-	                       <td style="min-width: 0px; max-width: 55%">
-                             <a><?php echo $alumno['nombre_persona']." ".$alumno['apellido_persona']; ?></a>      
-                            </td>
-                            <td style="min-width: 0px; max-width: 10%">
-                                <?php echo $alumno['telefono']; ?></td>
-                            <td style="min-width: 0px; max-width: 300px">
+                            <?php echo $grupo['nombre_grupo']; ?></td>
+	                      
+                            <td style="min-width: 0px; max-width: 1%">
                        
                             <input 
                                 type="checkbox" 
-                                id="<?php echo $alumno['ci_persona']; ?>" 
-                                name="destinatarios[]"
-                                value="<?php echo $alumno['ci_persona'];?>"
+                                id="<?php echo $grupo['id_grupo']; ?>" 
+                                name="destinatarios[]"                          
                             >
                             </td> 
                         </tr>

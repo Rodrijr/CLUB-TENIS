@@ -37,27 +37,19 @@ class Persona_controller extends CI_Controller {
     }
     public function modificar_mi_perfil($id)
     {
-       
-        $this->form_validation->set_rules('CI','CI','trim|required|xss_clean|numeric');
-         $this->form_validation->set_rules('NOMBRE','NOMBRE','trim|required|xss_clean');
-         $this->form_validation->set_rules('APELLIDO','APELLIDO','trim|required|xss_clean');        
-         $this->form_validation->set_rules('TELEFONO','TELEFONO','trim|required|xss_clean|numeric');  
-         $this->form_validation->set_rules('DIRECCION','DIRECCION','trim|required|xss_clean'); 
-        
+        $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
+$celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         
         $persona = array(
             'ci_persona' => $this->input->post('CI'),
             'nombre_persona' =>$this->input->post('NOMBRE'),
             'apellido_persona' => $this->input->post('APELLIDO'),
-            'telefono' => $this->input->post('TELEFONO'),
+            'telefono' =>  $telefonos,
+            'celular' => $celular,
             'direccion' => $this->input->post('DIRECCION'),
             'email' => $this->input->post('EMAIL')
         );
-        
-        
-        if($this->form_validation->run())
-        {                  
-            $actualizar = $this->persona_model->obtener_persona_CI($persona);
+         $actualizar = $this->persona_model->obtener_persona_CI($persona);
             if( $actualizar ==1 )
             {
                  $MSN ="El CI ya fue registrado.";
@@ -76,14 +68,7 @@ class Persona_controller extends CI_Controller {
                     $MSN = "Verifique los datos actual.";
                      $tipo ="panel panel-danger";
                 }  
-            }
-        }
-        else
-        {
-            echo $this->form_validation->run();
-                $MSN  = "Verifique el formato de los datos";
-                $tipo ="panel panel-info";
-        }      
+            }     
         
         $persona = $this->persona_model->ver_mi_perfil();
         $data['MSN']= $MSN ;

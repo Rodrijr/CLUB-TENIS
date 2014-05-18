@@ -174,14 +174,15 @@
             <?php if(isset($MSN))
                             {
                                if(isset($tipo)){
-                               echo '<div class="'.$tipo.'">';
-     echo  '<div class="panel-heading">';
-     echo   ' <h3 class="panel-title">ALERTA!</h3>';
-      echo '</div>';
-      echo '<div class="panel-body">';
+
+       echo '<div class="'.$tipo.'">';
+       echo  '<div class="panel-heading">';
+       echo   ' <h3 class="panel-title">ALERTA!</h3>';
+       echo '</div>';
+       echo '<div class="panel-body">';
        echo "<label>".$MSN."</label>";
        echo '</div>';
-     echo '</div>';
+       echo '</div>';
                          
                         } 
                             }?>
@@ -203,15 +204,15 @@
                              value="<?php echo $persona['nombre_persona'];?>"
                              onkeypress='return isNumberKey(event)'
                              maxlength='35'
-                             pattern="[a-zA-Z]+" title="Solo se aceptan letras" required="required"
+                             title="Solo se aceptan letras" required="required"
                              name ='NOMBRE'>
                     </div>                    <div class="input-group">
                       <span class="input-group-addon"><label>APELLIDO  </label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['apellido_persona'];?>"
-                              onkeypress='return isNumberKey(event)'
+                             onkeypress='return isNumberKey(event)'
                              maxlength='35'
-                              required="required"
+                             required="required"
                              name ='APELLIDO'>
                     </div>                    
              
@@ -288,6 +289,23 @@
                     </div>  
                     </div>
                 </div>
+             <div class="input-group">
+              <span  class="input-group-addon">
+                <label>e-mail</label>
+              </span>
+              <input type="text" class="form-control"
+                     placeholder = "ejemplo@hotmail.com"
+                     required="required"
+                     pattern="[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]+"
+                     maxlength='30'
+                     NAME='EMAIL' 
+                     value ='<?php  if(isset($persona)) 
+                        {  
+                            echo $persona['email']; 
+                        } 
+                     ?>'
+                     >
+            </div>
                  <div class="input-group">
                       <span class="input-group-addon"><label>DIRECCION </label></span>
                       <input type="text" class="form-control" 
@@ -298,6 +316,7 @@
                     </div>       
              
           <BR>
+             
                     <div class='control-group'>
                     <div class='controls'>
                             
