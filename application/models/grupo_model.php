@@ -204,6 +204,21 @@ class Grupo_model extends CI_Model
         $count = $query->num_rows();
         return $query->result_array();
     }
+
+    public function asignar_alumno_a_sub_grupo($alumno_grupo)
+    {
+
+        $nuevo_alumno_sub_grupo = array(
+            'id_subgrupo' => $alumno_grupo['id_subgrupo'], 
+            'id_alumno' => $alumno_grupo['id_alumno']
+            );
+        
+        $resp = $this->db->insert('alumno_grupo', $nuevo_alumno_sub_grupo);
+        if($resp==1 )
+            return "El Alumno Fue Registrado En El Grupo Exitosamente...!!";
+        else
+            return "Error Al Registar Alumno En Este Grupo...!!";
+    }
  
 }
 ?>

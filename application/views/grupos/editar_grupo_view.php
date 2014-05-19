@@ -67,6 +67,7 @@
             echo '</table>';
           echo '</div>';
         echo '</div>';
+        echo '<a type="button" href="'.base_url().'index.php/Grupo_controller/agregar_alumnos_a_sub_grupo/'.$item_sub_grupo['id_subgrupo'].'/'.$grupo['id_grupo'].'" class="btn btn-info">Agregar Alumnos</a>';
       } ?>
 
       <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $grupo['id_grupo']?>">
@@ -77,7 +78,7 @@
     <div class="col-lg-12">
       <br>
       <a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos" class="btn btn-default">Atr&aacute;s</a>
-      <a data-toggle="modal" href="#myModalAniadirEntrenador" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Aniadir Sub-Grupo</a>
+      <a data-toggle="modal" href="#myModalAniadirEntrenador" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Añadir Sub-Grupo</a>
     </div>
   </div>
 </div>
@@ -187,6 +188,8 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
 
 <script type="text/javascript">
 

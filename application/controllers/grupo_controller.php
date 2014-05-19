@@ -137,6 +137,30 @@ class Grupo_controller extends CI_Controller {
         $this->load->view('main_template', $data);
     }
 
+    public function agregar_alumnos_a_sub_grupo($id_subgrupo, $id_grupo)
+    {
+        $data['id_subgrupo'] = $id_subgrupo;
+        $data['id_grupo'] = $id_grupo;
+        $data['listaAlumnos'] = $this->alumno_model->ver_lista_alumnos();
+        $data['main_content'] = 'grupos/agregar_alumnos_view';
+        $this->load->view('main_template', $data);
+    }
+
+    public function guardar_alumnos_en_sub_grupo()
+    {
+        $id_grupo = $this->input->post('id_grupo');
+        $id_subgrupo = $this->input->post('id_subgrupo');
+
+        $alumnos = $this->input->post('alumnos');
+        foreach ($alumnos as $id_alumno) {
+            $alumno_sub_grupo = array();
+            $alumno_sub_grupo['id_subgrupo']=$id_subgrupo;
+            $alumno_sub_grupo['id_alumno']=$id_alumno;
+            $this->grupo_model->asignar_alumno_a_sub_grupo($alumno_sub_grupo);
+        }
+        $this->editar_grupo($id_grupo);
+    }
+
     // ----------------------------------- METODOS PRIVADOS ------------------------- //
 
     function validar_alumno($id_alumno, $id_grupo)
@@ -218,9 +242,13 @@ class Grupo_controller extends CI_Controller {
         $data['sub_grupos'] = $this->establecer_datos_necesarios_para_sub_grupo($lista_sub_grupos);
         // ------------- /. Lista de todo los Sub-Grupos ---------- //
 
-        // ------------- Lista de todos losEntrenadores ---------- //
+        // ------------- Lista de todos los Entrenadores ---------- //
         $data['listaEntrenadores'] = $this->entrenador_model->obtener_todos_los_entrenadores();
-        // ------------- /. Lista de todos losEntrenadore ---------- //
+        // ------------- /. Lista de todos los Entrenadore ---------- //
+
+        // ------------- Lista de todos los Alumnos ---------- //
+        #$data['listaAlumnos'] = $this->alumno_model->ver_lista_alumnos();
+        // ------------- /. Lista de todos los Alumnos ---------- //
         return $data;
     }
 
@@ -229,6 +257,7 @@ class Grupo_controller extends CI_Controller {
         $sub_grupos = array();
         foreach ($lista_sub_grupos as $sub_grupo) {
             $item_sub_grupo = array();
+            $item_sub_grupo['id_subgrupo'] = $sub_grupo['id_subgrupo'];
             $item_sub_grupo['nombre_subgrupo'] = $sub_grupo['nombre_subgrupo'];
             $item_sub_grupo['entrenadores'] = $this->establecer_datos_entrenadores_para_sub_grupo($sub_grupo['id_entrenador']);
             $item_sub_grupo['horario'] = $sub_grupo['horario'];
