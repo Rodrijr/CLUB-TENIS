@@ -30,13 +30,13 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">EVALUACIONES <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_de_jugador/<?php echo $this->session->userdata('id_usuario') ?>">Objetivos De Jugador</a></li> <!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_de_jugador/<?php echo $this->session->userdata('identificador_usuario') ?>">Objetivos De Jugador</a></li> <!--   solo el entrenador  -->
 	            <li class="divider"></li>
-	            <li><a href="#">Perfil de Jugador</a></li><!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_perfil_de_jugador/<?php echo $this->session->userdata('identificador_usuario') ?>">Perfil de Jugador</a></li><!--   solo el entrenador  -->
 	            <li class="divider"></li>
-	            <li><a href="#">Evaluacion Personal</a></li> <!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_evaluacion_personal/<?php echo $this->session->userdata('identificador_usuario') ?>">Evaluacion Personal</a></li> <!--   solo el entrenador  -->
 	            <li class="divider"></li>
-	            <li><a href="#">Objetivos Individuales</a></li><!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_de_jugador/<?php echo $this->session->userdata('identificador_usuario') ?>">Objetivos Individuales</a></li><!--   solo el entrenador  -->
 	          </ul>        
 	        </li>
         </ul>

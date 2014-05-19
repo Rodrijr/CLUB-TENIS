@@ -21,8 +21,8 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GRUPOS <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_mis_grupo">Ver lista de grupos</a></li>
-	              <li class="divider"></li>
-	            <li><a href="#">Seleccionar Planilla</a></li>
+	            <!--  <li class="divider"></li>
+	            <li><a href="#">Seleccionar Planilla</a></li>-->
 	          </ul>        
 	        </li>
       	</ul>       

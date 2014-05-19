@@ -80,9 +80,9 @@ class Planilla_controller extends CI_Controller{
 
     public function ver_perfil_de_jugador($id_alumno)
     {
-        $data['objetivos_de_jugador'] = $this->cargar_datos_obj_de_jugador_de_alumno($id_alumno);
+        $data['perfil_de_jugador'] = $this->cargar_datos_perfil_de_jugador_de_alumno($id_alumno);
         $data['id_alumno'] = $id_alumno;
-        $data['main_content'] = 'planillas/ver_objetivos_de_jugador_alumno_view';
+        $data['main_content'] = 'planillas/ver_perfil_de_jugador_view';
         $this->load->view('main_template', $data);
     }
 
@@ -139,9 +139,9 @@ class Planilla_controller extends CI_Controller{
 
     public function ver_evaluacion_personal($id_alumno)
     {
-        $data['objetivos_de_jugador'] = $this->cargar_datos_obj_de_jugador_de_alumno($id_alumno);
+        $data['evaluacion_personal'] = $this->cargar_datos_evaluacion_personal_de_alumno($id_alumno);
         $data['id_alumno'] = $id_alumno;
-        $data['main_content'] = 'planillas/ver_objetivos_de_jugador_alumno_view';
+        $data['main_content'] = 'planillas/evaluacion_personal_view';
         $this->load->view('main_template', $data);
     }
 

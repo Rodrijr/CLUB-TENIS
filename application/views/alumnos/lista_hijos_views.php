@@ -4,7 +4,7 @@
         <?php
             foreach ($lista as $hijo)
             {
-                echo '<li class=""><a href="#'.$hijo['ci_persona'].'" data-toggle="tab">'.$hijo['nombre_persona'].'</a></li>';
+                echo '<li class=""><a href="#'.$hijo['ci_persona'].'" data-toggle="tab">'.$hijo['nombre_persona']. '</a></li>';
             }
         ?>
     </ul>
@@ -111,15 +111,12 @@
             <div class="col-lg-2">
             
                     <div class="btn-group-vertical">
-                      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  evaluacion personal
-</button>
-<button class="btn btn-primary" data-toggle="modal" >Planila de objetivos</button>
-<button class="btn btn-primary" data-toggle="modal" >perfil del jugador</button>
-<button class="btn btn-primary" data-toggle="modal" >objetivos de jugador</button>
+<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_de_jugador/<?php echo $hijo['id_persona']?>" class="btn btn-success">objetivos de jugador</a>
+<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_perfil_de_jugador/<?php echo $hijo['id_persona']?>" class="btn btn-info">perfil del jugador</a>
+<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_evaluacion_personal/<?php echo $hijo['id_persona']?>" class="btn btn-warning">evaluacion personal</a>
                         
-<button class="btn btn-primary" data-toggle="modal" >planilla de asistencia</button>
-<button class="btn btn-primary" data-toggle="modal" >kardex</button>
+<!-- <button class="btn btn-primary" data-toggle="modal" >planilla de asistencia</button>-->
+<!-- <button class="btn btn-primary" data-toggle="modal" >kardex</button>-->
                     </div>
     
             </div>
