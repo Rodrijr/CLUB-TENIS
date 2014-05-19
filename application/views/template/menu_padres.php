@@ -27,11 +27,24 @@
 	    <ul class="nav navbar-nav navbar-right">      
 	        <!--   NOFICACIONES  -->
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> NOTIFICACIONES <b class="caret"></b></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> NOTIFICACIONES
+                  <?php 
+    if($_SESSION['notif']>0){?>
+                  <span class="badge pull-right"><?php 
+                   
+                     echo $_SESSION['notif'];
+                  ?></span>
+                  <?php } ?>
+                  
+                  
+                  
+                 <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Enviar notificacion</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">Buscar Notificaciones</a></li>            
+	            <li><a href="<?php echo base_url(); ?>index.php/Notificacion_controller/ver_notificaciones">Ver Lista Notifiaciones
+                    
+                    </a>
+                </li>
+	                      
 	          </ul>
 	        </li>
 	        <!--   PERFIL  -->
