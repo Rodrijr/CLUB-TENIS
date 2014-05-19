@@ -247,8 +247,8 @@
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-1">
             <br>
-            <a type="button" class="btn btn-warning" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_lista_de_alumnos">Cancel</a>
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <!-- <a type="button" class="btn btn-warning" href="<?php #echo base_url(); ?>index.php/Planilla_controller/ver_lista_de_alumnos">Cancel</a>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button> -->
           </div>
         </div>
       </div>

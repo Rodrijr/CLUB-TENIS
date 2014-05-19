@@ -40,29 +40,11 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">REPORTES <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                  <!--  ELIMINAR solo el padres  -->
-                  <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/ver_lista_hijos">Ver lista de hijos</a></li>
-                  <!--  ELIMINAR s  -->
-                  
                 <li><a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_lista_entrenadores">Ver lista entrenadores</a></li> <!--  secretaria y administrador -->
                 <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/ver_lista_alumnos">Ver lista de alumnos</a></li><!--   solo el administrador  -->
               </ul>        
             </li>
-        </ul>
-        <ul class="nav navbar-nav">
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">PLANILLA <b class="caret"></b></a>
-	          <ul class="dropdown-menu">
-	            <li><a href="">Llenar Planilla Alumno</a></li>
-                  
-                  
-                  
-                <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/lista_planillas">Seleccionar Planilla</a></li>
-                  
-                <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_mis_grupos">Ver lista Grupos</a></li>
-	          </ul>        
-	        </li>
-      	</ul>   
+        </ul> 
         <!--   MULTIMEDIA  eliminar de aqui  -->
 	    <ul class="nav navbar-nav">
 	        <li class="dropdown">

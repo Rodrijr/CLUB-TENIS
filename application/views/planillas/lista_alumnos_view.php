@@ -15,7 +15,7 @@
             <th>#</th>
             <th>Nombre</th>
             <th>Apellidos</th>
-            <th colspan="4"><center>Planillas</center></th>
+            <th colspan="3"><center>Planillas</center></th>
           </tr>
         </thead>
         <tbody>
@@ -28,7 +28,7 @@
               echo '<td><a href="'.base_url().'index.php/Planilla_controller/llenar_objetivos_de_jugador/'.$alumno['id_persona'].'">Objetivos Del Jugador</a></td>';
               echo '<td><a href="'.base_url().'index.php/Planilla_controller/llenar_perfil_de_jugador/'.$alumno['id_persona'].'" style="color:red">Perfil Del Jugador</a></td>';
               echo '<td><a href="'.base_url().'index.php/Planilla_controller/llenar_evaluacion_personal/'.$alumno['id_persona'].'" style="color:green">Evaluaci&oacute;n Personal</a></td>';
-              echo '<td><a href="'.base_url().'index.php/Planilla_controller/llenar_objetivos_individuales/'.$alumno['id_persona'].'" style="color:purple">Objetivos Individuales</a></td>';
+              //echo '<td><a href="'.base_url().'index.php/Planilla_controller/llenar_objetivos_individuales/'.$alumno['id_persona'].'" style="color:purple">Objetivos Individuales</a></td>';
             echo '</tr>';
             $cont++;
             } ?>
