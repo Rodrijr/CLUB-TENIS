@@ -57,7 +57,6 @@ $nom_grupo = $this->grupo_model->obtener_nombre_grupo_por_id($subgrupo['id_grupo
             $nom_grupo = $nom_grupo[0];    
 $elem = array($nom_grupo['nombre_grupo']."*".$subgrupo['nombre_subgrupo']=> $alumnos);  
                   array_push($lista,$elem); 
-                 print_r($elem);
             }
             $alumnos = array();
         }
@@ -115,7 +114,7 @@ $elem=$this->notificacion_model->notificaion_id($notif['id_notificacion']);
      public function eliminar_notificaciones()
      {
           $notificaciones = $this->input->post('notificaciones'); 
-        echo $notificaciones;
+      
         if(count($notificaciones)>=1 && isset($notificaciones))
         {
             foreach($notificaciones as $notificacion)
