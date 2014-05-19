@@ -47,7 +47,6 @@ class Grupo_controller extends CI_Controller {
     public function editar_grupo($id_grupo)
     { 
         $data = $this->establecer_datos_necesarios_para_editar_grupo($id_grupo,"",1,"",1);
-        $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
         $data['main_content'] = 'grupos/editar_grupo_view';
         $this->load->view('main_template', $data);
     }
@@ -71,6 +70,32 @@ class Grupo_controller extends CI_Controller {
         $nombre_grupo = $this->input->post('nombreGrupo');
         $this->grupo_model->crear_grupo($nombre_grupo);
         $this->ver_lista_grupos();
+    }
+
+    // -------------------- Metodos de Sub Grupo -------------------- //
+
+    public function agregar_sub_grupo()
+    {
+        $id_grupo = $this->input->post('id_grupo');
+        $desde = $this->input->post('desde_hora');
+        $hasta = $this->input->post('hasta_hora');
+        $entrenadores = $this->input->post('entrenadores');
+        $id_entrenadores='';
+        foreach ($entrenadores as $id_entrenador) {
+            $id_entrenadores = $id_entrenadores.'-'.$id_entrenador;
+        }
+        $id_entrenadores = substr($id_entrenadores, 1);
+
+        $sub_grupo = array(
+            'id_grupo'=>$id_grupo,
+            'nombre'=>$this->input->post('nombreSubGrupo'),
+            'descripcion'=>$this->input->post('descripcionSubGrupo'),
+            'desde'=>$desde,
+            'hasta'=>$hasta,
+            'entrenadores'=>$id_entrenadores
+            );
+        $this->grupo_model->agregar_sub_grupo($sub_grupo);
+        $this->editar_grupo($id_grupo);
     }
 
     // -------------------- Metodos de Horario -------------------- //
@@ -183,14 +208,62 @@ class Grupo_controller extends CI_Controller {
 
     function establecer_datos_necesarios_para_editar_grupo($id_grupo, $mensaje_horario, $alerta_horario, $mensaje_alumno, $alerta_alumno)
     {
-        // ------------- Lista de todo los Alumnos ---------- //
-        $data['alumnos'] = $this->alumno_model->ver_lista_alumnos();
-        // ------------- /. Lista de todo los Alumnos ---------- //
+        // ------------- Datos de Grupo ---------- //
+        $data['grupo'] = $this->grupo_model->obtener_grupo_por_id($id_grupo);
+        // ------------- .Datos de Grupo ---------- //
+
+        // ------------- Lista de todo los Sub-Grupos ---------- //
+        $lista_sub_grupos = $this->grupo_model->obtener_todos_los_sub_grupos_por_id_de_grupo($id_grupo);
+
+        $data['sub_grupos'] = $this->establecer_datos_necesarios_para_sub_grupo($lista_sub_grupos);
+        // ------------- /. Lista de todo los Sub-Grupos ---------- //
 
         // ------------- Lista de todos losEntrenadores ---------- //
         $data['listaEntrenadores'] = $this->entrenador_model->obtener_todos_los_entrenadores();
         // ------------- /. Lista de todos losEntrenadore ---------- //
         return $data;
+    }
+
+    function establecer_datos_necesarios_para_sub_grupo($lista_sub_grupos)
+    {
+        $sub_grupos = array();
+        foreach ($lista_sub_grupos as $sub_grupo) {
+            $item_sub_grupo = array();
+            $item_sub_grupo['nombre_subgrupo'] = $sub_grupo['nombre_subgrupo'];
+            $item_sub_grupo['entrenadores'] = $this->establecer_datos_entrenadores_para_sub_grupo($sub_grupo['id_entrenador']);
+            $item_sub_grupo['horario'] = $sub_grupo['horario'];
+            $item_sub_grupo['descripcion'] = $sub_grupo['descripcion'];
+            $item_sub_grupo['alumnos'] = $this->establecer_datos_alumnos_para_sub_grupo($sub_grupo['id_subgrupo']);
+            $sub_grupos[] = $item_sub_grupo;
+        }
+        return $sub_grupos;
+    }
+
+    function establecer_datos_entrenadores_para_sub_grupo($id_entrenadores)
+    {
+        $entrenadores = '';
+        $lista_id_entrenadores = explode("-", $id_entrenadores);
+        foreach ($lista_id_entrenadores as $id_entrenador) {
+            $entrenador = $this->entrenador_model->obtener_entrenador_por_id($id_entrenador);
+            $entrenadores = $entrenadores.' - '.$entrenador['nombre_persona'].' '.$entrenador['apellido_persona'];
+        }
+        return substr($entrenadores, 1);
+    }
+
+    function establecer_datos_alumnos_para_sub_grupo($id_sub_grupo)
+    {
+        $alumnos_por_sub_grupo = $this->grupo_model->obtener_id_alumnos_por_id_grupo($id_sub_grupo);
+        $lista_de_alumnos = array();
+        foreach ($alumnos_por_sub_grupo as $alumno_grupo) {
+            $itemAlumno = array();
+            $alumno = $this->alumno_model->obtener_alumno_por_id($alumno_grupo['id_alumno']);
+            $itemAlumno['nombre_persona'] = $alumno['nombre_persona'];
+            $itemAlumno['apellido_persona'] = $alumno['apellido_persona'];
+            $lista_de_alumnos[] = $itemAlumno;
+        }
+
+        return $lista_de_alumnos;
+        
     }
 }
 ?>
