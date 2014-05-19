@@ -16,16 +16,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
         <!--   Grupo  -->
-        <ul class="nav navbar-nav">
+        <!-- <ul class="nav navbar-nav">
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GRUPOS <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_mis_grupo">Ver lista de grupos</a></li>
-	            <!--  <li class="divider"></li>
-	            <li><a href="#">Seleccionar Planilla</a></li>-->
+	             <li><a href="<?php #echo base_url(); ?>index.php/Grupo_controller/ver_mis_grupo">Ver lista de grupos</a></li>
+	              <li class="divider"></li>
+	            <li><a href="#">Seleccionar Planilla</a></li>
 	          </ul>        
 	        </li>
-      	</ul>       
+      	</ul> -->      
 
       	<!--   Planilla  -->
         <ul class="nav navbar-nav">
