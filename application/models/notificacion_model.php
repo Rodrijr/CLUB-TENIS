@@ -21,9 +21,26 @@ class Notificacion_model extends CI_Model
     public function id_notificacion($not)
     {
       $query = $this->db->get_where('notificacion',
-                                    array('fecha' => $not['fecha']));  
+                                    array('fecha' => $not['fecha'])); 
      
             return $query->result_array();            
     
     }
+    public function ver_notificaciones()
+    {
+        $id=$this->session->userdata('id_usuario');
+$query=$this->db->get_where('destinatarios',array('ci_destinatario'=>$id));   
+            return $query->result_array();
+	}
+    public function notificaion_id($id_not)
+    {
+$query=$this->db->get_where('notificacion',array('id_notificacion'=>$id_not));   
+            return $query->result_array();
+    }
+    public function elimniar_notificaion($id)
+    {
+        $id_usuario=$this->session->userdata('id_usuario');
+        $this->db->delete('destinatarios', array('id_notificacion' => $id,'ci_destinatario'=>$id_usuario)); 
+    }
+    
 }

@@ -47,7 +47,7 @@
 	    	<li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> NOTIFICACIONES <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Ver lista notificaciones</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/Notificacion_controller/ver_notificaciones">Ver lista notificaciones</a></li>
 	            <li class="divider"></li>
 	            <li><a href="#">Buscar Notificaciones</a></li>            
 	          </ul>

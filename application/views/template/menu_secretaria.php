@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Club tenis CBBA</a>
+      <a class="navbar-brand" href="#"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -85,10 +85,9 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> NOTIFICACIONES <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
                 <li>
-                    <a href="<?php echo base_url(); ?>index.php/Notificacion_controller/do_upload">Crear Notificacion</a></li>
-	            <li><a href="#">Ver lista notificaciones</a></li>
+                    <a href="<?php echo base_url(); ?>index.php/Notificacion_controller/enviar_notificaciones">Crear Notificacion</a></li>
 	            <li class="divider"></li>
-	            <li><a href="#">Buscar Notificaciones</a></li>            
+	            <li><a href="#">Historial de Notificaciones</a></li>            
 	          </ul>
 	        </li>
 

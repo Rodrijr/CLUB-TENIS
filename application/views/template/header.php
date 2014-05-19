@@ -7,24 +7,6 @@
 	<link href="<?php echo base_url(); ?>dist/css/bootstrap.css" rel="stylesheet" media="screen">
 	<link href="<?php echo base_url(); ?>dist/css/bootswatch.min.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>dist/css/bootstrap-modal.css" rel="stylesheet">
-	<!--<link href="<?php #echo base_url(); ?>dist/css/bootstrap-modal-bs3patch.css" rel="stylesheet"> -->
-	
-	
-
-	<!-- <link href="<?php #echo base_url(); ?>dist/css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
-
-	<!--<link href="<?php #echo base_url(); ?>dist/css/bootstrap-theme.css" rel="stylesheet" >-->
-	<!--<link href="<?php #echo base_url(); ?>dist/css/bootstrap-theme.min.css" rel="stylesheet" >-->
-	<!-- <script type="text/javascript" src="<?php #echo base_url(); ?>dist/js/jquery-1.10.2.min.js"></script> -->
-
-	<!--<style>
-		table,th,td
-		{
-		border:1px solid black;
-		border-collapse:collapse;
-		}
-	</style>-->
-
     
 	<script>
 
@@ -46,4 +28,6 @@
 
 <body background="<?php echo base_url(); ?>imagenes\header.jpg">
 	<script src="<?php echo base_url(); ?>dist/js/bsa.js"></script>
+    <div class="container">
 <img aling ="center" width="100%" height="300" src="<?php echo base_url(); ?>imagenes\portada.jpg" />
+</div>

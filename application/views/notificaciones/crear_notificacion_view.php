@@ -36,12 +36,6 @@
 
    
 </div>
-      <div class="input-group">
-    <input type="file"
-           name="userfile" size="20" >
-    </div>
-    
-      
       <br>
       <input class='btn btn-default'  type='button' value='ATRAS' onclick='history.back()'> 
     <INPUT VALUE='DESTINATARIOS' class='btn btn-success' TYPE='submit'>
@@ -53,9 +47,6 @@
     
 
 <div class="col-md-5">
-
-    
-
 
   </div>
     
