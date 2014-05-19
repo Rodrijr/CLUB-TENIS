@@ -79,11 +79,10 @@ class Grupo_model extends CI_Model
             return "Error al Asignar este Entreador";
     }
 
-    public function crear_grupo($nombre_grupo, $descripcion_grupo)
+    public function crear_grupo($nombre_grupo)
     {
         $nuevo_grupo = array(
-            'nombre_grupo' => $nombre_grupo, 
-            'descripcion_grupo' => $descripcion_grupo);
+            'nombre_grupo' => $nombre_grupo);
 
         $resp = $this->db->insert('grupo', $nuevo_grupo);
         if($resp==1)
@@ -152,10 +151,10 @@ class Grupo_model extends CI_Model
 
     public function existe_alumno_en_alumno_grupo($id_grupo, $id_alumno)
     {
-        $nuevo_grupo_alumno = array(
+        $grupo_alumno = array(
             'id_grupo' => $id_grupo, 
             'id_alumno' => $id_alumno);
-        $query = $this->db->get_where('alumno_grupo',$nuevo_grupo_alumno);
+        $query = $this->db->get_where('alumno_grupo',$grupo_alumno);
         if($query->num_rows() >=1 )
             return 1;
         else
@@ -175,7 +174,19 @@ class Grupo_model extends CI_Model
         //else
         //   return "Error al Asignar este Entreador";
     }
-    
+
+    public function agregar_sub_grupo($sub_grupo)
+    {
+        $nuevo_sub_grupo = array(
+            'id_grupo'=>$sub_grupo['id_grupo'],
+            'nombre_subgrupo'=>$sub_grupo['nombre'],
+            'id_entrenador'=>$sub_grupo['entrenadores'],
+            'horario'=>$sub_grupo['desde'].' - '.$sub_grupo['hasta'],
+            'descripcion'=>$sub_grupo['descripcion']
+            );
+        $resp = $this->db->insert('sub_grupo', $nuevo_sub_grupo);
+    }
+
     public function obtener_nombre_grupo_por_id($id_grupo)
     {
          $this->db->select('*');
@@ -184,6 +195,15 @@ class Grupo_model extends CI_Model
         return $query->result_array();
     }
 
+    public function obtener_todos_los_sub_grupos_por_id_de_grupo($id_grupo)
+    {
+        $grupo = array(
+            'id_grupo' => $id_grupo
+            );
+        $query = $this->db->get_where('sub_grupo',$grupo);
+        $count = $query->num_rows();
+        return $query->result_array();
+    }
  
 }
 ?>
