@@ -12,7 +12,10 @@
 <?php
  $count = 1;
 
-
+if(count($notificaciones)==0)
+{
+    echo "<h1> NO TIENE NOTIFICACIONES PARA VER.</h1>";
+}
 foreach($notificaciones as $noti)
 {
    
@@ -55,8 +58,12 @@ foreach($notificaciones as $noti)
             <div class="col-md-5">            
            </div>
                 <div class="col-md-5">
-            <input class='btn btn-default'  type='button' value='VOLVER ATRAS' onclick='history.back()'> 
-    <INPUT VALUE='ELIMINAR SELECCIONADOS' class='btn btn-success' TYPE='submit'>  
+            <input class='btn btn-default'  type='button' value='VOLVER ATRAS' onclick='history.back()'> <?PHP
+                    if(count($notificaciones)!=0)
+{
+    echo "<INPUT VALUE='ELIMINAR SELECCIONADOS' class='btn btn-success' TYPE='submit'>  ";
+}?>
+    
                
                 </div>
     
