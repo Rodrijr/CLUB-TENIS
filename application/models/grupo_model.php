@@ -34,6 +34,11 @@ class Grupo_model extends CI_Model
         $query = $this->db->get('grupo');
         return $query->result_array();
     }
+    public function obtener_todos_los_subgrupos()
+    {
+        $query = $this->db->get('sub_grupo');
+        return $query->result_array();
+    }
 
     public function grupos_entrenador($id_entrenador)
     {
@@ -156,10 +161,10 @@ class Grupo_model extends CI_Model
             return 0;
     }
 
-    public function obtener_id_alumnos_por_id_grupo($id_grupo)
+    public function obtener_id_alumnos_por_id_grupo($id_subgrupo)
     {
         $this->db->select('*');
-        $this->db->where('id_subgrupo', $id_grupo);
+        $this->db->where('id_subgrupo', $id_subgrupo);
         $query=$this->db->get('alumno_grupo');
         return $query->result_array();
 
@@ -180,6 +185,14 @@ class Grupo_model extends CI_Model
             'descripcion'=>$sub_grupo['descripcion']
             );
         $resp = $this->db->insert('sub_grupo', $nuevo_sub_grupo);
+    }
+
+    public function obtener_nombre_grupo_por_id($id_grupo)
+    {
+         $this->db->select('*');
+        $this->db->like('id_grupo', $id_grupo);
+        $query=$this->db->get('grupo');
+        return $query->result_array();
     }
 
     public function obtener_todos_los_sub_grupos_por_id_de_grupo($id_grupo)

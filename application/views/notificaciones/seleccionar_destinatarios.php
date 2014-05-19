@@ -13,57 +13,64 @@
      
     </div>
        <div class="tab-pane fade active in" id="Alumnos">
-        <div class="row"><br>   
-           	<?php echo form_open('Notificacion_controller/buscar_grupos'); ?>
-           <div class="col-md-2">
-            
-           </div>
-           <div class="col-md-6">
-            <input type="text" class="form-control" name="ci" placeholder="CI">
-           </div>
-           
-           <INPUT VALUE='BUSCAR' class='btn btn-success' TYPE='submit'>
-            <?php echo form_close() ?>
+        <div class="row"><br>  
             </div><br>
             <div class="row">
             <div class="col-md-2">            
            </div>
-                <?php echo form_open('Notificacion_controller/enviar_notificacion'); ?>
-           <div class="col-md-8">
+            <div class="col-md-6">            
+          
+                <?php echo form_open('Notificacion_controller/enviar_notificacion'); 
+
                
-         <table class="table table-bordered">
-		          	<thead>
-		              <tr>
-		                
-		                <th>Nombre</th>
-		                <th>SELECCIONAR</th>
-		              </tr>
-		            </thead>
-		            <tbody>
-		            	<?php $cont = 1; 
-                        
-                        ?>
-		            	<?php	foreach($grupos as $grupo){ ?>
-		            	<!--<td><a href="<?php # echo base_url(); ?>grupos/Grupo_controller/ver_grupo/">Ver</a></td> -->
-		                <tr>
-		                    <td style="min-width: 0px; max-width: 10%">
-                            <?php echo $grupo['nombre_grupo']; ?></td>
-	                      
-                            <td style="min-width: 0px; max-width: 1%">
-                       
-                            <input 
-                                type="checkbox" 
-                                id="<?php echo $grupo['id_grupo']; ?>" 
-                                name="destinatarios[]"                          
-                            >
-                            </td> 
+                foreach($grupos as $grupo)
+                {  
+                    $nombres1 = explode("*", "".key($grupo));               
+                    foreach($grupo as $subgrupo)
+                    { $count= 1;
+                        if($count ==1)
+                        {
+
+                        echo "<h2>".$nombres1[0]."</h2>";             
+
+                        }
+               
+                        echo "<h2>".$nombres1[1]."</h2>";
+             ?>
+                    
+                         <table class="table table-bordered" 
+                                >
+                        <thead>
+                              <tr>		                
+                                <th>Nombre</th>
+                                <th>SELECCIONAR</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                <?php
+                       foreach($subgrupo as $alumno)
+                       {
+                         ?><tr>
+                        <td><?php
+                            echo $alumno['nombre_persona'];
+                            ?>
+                        </td>
+                        <td><?php
+                            echo '<input id="id_alumno" name="destinatarios[]" value="'.$alumno['ci_persona'].'" type="checkbox">';
+                            ?>
+                        </td>
                         </tr>
-		                <?php $cont++; ?>
-		                <?php } ?>
-		            </tbody>
-             
-		          </table>
-               </div>
+                        <?php
+                       }
+                        $count = $count +1;?>
+                     </table> <?php
+                    }
+                    ?>
+		          <?php 
+                }
+                ?>
+                 </div>
+       
          </div>
                 <div class="row">
             <div class="col-md-5">            

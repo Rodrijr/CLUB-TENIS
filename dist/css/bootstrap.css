@@ -119,6 +119,7 @@ textarea {
   color: inherit;
   font: inherit;
   margin: 0;
+    resize: none;
 }
 button {
   overflow: visible;
@@ -3409,6 +3410,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .input-group-addon input[type="radio"],
 .input-group-addon input[type="checkbox"] {
   margin-top: 0;
+    background-color: #AADBFF;
 }
 .input-group .form-control:first-child,
 .input-group-addon:first-child,

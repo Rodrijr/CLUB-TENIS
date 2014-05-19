@@ -11,7 +11,6 @@ class Alumno_model extends CI_Model
     public function obtener_Padre_Alumno_ID()
 	{
         $id=$this->session->userdata('id_usuario');
-        echo $id;
         $query = $this->db->get_where('padre_alumno', array('ci_padre' => $id));    
             return $query->result_array();
 	}
