@@ -79,7 +79,7 @@
            
                 if(isset($MSN)&& !empty($MSN))
                 {
-                            echo"<div class='alert fade in'>";
+                            echo"<div class='alert fade in warning'>";
 							echo"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
                             echo"<strong>ALERTA!</strong> ";
 							echo"<input  readonly='readonly' type='text_Rodri' name='numero' value='$MSN' style=' text-shadow: 0 0 0.2em #8F7; border:none; width:350px; height:30px'>";

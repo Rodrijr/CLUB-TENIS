@@ -36,7 +36,7 @@
 		                <th>#</th>
 		                <th>Nombre De Grupo</th>
 		                <th colspan="2">Acciones</th>
-		                <th></th>
+		                
 		              </tr>
 		            </thead>
 		            <tbody>

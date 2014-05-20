@@ -75,7 +75,7 @@ $elem = array($nom_grupo['nombre_grupo']."*".$subgrupo['nombre_subgrupo']=> $alu
             $resp= $resp[0];
             foreach($destinatarios as $destinatario)
             {       
-                print_r($destinatario);
+              
                 echo "<br>";
                     $envio = array(
                         'id_notificacion' => $resp['id_notificacion'],

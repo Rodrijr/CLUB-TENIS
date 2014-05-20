@@ -24,7 +24,7 @@
        
         
 
-    <img src="<?php echo base_url(); ?>imagenes\<?php echo $hijo['id_persona'];  ?>.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
+    <img src="<?php echo base_url(); ?>imagenes\<?php echo $hijo['ci_persona'];  ?>.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
     </a>
   </div>
          </div>

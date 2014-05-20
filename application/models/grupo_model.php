@@ -43,7 +43,6 @@ class Grupo_model extends CI_Model
     public function grupos_entrenador($id_entrenador)
     {
         $query = $this->db->get_where('grupo', array('id_entrenador' => $id_entrenador)); 
-            //print_r($query->result_array());
             return $query->result_array();            
     }
     public function id_alumno_horario($id_hora)

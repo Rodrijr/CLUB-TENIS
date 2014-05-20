@@ -52,14 +52,7 @@
         <!--   PERFIL  -->
 	    <ul class="nav navbar-nav navbar-right">      
 	        <!--   NOFICACIONES  -->
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> NOTIFICACIONES <b class="caret"></b></a>
-	          <ul class="dropdown-menu">
-	            <li><a href="#">Ver lista notificaciones</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">Buscar Notificaciones</a></li>            
-	          </ul>
-	        </li>
+	        
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
 	          	<span class="glyphicon glyphicon-user"></span> 

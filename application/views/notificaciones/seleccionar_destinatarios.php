@@ -1,18 +1,9 @@
 
 <div class="container">
-<div class="bs-example bs-example-tabs">
-    <ul id="myTab" class="nav nav-pills">
-      <li class=""><a href="#Grupos" data-toggle="tab">GRUPO</a></li>
-      <li class="active"><a href="#Alumnos" data-toggle="tab">ALUMNO</a></li>
-      <li class=""><a href="#Padres" data-toggle="tab">PADRES</a></li>
-      <li class="dropdown">
-        
-      </li>
-    </ul>
-    <div id="myTabContent" class="tab-content">
+
      
-    </div>
-       <div class="tab-pane fade active in" id="Alumnos">
+
+       
         <div class="row"><br>  
             </div><br>
             <div class="row">
@@ -31,11 +22,11 @@
                         if($count ==1)
                         {
 
-                        echo "<h2>".$nombres1[0]."</h2>";             
+                        echo "<h4>".$nombres1[0]."</h4>";             
 
                         }
                
-                        echo "<h2>".$nombres1[1]."</h2>";
+                        echo "<h5>".$nombres1[1]."</h5>";
              ?>
                     
                          <table class="table table-bordered" 
@@ -89,6 +80,5 @@
        
       </div>
       
-    </div>
-  </div>
+
     

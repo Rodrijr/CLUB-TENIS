@@ -57,6 +57,12 @@ class Sesion_controller extends CI_Controller {
 		);
 		$this->session->set_userdata($datos_de_session);
 		$this->session->set_userdata('estaLogeado', TRUE);
+        if(strcmp($datos_de_session['tipo_usuario'],"Padre") ||strcmp($datos_de_session['tipo_usuario'],"Alumno") )
+        {
+           $count = count($this->notificacion_model->ver_notificaciones());
+                  $_SESSION['notif'] = $count;
+              
+        }
 		$data['main_content'] = 'sesiones/index_bienvenida_view';
 		$this->load->view('main_template', $data);
 	}

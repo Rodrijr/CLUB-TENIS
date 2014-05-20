@@ -15,7 +15,7 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">REGISTROS <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="<?php echo base_url(); ?>index.php/Padre_controller/registrar_padre">Registrar Padre</a></li>              
-	            <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/registrar_alumno">Registrar Alumno</a></li>
+	           
 	            <li class="divider"></li>
 	            <li><a href="<?php echo base_url(); ?>index.php/Entrenador_controller/registrar_entrenador">Registrar Entrenador</a></li>
 	          </ul> 
