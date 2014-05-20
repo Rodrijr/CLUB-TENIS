@@ -133,7 +133,7 @@ class Planilla_controller extends CI_Controller{
     {
         $data['evaluacion_personal'] = $this->cargar_datos_evaluacion_personal_de_alumno($id_alumno);
         $data['id_alumno'] = $id_alumno;
-        $data['main_content'] = 'planillas/evaluacion_persoanl_view';
+        $data['main_content'] = 'planillas/evaluacion_personal_view';
         $this->load->view('main_template', $data);
     }
 

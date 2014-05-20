@@ -161,6 +161,11 @@ class Grupo_controller extends CI_Controller {
         $this->editar_grupo($id_grupo);
     }
 
+    public function ver_lista_de_grupos_de_entrenador($id_entrenador)
+    {
+        $sub_grupos_de_entrenador = $this->grupo_model->obtener_grupos_de_entrenador();
+    }
+
     // ----------------------------------- METODOS PRIVADOS ------------------------- //
 
     function validar_alumno($id_alumno, $id_grupo)

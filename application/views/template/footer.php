@@ -1,10 +1,10 @@
 
     <div class="container">
+       <br> 
 	   <div class="panel-footer">
          <p align="center" >            
             Universidad Catolica Boliviana. Todos los derechos reservados.<br>
-                 Blanco Pozo Jhonny Rodrigo - Mejia Pacheco Leonardo
-              
+                 Blanco Pozo Jhonny Rodrigo - Mejia Pacheco Leonardo 
          </p>
           
        </div>
