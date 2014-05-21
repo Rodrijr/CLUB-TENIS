@@ -179,6 +179,13 @@ class Grupo_controller extends CI_Controller {
         $this->load->view('main_template', $data);
     }
 
+    public function nuevo_sub_grupo($id_grupo)
+    {
+        $data['id_grupo']= $id_grupo;
+        $data['listaEntrenadores'] = $this->entrenador_model->obtener_todos_los_entrenadores();
+        $data['main_content'] = 'grupos/agregar_sub_grupo_view';
+        $this->load->view('main_template', $data);
+    }
     // ----------------------------------- METODOS PRIVADOS ------------------------- //
 
     function validar_alumno($id_alumno, $id_grupo)
