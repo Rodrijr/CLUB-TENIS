@@ -12,6 +12,7 @@ class Persona_controller extends CI_Controller {
             #$this->load->library('form_validation');
             redirect('Sesion_controller/login_formulario', 'refresh');
         }
+        $this->load->helper('file');
 	}
     
     public function index()
@@ -131,6 +132,41 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         $data['entrenadores'] = $persona;
         $data['main_content'] = 'entrenadores/lista_entrenadores_views';
 		$this->load->view('main_template', $data);
+    }
+    
+    
+    
+    public function do_Upload()
+    {
+    $id=$this->session->userdata('id_usuario');
+    echo $id;
+        $config_file = array(
+       
+           'upload_path' => './imagenes',
+           'allowed_types' => 'gif|jpg|png',
+           'file_name' => $id.".jpg",
+           'overwrite' => true,
+           'max_size' => 0,
+           'max_filename'=>0,
+           'encrypt_name'=> false,
+           'remove_spaces' => false
+       );
+        $msn ="";
+        $this->upload->initialize($config_file);
+        if(!$this->upload->do_upload('userfile'))
+        {
+            $msn = "EL ARCHIVO DEBE SER UNA IMAGEN.";            
+        }
+        
+        $persona = $this->persona_model->ver_mi_perfil();
+        $data['persona'] = $persona[0];
+        $data['MSN1']= $msn;
+        $data['perfil'] = "";
+        $data['contracenia'] = "";
+        $data['modificarPerfil'] = "active";
+        $data['main_content'] = 'usuarios/ver_perfil_views';
+		$this->load->view('main_template', $data);   
+       
     }
 }
 ?>

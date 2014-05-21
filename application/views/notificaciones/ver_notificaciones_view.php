@@ -37,8 +37,8 @@ foreach($notificaciones as $noti)
            
                 <tr class="<?php echo $tipo;?>">
                     <td><?php 
-    echo '<br><span class="label label-primary">FECHA</span>&nbsp&nbsp&nbsp'.$noti['fecha']; 
-             echo '<span class="input-group-addon">
+    echo '<br><span class="label label-primary">FECHA</span>&nbsp&nbsp&nbsp'.$noti['fecha']."<br>"; 
+             echo '<br><span class="input-group-addon">
         <input id="id_notificacion" name="notificaciones[]" value="'.$noti['id_notificacion'].'" type="checkbox">
       </span>';            
              ?>          

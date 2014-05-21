@@ -65,7 +65,7 @@
   <?php if(isset($persona))
                     {
                        ?>
-    <img src="<?php echo base_url(); ?>imagenes\<?php echo $persona['id_persona']; } ?>.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
+    <img src="<?php echo base_url(); ?>imagenes\<?php echo $persona['ci_persona']; } ?>.jpg" alt="" width="250" height="270"  class="img-thumbnail"/>
   </div>
          </div>
 
@@ -144,12 +144,39 @@
     </div>  
           </div>  
       </div>
-     
+       
+
       <div class="tab-pane fade in <?php echo $modificarPerfil;?>" id="modificarPerfil">
          <div class="container">
-             <div class="col-lg-3">   
+             <div class="col-lg-4">   
+         <?php 
+   ?>
+     <div class="row">
+         
+  <?php if(isset($persona))
+        { echo   form_open_multipart('Persona_controller/do_Upload','class="form-horizontal"'); 
+  ?>
+         
+        
          
          
+         
+    <img src="<?php echo base_url(); ?>imagenes\<?php echo $persona['ci_persona'];  ?>.jpg" aling ="center" alt="" width="250" height="270"  class="img-thumbnail"/>
+<br>
+<input type="file" name="userfile" />
+<input type="submit" value="upload" class ="btn btn-success"/>
+         </div>
+                 <?php  echo form_close(); }
+                 if(isset($MSN1)&& !empty($MSN1))
+                {
+                    echo"<div class='panel panel-danger'>";
+							echo '<div class="panel-heading">';
+                            echo' <h3 class="panel-title">ALERTA!</h3></div>';
+							echo"<div class='panel-body'><input  readonly='readonly' type='text_Rodri' name='numero' value='$MSN1' style=' border:none; width:350px; height:30px'>";
+                            
+							echo" </div></div>"; 
+                }
+                 ?>
          </div>
      <div class="col-lg-6">   
                  
@@ -177,7 +204,7 @@
                         } 
                             }?>
                     <div class="input-group">
-                      <span class="input-group-addon"><label>CI</label></span>
+                      <span class="input-group-addon"><label>CIgvb</label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['ci_persona'];?>"
                              onkeypress ='return validarNro(event)'

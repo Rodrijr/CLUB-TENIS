@@ -151,6 +151,8 @@ input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
+    width: 120%;
+    height: 120%;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -189,9 +191,14 @@ table {
 
 th {
     padding: 0;
-    
     font-size: 125%;
     font-family: "Franklin Gothic Medium Cond";
+    color: #fff;
+    border-bottom-style: double;
+    border-color: #000;
+    background :  #004A7F ;
+    border-radius: 3px;
+    border-width: medium;
     
 }
 td
@@ -1479,7 +1486,7 @@ th {
 }
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9;
+  background-color: #D3D3D3;
 }
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
@@ -1679,7 +1686,8 @@ input[type="checkbox"] {
   line-height: normal;
 }
 input[type="file"] {
-  display: block;
+    color: #000;
+    width: 35%;
 }
 input[type="range"] {
   display: block;
@@ -3390,11 +3398,16 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 8px 12px;
   font-size: 14px;
   font-weight: normal;
+    font-family:  "arial black";
   line-height: 1;
-  color: #666666;
+  color: #fff;
   text-align: center;
-  background-color: #eeeeee;
-  border: 1px solid #cccccc;
+ background-image: -webkit-linear-gradient(#6d7070, #474949 50%, #3d3f3f);
+  background-image: linear-gradient(#6d7070, #474949 50%, #3d3f3f);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6d7070', endColorstr='#ff3d3f3f', GradientType=0);
+  filter: none;
+ /* border: 1px solid #2e2f2f;*/
   border-radius: 4px;
 }
 .input-group-addon.input-sm {
