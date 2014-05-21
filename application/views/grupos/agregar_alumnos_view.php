@@ -11,7 +11,6 @@
     <div class="form-group">
       <div class="col-lg-8 col-lg-offset-2">            
         <?php echo form_open('Grupo_controller/guardar_alumnos_en_sub_grupo');?>
-        <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $id_grupo ?>">
         <input type="HIDDEN" class="form-control" name="id_subgrupo" value="<?php echo $id_subgrupo ?>">
         <div class="form-group">
           <div class="col-lg-12">
@@ -41,7 +40,7 @@
           </div>
         </div>
         <div class="form-group">
-        	<a href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $id_grupo?>" class="btn btn-default">Atr&aacute;s</a>
+        <a class="btn btn-default" onclick='history.back()'>Atr&aacute;s</a>
     		<button type="submit" class="btn btn-primary">Agregar Alumnos</button>
         </div>
         <?php echo form_close();?>

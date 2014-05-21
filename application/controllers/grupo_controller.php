@@ -137,10 +137,9 @@ class Grupo_controller extends CI_Controller {
         $this->load->view('main_template', $data);
     }
 
-    public function agregar_alumnos_a_sub_grupo($id_subgrupo, $id_grupo)
+    public function agregar_alumnos_a_sub_grupo($id_subgrupo)
     {
         $data['id_subgrupo'] = $id_subgrupo;
-        $data['id_grupo'] = $id_grupo;
         $data['listaAlumnos'] = $this->alumno_model->ver_lista_alumnos();
         $data['main_content'] = 'grupos/agregar_alumnos_view';
         $this->load->view('main_template', $data);
@@ -164,6 +163,20 @@ class Grupo_controller extends CI_Controller {
     public function ver_lista_de_grupos_de_entrenador($id_entrenador)
     {
         $sub_grupos_de_entrenador = $this->grupo_model->obtener_grupos_de_entrenador();
+    }
+
+    public function ver_sub_grupo($id_subgrupo)
+    {
+        $data = $this->establecer_datos_necesarios_para_ver_editar_sub_grupo($id_subgrupo);
+        $data['main_content'] = 'grupos/ver_sub_grupo_view';
+        $this->load->view('main_template', $data);
+    } 
+
+    public function editar_sub_grupo($id_subgrupo)
+    {
+        $data = $this->establecer_datos_necesarios_para_ver_editar_sub_grupo($id_subgrupo);
+        $data['main_content'] = 'grupos/editar_sub_grupo_view';
+        $this->load->view('main_template', $data);
     }
 
     // ----------------------------------- METODOS PRIVADOS ------------------------- //
@@ -271,6 +284,20 @@ class Grupo_controller extends CI_Controller {
             $sub_grupos[] = $item_sub_grupo;
         }
         return $sub_grupos;
+    }
+
+    function establecer_datos_necesarios_para_ver_editar_sub_grupo($id_subgrupo)
+    {
+        $sub_grupo = $this->grupo_model->obtener_sub_grupo_por_id($id_subgrupo);
+        $datos_sub_grupo = array(
+            'id_subgrupo' => $sub_grupo['id_subgrupo'],
+            'nombre_subgrupo' => $sub_grupo['nombre_subgrupo'],
+            'entrenadores' => $this->establecer_datos_entrenadores_para_sub_grupo($sub_grupo['id_entrenador']),
+            'horario' => $sub_grupo['horario'],
+            'descripcion' => $sub_grupo['descripcion'],
+            'alumnos' => $this->establecer_datos_alumnos_para_sub_grupo($id_subgrupo)
+        );
+        return $datos_sub_grupo;
     }
 
     function establecer_datos_entrenadores_para_sub_grupo($id_entrenadores)
