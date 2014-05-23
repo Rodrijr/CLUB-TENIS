@@ -50,11 +50,11 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">MULTIMEDIA <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Subir fotos</a></li> <!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/index">Subir fotos</a></li> <!--   solo el entrenador  -->
 	              
 	            <li><a href="#">Subir videos</a></li><!--   solo el entrenador  -->
                   <li class="divider"></li>
-                  <li><a href="#">Ver Fotos</a></li> <!--   solo el entrenador  -->
+                  <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/mostrar">Ver Fotos</a></li> <!--   solo el entrenador  -->
 	              
 	            <li><a href="#">Ver Videos</a></li><!--   solo el entrenador  -->
 	          </ul>        
