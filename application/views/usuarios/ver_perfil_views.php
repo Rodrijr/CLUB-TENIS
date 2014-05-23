@@ -100,7 +100,12 @@
                         <label >TELEFONO:
                              <font color='#386CC4'>
                         <?php
-                           echo $persona['telefono'];
+                         $telefono = explode('*',$persona['telefono']);
+                           echo $telefono[0];
+                             if(isset($telefono[1]) && !empty($telefono[1]))
+                             {
+                                 echo " || ".$telefono[1];
+                             }
                         ?>
                             </font>
                         </label><br>
@@ -109,7 +114,11 @@
                         <?php
                         if(isset($persona['celular']))
                         {
-                           echo $persona['celular'];
+                            $celular = explode('*',$persona['celular']);
+                           echo $celular[0];
+                            if(isset($celular[1]) && !empty($telefono[1]))
+                             {echo " || ".$celular[1];
+                             }
                         }
                         ?>
                             </font>
@@ -333,9 +342,9 @@
           <BR>
                     <div class='control-group'>
                     <div class='controls'>
-                            <input class='btn btn-default'  type='button' 
+                            <input class='btn btn-default btn-lg btn-block'  type='button' 
                                    value='CANCELAR' onclick='history.back()'> 
-                            <INPUT VALUE='GUARDAR' class='btn btn-default btn-lg btn-block' TYPE='submit'><BR>
+                            <INPUT VALUE='GUARDAR CAMBIOS' class='btn btn-default btn-lg btn-block' TYPE='submit'><BR>
 
                     </div>
                     </div>
@@ -406,7 +415,7 @@
                     <div class='controls'>
                             <input class='btn btn-default'  type='button' 
                                    value='CANCELAR' onclick='history.back()'> 
-                            <INPUT VALUE='CAMBIAR' class='btn btn-default btn-lg btn-block' TYPE='submit'><BR>
+                            <INPUT VALUE='GUARDAR CAMBIOS' class='btn btn-default btn-lg btn-block' TYPE='submit'><BR>
 
                     </div>
                     </div>

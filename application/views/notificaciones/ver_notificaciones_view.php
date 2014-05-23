@@ -61,7 +61,7 @@ foreach($notificaciones as $noti)
             <input class='btn btn-default'  type='button' value='VOLVER ATRAS' onclick='history.back()'> <?PHP
                     if(count($notificaciones)!=0)
 {
-    echo "<INPUT VALUE='ELIMINAR SELECCIONADOS' class='btn btn-submit' TYPE='submit'>  ";
+    echo "<INPUT VALUE='ELIMINAR SELECCIONADOS' class='btn btn-warning' TYPE='submit'>  ";
 }?>
     
                
