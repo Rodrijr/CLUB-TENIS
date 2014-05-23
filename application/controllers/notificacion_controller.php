@@ -75,11 +75,18 @@ $elem = array($nom_grupo['nombre_grupo']."*".$subgrupo['nombre_subgrupo']=> $alu
             $resp= $resp[0];
             foreach($destinatarios as $destinatario)
             {       
-              
-                echo "<br>";
-                    $envio = array(
+            
+            $_padre = $this->persona_model->buscar_padre_alumno($destinatario);
+                $_padre = $_padre[0];
+              $envio = array(
                         'id_notificacion' => $resp['id_notificacion'],
                         'ci_destinatario' => $destinatario,
+                        'tipo' => ''
+                    );
+                    $this->notificacion_model->registrar_envio($envio);
+                   $envio = array(
+                        'id_notificacion' => $resp['id_notificacion'],
+                        'ci_destinatario' => $_padre['ci_padre'],
                         'tipo' => ''
                     );
                     $this->notificacion_model->registrar_envio($envio);

@@ -1,19 +1,11 @@
 
 <div class="container">
 
-	<div class="row">
-	    <div class="col-lg-12">
-	      <div class="page-header">
-	        <h1 id="forms"><center>Mis Videos</center></h1>
-	      </div>
-	    </div>
-	</div>
-
-	<?php
-	$ruta = './video';
-	$archivos = array();
-	//comprobamos si lo que nos pasan es un direcotrio
-    if (is_dir('./video'))
+<?php
+ $ruta = './files';
+$archivos = array();
+// comprobamos si lo que nos pasan es un direcotrio
+    if (is_dir('./files'))
     {
         // Abrimos el directorio y comprobamos que
         if ($aux = opendir($ruta))
@@ -36,11 +28,16 @@
                     }
                     else
                     {
-    					$direccion ="video/".$archivo; 
-    					array_push($archivos,$direccion); 
+    $direccion ="".$archivo; 
+    array_push($archivos,$direccion); 
+                      
+                      ?>
+    
+<?php
                     }
                 }
             }
+
             closedir($aux);
         }
     }
@@ -48,43 +45,84 @@
     {
         echo $ruta;
         echo "<br />No es ruta valida";
-    } 
-    $count =0;
-    ?>
 
+    } $count =0;?>
+    
+<?php 
+$items = array();
+foreach($archivos as $archivo)
+    { 
+        $item = '<div class="col-md-12"><div class="thumbnail product-item">
+          <embed src="'.base_url()."/uplodas/".$archivo.'" width="680" height="600" autostart="false" preload/>
+          <div class="label_skitter" style="width: 800px; display: block;">
+                      <h4>ESCUELA TENIS</h4>
+                      <p>'.$archivo.'</p>
+                    </div>
+          </div>
+          </div>
+        ';
+    array_push($items,$item);
+        
+    }
+?>
+    <div class="jumbotron">  
+    
+    <div class="container">
+        <h2> VIDEOS DE LA ESCUELA DE     TENIS</h2>
+    <div id="myCarousel2" class="carousel slide" display=false>
+        <!-- Carousel items --> 
+   
+        <div class="carousel-inner" display=none>
+            <div class="item active" display=none>
+               
+                <div class="row text-center">
+                    <!-- ITEM-->
+                   <?php
+                    if(isset($items[0]))
+                    {
+                        echo $items[0];
+                        
+                    }else
+                    {
+                        echo "<h2>NO HAY VIDEOS A MOSTRAR</h2>";
+                    }
+                    ?>
+                    
+                    <!-- ITEM-->
+                </div>
+            </div> <?php $count = 1; foreach($items as $archivo)
+     { ?>
+            <div class="item">
+              
+                <div class="row text-center">
+                    <!-- ITEM-->
+                   
+                   <?php 
+                    if(isset($items[$count]))
+                    {
+                        echo $items[$count];
+                        $count = $count +1;
+                    }
+                    else
+                    {
+                        $count = 0;
+                        echo $items[$count];
+                    }
+                         
+                    ?>
+                    
+                    <!-- ITEM-->
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+        <!-- /INNER-->
+        <!-- Carousel nav -->
 
-	<div class="col-lg-6 col-lg-offset-3">
-		<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-		<?php 
-			$count = 1;
-			$id_user = $this->session->userdata('id_usuario');
-			foreach ($archivos as $archivo) {
-		?>
-		
-		  <li class=""><a href="#<?php echo $count;?>" data-toggle="tab">Video <?php echo $count;?></a></li>
-		<?php
-			$count++;
-			}
-		?>
-		</ul>
-		<div id="myTabContent" class="tab-content">
-			<?php 
-				$count = 1;
-				$id_user = $this->session->userdata('id_usuario');
-				foreach ($archivos as $archivo) {
-			?>
-				<div class="tab-pane fade" id="<?php echo $count;?>">
-					<?php $arch = substr($archivo,0,-4);?>
-	    			<p><?php echo substr($arch,6); ?></p>
-	    			<? #echo base_url().$archivo;?>
-				    <div class="container">
-				    	<center><video controls="" name="media" width="100%" height="100%"><source src="<?php echo base_url().$archivo;?>" type="video/mp4"></video></center>
-					</div>
-	  			</div>
-			<?php
-				$count++;
-				}
-			?>
-		</div>
-	</div>
+        
+<a class="carousel-control left" href="#myCarousel2" data-slide="prev" display=none ></a>
+        <a class="carousel-control right" href="#myCarousel2" data-slide="next" display=none></a>
+    </div>
 </div>
+    
+    </div>

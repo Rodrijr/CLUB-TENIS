@@ -162,9 +162,10 @@
          
          
     <img src="<?php echo base_url(); ?>imagenes\<?php echo $persona['ci_persona'];  ?>.jpg" aling ="center" alt="" width="250" height="270"  class="img-thumbnail"/>
-<br>
+<br><br><br>
 <input type="file" name="userfile" />
-<input type="submit" value="upload" class ="btn btn-success"/>
+         <br><br>
+<input type="submit" value="CAMBIAR FOTO" class ="btn btn-default btn-lg btn-block"/>
          </div>
                  <?php  echo form_close(); }
                  if(isset($MSN1)&& !empty($MSN1))
@@ -204,7 +205,7 @@
                         } 
                             }?>
                     <div class="input-group">
-                      <span class="input-group-addon"><label>CIgvb</label></span>
+                      <span class="input-group-addon"><label>CI</label></span>
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['ci_persona'];?>"
                              onkeypress ='return validarNro(event)'
@@ -245,7 +246,7 @@
                              maxlength='10'
                              pattern="[0-9]+" 
                              title="Ingrese solo Numeros" 
-                             required="required" 
+                             
                              name ='TELEFONO1'>
                     </div>  
                     </div>                 
@@ -280,6 +281,10 @@
                             echo $celular[0];?>"
                              onkeypress ='return validarNro(event)'
                              maxlength='10'
+                             <?php if(strcmp($persona['tipo'],"Entrenador"))
+                            {
+                                echo 'required="required"';
+                            }?>
                              pattern="[0-9]+" 
                              title="Ingrese solo Numeros" 
                              name ='CELULAR1'>
@@ -330,7 +335,7 @@
                     <div class='controls'>
                             <input class='btn btn-default'  type='button' 
                                    value='CANCELAR' onclick='history.back()'> 
-                            <INPUT VALUE='GUARDAR' class='btn btn-success' TYPE='submit'><BR>
+                            <INPUT VALUE='GUARDAR' class='btn btn-default btn-lg btn-block' TYPE='submit'><BR>
 
                     </div>
                     </div>
@@ -401,7 +406,7 @@
                     <div class='controls'>
                             <input class='btn btn-default'  type='button' 
                                    value='CANCELAR' onclick='history.back()'> 
-                            <INPUT VALUE='CAMBIAR' class='btn btn-success' TYPE='submit'><BR>
+                            <INPUT VALUE='CAMBIAR' class='btn btn-default btn-lg btn-block' TYPE='submit'><BR>
 
                     </div>
                     </div>

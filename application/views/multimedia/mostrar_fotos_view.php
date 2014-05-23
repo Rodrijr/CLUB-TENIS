@@ -45,50 +45,70 @@ $archivos = array();
         echo $ruta;
         echo "<br />No es ruta valida";
     } $count =0;?>
-   <div class="jumbotron">
+    
+<?php 
+$items = array();
+foreach($archivos as $archivo)
+    { 
+        $item = '<div class="col-md-12"><div class="thumbnail product-item">
         
-        <div id="myCarousel" class="carousel slide">
-          <ol class="carousel-indicators">
-        <?php foreach($archivos as $archivo){ ?>
-            <li data-target="#myCarousel" 
-                data-slide-to=" <?php echo $count; ?>">
-            </li>
-      
-           <?php $count++;}?>
-          </ol>  
-          <!-- Carousel items -->
-      
+        <img src="'.base_url()."/".$archivo.'" width="90% heigth="90%"/></div></div>';
+    array_push($items,$item);
+        
+    }
+?>
+    <div class="jumbotron">  
+    
+    <div class="container">
+        <h2> IMAGENES DE LA ESCUELA DE     TENIS</h2>
+    <div id="myCarousel2" class="carousel slide">
+        <!-- Carousel items --> 
+   
+        <div class="carousel-inner">
+            <div class="item active">
+               
+                <div class="row text-center">
+                    <!-- ITEM-->
+                   <?php echo $items[0];
+                    ?>
+                    
+                    <!-- ITEM-->
+                </div>
+            </div> <?php $count = 1; foreach($items as $archivo)
+     { ?>
+            <div class="item">
               
-          <div class="carousel slide"><?php $count = 0;foreach($archivos as $archivo){?>
-              <div class="item" aling = "center">
-              
-<img src="<?php echo base_url(); ?><?php echo $archivo;?>" aling ="center" alt="uploads/<?php echo $archivo;?>">
-                  <div class="carousel-caption">
-                      <h4>Clasificados</h4>
-                      <p>¡asdcasdc</p>
-                    </div>
-              </div>
-            <?php }?>
-          </div> 
-          <!-- Carousel nav -->
-          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                <div class="row text-center">
+                    <!-- ITEM-->
+                   
+                   <?php 
+                    if(isset($items[$count]))
+                    {echo $items[$count];
+                       
+                        $count = $count +1;
+                    }
+                    else
+                    {$count = 0;
+                     echo $items[$count];
+                    }
+                         
+                    ?>
+                    
+                    <!-- ITEM-->
+                </div>
+            </div>
+            <?php } ?>
         </div>
+        <!-- /INNER-->
+        <!-- Carousel nav -->
+
+        
+<a class="carousel-control left" href="#myCarousel2" data-slide="prev"></a>
+        <a class="carousel-control right" href="#myCarousel2" data-slide="next"></a>
     </div>
+</div>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    </div>
     
     
     

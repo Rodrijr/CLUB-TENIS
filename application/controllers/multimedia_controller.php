@@ -22,32 +22,43 @@ class Multimedia_controller extends CI_Controller
 
   public function upload()
 	{
-		//crear la ruta absoluta 
-    $config_file = array(
-      'upload_path' => './uploads',
-      'allowed_types' => 'gif|jpg|png',
-      //'file_name' => $id.".jpg",
-      'overwrite' => true,
-      'max_size' => 0,
-      'max_filename'=>0,
-      'encrypt_name'=> false,
-      'remove_spaces' => false
-    );
-        
-    $msn ="";
-    $this->upload->initialize($config_file);
-    if(!$this->upload->do_upload('userfile'))
-    {
-      $msn = "EL ARCHIVO DEBE SER UNA IMAGEN.";            
-    }       
-    $data['main_content'] = 'multimedia/subir_fotos_view';
-		$this->load->view('main_template', $data);  
+		//crear la ruta absoluta
+      
+        $config_file = array(
+       
+           'upload_path' => './uploads',
+           'allowed_types' => 'gif|jpg|png',
+           //'file_name' => $id.".jpg",
+           'overwrite' => true,
+           'max_size' => 0,
+           'max_filename'=>0,
+            'max-width'=> 1300,
+            'max-height'=>1200,
+           'encrypt_name'=> false,
+           'remove_spaces' => false
+       );
+        $msn ="";
+        $this->upload->initialize($config_file);
+        if(!$this->upload->do_upload('userfile'))
+        {
+            $msn = "EL ARCHIVO DEBE SER UNA IMAGEN.";  
+            $tipo = "danger";
+        }   
+        else        
+        {
+            $msn = "El archivo se cargo exitosamente.";
+            $tipo = "success";
+        }
+        $data['tipo'] = $tipo;
+        $data['msn'] = $msn;
+        $data['main_content'] = 'multimedia/subir_fotos_view';
+    $this->load->view('main_template', $data);  
 	}
     
   public function mostrar()
   {
     $data['main_content'] = 'multimedia/mostrar_fotos_view';
-		$this->load->view('main_template', $data);  
+    $this->load->view('main_template', $data); 	
   }
 
   public function subir_video()
@@ -91,8 +102,14 @@ class Multimedia_controller extends CI_Controller
 
   public function mostrar_video()
   {
-    $data['main_content'] = 'multimedia/mostrar_videos_view';
+    $data['main_content'] = 'multimedia/mostrar_videos_alumnos_view';
     $this->load->view('main_template', $data);
+  }
+
+  public function mostrar_videos()
+  {
+      $data['main_content'] = 'multimedia/mostrar_videos_view';
+	$this->load->view('main_template', $data);  
   }
 
 }

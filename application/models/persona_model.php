@@ -186,6 +186,11 @@ class Persona_model extends CI_Model
          $query = $this->db->get_where('persona', array('id_persona' => $id)); 
          return $query->result_array();
     }   
+    public function buscar_padre_alumno($ci_alumno)
+    {
+        $query = $this->db->get_where('padre_alumno', array('ci_alumno' => $ci_alumno)); 
+         return $query->result_array();
+    }
 }
 
 ?>

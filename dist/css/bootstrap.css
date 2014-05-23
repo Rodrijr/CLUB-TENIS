@@ -1687,7 +1687,7 @@ input[type="checkbox"] {
 }
 input[type="file"] {
     color: #000;
-    width: 35%;
+    width: 100%;
 }
 input[type="range"] {
   display: block;
@@ -5611,6 +5611,8 @@ button.close {
 .carousel-caption .btn {
   text-shadow: none;
 }
+
+
 @media screen and (min-width: 768px) {
   .carousel-control .glyphicon-chevron-left,
   .carousel-control .glyphicon-chevron-right,
