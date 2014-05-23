@@ -1,5 +1,6 @@
 
 <div class="container">
+
 <?php
  $ruta = './files';
 $archivos = array();
@@ -17,7 +18,6 @@ $archivos = array();
                 if ($archivo!="." && $archivo!="..")
                 {
                     $ruta_completa = $ruta . '/' . $archivo;
- 
                     // Comprobamos si la ruta más file es un directorio (es decir, que file es
                     // un directorio), y si lo es, decimos que es un directorio y volvemos a
                     // llamar a la función de manera recursiva.
@@ -37,7 +37,7 @@ $archivos = array();
                     }
                 }
             }
- 
+
             closedir($aux);
         }
     }
@@ -45,6 +45,7 @@ $archivos = array();
     {
         echo $ruta;
         echo "<br />No es ruta valida";
+
     } $count =0;?>
     
 <?php 
@@ -125,10 +126,3 @@ foreach($archivos as $archivo)
 </div>
     
     </div>
-    
-    
-    
-    
-    
-    
-    

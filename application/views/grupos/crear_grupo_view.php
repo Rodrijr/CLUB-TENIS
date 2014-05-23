@@ -17,7 +17,8 @@
               <label class="control-label" for="inputDefault">Nombre: </label>
             </div>
             <div class="col-lg-9 col-lg-offset-1">
-              <input type="text" class="form-control" name="nombreGrupo" placeholder="Nombre del Grupo" maxlength="30" required="required"><br>
+              <input id="input_nombre_grupo"  type="text" class="form-control" name="nombreGrupo" placeholder="Nombre del Grupo" maxlength="30" required="required"><br>
+              <p id="error_edad">Solo numeros</p>
             </div>
           </div>
         </div>
