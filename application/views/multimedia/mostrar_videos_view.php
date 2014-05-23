@@ -84,7 +84,7 @@ foreach($archivos as $archivo)
                         
                     }else
                     {
-                        echo "<h2>NO HAY VIDEOS A MOSTRAR</h2>";
+                        echo '<h1 aling ="center">NO HAY VIDEOS PARA MOSTRAR</h1>';
                     }
                     ?>
                     

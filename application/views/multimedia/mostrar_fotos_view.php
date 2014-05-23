@@ -69,7 +69,13 @@ foreach($archivos as $archivo)
                
                 <div class="row text-center">
                     <!-- ITEM-->
-                   <?php echo $items[0];
+                   <?php 
+if(isset($items[0]))
+{echo $items[0];
+}
+else
+{echo '<h1 aling ="center"> NO HAY IMAGENES PARA MOSTRAR </h1>';
+}
                     ?>
                     
                     <!-- ITEM-->
