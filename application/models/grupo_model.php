@@ -200,7 +200,6 @@ class Grupo_model extends CI_Model
             'id_grupo' => $id_grupo
             );
         $query = $this->db->get_where('sub_grupo',$grupo);
-        $count = $query->num_rows();
         return $query->result_array();
     }
 
@@ -217,6 +216,15 @@ class Grupo_model extends CI_Model
             return "El Alumno Fue Registrado En El Grupo Exitosamente...!!";
         else
             return "Error Al Registar Alumno En Este Grupo...!!";
+    }
+
+    public function obtener_sub_grupo_por_id($id_sub_grupo)
+    {
+        $sub_grupo = array(
+            'id_subgrupo' => $id_sub_grupo
+            );
+        $query = $this->db->get_where('sub_grupo', $sub_grupo);
+        return $query->row_array();
     }
  
 }

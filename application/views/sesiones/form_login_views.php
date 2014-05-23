@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="bs-docs-section">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 col-lg-offset-3">
         <div class="well">
           <?php $attributes = array('class' => 'bs-example form-horizontal'); ?>
           <?php echo form_open('Sesion_controller/verificar_login', $attributes);?>          
@@ -50,7 +50,7 @@
                 </div>
               </div>
             </fieldset>
-          </form>
+          <?php echo form_close();?>
 	      </div>
 	    </div>
 	  </div>
