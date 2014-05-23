@@ -203,7 +203,7 @@
                      class="form-control"
                      pattern="[0-9]+"                    
                      maxlength='8' 
-                     required="required"
+                    
                      title="Ingrese numeros"
                      onkeypress='return validarNro(event)'
                      NAME='CELULAR1' 
@@ -250,7 +250,7 @@
                      class="form-control"
                      pattern="[0-9]+"                    
                      maxlength='8' 
-                     required="required"
+                    
                      title="Ingrese numeros"
                      onkeypress='return validarNro(event)'
                      NAME='TELEFONO1' 

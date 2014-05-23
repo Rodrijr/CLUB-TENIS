@@ -234,7 +234,6 @@
                      class="form-control"
                      pattern="[0-9]+"                    
                      maxlength='7' 
-                     required="required"
                      title="Ingrese numeros"
                      onkeypress='return validarNro(event)'
                      NAME='TELEFONO1' 

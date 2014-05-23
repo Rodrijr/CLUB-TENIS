@@ -28,7 +28,7 @@ $archivos = array();
                     }
                     else
                     {
-    $direccion ="files/".$archivo; 
+    $direccion ="".$archivo; 
     array_push($archivos,$direccion); 
                       
                       ?>
@@ -52,7 +52,7 @@ $items = array();
 foreach($archivos as $archivo)
     { 
         $item = '<div class="col-md-12"><div class="thumbnail product-item">
-          <embed src="'.base_url()."/".$archivo.'" width="680" height="600" autostart="false" preload/>
+          <embed src="'.base_url()."/uplodas/".$archivo.'" width="680" height="600" autostart="false" preload/>
           <div class="label_skitter" style="width: 800px; display: block;">
                       <h4>ESCUELA TENIS</h4>
                       <p>'.$archivo.'</p>
@@ -76,7 +76,15 @@ foreach($archivos as $archivo)
                
                 <div class="row text-center">
                     <!-- ITEM-->
-                   <?php echo $items[0];
+                   <?php
+                    if(isset($items[0]))
+                    {
+                        echo $items[0];
+                        
+                    }else
+                    {
+                        echo "<h2>NO HAY VIDEOS A MOSTRAR</h2>";
+                    }
                     ?>
                     
                     <!-- ITEM-->

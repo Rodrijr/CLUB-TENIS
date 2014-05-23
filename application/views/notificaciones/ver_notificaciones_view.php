@@ -55,13 +55,13 @@ foreach($notificaciones as $noti)
             
 </table>
       <div class="row">
-            <div class="col-md-5">            
+            <div class="col-md-3">            
            </div>
-                <div class="col-md-5">
+                <div class="col-md-7">
             <input class='btn btn-default'  type='button' value='VOLVER ATRAS' onclick='history.back()'> <?PHP
                     if(count($notificaciones)!=0)
 {
-    echo "<INPUT VALUE='ELIMINAR SELECCIONADOS' class='btn btn-success' TYPE='submit'>  ";
+    echo "<INPUT VALUE='ELIMINAR SELECCIONADOS' class='btn btn-submit' TYPE='submit'>  ";
 }?>
     
                
