@@ -104,7 +104,7 @@
           </div>
         </div>
           <div class="row">
-            <legend>Datos Personales</legend>
+            <legend style="color:blue">Datos Personales</legend>
         <div class="col-lg-3">
               
             <div class="input-group">
@@ -173,7 +173,7 @@
         </div>  
           <div class="row">
               <br>
-            <legend>Contacto</legend>
+            <legend style="color:blue">Contacto</legend>
               
                <div class="col-lg-1">
                </div>
@@ -310,7 +310,7 @@
           </div>
            <div class="row">
               <br>
-            <legend>Cuenta de Usuario</legend>
+            <legend style="color:blue">Cuenta de Usuario</legend>
               
                <div class="col-lg-1">
                </div>
