@@ -58,14 +58,26 @@
                         <label >TELEFONO:
                              <font color='#386CC4'>
                         <?php
-                           echo $hijo['telefono'];
+                          $telefono = explode('*',$hijo['telefono']);
+                           echo $telefono[0];
+                             if(isset($telefono[1]) && !empty($telefono[1]))
+                             {
+                                 echo " || ".$telefono[1];
+                             }
                         ?>
                             </font>
                         </label><br>
                         <label >CELULAR:
                              <font color='#386CC4'>
                         <?php
-                           echo $hijo['celular'];
+                        if(isset($persona['celular']))
+                        {
+                            $celular = explode('*',$hijo['celular']);
+                           echo $celular[0];
+                            if(isset($celular[1]) && !empty($telefono[1]))
+                             {echo " || ".$celular[1];
+                             }
+                        }
                         ?>
                             </font>
                         </label><br>

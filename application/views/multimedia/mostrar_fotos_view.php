@@ -52,7 +52,7 @@ foreach($archivos as $archivo)
     { 
         $item = '<div class="col-md-12"><div class="thumbnail product-item">
         
-        <img src="'.base_url()."/".$archivo.'" width="90% heigth="90%"/></div></div>';
+        <img src="'.base_url()."/".$archivo.'" max-heigth="700px" max-width="500px"/></div></div>';
     array_push($items,$item);
         
     }
@@ -105,12 +105,9 @@ else
             </div>
             <?php } ?>
         </div>
-        <!-- /INNER-->
-        <!-- Carousel nav -->
+<a class="left carousel-control" href="#myCarousel2" data-slide="prev">‹</a>
 
-        
-<a class="carousel-control left" href="#myCarousel2" data-slide="prev"></a>
-        <a class="carousel-control right" href="#myCarousel2" data-slide="next"></a>
+        <a class="carousel-control right" href="#myCarousel2" data-slide="next">&rsaquo;</a>
     </div>
 </div>
     

@@ -2,10 +2,10 @@
 <?php  echo   form_open_multipart('Multimedia_controller/upload','class="form-horizontal"'); 
   ?>
     
-     <div class="col-lg-2"> 
-         <div class="row"></div>
-         </div><h1> SUBIR FOTOS DE EVENTOS</h1>
-             <div class="col-lg-4">   
+     <div class="col-lg-2"> </div> 
+    <div class="col-lg-8">   
+        <h1> SUBIR FOTOS DE EVENTOS</h1>
+             <div class="col-lg-8">   
                  <div class="row">
             <?php if(isset($msn)&& !empty($msn))
               {
@@ -22,9 +22,9 @@
 
                      <div id="fileUpload1">
    
-   <input type="file" name="userfile" multiple />
-<input type="submit" value="upload" class ="btn btn-success"/>
+   <input type="file" name="userfile" multiple class ="btn btn-default"  />
+<input type="submit" value="SUBIR IMAGEN" class ="btn btn-success"/>
          </div>
                  <?php  echo form_close(); ?>
 </div>
-    </div></div>
+    </div></div></div>

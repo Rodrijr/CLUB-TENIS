@@ -131,7 +131,7 @@
                      class="form-control"
                      required="required"
                      pattern="[0-9]+"                    
-                     maxlength='7' 
+                     maxlength='7'
                      title="Ingrese numeros"
                      onkeypress='return validarNro(event)'
                      NAME='CI' 
@@ -343,6 +343,7 @@
                      class="form-control"
                      required="required"
                      maxlength='12' 
+                     minlength='6' 
                       pattern="[a-zA-Z0-9.+_-]+"
                      NAME='LOGIN' 
                      <?php  if(isset($usuario)) 
