@@ -31,6 +31,8 @@ class Multimedia_controller extends CI_Controller {
            'overwrite' => true,
            'max_size' => 0,
            'max_filename'=>0,
+            'max-width'=> 1300,
+            'max-height'=>1200,
            'encrypt_name'=> false,
            'remove_spaces' => false
        );
@@ -38,14 +40,27 @@ class Multimedia_controller extends CI_Controller {
         $this->upload->initialize($config_file);
         if(!$this->upload->do_upload('userfile'))
         {
-            $msn = "EL ARCHIVO DEBE SER UNA IMAGEN.";            
-        }       
+            $msn = "EL ARCHIVO DEBE SER UNA IMAGEN.";  
+            $tipo = "danger";
+        }   
+        else        
+        {
+            $msn = "El archivo se cargo exitosamente.";
+            $tipo = "success";
+        }
+        $data['tipo'] = $tipo;
+        $data['msn'] = $msn;
         $data['main_content'] = 'multimedia/subir_fotos_view';
 		$this->load->view('main_template', $data);  
-	}
+    }
     public function mostrar()
     {
         $data['main_content'] = 'multimedia/mostrar_fotos_view';
+		$this->load->view('main_template', $data);  
+    }
+     public function mostrar_videos()
+    {
+        $data['main_content'] = 'multimedia/mostrar_videos_view';
 		$this->load->view('main_template', $data);  
     }
 }
