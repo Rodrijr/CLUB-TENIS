@@ -28,7 +28,7 @@
             <label style="color: purple" class="control-label">Primera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="comportamiento_primera_evaluacion" disabled><?php echo $evaluacion_personal['comportamiento']['primera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="comportamiento_primera_evaluacion"><?php echo $evaluacion_personal['comportamiento']['primera_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -37,7 +37,7 @@
             <label style = "color: purple" class="control-label" for="inputDefault">Segunda Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="comportamiento_segunda_evaluacion" disabled><?php echo $evaluacion_personal['comportamiento']['segunda_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="comportamiento_segunda_evaluacion"><?php echo $evaluacion_personal['comportamiento']['segunda_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -46,7 +46,7 @@
             <label style = "color: purple" class="control-label" for="inputDefault">Tercera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="comportamiento_tercera_evaluacion" disabled><?php echo $evaluacion_personal['comportamiento']['tercera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="comportamiento_tercera_evaluacion"><?php echo $evaluacion_personal['comportamiento']['tercera_evaluacion'] ?></textarea>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
             <label style="color: green" class="control-label" for="inputDefault">Primera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="disposicion_al_trabajo_primera_evaluacion" disabled><?php echo $evaluacion_personal['disposicion_al_trabajo']['primera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="disposicion_al_trabajo_primera_evaluacion" ><?php echo $evaluacion_personal['disposicion_al_trabajo']['primera_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -69,7 +69,7 @@
             <label style="color: green" class="control-label" for="inputDefault">Segunda Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="disposicion_al_trabajo_segunda_evaluacion" disabled><?php echo $evaluacion_personal['disposicion_al_trabajo']['segunda_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="disposicion_al_trabajo_segunda_evaluacion" ><?php echo $evaluacion_personal['disposicion_al_trabajo']['segunda_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -78,7 +78,7 @@
             <label style="color: green" class="control-label" for="inputDefault">Tercera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="disposicion_al_trabajo_tercera_evaluacion" disabled><?php echo $evaluacion_personal['disposicion_al_trabajo']['tercera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="disposicion_al_trabajo_tercera_evaluacion" ><?php echo $evaluacion_personal['disposicion_al_trabajo']['tercera_evaluacion'] ?></textarea>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@
             <label style="color:red" class="control-label" for="inputDefault">Primera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_cancha_primera_evaluacion" disabled><?php echo $evaluacion_personal['actitud_en_cancha']['primera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_cancha_primera_evaluacion" ><?php echo $evaluacion_personal['actitud_en_cancha']['primera_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -101,7 +101,7 @@
             <label style="color:red" class="control-label" for="inputDefault">Segunda Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_cancha_segunda_evaluacion" disabled><?php echo $evaluacion_personal['actitud_en_cancha']['segunda_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_cancha_segunda_evaluacion" ><?php echo $evaluacion_personal['actitud_en_cancha']['segunda_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -110,7 +110,7 @@
             <label style="color:red" class="control-label" for="inputDefault">Tercera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_cancha_tercera_evaluacion" disabled><?php echo $evaluacion_personal['actitud_en_cancha']['tercera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_cancha_tercera_evaluacion" ><?php echo $evaluacion_personal['actitud_en_cancha']['tercera_evaluacion'] ?></textarea>
           </div>
         </div>
       </div>
@@ -124,7 +124,7 @@
             <label style="color:blue" class="control-label" for="inputDefault">Primera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_preparacion_fisica_primera_evaluacion" disabled><?php echo $evaluacion_personal['actitud_en_preparacion_fisica']['primera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_preparacion_fisica_primera_evaluacion" ><?php echo $evaluacion_personal['actitud_en_preparacion_fisica']['primera_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -133,7 +133,7 @@
             <label style="color:blue" class="control-label" for="inputDefault">Segunda Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_preparacion_fisica_segunda_evaluacion" disabled><?php echo $evaluacion_personal['actitud_en_preparacion_fisica']['segunda_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_preparacion_fisica_segunda_evaluacion" ><?php echo $evaluacion_personal['actitud_en_preparacion_fisica']['segunda_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -142,7 +142,7 @@
             <label style="color:blue" class="control-label" for="inputDefault">Tercera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_preparacion_fisica_tercera_evaluacion" disabled><?php echo $evaluacion_personal['actitud_en_preparacion_fisica']['tercera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="actitud_en_preparacion_fisica_tercera_evaluacion" ><?php echo $evaluacion_personal['actitud_en_preparacion_fisica']['tercera_evaluacion'] ?></textarea>
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@
             <label style="color:orange" class="control-label" for="inputDefault">Primera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="asistencia_primera_evaluacion" disabled><?php echo $evaluacion_personal['asistencia']['primera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="asistencia_primera_evaluacion" ><?php echo $evaluacion_personal['asistencia']['primera_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -165,7 +165,7 @@
             <label style="color:orange" class="control-label" for="inputDefault">Segunda Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="asistencia_segunda_evaluacion" disabled><?php echo $evaluacion_personal['asistencia']['segunda_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="asistencia_segunda_evaluacion" ><?php echo $evaluacion_personal['asistencia']['segunda_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -174,7 +174,7 @@
             <label style="color:orange" class="control-label" for="inputDefault">Tercera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="asistencia_tercera_evaluacion" disabled><?php echo $evaluacion_personal['asistencia']['tercera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="asistencia_tercera_evaluacion" ><?php echo $evaluacion_personal['asistencia']['tercera_evaluacion'] ?></textarea>
           </div>
         </div>
       </div>
@@ -188,7 +188,7 @@
             <label class="control-label" for="inputDefault">Primera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="puntualidad_primera_evaluacion" disabled><?php echo $evaluacion_personal['puntualidad']['primera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="puntualidad_primera_evaluacion" ><?php echo $evaluacion_personal['puntualidad']['primera_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -197,7 +197,7 @@
             <label class="control-label" for="inputDefault">Segunda Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="puntualidad_segunda_evaluacion" disabled><?php echo $evaluacion_personal['puntualidad']['segunda_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="puntualidad_segunda_evaluacion" ><?php echo $evaluacion_personal['puntualidad']['segunda_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -206,7 +206,7 @@
             <label class="control-label" for="inputDefault">Tercera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="puntualidad_tercera_evaluacion" disabled><?php echo $evaluacion_personal['puntualidad']['tercera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="puntualidad_tercera_evaluacion" ><?php echo $evaluacion_personal['puntualidad']['tercera_evaluacion'] ?></textarea>
           </div>
         </div>
       </div>
@@ -220,7 +220,7 @@
             <label style="color:skyblue" class="control-label" for="inputDefault">Primera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="rendimiento_en_torneos_primera_evaluacion" disabled><?php echo $evaluacion_personal['rendimiento_en_torneos']['primera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="rendimiento_en_torneos_primera_evaluacion" ><?php echo $evaluacion_personal['rendimiento_en_torneos']['primera_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -229,7 +229,7 @@
             <label style="color:skyblue" class="control-label" for="inputDefault">Segunda Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="rendimiento_en_torneos_segunda_evaluacion" disabled><?php echo $evaluacion_personal['rendimiento_en_torneos']['segunda_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="rendimiento_en_torneos_segunda_evaluacion" ><?php echo $evaluacion_personal['rendimiento_en_torneos']['segunda_evaluacion'] ?></textarea>
           </div>
         </div>
 
@@ -238,7 +238,7 @@
             <label style="color:skyblue" class="control-label" for="inputDefault">Tercera Evaluaci&oacute;n: </label>
           </div>
           <div class="col-lg-12">
-            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="rendimiento_en_torneos_tercera_evaluacion" disabled><?php echo $evaluacion_personal['rendimiento_en_torneos']['tercera_evaluacion'] ?></textarea>
+            <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="rendimiento_en_torneos_tercera_evaluacion" ><?php echo $evaluacion_personal['rendimiento_en_torneos']['tercera_evaluacion'] ?></textarea>
           </div>
         </div>
       </div>
@@ -247,8 +247,8 @@
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-1">
             <br>
-            <a type="button" class="btn btn-warning" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_lista_de_alumnos">Cancel</a>
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <!-- <a type="button" class="btn btn-warning" href="<?php #echo base_url(); ?>index.php/Planilla_controller/ver_lista_de_alumnos">Cancel</a>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button> -->
           </div>
         </div>
       </div>

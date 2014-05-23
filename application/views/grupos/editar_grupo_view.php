@@ -81,8 +81,8 @@
     <div class="col-lg-6 col-lg-offset-5">
       <br>
       <a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos" class="btn btn-default">Atr&aacute;s</a>
-      <a href="<?php echo base_url(); ?>index.php/Grupo_controller/nuevo_sub_grupo/<?php echo $grupo['id_grupo'];?>" class="btn btn-default">Anadir</a>
-      <a data-toggle="modal" href="#myModalAniadirEntrenador" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Añadir Sub-Grupo</a>
+      <a href="<?php echo base_url(); ?>index.php/Grupo_controller/nuevo_sub_grupo/<?php echo $grupo['id_grupo'];?>/0/0" class="btn btn-success">Anadir Sub-Grupo</a>
+      <!-- <a data-toggle="modal" href="#myModalAniadirEntrenador" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Añadir Sub-Grupo</a>-->
     </div>
   </div>
 </div>
