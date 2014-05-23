@@ -24,7 +24,7 @@
       <!-- _______________ Objeticos Tecnicos _______________ -->
       <div class="col-lg-12">
         <br>
-        <legend style = "color: purple" >Objetios T&eacute;cnicos</legend>
+        <legend style = "color:purple" >Objetios T&eacute;cnicos</legend>
         <div class="col-lg-4">
           <div class="col-lg-12">
             <label style = "color: purple" class="control-label" for="inputDefault">Primera Evaluaci&oacute;n: </label>

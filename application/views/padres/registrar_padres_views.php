@@ -125,7 +125,7 @@
               
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">CI</button>
+                <button class="btn btn-danger" type="button">CI</button>
               </span>
               <input type="text" 
                      class="form-control"
@@ -151,7 +151,7 @@
               
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Nombre</button>
+                <button class="btn btn-danger" type="button">Nombre</button>
               </span>
               <input type="text" 
                      class="form-control"
@@ -170,7 +170,7 @@
           <div class="col-lg-5">
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">apellido</button>
+                <button class="btn btn-danger" type="button">apellido</button>
               </span>
               <input type="text" 
                      class="form-control"
@@ -197,7 +197,7 @@
               
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Celular</button>
+                <button class="btn btn-warning" type="button">Celular</button>
               </span>
               <input type="text" 
                      class="form-control"
@@ -219,7 +219,7 @@
         <div class="col-lg-4">              
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Celular *</button>
+                <button class="btn btn-warning" type="button">Celular *</button>
               </span>
               <input type="text" 
                      class="form-control" 
@@ -244,7 +244,7 @@
               
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Telefono</button>
+                <button class="btn btn-warning" type="button">Telefono</button>
               </span>
               <input type="text" 
                      class="form-control"
@@ -266,7 +266,7 @@
         <div class="col-lg-4">              
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Telefono *</button>
+                <button class="btn btn-warning" type="button">Telefono *</button>
               </span>
               <input type="text" 
                      class="form-control"
@@ -337,7 +337,7 @@
               
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Usuario</button>
+                <button class="btn btn-info" type="button">Usuario</button>
               </span>
               <input type="text" 
                      class="form-control"
@@ -353,15 +353,13 @@
                      ?>
                      >
             </div><!-- /input-group -->
-          </div> 
-       
-         
+          </div>
               
         <div class="col-lg-5">
               
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Contraceña</button>
+                <button class="btn btn-info" type="button">Contraceña</button>
               </span>
               <input type="password" 
                      class="form-control"
