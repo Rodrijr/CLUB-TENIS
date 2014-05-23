@@ -342,7 +342,7 @@
           <BR>
                     <div class='control-group'>
                     <div class='controls'>
-                            <input class='btn btn-default btn-lg btn-block'  type='button' 
+                            <input class='btn btn-default btn-lg btn-block'                                        type='button' 
                                    value='CANCELAR' onclick='history.back()'> 
                             <INPUT VALUE='GUARDAR CAMBIOS' class='btn btn-default btn-lg btn-block' TYPE='submit'><BR>
 
