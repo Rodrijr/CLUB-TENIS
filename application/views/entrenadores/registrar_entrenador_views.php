@@ -338,7 +338,7 @@
               
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Contraceña</button>
+                <button class="btn btn-default" type="button">Contraseña</button>
               </span>
               <input type="password" 
                      class="form-control"

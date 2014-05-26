@@ -70,8 +70,26 @@ $elem = array($nom_grupo['nombre_grupo']."*".$subgrupo['nombre_subgrupo']=> $alu
         if(count($destinatarios)>=1)
         {
             $not = $_SESSION['notificacion'];
-            $resp = $this->notificacion_model->registrar_notificacion($not);
-            $resp = $this->notificacion_model->id_notificacion($not);           
+            $para = "rodri_n@hotmail.es";
+            $mensaje = $not['cuerpo'];
+            $asunto = $not['asunto'];
+            $de = "rodri_a_11@hotmail.es";
+            
+            $headers = "MIME-Version:1.0; \r \n ";
+            $headers .= "content-type: text/html; \r \n charset=iso-8859-1; \r\n  ";
+            $headers .= "From: ".$de." \r\n ";
+            $headers .= "To:".$para." \r\n Subject:".$asunto."\r\n ";
+            if(mail($para,$asunto,$mensaje,$headers))
+            {
+                echo "envio bien";
+            }
+            else
+            {
+                echo "falla";
+            }
+            
+            /*$resp = $this->notificacion_model->registrar_notificacion($not);
+            $resp = $this->notificacion_model->id_notificacion($not);  
             $resp= $resp[0];
             foreach($destinatarios as $destinatario)
             {       
@@ -91,7 +109,7 @@ $elem = array($nom_grupo['nombre_grupo']."*".$subgrupo['nombre_subgrupo']=> $alu
                     );
                     $this->notificacion_model->registrar_envio($envio);
                 
-            }          
+            }  */        
             $data['main_content'] = 'notificaciones/envio_satisfactorio';
             $_SESSION['notificacion'] = null;
             $this->load->view('main_template', $data); 

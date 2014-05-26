@@ -197,13 +197,13 @@
               
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-warning" type="button">Celular</button>
+                <button class="btn btn-warning" type="button">Celular </button>
               </span>
               <input type="text" 
                      class="form-control"
                      pattern="[0-9]+"                    
                      maxlength='8' 
-                    
+                    required="required"
                      title="Ingrese numeros"
                      onkeypress='return validarNro(event)'
                      NAME='CELULAR1' 
@@ -244,13 +244,12 @@
               
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-warning" type="button">Telefono</button>
+                <button class="btn btn-warning" type="button">Telefono *</button>
               </span>
               <input type="text" 
                      class="form-control"
                      pattern="[0-9]+"                    
                      maxlength='8' 
-                    
                      title="Ingrese numeros"
                      onkeypress='return validarNro(event)'
                      NAME='TELEFONO1' 
@@ -359,7 +358,7 @@
               
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-info" type="button">Contraceña</button>
+                <button class="btn btn-info" type="button">Contraseña</button>
               </span>
               <input type="password" 
                      class="form-control"
@@ -379,7 +378,7 @@
                 <div class="col-lg-3">
                 </div>
                 <span class="label label-danger">
-                  PRESIONE SI NO QUIERE REGISTRAR MAS ALUMNOS
+                  PRESIONE TERMINAR SI NO QUIERE REGISTRAR MAS ALUMNOS.
                 </span>
            </div>
           <?php } ?>

@@ -75,10 +75,10 @@ class Sesion_controller extends CI_Controller {
 		);
         
        if (isset($_SESSION['lista_registro'])) {
-        $_SESSION['lista_registro'] = array();
+        $_SESSION['lista_registro'] = null;
        } 
         if (isset($_SESSION['count'])) {
-        $_SESSION['count'] =0;
+        $_SESSION['count'] =null;
        } 
       
 		$this->session->set_userdata($datos_de_session);

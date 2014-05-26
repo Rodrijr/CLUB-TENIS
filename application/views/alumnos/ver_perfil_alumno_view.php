@@ -191,7 +191,7 @@
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['ci_persona'];?>"
                              onkeypress ='return validarNro(event)'
-                             maxlength='10'
+                             maxlength='10' disabled
                              pattern="[0-9]+" title="Ingrese solo Numeros" required="required" 
                              name ='CI'
                              
@@ -203,7 +203,7 @@
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['nombre_persona'];?>"
                              onkeypress='return isNumberKey(event)'
-                             maxlength='35'
+                             maxlength='35' disabled
                              title="Solo se aceptan letras" required="required"
                              name ='NOMBRE'>
                     </div>                    <div class="input-group">
@@ -211,7 +211,7 @@
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['apellido_persona'];?>"
                              onkeypress='return isNumberKey(event)'
-                             maxlength='35'
+                             maxlength='35' disabled
                              required="required"
                              name ='APELLIDO'>
                     </div>                    
