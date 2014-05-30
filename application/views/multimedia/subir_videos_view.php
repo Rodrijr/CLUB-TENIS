@@ -13,7 +13,7 @@
 				<br>
 			    <input type="file" id="video" name="video">
 			    <br>Descripcion:<br>
-			    <input type="text" id="video" name="descripcion">
+			    <input type="text" id="descripcion" name="descripcion">
 			    <input type="submit" id="button" name="submit" value="Subir Video" class ="btn btn-success"/>
 			<?php echo form_close();?>
 	    </div>

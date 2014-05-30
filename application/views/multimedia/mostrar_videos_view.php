@@ -2,10 +2,10 @@
 <div class="container">
 
 <?php
- $ruta = './files';
+ $ruta = './video';
 $archivos = array();
 // comprobamos si lo que nos pasan es un direcotrio
-    if (is_dir('./files'))
+    if (is_dir('./video'))
     {
         // Abrimos el directorio y comprobamos que
         if ($aux = opendir($ruta))
