@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="page-header">
-        <h1 id="forms"><center> EVALUACION PERSONAL </center></h1>
+        <h1 id="forms"><center> EVALUACIÓN PERSONAL </center></h1>
       </div>
     </div>
   </div>

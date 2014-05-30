@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="page-header">
-        <h1 id="forms"><center>Establecimiento De Objetivos Del Jugador</center></h1>
+        <h1 id="forms"><center>Objetivos De Jugador</center></h1>
       </div>
     </div>
   </div>
@@ -167,10 +167,10 @@
             <?php 
               if($this->session->userdata('tipo_usuario')=="Padre")
               {
-                echo '<a type="button" class="btn btn-warning" onclick="history.back()">Atras</a>';
+                echo '<a type="button" class="btn btn-warning" onclick="history.back()">Atrás</a>';
               }
               else{
-                echo '<a type="button" class="btn btn-warning" href="'.base_url().'index.php">Atras</a>';
+                echo '<a type="button" class="btn btn-warning" href="'.base_url().'index.php">Atrás</a>';
               }
             ?>
             <!-- <a type="button" class="btn btn-warning" href="<?php #echo base_url(); ?>index.php">Atras</a> -->

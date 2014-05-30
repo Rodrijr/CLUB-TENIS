@@ -72,6 +72,11 @@ class Grupo_controller extends CI_Controller {
         $this->ver_lista_grupos();
     }
 
+    public function eliminar_grupo($id_grupo)
+    {
+        $this->grupo_model->elimiar_grupo($id_grupo);
+        $this->ver_lista_grupos();
+    }
     // -------------------- Metodos de Sub Grupo -------------------- //
 
     public function agregar_sub_grupo()

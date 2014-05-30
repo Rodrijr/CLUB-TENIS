@@ -82,7 +82,7 @@
 	          </a>
 	          <ul class="dropdown-menu">
 	            <li><a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_mi_perfil">Ver Perfil</a></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesion</a></li>                 
+	            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesión</a></li>                 
 	          </ul>
 	        </li>
         </ul>

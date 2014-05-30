@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="page-header">
-        <h1 id="forms"><center>Establecimiento De Objetivos Del Jugador</center></h1>
+        <h1 id="forms"><center>Objetivos De Jugador</center></h1>
       </div>
     </div>
   </div>

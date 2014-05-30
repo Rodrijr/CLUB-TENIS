@@ -80,7 +80,7 @@
   <div class="form-group">
     <div class="col-lg-6 col-lg-offset-5">
       <br>
-      <a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos" class="btn btn-default">Atr&aacute;s</a>
+      <a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos" class="btn btn-warning">Atr&aacute;s</a>
       <a href="<?php echo base_url(); ?>index.php/Grupo_controller/nuevo_sub_grupo/<?php echo $grupo['id_grupo'];?>/0/0" class="btn btn-success">Anadir Sub-Grupo</a>
       <!-- <a data-toggle="modal" href="#myModalAniadirEntrenador" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Añadir Sub-Grupo</a>-->
     </div>
@@ -188,7 +188,7 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-primary">Agregar Sub-Grupo</button>
             <?php echo form_close();?>
           </div>

@@ -226,6 +226,17 @@ class Grupo_model extends CI_Model
         $query = $this->db->get_where('sub_grupo', $sub_grupo);
         return $query->row_array();
     }
+
+    public function elimiar_grupo($id_grupo)
+    {
+        $lista_sub_grupos = $this->obtener_todos_los_sub_grupos_por_id_de_grupo($id_grupo);
+        foreach ($lista_sub_grupos as $sub_grupo){
+            $this->db->where('id_subgrupo', $sub_grupo['id_subgrupo']);
+            $this->db->delete('sub_grupo');
+        }
+        $this->db->where('id_grupo', $id_grupo);
+        $this->db->delete('grupo'); 
+    }
  
 }
 ?>

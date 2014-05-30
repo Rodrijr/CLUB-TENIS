@@ -64,7 +64,7 @@
 	          	<b class="caret"></b>
 	          </a>	         
 	        </li>
-            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesion</a></li>   
+            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesión</a></li>   
 	    </ul>
         
     </div><!-- /.navbar-collapse -->

@@ -26,7 +26,7 @@
           <label class="control-label" for="inputDefault">Descripci&oacute;n: </label>
         </div>
         <div class="col-lg-6 col-lg-offset-3">
-          <input type="text" class="form-control" name="descripcionSubGrupo" placeholder="Ej: Canchas 3,5,7" maxlength="30" required="required"><br>
+          <input type="text" class="form-control" name="descripcionSubGrupo" placeholder="Ej: Canchas 3,5,7" maxlength="100" required="required"><br>
         </div>
       </div>
     </div>
@@ -93,7 +93,7 @@
     </div>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-default" onclick='history.back()'>Cancelar</button>
+      <a type="button" class="btn btn-default" href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $id_grupo?>">Cancelar</a>
       <button type="submit" class="btn btn-primary">Agregar Sub-Grupo</button>
       <?php echo form_close();?>
     </div>

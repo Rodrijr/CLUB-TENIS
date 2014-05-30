@@ -30,7 +30,7 @@
 	            <li class="divider"></li>
 	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_perfil_de_jugador/<?php echo $this->session->userdata('identificador_usuario') ?>">Perfil de Jugador</a></li><!--   solo el entrenador  -->
 	            <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_evaluacion_personal/<?php echo $this->session->userdata('identificador_usuario') ?>">Evaluacion Personal</a></li> <!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_evaluacion_personal/<?php echo $this->session->userdata('identificador_usuario') ?>">Evaluación Personal</a></li> <!--   solo el entrenador  -->
 	          </ul>        
 	        </li>
         </ul>
@@ -51,7 +51,7 @@
                   
                   <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Notificacion_controller/ver_notificaciones">Ver lista notificaciones
+	            <li><a href="<?php echo base_url(); ?>index.php/Notificacion_controller/ver_notificaciones">Ver lista Notificaciones
                     </a></li>
 	            
 	          </ul>
@@ -66,7 +66,7 @@
 	          <ul class="dropdown-menu">
 	            <li><a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_mi_perfil">Ver Perfil</a></li>
 	            <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesion</a></li>   
+	            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesión</a></li>   
 	          </ul>
 	        </li> 
 	        <!--   NOFICACIONES  -->

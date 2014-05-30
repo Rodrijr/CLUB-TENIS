@@ -121,9 +121,9 @@
             <div class="col-lg-2">
             
                     <div class="btn-group-vertical">
-<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_de_jugador/<?php echo $hijo['id_persona']?>" class="btn btn-success">objetivos de jugador</a>
-<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_perfil_de_jugador/<?php echo $hijo['id_persona']?>" class="btn btn-info">perfil del jugador</a>
-<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_evaluacion_personal/<?php echo $hijo['id_persona']?>" class="btn btn-warning">evaluacion personal</a>
+<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_de_jugador/<?php echo $hijo['id_persona']?>" class="btn btn-success">Objetivos De Jugador</a>
+<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_perfil_de_jugador/<?php echo $hijo['id_persona']?>" class="btn btn-info">Perfil De Jugador</a>
+<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_evaluacion_personal/<?php echo $hijo['id_persona']?>" class="btn btn-warning">Evaluación Personal</a>
                         
 <!-- <button class="btn btn-primary" data-toggle="modal" >planilla de asistencia</button>-->
 <!-- <button class="btn btn-primary" data-toggle="modal" >kardex</button>-->

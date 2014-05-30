@@ -46,8 +46,8 @@
 		                <tr>
 		                	<td><?php echo $cont; ?></td>
 		                    <td><?php echo $grupo['nombre_grupo']; ?></td>
-		                    <td><a Title="Ver Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-eye-open"></span></a></td>
-	                  		<td><a style="color: purple" Title="Editar Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-edit"></span></a></td>
+		                    <td><a style="color: purple" Title="Editar Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-edit"></span></a></td>
+		                    <td><a Title="Ver Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/eliminar_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
                         </tr>
 		                <?php $cont++; ?>
 		                <?php } ?>

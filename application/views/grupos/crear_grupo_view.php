@@ -18,7 +18,6 @@
             </div>
             <div class="col-lg-9 col-lg-offset-1">
               <input id="input_nombre_grupo"  type="text" class="form-control" name="nombreGrupo" placeholder="Nombre del Grupo" maxlength="30" required="required"><br>
-              <p id="error_edad">Solo numeros</p>
             </div>
           </div>
         </div>
@@ -26,7 +25,7 @@
           <div class="col-lg-12">
             <br>
             <center>
-            <a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos" class="btn btn-default">Cancelar</a>
+            <a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos" class="btn btn-warning">Cancelar</a>
             <button type="submit" class="btn btn-primary">Crear Grupo</button>
             </center>
           </div>

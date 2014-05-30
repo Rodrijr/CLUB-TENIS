@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="page-header">
-        <h1 id="forms"><center> EVALUACION PERSONAL </center></h1>
+        <h1 id="forms"><center> EVALUACIÓN PERSONAL </center></h1>
       </div>
     </div>
   </div>
@@ -246,7 +246,15 @@
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-1">
             <br>
-            <a type="button" class="btn btn-warning" href="<?php echo base_url(); ?>index.php">Atras</a>
+            <?php 
+              if($this->session->userdata('tipo_usuario')=="Padre")
+              {
+                echo '<a type="button" class="btn btn-warning" onclick="history.back()">Atrás</a>';
+              }
+              else{
+                echo '<a type="button" class="btn btn-warning" href="'.base_url().'index.php">Atrás</a>';
+              }
+            ?>
             <!-- <button type="submit" class="btn btn-primary">Guardar Cambios</button>-->
           </div>
         </div>
