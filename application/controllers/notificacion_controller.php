@@ -69,6 +69,32 @@ $elem = array($nom_grupo['nombre_grupo']."*".$subgrupo['nombre_subgrupo']=> $alu
         $destinatarios = $this->input->post('destinatarios'); 
         if(count($destinatarios)>=1)
         {
+            require("class.phpmailer.php");
+ $mail             = new PHPMailer();
+$mail->IsSMTP();
+ $mail->SMTPAuth   = true;
+  //$mail->SMTPSecure = "ssl";
+  $mail->Host       = "server48.000webhost.com";
+     $mail->Port       = 25;
+      $mail->Username   = 'micorreodeterra@terra.com.mx';
+     $mail->Password   = "myPassWord";
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+     //====== DE QUIEN ES ========
+    $mail->From       = "rodri_n@hotmail.es";
+    $mail->FromName   = "Mi Nombre";
+   
+    //====== PARA QUIEN =========
+    $mail->Subject    = "Test Mail";
+    $mail->AddAddress("rodri_n@hotmail.es","Para ti juan");
+    $mail->AddAddress("rodri_n@hotmail.es","Para ti alberto");
+     
+    //Cuerpo del mensaje
+    $mail->Body      = "HOLA ESTO ES UNA PRUEBA";
+    $mail->Send();
+            
+            /*
+
+echo $this->email->print_debugger();
             $not = $_SESSION['notificacion'];
             $para = "rodri_n@hotmail.es";
             $mensaje = $not['cuerpo'];
@@ -86,7 +112,7 @@ $elem = array($nom_grupo['nombre_grupo']."*".$subgrupo['nombre_subgrupo']=> $alu
             else
             {
                 echo "falla";
-            }
+            }*/
             
             /*$resp = $this->notificacion_model->registrar_notificacion($not);
             $resp = $this->notificacion_model->id_notificacion($not);  
