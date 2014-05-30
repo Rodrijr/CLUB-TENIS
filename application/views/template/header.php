@@ -6,7 +6,8 @@
 	<title><?php echo $title; ?></title>    
 	<link href="<?php echo base_url(); ?>dist/css/bootstrap.css" rel="stylesheet" media="screen">
 	<link href="<?php echo base_url(); ?>dist/css/bootswatch.min.css" rel="stylesheet">
-	<link href="<?php echo base_url(); ?>dist/css/bootstrap-modal.css" rel="stylesheet"><link href="<?php echo base_url(); ?>dist/css/bootstrap-carousel.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>dist/css/bootstrap-modal.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>dist/css/bootstrap-carousel.css" rel="stylesheet">
     <script type="text/javascript">
 $('.carousel.slide').carousel()
 </script>

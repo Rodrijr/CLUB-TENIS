@@ -173,7 +173,7 @@ class Grupo_controller extends CI_Controller {
             $alumno_sub_grupo['id_alumno']=$id_alumno;
             $this->grupo_model->asignar_alumno_a_sub_grupo($alumno_sub_grupo);
         }
-        $this->editar_grupo($id_grupo);
+        $this->ver_sub_grupo($id_subgrupo);
     }
 
     public function ver_lista_de_grupos_de_entrenador($id_entrenador)
