@@ -245,6 +245,17 @@ class Grupo_model extends CI_Model
         $this->db->where('id_grupo', $id_grupo);
         $this->db->delete('grupo'); 
     }
+
+    public function eliminar_sub_grupo($id_subgrupo)
+    {
+        $this->db->where('id_subgrupo', $id_subgrupo);
+        $this->db->delete('sub_grupo');
+    }
+
+    public function eliminar_alumno_sub_grupo($id_subgrupo, $id_alumno)
+    {
+        $this->db->delete('alumno_grupo', array('id_subgrupo' => $id_subgrupo, 'id_alumno' => $id_alumno)); 
+    }
  
 }
 ?>

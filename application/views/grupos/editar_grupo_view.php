@@ -47,6 +47,7 @@
                 <th>descripcion</th>
                 <th>Ver</th>
                 <th>Editar</th>
+                <th>Eliminar</th>
               </tr>
             </thead>
             <tbody>
@@ -61,6 +62,7 @@
                 echo '<td>'.$item_sub_grupo['descripcion'].'</td>';
                 echo '<td><a href="'.base_url().'index.php/Grupo_controller/ver_sub_grupo/'.$item_sub_grupo['id_subgrupo'].'">Ver</a></td>';
                 echo '<td><a href="'.base_url().'index.php/Grupo_controller/editar_sub_grupo/'.$item_sub_grupo['id_subgrupo'].'">Editar</a></td>';
+                echo '<td><a href="'.base_url().'index.php/Grupo_controller/eliminar_sub_grupo/'.$item_sub_grupo['id_subgrupo'].'">Eliminar</a></td>';
                 #echo '<strong><legend><center><h3>'.$item_sub_grupo['nombre_subgrupo'].'</h3></legend></center></strong>';
                 #echo '<p class="text-success"><strong>Entrenador(es): </strong>'.$item_sub_grupo['entrenadores'].'.</p>';
                 #echo '<p class="text-info"><strong>Horario de: </strong>'.$item_sub_grupo['horario'].' Hrs.</p>';

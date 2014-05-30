@@ -234,6 +234,20 @@ class Grupo_controller extends CI_Controller {
         $this->grupo_model->asignar_entrenador_a_sub_grupo($sub_grupo);
         $this->ver_sub_grupo($id_subgrupo);
     }
+
+    public function eliminar_sub_grupo($id_subgrupo)
+    {
+        $sub_grupo = $this->grupo_model->obtener_sub_grupo_por_id($id_subgrupo);
+        $this->grupo_model->eliminar_sub_grupo($id_subgrupo);
+        $this->editar_grupo($sub_grupo['id_grupo']);
+    }
+
+    public function eliminar_alumno_sub_grupo($id_subgrupo, $id_alumno)
+    {
+        $sub_grupo = $this->grupo_model->obtener_sub_grupo_por_id($id_subgrupo);
+        $this->grupo_model->eliminar_alumno_sub_grupo($id_subgrupo, $id_alumno);
+        $this->editar_grupo($sub_grupo['id_grupo']);
+    }
     // ----------------------------------- METODOS PRIVADOS ------------------------- //
 
     function validar_alumno($id_alumno, $id_grupo)
@@ -400,6 +414,7 @@ class Grupo_controller extends CI_Controller {
         foreach ($alumnos_por_sub_grupo as $alumno_grupo) {
             $itemAlumno = array();
             $alumno = $this->alumno_model->obtener_alumno_por_id($alumno_grupo['id_alumno']);
+            $itemAlumno['id_persona'] = $alumno['id_persona'];
             $itemAlumno['nombre_persona'] = $alumno['nombre_persona'];
             $itemAlumno['apellido_persona'] = $alumno['apellido_persona'];
             $lista_de_alumnos[] = $itemAlumno;

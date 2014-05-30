@@ -96,6 +96,7 @@
                 <th>#</th>
                 <th>Nombre</th>
                <th>Apellidos</th>
+               <th>Eliminar</th>
               </tr>
             </thead>
             <tbody>
@@ -107,6 +108,7 @@
                   echo '<td><center>'.$cont.'</center></td>';
                     echo '<td>'.$alumno['nombre_persona'].'</td>';
                     echo '<td>'.$alumno['apellido_persona'].'</td>';
+                    echo '<td><a href="'.base_url().'index.php/Grupo_controller/eliminar_alumno_sub_grupo/'.$id_subgrupo.'/'.$alumno['id_persona'].'">Eliminar</a></td>';
                 echo '</tr>';
                 $cont++;
               }
