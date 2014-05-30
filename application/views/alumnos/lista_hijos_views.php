@@ -15,19 +15,18 @@
             {
                 echo  '<div class="tab-pane fade" id="'.$hijo['ci_persona'].'">' ;
                 ?>
-     <div class="container">
-     <div class="col-lg-3">   
-         
-         <div class="row">
-  
-    <a href="" class="thumbnail">
-    <img src="<?php echo base_url(); ?>imagenes\<?php echo $hijo['ci_persona'];  ?>.jpg" alt="" width="250px" height="270px"  class="img-thumbnail"/>
+     
+       
+    <div class="container">
+             <div class="col-lg-4"> 
+                 <div class="row">
+    <a href="" class="thumbnail">        
+        <img src="<?php echo base_url(); ?>imagenes\<?php echo $hijo['ci_persona'];  ?>.jpg" aling ="center" width="250" height="270"  class="img-thumbnail"/>
     </a>
-           
+           </div>
   </div>
-         </div>
+         
 
-        <div class="row-fluid">
             <div class="col-lg-6">
                   <fieldset>
     <legend><H3><label ></label></H3> </legend>
@@ -112,8 +111,9 @@
   
                 <?php echo form_close(); ?>
                        
-        </div>
-    </div>  
+        
+    </div>
+
          
          
          
@@ -139,5 +139,5 @@
             }
             
         ?>        
-    </div>
+  </div>
          </div>

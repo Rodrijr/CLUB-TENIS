@@ -42,5 +42,15 @@ $query=$this->db->get_where('notificacion',array('id_notificacion'=>$id_not));
         $id_usuario=$this->session->userdata('id_usuario');
         $this->db->delete('destinatarios', array('id_notificacion' => $id,'ci_destinatario'=>$id_usuario)); 
     }
+    public function obtener_alumnos_de_grupo($id)
+    {
+        $query=$this->db->get_where('alumno_grupo',array('id_subgrupo'=>$id));   
+            return $query->result_array();
+    }
+    public function buscarnot($not)
+    {
+$query=$this->db->get_where('destinatarios',array('id_notificacion'=>$not['id_notificacion'],'ci_destinatario'=>$not['ci_destinatario']));   
+            return $query->result_array();
+    }
     
 }

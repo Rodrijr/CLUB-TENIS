@@ -21,7 +21,6 @@
                     { $count= 1;
                         if($count ==1)
                         {
-
                         echo "<h4>".$nombres1[0]."</h4>";             
 
                         }
@@ -34,10 +33,9 @@
                         <thead>
                               <tr>		                
                                 <th>Nombre</th>
-                                <th>SELECCIONAR</th>
+                                <th><input id="grupos" name="grupos[]" value="<?php echo $nombres1[2];   ?>" type="checkbox"></th>
                               </tr>
                             </thead>
-                            <tbody>
                 <?php
                        foreach($subgrupo as $alumno)
                        {

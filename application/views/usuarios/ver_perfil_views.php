@@ -172,9 +172,19 @@
          
     <img src="<?php echo base_url(); ?>imagenes\<?php echo $persona['ci_persona'];  ?>.jpg" aling ="center" alt="" width="250" height="270"  class="img-thumbnail"/>
 <br><br><br>
+         
+         <?php 
+         $tipo = $this->session->userdata('tipo_usuario');
+         if($tipo != "Alumno")
+         {
+             
+         ?>
 <input type="file" name="userfile" />
          <br><br>
 <input type="submit" value="CAMBIAR FOTO" class ="btn btn-default btn-lg btn-block"/>
+         <?php 
+         }
+         ?>
          </div>
                  <?php  echo form_close(); }
                  if(isset($MSN1)&& !empty($MSN1))
