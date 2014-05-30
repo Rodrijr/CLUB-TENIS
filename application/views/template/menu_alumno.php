@@ -3,10 +3,6 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">Club tenis CBBA</a>
     </div>
@@ -35,8 +31,6 @@
 	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_perfil_de_jugador/<?php echo $this->session->userdata('identificador_usuario') ?>">Perfil de Jugador</a></li><!--   solo el entrenador  -->
 	            <li class="divider"></li>
 	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_evaluacion_personal/<?php echo $this->session->userdata('identificador_usuario') ?>">Evaluacion Personal</a></li> <!--   solo el entrenador  -->
-	            <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_de_jugador/<?php echo $this->session->userdata('identificador_usuario') ?>">Objetivos Individuales</a></li><!--   solo el entrenador  -->
 	          </ul>        
 	        </li>
         </ul>

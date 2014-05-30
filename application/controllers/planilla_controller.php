@@ -328,13 +328,13 @@ class Planilla_controller extends CI_Controller{
         $existe_planilla = $this->planilla_model->existe_evaluacion_personal_de_alumno($id_alumno);
         if($existe_planilla==1){
             $evaluacion_personal = $this->planilla_model->obtener_evaluacion_personal_por_id_alumno($id_alumno);
-            $comportamiento = explode("-", $evaluacion_personal['comportamiento']);
-            $disposicion_al_trabajo = explode("-", $evaluacion_personal['disposicion_al_trabajo']);
-            $actitud_en_cancha = explode("-", $evaluacion_personal['actitud_en_cancha']);
-            $actitud_en_preparacion_fisica = explode("-", $evaluacion_personal['actitud_en_preparacion_fisica']);
+            $comportamiento = explode("-", $evaluacion_personal['comportamiendo']);
+            $disposicion_al_trabajo = explode("-", $evaluacion_personal['entrega']);
+            $actitud_en_cancha = explode("-", $evaluacion_personal['actitud_cancha']);
+            $actitud_en_preparacion_fisica = explode("-", $evaluacion_personal['actitud_preparacion']);
             $asistencia = explode("-", $evaluacion_personal['asistencia']);
             $puntualidad = explode("-", $evaluacion_personal['puntualidad']);
-            $rendimiento_en_torneos = explode("-", $evaluacion_personal['rendimiento_en_torneos']);
+            $rendimiento_en_torneos = explode("-", $evaluacion_personal['rendimiento_torneos']);
 
             $evaluacion = array(
                 'id_alumno' => $id_alumno,

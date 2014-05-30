@@ -164,7 +164,15 @@
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-1">
             <br>
-            <a type="button" class="btn btn-warning" href="<?php echo base_url(); ?>index.php">Atras</a>
+            <?php 
+              if($this->session->userdata('tipo_usuario')=="Padre")
+              {
+                echo '<a type="button" class="btn btn-warning" onclick="history.back()">Atras</a>';
+              }
+              else{
+                echo '<a type="button" class="btn btn-warning" href="'.base_url().'index.php">Atras</a>';
+              }
+            ?>
             <!-- <a type="button" class="btn btn-warning" href="<?php #echo base_url(); ?>index.php">Atras</a> -->
           </div>
         </div>
