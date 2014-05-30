@@ -58,7 +58,7 @@
             <p class="text-danger"><strong> <?php if($alerta_hora==1) echo "Mensaje: La Hora DESDE no puede ser Mayor que HASTA"; else echo ""; ?></strong></p>
           </div>
         </div>
-
+        <!-- ################### Entrenadores ######################## -->
         <div class="form-group">
           <div class="col-lg-12">
             <br><p class="text-info"><strong>Entrenadores:</strong></p>

@@ -218,6 +218,14 @@ class Grupo_model extends CI_Model
             return "Error Al Registar Alumno En Este Grupo...!!";
     }
 
+    public function asignar_entrenador_a_sub_grupo($sub_grupo)
+    {
+        $nuevo_sub_grupo = $this->obtener_sub_grupo_por_id($sub_grupo['id_subgrupo']);
+        $nuevo_sub_grupo['id_entrenador'] = $sub_grupo['entrenadores'];
+        $this->db->where('id_subgrupo',$sub_grupo['id_subgrupo']);
+        return $this->db->update('sub_grupo',$nuevo_sub_grupo);
+    }
+
     public function obtener_sub_grupo_por_id($id_sub_grupo)
     {
         $sub_grupo = array(
