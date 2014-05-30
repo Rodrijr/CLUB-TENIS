@@ -18,10 +18,10 @@
      
        
     <div class="container">
-             <div class="col-lg-4"> 
+             <div class="col-lg-3"> 
                  <div class="row">
     <a href="" class="thumbnail">        
-        <img src="<?php echo base_url(); ?>imagenes\<?php echo $hijo['ci_persona'];  ?>.jpg" aling ="center" width="250" height="270"  class="img-thumbnail"/>
+        <img src="<?php echo base_url(); ?>imagenes\<?php echo $hijo['ci_persona'];  ?>.jpg" aling ="center" width="270px" height="190px"/>
     </a>
            </div>
   </div>
