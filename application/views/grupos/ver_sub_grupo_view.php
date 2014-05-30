@@ -36,8 +36,8 @@
       </div>
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
-          <a class="btn btn-warning" onclick='history.back()'>Atr&aacute;s</a>
-          <!-- <a type="button" href="<?php echo base_url();?>index.php/Grupo_controller/agregar_alumnos_a_sub_grupo/<?php# echo $id_subgrupo?>" class="btn btn-success">Agregar Alumnos</a> -->
+          <a class="btn btn-warning" href="<?php echo base_url();?>index.php/Grupo_controller/editar_grupo/<?php echo $id_grupo?>">Atr&aacute;s</a>
+          <!-- <a type="button" href="<?php# echo base_url();?>index.php/Grupo_controller/agregar_alumnos_a_sub_grupo/<?php# echo $id_subgrupo?>" class="btn btn-success">Agregar Alumnos</a> -->
         </div>
       </div>
     </div>

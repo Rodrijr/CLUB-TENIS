@@ -87,7 +87,7 @@ class Grupo_controller extends CI_Controller {
         $hasta = $this->input->post('hasta_hora');
         $entrenadores = $this->input->post('entrenadores');
         print_r($entrenadores);
-        echo 'count: '.count($entrenadores);
+        //echo 'count: '.count($entrenadores);
         if($desde >= $hasta) {$alerta_hora=1;} else {$alerta_hora=0;}
         if(count($entrenadores)<1) {$alerta_entrenador=1;} else { $alerta_entrenador=0;}
         //$alerta_hora = if($desde )
@@ -209,6 +209,31 @@ class Grupo_controller extends CI_Controller {
         $data['main_content'] = 'grupos/agregar_sub_grupo_view';
         $this->load->view('main_template', $data);
     }
+
+    public function agregar_entrenador()
+    {
+        $id_subgrupo = $this->input->post('id_subgrupo');
+        $sub_grupo = $this->grupo_model->obtener_sub_grupo_por_id($id_subgrupo);
+        
+        $entrenadores_sub_grupo = explode("-",$sub_grupo['id_entrenador']); 
+        $id_entrenadores_seleccionados = $this->input->post('entrenadores');
+        foreach ($id_entrenadores_seleccionados as $id_entrenador) {
+            $entrenadores_sub_grupo[] = $id_entrenador;
+        }
+        $entrenadores_sub_grupo = array_unique($entrenadores_sub_grupo);
+        $id_entrenadores='';
+        foreach ($entrenadores_sub_grupo as $id_entrenador) {
+            $id_entrenadores = $id_entrenadores.'-'.$id_entrenador;
+        }
+        $id_entrenadores=substr($id_entrenadores, 1);
+
+        $sub_grupo = array(
+            'id_subgrupo' => $id_subgrupo,
+            'entrenadores' => $id_entrenadores
+            );
+        $this->grupo_model->asignar_entrenador_a_sub_grupo($sub_grupo);
+        $this->ver_sub_grupo($id_subgrupo);
+    }
     // ----------------------------------- METODOS PRIVADOS ------------------------- //
 
     function validar_alumno($id_alumno, $id_grupo)
@@ -319,13 +344,20 @@ class Grupo_controller extends CI_Controller {
     function establecer_datos_necesarios_para_ver_editar_sub_grupo($id_subgrupo)
     {
         $sub_grupo = $this->grupo_model->obtener_sub_grupo_por_id($id_subgrupo);
+        $horario = explode(" - ", $sub_grupo['horario']);
         $datos_sub_grupo = array(
+            'id_grupo' => $sub_grupo['id_grupo'],
             'id_subgrupo' => $sub_grupo['id_subgrupo'],
             'nombre_subgrupo' => $sub_grupo['nombre_subgrupo'],
             'entrenadores' => $this->establecer_datos_entrenadores_para_sub_grupo($sub_grupo['id_entrenador']),
+            'listaEntrenadores' => $this->establecer_datos_entrenadores_para_editar_sub_grupo($sub_grupo['id_entrenador']),
+            'desde' => $horario[0],
+            'hasta' => $horario[1],
             'horario' => $sub_grupo['horario'],
             'descripcion' => $sub_grupo['descripcion'],
-            'alumnos' => $this->establecer_datos_alumnos_para_sub_grupo($id_subgrupo)
+            'alumnos' => $this->establecer_datos_alumnos_para_sub_grupo($id_subgrupo),
+            'listaTodosEntrenadores' => $this->entrenador_model->obtener_todos_los_entrenadores()
+            #'alerta_hora' => "";
         );
         return $datos_sub_grupo;
     }
@@ -346,6 +378,19 @@ class Grupo_controller extends CI_Controller {
         {
             return "";
         }
+    }
+
+    public function establecer_datos_entrenadores_para_editar_sub_grupo($id_entrenadores)
+    {
+        $listaEntrenadores = array();
+        if($id_entrenadores[0]!="0")
+        {
+            $lista_id_entrenadores = explode("-", $id_entrenadores);
+            foreach ($lista_id_entrenadores as $id_entrenador) {
+                $listaEntrenadores[] = $this->entrenador_model->obtener_entrenador_por_id($id_entrenador);
+            }
+        }
+        return $listaEntrenadores;
     }
 
     function establecer_datos_alumnos_para_sub_grupo($id_sub_grupo)
