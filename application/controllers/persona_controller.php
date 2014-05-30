@@ -134,12 +134,40 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
 		$this->load->view('main_template', $data);
     }
     
+    public function subir_foto($id)
+    {
+        $persona = $this->alumno_model->ver_lista_alumnos();
+
     
+        $config_file = array(
+       
+           'upload_path' => './imagenes',
+           'allowed_types' => 'gif|jpg|png',
+           'file_name' => $id.".jpg",
+           'overwrite' => true,
+           'max_size' => 0,
+           'max_filename'=>0,
+           'encrypt_name'=> false,
+           'remove_spaces' => false
+            );
+        $msn ="";
+        $this->upload->initialize($config_file);
+        if(!$this->upload->do_upload('userfile'))
+        {
+            $msn = "EL ARCHIVO DEBE SER UNA IMAGEN.";            
+        }
+        
+      
+    
+        $data['MSN1']= $msn;
+        $data['alumnos'] = $persona;
+        $data['main_content'] = 'alumnos/lista_alumnos_views';
+		$this->load->view('main_template', $data);
+    }
     
     public function do_Upload()
     {
     $id=$this->session->userdata('id_usuario');
-    echo $id;
         $config_file = array(
        
            'upload_path' => './imagenes',
@@ -167,6 +195,16 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         $data['main_content'] = 'usuarios/ver_perfil_views';
 		$this->load->view('main_template', $data);   
        
+    }
+    public function buscar_alumno()
+    { 
+        $ci = $this->input->post('ci');
+        $personas = $this->persona_model->persona_por_ci($ci);
+        $data['alumnos'] = $personas;
+        $data['main_content'] = 'alumnos/lista_alumnos_views';
+		$this->load->view('main_template', $data);
+ 
+        
     }
 }
 ?>
