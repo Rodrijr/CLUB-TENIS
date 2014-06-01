@@ -62,6 +62,7 @@
                     <th>#</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
+                    <th>Descartar Entrenador</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -71,6 +72,7 @@
                       <td><center><?php echo $cont; ?></center></td>
                       <td><?php echo $entrenador['nombre_persona']; ?></td>
                       <td><?php echo $entrenador['apellido_persona']; ?></td>
+                      <td><center><a href="">Descartar</a></center></td>
                     </tr>
                     <?php $cont++; ?>
                     <?php } ?>
@@ -96,7 +98,7 @@
                 <th>#</th>
                 <th>Nombre</th>
                <th>Apellidos</th>
-               <th>Eliminar</th>
+               <th>Descartar Alumno</th>
               </tr>
             </thead>
             <tbody>
@@ -108,7 +110,7 @@
                   echo '<td><center>'.$cont.'</center></td>';
                     echo '<td>'.$alumno['nombre_persona'].'</td>';
                     echo '<td>'.$alumno['apellido_persona'].'</td>';
-                    echo '<td><a href="'.base_url().'index.php/Grupo_controller/eliminar_alumno_sub_grupo/'.$id_subgrupo.'/'.$alumno['id_persona'].'">Eliminar</a></td>';
+                    echo '<td><center><a href="'.base_url().'index.php/Grupo_controller/eliminar_alumno_sub_grupo/'.$id_subgrupo.'/'.$alumno['id_persona'].'">Descartar</a></center></td>';
                 echo '</tr>';
                 $cont++;
               }
