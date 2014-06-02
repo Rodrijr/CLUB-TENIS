@@ -53,7 +53,7 @@
       <li class="<?php echo $perfil; ?>"><a href="#perfil" data-toggle="tab">Perfil</a></li>
       
          <li class ="<?php echo $modificarPerfil; ?>"><a href="#modificarPerfil" tabindex="-1" data-toggle="tab">Modificar Perfil</a></li>
-          <li class ="<?php echo $contracenia; ?>"><a href="#contracenia" tabindex="-1" data-toggle="tab">Cambiar Contraceña</a></li>
+          <li class ="<?php echo $contracenia; ?>"><a href="#contracenia" tabindex="-1" data-toggle="tab">Cambiar Contraseña</a></li>
         
     </ul>
     <div id="myTabContent" class="tab-content">
@@ -383,7 +383,7 @@
                            
                     ?>
          <fieldset>
-    <legend><H3><label >CAMBIAR CONTRACEÑA </label></H3></legend>
+    <legend><H3><label >CAMBIAR CONTRASEÑA </label></H3></legend>
              
              <?php if(isset($MSN))
                             {
