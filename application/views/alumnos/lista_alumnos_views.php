@@ -28,10 +28,8 @@
 		              <tr>
                         <th>FOTOGRAFIA</th>
 		                <th>CI</th>
-		                <th>Nombre</th>
-		                <th>TELEFONO</th>
-		                <th>DIRECCION</th>
-		                <th>E-MAIL</th> 
+		                <th>NOMBRE APELLIDO</th>
+		                <th>ESTADO</th>
 		              </tr>
 		            </thead>
 		            <tbody>
@@ -65,11 +63,22 @@ if($f){?>
                              <a><?php echo $alumno['nombre_persona']." ".$alumno['apellido_persona']; ?></a>      
                             </td>
                             <td style="min-width: 0px; max-width: 10%">
-                                <?php echo $alumno['telefono']; ?></td>
-                            <td style="min-width: 0px; max-width: 300px">
-                                <?php echo $alumno['direccion']; ?></td>
-                            <td style="min-width: 0px; max-width: 5%">
-                                <?php echo $alumno['email']; ?></td>
+                                <?php echo $alumno['estado']; ?>
+                             <?PHP echo form_open_multipart('Persona_controller/cambiar_estado/'.$alumno['ci_persona'],'class="form-horizontal"');
+            if(strcmp($alumno['estado'],"Activo"))
+            {
+               echo '<input type="submit" 
+                      value="Dar De Alta" 
+                      class ="btn btn-info "/>';
+            }
+            else
+            {
+                echo '<input type="submit" 
+                      value="Dar De Baja" 
+                      class ="btn btn-warning"/>';
+            }
+    echo form_close();                            ?>
+                            </td>
                             
                         </tr>
 		                <?php $cont++; ?>

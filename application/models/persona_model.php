@@ -196,6 +196,14 @@ class Persona_model extends CI_Model
          $query = $this->db->get_where('persona', array('ci_persona' => $ci,'tipo'=>'Alumno')); 
          return $query->result_array();
     }
+    
+    public function cambiar_estado($persona)
+    {
+$this->db->where('ci_persona', $persona['ci_persona']);
+$this->db->update('persona', $persona); 
+
+    }
+    
 }
 
 ?>
