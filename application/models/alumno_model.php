@@ -70,6 +70,7 @@ class Alumno_model extends CI_Model
     
     public function ver_lista_alumnos()
     {
+        $this->db->order_by('nombre_persona', 'asc');
        $this->db->order_by('apellido_persona', 'asc');
        $query = $this->db->get_where('persona', array('tipo' => 'Alumno'));
        return $query->result_array();

@@ -110,6 +110,8 @@ class Persona_model extends CI_Model
     }
     public function ver_lista_entrenadores()
     {
+        
+    $this->db->order_by('nombre_persona', 'asc');
        $query = $this->db->get_where('persona', array('tipo' => 'Entrenador')); 
        return $query->result_array();
     }
@@ -207,6 +209,22 @@ class Persona_model extends CI_Model
 $this->db->where('ci_persona', $persona['ci_persona']);
 $this->db->update('persona', $persona); 
 
+    }
+   
+    public function poner_ci()
+    {
+        $query = $this->db->get('persona');
+        $query = $query->result_array();
+        print_r($query);
+        foreach($query as $persona)
+        {
+            if(empty($persona['estado']))
+            {
+            $persona['estado']='Activo';
+            $this->db->where('id_persona', $persona['id_persona']);
+$this->db->update('persona', $persona); 
+            }
+        }
     }
     
 }

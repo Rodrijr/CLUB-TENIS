@@ -23,19 +23,21 @@ class Persona_controller extends CI_Controller {
     public function cambiar_estado($ci)
     {
         $estado = "Activo";
+      
         $persona = array(
         'ci_persona'=> $ci
         );
         $persona = $this->persona_model->retornar_persona_por_ci($persona);
-        $persona = $persona[0];
-        if(strcmp($persona['estado'],"Activo"))
-        {
+        $persona = $persona[0];       
+        switch ($persona['estado']) {
+        case 'Activo':
             $persona['estado'] = "Inactivo";
-        }
-        else if(strcmp($persona['estado'],"Inactivo"))
-        {
+            break;
+        case 'Inactivo':
             $persona['estado'] = "Activo";
-        }
+            break;
+    
+            }
         $this->persona_model->cambiar_estado($persona);
         $persona = $this->alumno_model->ver_lista_alumnos();
         $data['alumnos'] = $persona;
