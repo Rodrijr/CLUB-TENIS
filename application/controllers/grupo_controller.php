@@ -72,8 +72,9 @@ class Grupo_controller extends CI_Controller {
         $this->ver_lista_grupos();
     }
 
-    public function eliminar_grupo($id_grupo)
+    public function eliminar_grupo()
     {
+        $id_grupo = $this->input->post('id_grupo');
         $this->grupo_model->elimiar_grupo($id_grupo);
         $this->ver_lista_grupos();
     }
@@ -251,7 +252,7 @@ class Grupo_controller extends CI_Controller {
         $this->grupo_model->eliminar_alumno_sub_grupo($id_subgrupo, $id_alumno);
         $this->editar_grupo($sub_grupo['id_grupo']);
     }
-    
+
     // ----------------------------------- METODOS PRIVADOS ------------------------- //
 
     function validar_alumno($id_alumno, $id_grupo)
