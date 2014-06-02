@@ -20,7 +20,28 @@ class Persona_controller extends CI_Controller {
         $this->load->library('form_validation');
 	}  
     
-    
+    public function cambiar_estado($ci)
+    {
+        $estado = "Activo";
+        $persona = array(
+        'ci_persona'=> $ci
+        );
+        $persona = $this->persona_model->retornar_persona_por_ci($persona);
+        $persona = $persona[0];
+        if(strcmp($persona['estado'],"Activo"))
+        {
+            $persona['estado'] = "Inactivo";
+        }
+        else if(strcmp($persona['estado'],"Inactivo"))
+        {
+            $persona['estado'] = "Activo";
+        }
+        $this->persona_model->cambiar_estado($persona);
+        $persona = $this->alumno_model->ver_lista_alumnos();
+        $data['alumnos'] = $persona;
+        $data['main_content'] = 'alumnos/lista_alumnos_views';
+		$this->load->view('main_template', $data);
+    }
     public function ver_mi_perfil()
 	{   
        
@@ -31,6 +52,8 @@ class Persona_controller extends CI_Controller {
         $data['modificarPerfil'] = "";
         $data['main_content'] = 'usuarios/ver_perfil_views';
 		$this->load->view('main_template', $data);
+        
+        
     }
     public function obtener_alumno_ID($id)
     {
