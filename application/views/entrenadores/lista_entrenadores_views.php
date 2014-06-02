@@ -4,6 +4,18 @@
         	<h1 id="tables" align="center">Lista De Entrenadores</h1>
         </div>
         <div class="col-lg-11 col-lg-offset-1">
+        	  <?php echo form_open('Reporte_controller/generar');?>    
+		      <div class="form-group">
+		        <div class="col-lg-12">
+		          <div class="col-lg-12">
+		            <div class="col-lg-6">  
+		              <button type="submit" class="btn btn-primary" formtarget="_blank">Imprimir</button>
+		              <!-- <a type="submit" class="btn btn-primary" target="_blank">Imprimir</a> -->
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    <?php echo form_close();?>
 	        <div class="bs-component">
 		      <div class="col-lg-10">
 		          <table class="table table-bordered">
