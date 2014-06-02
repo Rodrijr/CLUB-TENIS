@@ -32,10 +32,10 @@
                                 >
                         <thead>
                               <tr>		                
-                                <th style="min-width: 0px; max-width: 50%">Nombre</th>
-                                  <th></th>
+                                <th style="min-width: 0px; max-width: 40%">Nombre</th>
+                                
                                 <th style="min-width: 0px; max-width: 100px">
-                                    <input id="grupos" name="grupos[]" value="<?php echo $nombres1[2];   ?>" type="checkbox">
+                                    <input id="grupos" name="grupos[]" value="<?php echo $nombres1[2];   ?>" type="checkbox"> Todos
                                   
                                 </th>
                               </tr>
@@ -45,9 +45,9 @@
                        {
                          ?><tr>
                         <td><?php
-                            echo $alumno['nombre_persona'];
+                            echo $alumno['nombre_persona']." ".$alumno['apellido_persona'];
                             ?>
-                        </td><td></td>
+                        </td>
                         <td><?php
                             echo '<input id="id_alumno" name="destinatarios[]" value="'.$alumno['ci_persona'].'" type="checkbox">';
                             ?>

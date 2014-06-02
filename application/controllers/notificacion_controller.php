@@ -67,7 +67,8 @@ $elem = array($nom_grupo['nombre_grupo']."*".$subgrupo['nombre_subgrupo']."*".$s
     public function enviar_a_grupo($grupos,$resp)
     {$not = $_SESSION['notificacion'];
      $destinatarios = array();
-     
+     if(isset($grupos) && count($grupos)>0)
+        {
      foreach($grupos as $grupo)
         {
     $alumnos=$this->notificacion_model->obtener_alumnos_de_grupo($grupo);
@@ -82,29 +83,64 @@ $_padre = $this->persona_model->buscar_padre_alumno($ci_alumno);
                 
               $envio = array(
                         'id_notificacion' => $resp['id_notificacion'],
-                        'ci_destinatario' => $ci_alumno,
+                        'ci_destinatario' => $ci_alumno["ci_persona"],
                         'tipo' => ''
                     );
         if(count($this->notificacion_model->buscarnot($envio))==0)
          {
             $this->notificacion_model->registrar_envio($envio);
+             $this->enviar_email($ci_alumno['email'],$not);
          }
                     $envio = array(
                             'id_notificacion' => $resp['id_notificacion'],
                             'ci_destinatario' => $_padre['ci_padre'],
                             'tipo' => ''
                         );
-        if(count($this->notificacion_model->buscarnot($envio))==0)
-         {
-            $this->notificacion_model->registrar_envio($envio);
+            if(count($this->notificacion_model->buscarnot($envio))==0)
+             {
+                $this->notificacion_model->registrar_envio($envio);          
+                $this->enviar_email($_padre['email'],$not);
+            }
          }
             }
             
         }
+    
      return ;
     }
+    public function enviar_email($email,$not)
+    {
+          if(isset($email) && !empty($email))
+          {
+              $email_to = $email;
+          }
+        else
+        {
+            $email_to = "rodri_a_11@hotmail.es";
+        }
+        
+$email_subject = $not['asunto'];
+$email_from = "rodri_n@hotmail.es";
+$email_message = $not['cuerpo']."\n";
+$email_message .= "Fecha: ".$not['fecha']."\n";
+$email_message .= " \n\n\n\n";
+$email_message .= " El hogar perfecto para la familia.";
+$email_message .= " \n Direccion: Ramon Rivero casi puente Cala Cala\n";
+$email_message .= "Teléfono: 591-4-4257080    Fax: 591-4-4257080 \n";
+$email_message .= " Administracion    ESCUELA DE TENIS COCHABAMBA. \n";
+$headers = 'From: '.$email_from." \r\n".
+'Reply-To: '.$email_from." \r\n" .
+'X-Mailer: PHP/' . phpversion();
+mail($email_to, $email_subject, $email_message, $headers);
+
+
+        
+    }
     public function ennviar_a_destinatarios($destinatarios,$resp)
-    { $not = $_SESSION['notificacion'];
+    { 
+        $not = $_SESSION['notificacion'];
+        if(isset($destinatarios) && count($destinatarios)>0)
+        {
         foreach($destinatarios as $destinatario)
             {       
         $_padre = $this->persona_model->buscar_padre_alumno($destinatario);
@@ -116,19 +152,24 @@ $_padre = $this->persona_model->buscar_padre_alumno($ci_alumno);
          if(count($this->notificacion_model->buscarnot($envio))==0)
          {
             $this->notificacion_model->registrar_envio($envio);
+$alumno = $this->persona_model->retornar_persona_por_ci($destinatario);
+             $this->enviar_email($alumno['email'],$not);
          }
                $_padre = $_padre[0];    
                     $envio = array(
-                            'id_notificacion' => $resp['id_notificacion'],
-                            'ci_destinatario' => $_padre['ci_padre'],
-                            'tipo' => ''
+                        'id_notificacion' => $resp['id_notificacion'],
+                        'ci_destinatario' => $_padre['ci_padre'],
+                        'tipo' => ''
                         );
             if(count($this->notificacion_model->buscarnot($envio))==0)
             {
             $this->notificacion_model->registrar_envio($envio);
+                
+                $this->enviar_email($_padre['email'],$not);
             }
              
             
+        }
         }
      return ;
     }

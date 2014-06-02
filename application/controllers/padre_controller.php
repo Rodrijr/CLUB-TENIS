@@ -30,7 +30,8 @@ class Padre_controller extends CI_Controller {
                         'celular' => '*',
                         'direccion' => '',
                         'email' => '',
-                        'tipo' => '');     
+                        'tipo' => '',
+                        'estado'=> '');     
     }
     public function cargar_padre()
     { 
@@ -56,7 +57,8 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
                     'celular' => $celular,
                     'direccion' => $this->input->post('DIRECCION'),  
                     'email' => $this->input->post('EMAIL'),
-                    'tipo' => $tipo
+                    'tipo' => $tipo,
+                    'estado'=> 'Activo'
                 );   
     }
 

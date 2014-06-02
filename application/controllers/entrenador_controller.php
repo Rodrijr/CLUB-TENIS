@@ -32,7 +32,8 @@ class Entrenador_controller extends CI_Controller{
                     'celular' => $celular,
                     'direccion' => $this->input->post('DIRECCION'),  
                     'email' => $this->input->post('EMAIL'),
-                    'tipo' => 'Entrenador'
+                    'tipo' => 'Entrenador',
+                    'estado'=> 'Activo'
                 );   
        $usuario = array (
             'login' =>$this->input->post('LOGIN'),
@@ -69,7 +70,8 @@ class Entrenador_controller extends CI_Controller{
                     'celular' => '*',
                     'direccion' => '',
                     'email' => '',
-                    'tipo' => 'Entrenador');
+                    'tipo' => 'Entrenador',
+                    'estado'=> 'Activo');
             $data['entrenador'] =$padre;
              
             $data['MSN'] = $MSN;

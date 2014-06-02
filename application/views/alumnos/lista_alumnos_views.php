@@ -28,10 +28,8 @@
 		              <tr>
                         <th>FOTOGRAFIA</th>
 		                <th>CI</th>
-		                <th>Nombre</th>
-		                <th>TELEFONO</th>
-		                <th>DIRECCION</th>
-		                <th>E-MAIL</th> 
+		                <th>NOMBRE APELLIDO</th>
+		                <th>ESTADO</th>
 		              </tr>
 		            </thead>
 		            <tbody>
@@ -65,11 +63,7 @@ if($f){?>
                              <a><?php echo $alumno['nombre_persona']." ".$alumno['apellido_persona']; ?></a>      
                             </td>
                             <td style="min-width: 0px; max-width: 10%">
-                                <?php echo $alumno['telefono']; ?></td>
-                            <td style="min-width: 0px; max-width: 300px">
-                                <?php echo $alumno['direccion']; ?></td>
-                            <td style="min-width: 0px; max-width: 5%">
-                                <?php echo $alumno['email']; ?></td>
+                                <?php echo $alumno['estado']; ?></td>
                             
                         </tr>
 		                <?php $cont++; ?>
