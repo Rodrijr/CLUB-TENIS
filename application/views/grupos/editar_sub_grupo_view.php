@@ -63,7 +63,6 @@
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Descartar Entrenador</th>
-                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -73,8 +72,7 @@
                       <td><center><?php echo $cont; ?></center></td>
                       <td><?php echo $entrenador['nombre_persona']; ?></td>
                       <td><?php echo $entrenador['apellido_persona']; ?></td>
-                      <td><center><a href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo">Descartar</a></center></td>
-                      <td><a type="button" data-toggle="modal" href="#myModalEliminarEntrenador" class="btn btn-success">Descartar Entrenador</a></td>
+                      <td><center><a type="button" data-toggle="modal" href="#myModalEliminarEntrenador" class="btn btn-warning">Descartar Entrenador</a></center></td>
 
                       <!-- Modal Eliminar Entrenador -->
                       <div class="modal fade" id="myModalEliminarEntrenador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

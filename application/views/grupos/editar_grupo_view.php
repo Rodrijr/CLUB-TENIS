@@ -36,7 +36,7 @@
     <div class="form-group">
       <div class="form-group">
         <div class="col-lg-12">
-          <legend><center>Alumnos</center></legend>
+          
           <table class="table table-striped table-hover">
             <thead>
               <tr>
