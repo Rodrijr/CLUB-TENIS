@@ -22,20 +22,20 @@ class Persona_controller extends CI_Controller {
     
     public function cambiar_estado($ci)
     {
-        $estado = "Activo";
         $persona = array(
         'ci_persona'=> $ci
         );
         $persona = $this->persona_model->retornar_persona_por_ci($persona);
-        $persona = $persona[0];
-        if(strcmp($persona['estado'],"Activo"))
-        {
+        $persona = $persona[0];       
+        switch ($persona['estado']) {
+        case 'Activo':
             $persona['estado'] = "Inactivo";
-        }
-        else if(strcmp($persona['estado'],"Inactivo"))
-        {
+            break;
+        case 'Inactivo':
             $persona['estado'] = "Activo";
-        }
+            break;
+    
+            }
         $this->persona_model->cambiar_estado($persona);
         $persona = $this->alumno_model->ver_lista_alumnos();
         $data['alumnos'] = $persona;
@@ -73,7 +73,7 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
             'direccion' => $this->input->post('DIRECCION'),
             'email' => $this->input->post('EMAIL')
         );
-         $actualizar = $this->persona_model->obtener_persona_CI($persona);
+         $actualizar = $this->persona_model->persona_por_ci1($persona['ci_persona']);
             if( $actualizar ==1 )
             {
                  $MSN ="El CI ya fue registrado.";
@@ -95,6 +95,7 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
             }     
         
         $persona = $this->persona_model->ver_mi_perfil();
+        print_r($persona);
         $data['MSN']= $MSN ;
         $data['persona'] = $persona[0];
         $data['perfil'] = "";        
