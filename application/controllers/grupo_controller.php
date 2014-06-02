@@ -72,8 +72,9 @@ class Grupo_controller extends CI_Controller {
         $this->ver_lista_grupos();
     }
 
-    public function eliminar_grupo($id_grupo)
+    public function eliminar_grupo()
     {
+        $id_grupo = $this->input->post('id_grupo');
         $this->grupo_model->elimiar_grupo($id_grupo);
         $this->ver_lista_grupos();
     }
@@ -217,9 +218,17 @@ class Grupo_controller extends CI_Controller {
     {
         $id_subgrupo = $this->input->post('id_subgrupo');
         $sub_grupo = $this->grupo_model->obtener_sub_grupo_por_id($id_subgrupo);
-        
-        $entrenadores_sub_grupo = explode("-",$sub_grupo['id_entrenador']); 
         $id_entrenadores_seleccionados = $this->input->post('entrenadores');
+        
+        if($sub_grupo['id_entrenador']!='')
+        {
+            $entrenadores_sub_grupo = explode("-",$sub_grupo['id_entrenador']); 
+        }
+        else
+        {
+            $entrenadores_sub_grupo = array();
+        }
+        
         foreach ($id_entrenadores_seleccionados as $id_entrenador) {
             $entrenadores_sub_grupo[] = $id_entrenador;
         }
@@ -229,7 +238,6 @@ class Grupo_controller extends CI_Controller {
             $id_entrenadores = $id_entrenadores.'-'.$id_entrenador;
         }
         $id_entrenadores=substr($id_entrenadores, 1);
-
         $sub_grupo = array(
             'id_subgrupo' => $id_subgrupo,
             'entrenadores' => $id_entrenadores
@@ -251,6 +259,40 @@ class Grupo_controller extends CI_Controller {
         $this->grupo_model->eliminar_alumno_sub_grupo($id_subgrupo, $id_alumno);
         $this->editar_grupo($sub_grupo['id_grupo']);
     }
+
+    public function descartar_entrenador_de_sub_grupo()
+    {
+        $id_entrenador = $this->input->post('id_entrenador');
+        $id_subgrupo = $this->input->post('id_subgrupo');
+        $sub_grupo = $this->grupo_model->obtener_sub_grupo_por_id($id_subgrupo);
+        $entrenadores = explode("-", $sub_grupo['id_entrenador']);
+        $entrenador= array($id_entrenador);
+        // se resta a la lista de entrenadores al entrenador.
+        $lista_entrenadores = array_diff($entrenadores, $entrenador);
+        $id_entrenadores='';
+        foreach ($lista_entrenadores as $entrenador_id) {
+            $id_entrenadores = $id_entrenadores.'-'.$entrenador_id;
+        }
+        if($id_entrenadores=='')
+        {
+            $sub_grupo = array(
+                'id_subgrupo' => $id_subgrupo,
+                'entrenadores' => ""
+            );
+        }
+        else
+        {
+            $id_entrenadores=substr($id_entrenadores, 1);
+            $sub_grupo = array(
+                'id_subgrupo' => $id_subgrupo,
+                'entrenadores' => $id_entrenadores
+            );
+        }
+
+        $this->grupo_model->asignar_entrenador_a_sub_grupo($sub_grupo);
+        $this->ver_sub_grupo($id_subgrupo);
+    }
+
     // ----------------------------------- METODOS PRIVADOS ------------------------- //
 
     function validar_alumno($id_alumno, $id_grupo)
@@ -381,9 +423,11 @@ class Grupo_controller extends CI_Controller {
 
     function string_entrenadores_para_sub_grupo($id_entrenadores)
     {
-        if($id_entrenadores[0]!="0")
+        //if($id_entrenadores[0]!="0")
+        //{
+        if($id_entrenadores!='')
         {
-            $entrenadores = '';
+            $entrenadores ='';
             $lista_id_entrenadores = explode("-", $id_entrenadores);
             foreach ($lista_id_entrenadores as $id_entrenador) {
                 $entrenador = $this->entrenador_model->obtener_entrenador_por_id($id_entrenador);
@@ -393,14 +437,14 @@ class Grupo_controller extends CI_Controller {
         }
         else
         {
-            return "";
+            return '';
         }
     }
 
     public function lista_entrenadores_para_sub_grupo($id_entrenadores)
     {
         $listaEntrenadores = array();
-        if($id_entrenadores[0]!="0")
+        if($id_entrenadores!='')
         {
             $lista_id_entrenadores = explode("-", $id_entrenadores);
             foreach ($lista_id_entrenadores as $id_entrenador) {

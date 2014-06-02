@@ -47,7 +47,7 @@
 		                	<td><?php echo $cont; ?></td>
 		                    <td><?php echo $grupo['nombre_grupo']; ?></td>
 		                    <td><a style="color: purple" Title="Editar Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-edit"></span></a></td>
-		                    <td><a Title="Ver Grupo" href="<?php# echo base_url(); ?>index.php/Grupo_controller/eliminar_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
+		                    <td><a data-toggle="modal" href="#myModalEliminarGrupo"><span class="glyphicon glyphicon-trash"></span></a></td>
                         </tr>
 		                <?php $cont++; ?>
 		                <?php } ?>
@@ -58,4 +58,39 @@
 	        </div>
 	    </div>
 	</div>
+
+<!-- Modal Aniadir Entrenador -->
+  <div class="modal fade" id="myModalEliminarGrupo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h3 class="panel-title">Alerta...!!</h3>
+            </div>
+          </div>
+          <div class="panel-body">
+            <center><p class="text-danger">Esta Seguro que quiere <strong>ELIMINAR</strong> este Grupo?</p></center>
+            <div class="modal-footer">
+              <?php echo form_open('Grupo_controller/descartar_entrenador_de_sub_grupo');?>
+              <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $grupo['id_grupo']; ?> ">   
+              <center><div class="form-group">
+                <div class="col-lg-12">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-danger">Aceptar</button>
+                </div>
+              </div></center>
+              <?php echo form_close();?>  
+            </div>
+          </form>
+          </div>
+        </div><!-- /.panel panel-primary --> 
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
 </div>
+
+

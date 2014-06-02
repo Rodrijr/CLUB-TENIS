@@ -63,6 +63,7 @@
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Descartar Entrenador</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -72,7 +73,40 @@
                       <td><center><?php echo $cont; ?></center></td>
                       <td><?php echo $entrenador['nombre_persona']; ?></td>
                       <td><?php echo $entrenador['apellido_persona']; ?></td>
-                      <td><center><a href="">Descartar</a></center></td>
+                      <td><center><a href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo">Descartar</a></center></td>
+                      <td><a type="button" data-toggle="modal" href="#myModalEliminarEntrenador" class="btn btn-success">Descartar Entrenador</a></td>
+
+                      <!-- Modal Eliminar Entrenador -->
+                      <div class="modal fade" id="myModalEliminarEntrenador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="panel panel-primary">
+                              <div class="panel-heading">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h3 class="panel-title">Alerta...!!</h3>
+                                </div>
+                              </div>
+                              <div class="panel-body">
+                                <center><p class="text-danger">Esta Seguro que quiere <strong>DESCARTAR</strong> este Entrenador?</p></center>
+                                <div class="modal-footer">
+                                  <?php echo form_open('Grupo_controller/descartar_entrenador_de_sub_grupo');?>
+                                  <input type="HIDDEN" class="form-control" name="id_entrenador" value="<?php echo $entrenador['id_persona']; ?>">
+                                  <input type="HIDDEN" class="form-control" name="id_subgrupo" value="<?php echo $id_subgrupo?>">    
+                                  <center><div class="form-group">
+                                    <div class="col-lg-12">
+                                      <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                      <button type="submit" class="btn btn-danger">Aceptar</button>
+                                    </div>
+                                  </div></center>
+                                  <?php echo form_close();?>  
+                                </div>
+                              </form>
+                              </div>
+                            </div><!-- /.panel panel-primary --> 
+                          </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                      </div><!-- /.modal -->
                     </tr>
                     <?php $cont++; ?>
                     <?php } ?>
@@ -195,5 +229,7 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+
+  <
 
 </div>
