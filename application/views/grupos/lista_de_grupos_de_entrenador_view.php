@@ -7,45 +7,18 @@
 	    </div>
 	</div>
 
-	<div class="bs-docs-section">
-    <div class="row">
-      <div class="col-lg-9 col-lg-offset-2">
-      	<?php echo form_open('Grupo_controller/buscar_grupos')?>          
-            <fieldset>
-                <!-- zzzzzzzzzzzzzzzzzzz Datos Basicos zzzzzzzzzzzzzzzzzzzzzzz -->
-
-                <div class="col-lg-10 form-group">
-                    <label class="col-lg-2 control-label">Buscar Por: </label>
-                    <div class="col-lg-7">
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="nombreEntrenador" placeholder="Nombre de Entrenador" pattern="[a-zA-Z]+" title="Solo se aceptan Letras">
-                            <span class="input-group-addon"> <span class="glyphicon glyphicon-search"></span> </span>
-                        </div>
-                    </div>
-                    <button type="submit" class="col-lg-2 btn btn-success">Buscar</button>
-                </div>
-                
-            </fieldset>
-        <?php echo form_close() ?>
-	  </div>
-	</div>
-	</div>
-</div>
-
-<div class="container">
-    <div class="col-lg-12">
+	<div class="col-lg-12">
         <div class="col-lg-11 col-lg-offset-1">
 	        <div class="bs-component">
 	          <?php	foreach($lista_sub_grupos as $sub_grupo_entrenador){ ?>
 		          <div class="panel panel-primary">
 					<div class="panel-heading">
-					  <h3 class="panel-title"><strong><?php echo $sub_grupo_entrenador['grupo']['nombre_grupo']?></strong></h3>
+					  <h3 class="panel-title"><strong><?php echo $sub_grupo_entrenador['sub_grupo']['nombre_subgrupo']." - ".$sub_grupo_entrenador['grupo']['nombre_grupo']?></strong></h3>
 					</div>
 					<div class="panel-body">
-						<p class="text-primary"><strong>Entrenador(es): </strong><?php echo $sub_grupo_entrenador['entrenador']?></p>
 						<div class="col-lg-10 col-lg-offset-1">
-						  <legend><?php echo $sub_grupo_entrenador['sub_grupo']['nombre_subgrupo'] ?></legend>
 						  <blockquote>
+						  	<p class="text-primary"><strong>Entrenador(es): </strong><?php echo $sub_grupo_entrenador['entrenador']?></p>
 						    <p><strong>Horario: </strong><?php echo $sub_grupo_entrenador['sub_grupo']['horario']?></p>
 							<p><?php echo $sub_grupo_entrenador['sub_grupo']['descripcion']?></p>
 						  </blockquote>
@@ -56,6 +29,9 @@
 				                <th>#</th>
 				                <th>Nombre</th>
 				                <th>Apellidos</th>
+				                <th>Objetivos</th>
+				                <th>Perfil</th>
+				                <th>Evaluación Personal</th>
 				              </tr>
 				            </thead>
 				            <tbody>
@@ -67,6 +43,9 @@
 				                    echo "<td>".$cont."</td>";
 		                            echo "<td>".$alumno['nombre_persona']."</td>";
 		                            echo "<td>".$alumno['apellido_persona']."</td>";
+		                            echo '<td><a href="'.base_url().'index.php/Planilla_controller/llenar_objetivos_de_jugador/'.$alumno['id_persona'].'">Objetivos Del Jugador</a></td>';
+					                echo '<td><a href="'.base_url().'index.php/Planilla_controller/llenar_perfil_de_jugador/'.$alumno['id_persona'].'" style="color:red">Perfil Del Jugador</a></td>';
+					                echo '<td><a href="'.base_url().'index.php/Planilla_controller/llenar_evaluacion_personal/'.$alumno['id_persona'].'" style="color:green">Evaluaci&oacute;n Personal</a></td>';
 		                          echo "</tr>";
 				                  $cont++;
 				                }
@@ -80,5 +59,14 @@
 	        </div>
 	    </div>
 	</div>
+
+	<div class="col-lg-12">
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-1">
+            <br>
+            <a type="button" class="btn btn-warning" href="<?php echo base_url(); ?>index.php">Atrás</a>
+          </div>
+        </div>
+    </div>
 </div>
 
