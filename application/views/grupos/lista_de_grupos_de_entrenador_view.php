@@ -8,8 +8,11 @@
 	</div>
 
 	<div class="col-lg-12">
+ 
         <div class="col-lg-11 col-lg-offset-1">
+        	
 	        <div class="bs-component">
+
 	          <?php	foreach($lista_sub_grupos as $sub_grupo_entrenador){ ?>
 		          <div class="panel panel-primary">
 					<div class="panel-heading">

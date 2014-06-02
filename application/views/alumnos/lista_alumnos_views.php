@@ -3,7 +3,6 @@
         <div class="page-header">
         	<h1 id="tables" align="center">Lista De Alumnos</h1>
             
-            	
             <?php echo form_open('Persona_controller/buscar_alumno')?>          
             <fieldset>
                 <div class="col-lg-10 form-group">
@@ -16,10 +15,21 @@
                     </div>
                     <button type="submit" class="col-lg-2 btn btn-success">Buscar</button>
                 </div>
-                
             </fieldset>
         <?php echo form_close() ?>
         </div>
+        <div class="col-lg-10 col-lg-offset-2 form-group">
+            <?php echo form_open('Reporte_controller/generar_pdf_alumnos');?>    
+              <div class="form-group">
+                <div class="col-lg-12">
+                    <div class="col-lg-6">  
+                      <button type="submit" class="btn btn-warning" formtarget="_blank">Imprimir</button>
+                      <!-- <a type="submit" class="btn btn-primary" target="_blank">Imprimir</a> -->
+                    </div>
+                </div>
+              </div>
+            <?php echo form_close();?>
+        </div>  
         <div class="col-lg-11 col-lg-offset-1">
 	        <div class="bs-component">
 		      <div class="col-lg-11">
