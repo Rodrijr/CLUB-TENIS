@@ -46,11 +46,11 @@ class Notificacion_controller extends CI_Controller {
     public function enviar_a_grupo($grupos, $resp) {
         $not = $_SESSION['notificacion'];
         $destinatarios = array();
-        if (isset($grupos) && count($grupos) > 0) {
+        if (array($grupos) && count($grupos) > 0) {
             foreach($grupos as $grupo) {
                 $alumnos = $this->notificacion_model->obtener_alumnos_de_grupo($grupo);
                 foreach($alumnos as $alumno) {
-                    $ci_alumno = $this->persona_model->persona_by_id($alumno['id_alumno']);
+                    $ci_alumno = $this->persona_model->persona_by_id($alumno['ci_alumno']);
                     $ci_alumno = $ci_alumno[0];
                     $ci_alumno = $ci_alumno["ci_persona"];
                     $_padre = $this->persona_model->buscar_padre_alumno($ci_alumno);
@@ -58,12 +58,20 @@ class Notificacion_controller extends CI_Controller {
                     $envio = array('id_notificacion' => $resp['id_notificacion'], 'ci_destinatario' => $ci_alumno["ci_persona"], 'tipo' => '');
                     if (count($this->notificacion_model->buscarnot($envio)) == 0) {
                         $this->notificacion_model->registrar_envio($envio);
+                        
+                        
                         $this->enviar_email($ci_alumno['email'], $not);
                     }
                     $envio = array('id_notificacion' => $resp['id_notificacion'], 'ci_destinatario' => $_padre['ci_padre'], 'tipo' => '');
                     if (count($this->notificacion_model->buscarnot($envio)) == 0) {
                         $this->notificacion_model->registrar_envio($envio);
-                        $this->enviar_email($_padre['email'], $not);
+                         if (isset($alumno['email']) && !empty($alumno['email'])) {
+            $email_to = $alumno['email'];
+        } else {
+            $email_to = "rodri_a_11@hotmail.es";
+        }         
+                    $this->enviar_email($email_to, $not);
+                        $this->enviar_email($email_to, $not);
                     }
                 }
             }
@@ -90,22 +98,55 @@ class Notificacion_controller extends CI_Controller {
     }
     public function ennviar_a_destinatarios($destinatarios, $resp) {
         $not = $_SESSION['notificacion'];
-        if (isset($destinatarios) && count($destinatarios) > 0) {
+        if (is_array($destinatarios) && count($destinatarios) > 0) {
             foreach($destinatarios as $destinatario) {
-                $_padre = $this->persona_model->buscar_padre_alumno($destinatario);
+        $_padre = $this->persona_model->buscar_padre_alumno($destinatario);
                 $envio = array('id_notificacion' => $resp['id_notificacion'], 'ci_destinatario' => $destinatario, 'tipo' => '');
                 if (count($this->notificacion_model->buscarnot($envio)) == 0) {
-                    $this->notificacion_model->registrar_envio($envio);
-                    $alumno = $this->persona_model->retornar_persona_por_ci($destinatario);
-                    $this->enviar_email($alumno['email'], $not);
+            $this->notificacion_model->registrar_envio($envio);
+            $alumno = $this->persona_model->persona_por_ci1($destinatario);
+            
+        if (isset($alumno['email']) && !empty($alumno['email'])) {
+            $email_to = $alumno['email'];
+        } else {
+            $email_to = "rodri_a_11@hotmail.es";
+        }         
+                    $this->enviar_email($email_to, $not);
                 }
-                $_padre = $_padre[0];
-                $envio = array('id_notificacion' => $resp['id_notificacion'], 'ci_destinatario' => $_padre['ci_padre'], 'tipo' => '');
-                if (count($this->notificacion_model->buscarnot($envio)) == 0) {
-                    $this->notificacion_model->registrar_envio($envio);
-                    $this->enviar_email($_padre['email'], $not);
+                
+                if(isset( $_padre[0]))
+                {
+                     $_padre = $_padre[0];
                 }
+                else
+                {
+                    $padre= array(
+                        'ci_padre'=>'921153'
+                    );
+                }
+            if(!isset( $_padre['ci_padre']) || empty($_padre['ci_padre']))
+                {
+                    $_padre['ci_padre'] = '921153';
+                }
+                
+                $envio = array(
+                    'id_notificacion' => $resp['id_notificacion'],
+                    'ci_destinatario' => $_padre['ci_padre'],
+                    'tipo' => '');
+                
+            if (count($this->notificacion_model->buscarnot($envio)) == 0) 
+            {
+                    $this->notificacion_model->registrar_envio($envio);
+                if (isset($_padre['email']) && !empty($_padre['email'])) {
+                    $email_to = $_padre['email'];
+                } 
+                else {
+                    $email_to = "rodri_n@hotmail.es";
+                }   
+                    
+                    $this->enviar_email($email_to, $not);
             }
+          }
         }
         return;
     }
@@ -114,19 +155,37 @@ class Notificacion_controller extends CI_Controller {
         $grupos = $this->input->post('grupos');
         if (count($destinatarios) >= 1) {
             $not = $_SESSION['notificacion'];
+            if(isset($_SESSION['notificacion']))
+            {
+                $not = $_SESSION['notificacion'];
+           
+            
+            
             $resp = $this->notificacion_model->registrar_notificacion($not);
             $resp = $this->notificacion_model->id_notificacion($not);
             $resp = $resp[0];
-            if (isset($grupos) && count($grupos) > 0) {
+            if (is_array($grupos) && count($grupos) > 0) {
                 $this->enviar_a_grupo($grupos, $resp);
             }
-            if (isset($destinatarios) && count($destinatarios) > 0) {
+            if (is_array($destinatarios) && count($destinatarios) > 0) {
                 $this->ennviar_a_destinatarios($destinatarios, $resp);
             }
             $data['main_content'] = 'notificaciones/envio_satisfactorio';
             $_SESSION['notificacion'] = null;
             $this->load->view('main_template', $data);
+            }
+            else
+            {
+            $data['main_content'] = 'notificaciones/crear_notificacion_view';
+        $this->load->view('main_template', $data);
+            }
+            
+            
+            
         }
+            
+            
+        
     }
     public function ver_notificaciones() {
         $id_notificaciones = $this->notificacion_model->ver_notificaciones();
