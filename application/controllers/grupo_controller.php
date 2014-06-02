@@ -251,6 +251,7 @@ class Grupo_controller extends CI_Controller {
         $this->grupo_model->eliminar_alumno_sub_grupo($id_subgrupo, $id_alumno);
         $this->editar_grupo($sub_grupo['id_grupo']);
     }
+    
     // ----------------------------------- METODOS PRIVADOS ------------------------- //
 
     function validar_alumno($id_alumno, $id_grupo)
