@@ -20,8 +20,6 @@ class Alumno_controller extends CI_Controller {
         $this->load->library('form_validation');
 	}
 
-    
-    
     public function ver_lista_hijos()
 	{        
         $padre_alumno = $this->alumno_model->obtener_Padre_Alumno_ID();       
@@ -56,6 +54,7 @@ class Alumno_controller extends CI_Controller {
             'direccion' => $this->input->post('DIRECCION'),
             'email' => $this->input->post('EMAIL')
         );
+        echo $persona['ci_persona'];
         if(empty($persona['ci_persona']))
         {
            $persona= $this->persona_model->persona_by_id($id);
@@ -83,10 +82,7 @@ class Alumno_controller extends CI_Controller {
                      $tipo ="panel panel-danger";
                 }  
             }
-            
-    
-           
-        
+
         $persona = $this->alumno_model->ver_perfil($id);
         $data['MSN']= $MSN ;
         $data['persona'] = $persona[0];
