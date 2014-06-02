@@ -20,7 +20,7 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GRUPOS <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_de_grupos_de_entrenador/<?php echo $this->session->userdata('id_usuario'); ?>">Ver lista de grupos</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_de_grupos_de_entrenador/<?php echo $this->session->userdata('id_usuario'); ?>">Ver Lista De Grupos</a></li>
 	              <li class="divider"></li>
 	            <li><a href="#">Seleccionar Planilla</a></li>
 	          </ul>        

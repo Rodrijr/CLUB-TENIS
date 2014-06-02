@@ -29,7 +29,7 @@
 	          <ul class="dropdown-menu">
 	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/mostrar">Ver Fotos</a></li> <!--   solo el entrenador  -->
 	              
-	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/mostrar_videos">Ver Videos</a></li><!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/mostrar_video">Ver Videos</a></li><!--   solo el entrenador  -->
 	          </ul>        
 	        </li>
         </ul>

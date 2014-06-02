@@ -88,15 +88,14 @@ class Multimedia_controller extends CI_Controller
         $this->upload->initialize($configVideo);
         if (!$this->upload->do_upload('video'))
         {
-          echo $this->upload->display_errors();
+          //echo $this->upload->display_errors();
         }
         else
         {
           $videoDetails = $this->upload->data();
-          echo "Successfully Uploaded";
+          //echo "Successfully Uploaded";
         }
-        $data['main_content'] = 'multimedia/mostrar_videos_view';
-        $this->load->view('main_template', $data);
+        $this->mostrar_video();
     }
   }
 
@@ -104,12 +103,6 @@ class Multimedia_controller extends CI_Controller
   {
     $data['main_content'] = 'multimedia/mostrar_videos_alumnos_view';
     $this->load->view('main_template', $data);
-  }
-
-  public function mostrar_videos()
-  {
-      $data['main_content'] = 'multimedia/mostrar_videos_view';
-	$this->load->view('main_template', $data);  
   }
 
 }
