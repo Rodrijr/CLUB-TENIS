@@ -22,8 +22,6 @@ class Persona_controller extends CI_Controller {
     
     public function cambiar_estado($ci)
     {
-        $estado = "Activo";
-      
         $persona = array(
         'ci_persona'=> $ci
         );
@@ -75,7 +73,7 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
             'direccion' => $this->input->post('DIRECCION'),
             'email' => $this->input->post('EMAIL')
         );
-         $actualizar = $this->persona_model->obtener_persona_CI($persona);
+         $actualizar = $this->persona_model->persona_por_ci1($persona['ci_persona']);
             if( $actualizar ==1 )
             {
                  $MSN ="El CI ya fue registrado.";
@@ -97,6 +95,7 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
             }     
         
         $persona = $this->persona_model->ver_mi_perfil();
+        print_r($persona);
         $data['MSN']= $MSN ;
         $data['persona'] = $persona[0];
         $data['perfil'] = "";        

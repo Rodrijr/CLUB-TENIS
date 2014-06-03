@@ -1,9 +1,4 @@
-
 <div class="container">
-
-     
-
-       
         <div class="row"><br>  
             </div><br>
             <div class="row">
@@ -33,7 +28,6 @@
                         <thead>
                               <tr>		                
                                 <th style="min-width: 0px; max-width: 40%">Nombre</th>
-                                
                                 <th style="min-width: 0px; max-width: 100px">
                                     <input id="grupos" name="grupos[]" value="<?php echo $nombres1[2];   ?>" type="checkbox"> Todos
                                   

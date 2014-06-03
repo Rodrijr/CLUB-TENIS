@@ -204,7 +204,7 @@
                     <?php 
                         if(isset($persona))
                         {
-                        echo form_open('Persona_controller/modificar_mi_perfil/'.$persona['id_persona']."'"); 
+                        echo form_open('Persona_controller/modificar_mi_perfil/'.$persona['ci_persona'].""); 
                          
                     ?>
          <fieldset>
