@@ -166,7 +166,7 @@
                     <?php 
                         if(isset($persona))
                         {
-                        echo form_open('Alumno_controller/modificar_perfil/'.$persona['id_persona'].""); 
+                        echo form_open('Alumno_controller/modificar_perfil/'.$persona['ci_persona'].""); 
                          
                     ?>
          <fieldset>

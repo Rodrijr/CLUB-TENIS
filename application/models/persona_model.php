@@ -36,18 +36,15 @@ class Persona_model extends CI_Model
         }
         return "";
 	}
-    public function editar_perfil_Persona_ID($id)
-	{
-    }
-    public function modificar_mi_perfil($id,$persona)
+    public function modificar_mi_perfil($persona)
     {
-        $this->db->where('id_persona',$id);
+        $this->db->where('ci_persona',$persona['ci_persona']);
         return $this->db->update('persona',$persona);
         
     }
     public function cambiar_contracenas($id, $usuario)
     {
-        $this->db->where('id_persona',$id);
+        $this->db->where('ci_persona',$id);
         return $this->db->update('usuario',$usuario);
     }
     public function retornar_persona_por_ci($persona)
@@ -80,7 +77,7 @@ class Persona_model extends CI_Model
     }
     public function obtener_usuario($id)
     {
-        $query = $this->db->get_where('usuario', array('id_persona' => $id)); 
+        $query = $this->db->get_where('usuario', array('ci_persona' => $id)); 
         if($query->num_rows() >= 1 )
         {
             return $query->result_array();

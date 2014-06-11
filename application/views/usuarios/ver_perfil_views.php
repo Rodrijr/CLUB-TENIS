@@ -388,7 +388,7 @@
              <?php if(isset($MSN))
                             {
                         if(isset($tipo)){
-    echo '<div class="'.$tipo.'">';
+    echo '<div class="panel panel-'.$tipo.'">';
      echo  '<div class="panel-heading">';
      echo   ' <h3 class="panel-title">ALERTA!</h3>';
       echo '</div>';
