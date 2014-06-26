@@ -151,45 +151,6 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         $data['main_content'] = 'usuarios/fin_registro';        
 		$this->load->view('main_template', $data);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
 }
 
