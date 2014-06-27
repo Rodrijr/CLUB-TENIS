@@ -16,6 +16,12 @@ class Padres_controller extends CI_Controller {
     public function registrar_padre_codigo()
     {
         
+        $codigo = $this->input->post('CODIGO');
+        $sep = explode('ct',$codigo);
+        $validar = $this->persona_model->verificar_codigo($codigo);
+        if(count($validar)>=1)
+        {
+            
         /*
         funcion que verifique  el codigo  de alumno para validar el registro de padre
         */ 
@@ -55,20 +61,38 @@ class Padres_controller extends CI_Controller {
                 ); 
             $registro1 = $this->persona_model->registrar_usuario($usuario);
             $MSN = $registro;
-            if(!empty($registro1)){
-        $MSN = $registro1;          
-        }
-            $data['padre'] =$padre;
-            $data['MSN'] = $MSN;
-            $data['main_content'] ='padres/reg_padre_views';
+            if(!empty($registro1))
+            {
+                /*
+                eliminar padre registrado
+                y retornar datos
+                */
+                $MSN = $registro1;
+                $data['padre'] =$padre;
+            }
+            else                
+            {
+                /*
+                el registro fue exitoso
+                */
+                $data['main_content'] ='padres/buscar_hijos';
+                $this->load->view('main_template', $data);
+            }
         }
         else
         {
-            $data['MSN'] = $MSN;
+          
             $data['usuario'] = $usuario;
             $data['padre'] =$padre;
-            $data['main_content'] = 'padres/reg_padre_views';
+           
         }
+        }
+        else
+        {
+            $MSN = "El codigo ingresado no es valido.";
+        }
+         $data['MSN'] = $MSN;
+        $data['main_content'] ='padres/reg_padre_views';
         $this->load->view('main_template', $data); 
     }  
     

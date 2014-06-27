@@ -155,6 +155,7 @@ class Persona_model extends CI_Model
         $query=$this->db->get('persona');
         return $query->result_array();
     }*/
+    
     public function registrar_padre_alumno($padre_alumno)
     {
 
@@ -224,6 +225,17 @@ $this->db->update('persona', $persona);
         }
     }
     
+    
+    
+    /* 
+    borrar una ves q los padres se registraron
+    */
+    public function verificar_codigo($codigo)
+    {
+         $query = $this->db->get_where('persona', array('codigo' => $codigo)); 
+         return $query->result_array();
+        
+    }
 }
 
 ?>
