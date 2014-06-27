@@ -112,6 +112,13 @@
           </div>
         </div>
           <div class="row">
+           <div class="col-lg-3">
+          </div>
+           <div class="col-lg-3">
+           
+          </div>
+        </div>
+          <div class="row">
             <legend>Datos Personales</legend>
         <div class="col-lg-3">
               
@@ -366,23 +373,21 @@
             
               <div class="col-lg-3">
           </div>
-          <span class="label label-danger">
-                  PRESIONE SI NO QUIERE REGISTRAR MAS ALUMNOS
-              </span>
+          
               </div>
           <div class="row"><br>
           <div class="col-lg-2">
           </div>
           <div class="col-lg-3">
-              <button type="submit" class="btn btn-default btn-lg btn-block">SIGUIENTE</button>
+              <button type="submit" class="btn btn-default btn-lg btn-block">REGISTRAR</button>
           </div>
               <div class="col-lg-3">
               <button 
                       class="btn btn-default btn-lg btn-block"
-                       onClick="location.href='<?php echo base_url(); ?>index.php/Persona_controller/terminar_registro'" 
+                       
                       
                       
-                    >TERMINAR</button>
+                    >CANCELAR</button>
           </div>
           </div>
           

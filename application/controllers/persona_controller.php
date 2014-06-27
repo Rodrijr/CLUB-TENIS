@@ -230,5 +230,15 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
  
         
     }
+    
+    public function buscar_padre()
+    { 
+        $ci = $this->input->post('ci');
+        $personas = $this->persona_model->persona_por_ci1($ci);
+        $data['padres'] = $personas;
+        $data['main_content'] = 'alumnos/seleccionar_padre_view';
+		$this->load->view('main_template', $data);
+ 
+    }
 }
 ?>
