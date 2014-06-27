@@ -17,8 +17,9 @@ class Padres_controller extends CI_Controller {
     {
         
         $codigo = $this->input->post('CODIGO');
-        $sep = explode('ct',$codigo);
-        $validar = $this->persona_model->verificar_codigo($codigo);
+        $sep = explode('-',$codigo);
+        print_r($sep);
+        $validar = $this->persona_model->verificar_codigo($sep[1]);
         if(count($validar)>=1)
         {
             
