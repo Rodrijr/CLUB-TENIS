@@ -25,7 +25,7 @@ class Padres_controller extends CI_Controller {
         $codigo = $this->input->post('CODIGO');
         $sep = explode('ct',$codigo);
         $validar = $this->persona_model->verificar_codigo($sep[1]);
-
+        print_r($sep);
         if(count($validar)>=1)
         {
             /* funcion que verifique  el codigo  de alumno para validar el registro de padre */ 
