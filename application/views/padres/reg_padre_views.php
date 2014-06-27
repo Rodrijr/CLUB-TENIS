@@ -114,7 +114,6 @@
               </span>
               <input type="text" 
                      class="form-control"
-                     onkeypress='return isNumberKey(event)' 
                      required="required" 
                      maxlength='35'
                      NAME='CODIGO'                     

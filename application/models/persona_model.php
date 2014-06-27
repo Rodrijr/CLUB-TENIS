@@ -225,8 +225,6 @@ $this->db->update('persona', $persona);
         }
     }
     
-    
-    
     /* 
     borrar una ves q los padres se registraron
     */
@@ -234,7 +232,6 @@ $this->db->update('persona', $persona);
     {
          $query = $this->db->get_where('persona', array('codigo' => $codigo)); 
          return $query->result_array();
-        
     }
 }
 
