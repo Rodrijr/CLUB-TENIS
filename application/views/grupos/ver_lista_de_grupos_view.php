@@ -71,9 +71,9 @@
             </div>
           </div>
           <div class="panel-body">
-            <center><p class="text-danger">Esta Seguro que quiere <strong>ELIMINAR</strong> este Grupo?</p></center>
+            <center><p class="text-danger">Esta Seguro que desea <strong>ELIMINAR</strong> este Grupo?</p></center>
             <div class="modal-footer">
-              <?php echo form_open('Grupo_controller/descartar_entrenador_de_sub_grupo');?>
+              <?php echo form_open('Grupo_controller/eliminar_grupo');?>
               <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $grupo['id_grupo']; ?> ">   
               <center><div class="form-group">
                 <div class="col-lg-12">

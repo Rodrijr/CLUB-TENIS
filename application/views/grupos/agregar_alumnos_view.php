@@ -20,7 +20,7 @@
                   <th>#</th>
                   <th>Nombre</th>
                   <th>Apellidos</th>
-                  <th></th>
+                  <th width="5%"></th>
                 </tr>
               </thead>
               <tbody>

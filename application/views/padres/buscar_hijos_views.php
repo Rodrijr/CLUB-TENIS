@@ -23,7 +23,7 @@
                 <label class="col-lg-2 col-lg-offset-1 control-label">Codigo:</label>
                 <div class="col-lg-8">
                 	<div class="input-group">
-	                  	<input type="text" class="form-control" id="id_codigo_alumno" placeholder="Código" required="required" maxlength="30">
+	                  	<input type="text" class="form-control" id="id_codigo_alumno" placeholder="Código" maxlength="30" required>
 	                  	<span class="input-group-addon"> <span class="glyphicon glyphicon-qrcode"></span> </span>               
                   	</div>
                 </div>
@@ -37,7 +37,7 @@
 	            </label> 
               </div>
               <div class="col-lg-10 col-lg-offset-2">
-              	<a data-toggle="modal" href="#myModalAniadirHijo" onclick="mostrar();" class="btn btn-primary"> Ingresar</a>
+              	<a type="sumbit" data-toggle="modal" href="#myModalAniadirHijo" onclick="mostrar();" class="btn btn-primary"> Ingresar</a>
               	<a onclick="limpiar();" class="col-lg-offset-1 btn btn-default"> Limpiar</a>
               </div>
             </fieldset>
