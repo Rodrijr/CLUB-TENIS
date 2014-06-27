@@ -30,16 +30,16 @@ class Padre_model extends CI_Model
     }
     public function registrar_padre($padre)
     {
-            $resp = $this->db->insert('persona', $padre);
+        $resp = $this->db->insert('persona', $padre);
 
-            if($resp==1)
-            {
-                return "El registro fue existoso";
-            }
-            else
-            {
-                return "Revise el formato de los datos";
-            }
+        if($resp==1)
+        {
+            return "El registro fue existoso";
+        }
+        else
+        {
+            return "Revise el formato de los datos";
+        }
     }
 
 }

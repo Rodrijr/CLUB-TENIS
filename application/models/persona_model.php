@@ -158,12 +158,11 @@ class Persona_model extends CI_Model
     
     public function registrar_padre_alumno($padre_alumno)
     {
-
-         $resp = $this->db->insert('padre_alumno', $padre_alumno);
-            if($resp!=1)
-            {
-                return "No se pudo registrar el usuario";
-            }
+        $resp = $this->db->insert('padre_alumno', $padre_alumno);
+        if($resp!=1)
+        {
+            return "No se pudo registrar el usuario";
+        }
     }
     public function verificar_usuario($usuario)
     {
@@ -176,10 +175,10 @@ class Persona_model extends CI_Model
     public function registrar_usuario($usuario)
     {
         $resp = $this->db->insert('usuario', $usuario);
-            if($resp!=1)
-            {
-                return "No se pudo registrar el usuario";
-            }
+        if($resp!=1)
+        {
+            return "No se pudo registrar el usuario";
+        }
     }
     public function persona_by_id($id)
     {
@@ -204,9 +203,8 @@ class Persona_model extends CI_Model
     
     public function cambiar_estado($persona)
     {
-$this->db->where('ci_persona', $persona['ci_persona']);
-$this->db->update('persona', $persona); 
-
+        $this->db->where('ci_persona', $persona['ci_persona']);
+        $this->db->update('persona', $persona); 
     }
    
     public function poner_ci()
@@ -218,9 +216,9 @@ $this->db->update('persona', $persona);
         {
             if(empty($persona['estado']))
             {
-            $persona['estado']='Activo';
-            $this->db->where('id_persona', $persona['id_persona']);
-$this->db->update('persona', $persona); 
+                $persona['estado']='Activo';
+                $this->db->where('id_persona', $persona['id_persona']);
+                $this->db->update('persona', $persona); 
             }
         }
     }

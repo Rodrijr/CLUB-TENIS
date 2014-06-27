@@ -61,7 +61,6 @@ class Sesion_controller extends CI_Controller {
         {
            $count = count($this->notificacion_model->ver_notificaciones());
                   $_SESSION['notif'] = $count;
-              
         }
 		$data['main_content'] = 'sesiones/index_bienvenida_view';
 		$this->load->view('main_template', $data);

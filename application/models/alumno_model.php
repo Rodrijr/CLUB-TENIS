@@ -58,14 +58,14 @@ class Alumno_model extends CI_Model
     {
         $resp = $this->db->insert('persona', $alumno);
 
-            if($resp==1)
-            {
-                return "El registro fue existoso";
-            }
-            else
-            {
-                return "Revise el formato de los datos";
-            }
+        if($resp==1)
+        {
+            return "El registro fue existoso";
+        }
+        else
+        {
+            return "Revise el formato de los datos";
+        }
     }
     
     public function ver_lista_alumnos()
