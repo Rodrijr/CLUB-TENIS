@@ -30,7 +30,7 @@
             <div class="col-lg-6">
                   <fieldset>
     <legend><H3><label ></label></H3> </legend>
-                 <?php echo form_open(base_url().'index.php/Alumno_controller/modificar_perfil/'.$hijo['id_persona']); ?>
+                 <?php echo form_open(base_url().'index.php/Alumno_controller/mostrar_modificar_perfil/'.$hijo['ci_persona']); ?>
                 <H3><label >ES EL PERFIL DE:</label></H3>
                       <h1> 
                    

@@ -1,28 +1,33 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Entrenador_controller extends CI_Controller{
+class Padres_controller extends CI_Controller {
 
 	public function __construct()
     {
-        parent::__construct();
-        if(!$this->session->userdata('estaLogeado'))
-        {
-            #$data['main_content'] = 'sesiones/form_login_views';
-            #$this->load->view('main_template', $data);
-            redirect('Sesion_controller/login_formulario', 'refresh');
-        }
+        parent::__construct();        
     }
-
-    public function index()
+ public function index()
 	{
-        $data['main_content'] = 'registrar_entrenador';
+        $data['main_content'] = 'registrar_padre';
 		$this->load->view('main_template', $data);
         $this->load->library('form_validation');
 	}  
-   
-    public function registrar_entrenador()
+    
+    public function registrar_padre_codigo()
     {
-        $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
+        
+        $codigo = $this->input->post('CODIGO');
+        $sep = explode('ct',$codigo);
+        $validar = $this->persona_model->verificar_codigo($codigo);
+        if(count($validar)>=1)
+        {
+            
+        /*
+        funcion que verifique  el codigo  de alumno para validar el registro de padre
+        */ 
+        
+        
+         $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
         $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
          $padre = array(
                     'ci_persona'=> $this->input->post('CI'),
@@ -32,7 +37,7 @@ class Entrenador_controller extends CI_Controller{
                     'celular' => $celular,
                     'direccion' => $this->input->post('DIRECCION'),  
                     'email' => $this->input->post('EMAIL'),
-                    'tipo' => 'Entrenador',
+                    'tipo' => 'Padre',
                     'estado'=> 'Activo'
                 );   
        $usuario = array (
@@ -56,34 +61,39 @@ class Entrenador_controller extends CI_Controller{
                 ); 
             $registro1 = $this->persona_model->registrar_usuario($usuario);
             $MSN = $registro;
-            if(!empty($registro1)){
-        $MSN = $registro1;
-          
-        }
-            $padre = array(
-                    'ci_persona'=> '',
-                    'nombre_persona' => '',
-                    'apellido_persona' => '',
-                    'telefono' => '*',
-                    'celular' => '*',
-                    'direccion' => '',
-                    'email' => '',
-                    'tipo' => 'Entrenador',
-                    'estado'=> 'Activo');
-            $data['entrenador'] =$padre;
-             
-            $data['MSN'] = $MSN;
-            $data['main_content'] = 'entrenadores/registrar_entrenador_views';
-            
+            if(!empty($registro1))
+            {
+                /*
+                eliminar padre registrado
+                y retornar datos
+                */
+                $MSN = $registro1;
+                $data['padre'] =$padre;
+            }
+            else                
+            {
+                /*
+                el registro fue exitoso
+                */
+                $data['main_content'] ='padres/buscar_hijos';
+                $this->load->view('main_template', $data);
+            }
         }
         else
         {
-            $data['MSN'] = $MSN;
+          
             $data['usuario'] = $usuario;
-            $data['entrenador'] =$padre;
-            $data['main_content'] = 'entrenadores/registrar_entrenador_views';
+            $data['padre'] =$padre;
+           
         }
+        }
+        else
+        {
+            $MSN = "El codigo ingresado no es valido.";
+        }
+         $data['MSN'] = $MSN;
+        $data['main_content'] ='padres/reg_padre_views';
         $this->load->view('main_template', $data); 
-    }
+    }  
+    
 }
-

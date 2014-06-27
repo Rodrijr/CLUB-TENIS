@@ -40,28 +40,30 @@ class Alumno_controller extends CI_Controller {
     {
         return $this->alumno_model->obtener_Alumno_ID($id);
     }
+    public function mostrar_modificar_perfil($ci)
+    {
+        $persona = $this->alumno_model->ver_perfil($ci);
+        $data['persona'] = $persona[0];
+        
+        $data['perfil'] = "";    
+        $data['modificarPerfil'] = "active";
+        $data['main_content'] = 'alumnos/ver_perfil_alumno_view';
+		$this->load->view('main_template', $data);
+    }
     public function modificar_perfil($id)
     {    
          $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
         $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
+        echo "celui".$this->input->post('CELULAR1');
         $persona = array(
-            'id_persona' => $id,
-            'ci_persona' => $this->input->post('CI'),
-            'nombre_persona' =>$this->input->post('NOMBRE'),
-            'apellido_persona' => $this->input->post('APELLIDO'),
+            'ci_persona' => $id,
             'telefono' => $telefonos,
             'celular' => $celular,
             'direccion' => $this->input->post('DIRECCION'),
             'email' => $this->input->post('EMAIL')
         );
-        echo $persona['ci_persona'];
-        if(empty($persona['ci_persona']))
-        {
-           $persona= $this->persona_model->persona_by_id($id);
-            $persona = $persona[0];
-        }
+        
         $actualizar = $this->persona_model->obtener_persona_CI($persona);
-
         if( $actualizar ==1 )
             {
                 
@@ -70,7 +72,7 @@ class Alumno_controller extends CI_Controller {
             }
             else
             {
-                $actualizar = $this->persona_model->modificar_mi_perfil($id,$persona);
+                $actualizar = $this->persona_model->modificar_mi_perfil($persona);
                 if($actualizar)
                 {
                      $MSN ="Modificacion Exitosa.";

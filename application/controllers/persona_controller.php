@@ -61,13 +61,12 @@ class Persona_controller extends CI_Controller {
     }
     public function modificar_mi_perfil($id)
     {
+       
+  
         $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
 $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
-        
         $persona = array(
-            'ci_persona' => $this->input->post('CI'),
-            'nombre_persona' =>$this->input->post('NOMBRE'),
-            'apellido_persona' => $this->input->post('APELLIDO'),
+            'ci_persona' => $id,
             'telefono' =>  $telefonos,
             'celular' => $celular,
             'direccion' => $this->input->post('DIRECCION'),
@@ -81,7 +80,7 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
             }
             else
             {
-                $actualizar = $this->persona_model->modificar_mi_perfil($id,$persona);
+                $actualizar = $this->persona_model->modificar_mi_perfil($persona);
                 if($actualizar)
                 {
                      $MSN ="Modificacion Exitosa.";
@@ -89,13 +88,12 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
                 }
                 else
                 {
-                    $MSN = "Verifique los datos actual.";
+                    $MSN = "Verifique los datos actuales.";
                      $tipo ="panel panel-danger";
                 }  
             }     
         
         $persona = $this->persona_model->ver_mi_perfil();
-        print_r($persona);
         $data['MSN']= $MSN ;
         $data['persona'] = $persona[0];
         $data['perfil'] = "";        
@@ -120,24 +118,26 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
             if(strcasecmp($nueva1,$nueva2)== 0)
             {
                 $usuario['password'] = $nueva1;
+                echo "nueva:".$nueva2;
                $actualizar = $this->persona_model->cambiar_contracenas($id,$usuario);
+                echo "asdcasdc".$actualizar;
                 if($actualizar)
                 {
                     $MSN ="Modificacion Exitosa.";
-                    $tipo ="panel panel-success";
+                    $tipo ="success";
                 } 
             }
             else
             {
                
                 $MSN = "Confirmcaion de contraceña nueva es invalida.";
-                $tipo ="panel panel-danger";
+                $tipo ="danger";
             }            
         }
         else
         {
             $MSN = "Verifique la contraceña actual.";
-            $tipo ="panel panel-warning";
+            $tipo ="warning";
         }
         $persona = $this->persona_model->ver_mi_perfil();
         $data['MSN']= $MSN ;
