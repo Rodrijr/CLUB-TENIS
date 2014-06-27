@@ -9,8 +9,9 @@
 		        <div class="col-lg-12">
 		          <div class="col-lg-12">
 		            <div class="col-lg-6">  
-		              <button type="submit" class="btn btn-primary" formtarget="_blank">Imprimir</button>
+		              <button type="submit" class="btn btn-success" formtarget="_blank">Imprimir</button><br>
 		              <!-- <a type="submit" class="btn btn-primary" target="_blank">Imprimir</a> -->
+		              <br>
 		            </div>
 		          </div>
 		        </div>

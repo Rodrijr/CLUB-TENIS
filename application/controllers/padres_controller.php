@@ -23,9 +23,8 @@ class Padres_controller extends CI_Controller {
     public function registrar_padre_codigo()
     {
         $codigo = $this->input->post('CODIGO');
-        $sep = explode('ct',$codigo);
+        $sep = explode('-',$codigo);
         $validar = $this->persona_model->verificar_codigo($sep[1]);
-        print_r($sep);
         if(count($validar)>=1)
         {
             /* funcion que verifique  el codigo  de alumno para validar el registro de padre */ 
@@ -103,12 +102,17 @@ class Padres_controller extends CI_Controller {
         }
     }
 
+    public function ingresar_codigo()
+    {
+        $data['alumnos'] = $this->persona_model->obtener_alumnos();
+        $data['main_content'] ='padres/buscar_hijos_views';
+        $this->load->view('main_template', $data);
+    }
+
     public function agregar_hijo_por_codigo()
     {
         $codigo_alumno = $this->input->post('codigo_alumno');
-        echo "codigo: ".$codigo_alumno."<br>";
         $persona = $this->persona_model->verificar_codigo($codigo_alumno);
-        print_r($persona[0]);
         if(count($persona)>=1)
         {   
             $padre_alumno = array(
@@ -117,7 +121,6 @@ class Padres_controller extends CI_Controller {
                 );
             $this->persona_model->registrar_padre_alumno($padre_alumno);
         }
-
         $data['main_content'] ='padres/buscar_hijos_views';
         $this->load->view('main_template', $data);
     }
