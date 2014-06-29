@@ -222,8 +222,8 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
     }
     public function buscar_alumno()
     { 
-        $ci = $this->input->post('ci');
-        $personas = $this->persona_model->persona_por_ci($ci);
+        $apellido = $this->input->post('apellido');
+        $personas = $this->persona_model->persona_por_apellido($apellido);
         $data['alumnos'] = $personas;
         $data['main_content'] = 'alumnos/lista_alumnos_views';
 		$this->load->view('main_template', $data);
@@ -233,8 +233,8 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
     
     public function buscar_padre()
     { 
-        $ci = $this->input->post('ci');
-        $personas = $this->persona_model->persona_por_ci1($ci);
+        $apellido = $this->input->post('apellido');
+        $personas = $this->persona_model->persona_por_apellido1($apellido);
         $data['padres'] = $personas;
         $data['main_content'] = 'alumnos/seleccionar_padre_view';
 		$this->load->view('main_template', $data);

@@ -124,27 +124,37 @@ class Alumno_controller extends CI_Controller {
             'login' =>$this->input->post('LOGIN'),
             'password' =>$this->input->post('CONTRACENA')
                 ); 
-        $registro = $this->padre_model->verificar_ci($Alumno);    
+        print_r($usuario);
+        if(!empty($usuario['login'])) 
+        {
+        $registro = $this->padre_model->verificar_ci($Alumno);        
         $registro1 = $this->persona_model->verificar_usuario($usuario);
         $MSN = $registro;       
-        if(!empty($registro1)){
-        $MSN = $registro1;
-        }
-        if(strcmp( "registrar" ,$MSN)==0 && empty($registro1) )
+        if(!empty($registro1))
         {
-            $this->session->set_userdata("AlumnoSesion",$Alumno);
-            $this->session->set_userdata("UsuarioSesion",$usuario);
-            $data['main_content'] ='alumnos/seleccionar_padre_view';
+            $MSN = $registro1;
+            }
+            if(strcmp( "registrar" ,$MSN)==0 && empty($registro1) )
+            {
+                $this->session->set_userdata("AlumnoSesion",$Alumno);
+                $this->session->set_userdata("UsuarioSesion",$usuario);
+                $data['main_content'] ='alumnos/seleccionar_padre_view';
+                $this->load->view('main_template', $data); 
+            }
+            else
+            {
+                $data['usuario'] = $usuario;
+                $data['alumno'] =$Alumno;
+                $data['MSN'] = $MSN;           
+             $data['main_content'] = 'usuarios/fin_registro';
             $this->load->view('main_template', $data); 
+            }  
         }
         else
         {
-            $data['usuario'] = $usuario;
-            $data['alumno'] =$Alumno;
-            $data['MSN'] = $MSN;           
-         $data['main_content'] = 'alumnos/registrar_alumno_view';
-        $this->load->view('main_template', $data); 
-        }            
+             $data['main_content'] = 'alumnos/registrar_alumno_view';
+            $this->load->view('main_template', $data); 
+        }
     }
     
     public function terminar_registro_alumno()
@@ -159,7 +169,7 @@ class Alumno_controller extends CI_Controller {
          'ci_alumno'=> $Alumno['ci_persona']
         );
         $this->persona_model->registrar_padre_alumno($padre_alumno);
-       $data['main_content'] = 'alumnos/registrar_alumno_view';
+       $data['main_content'] = 'usuarios/fin_registro';
         $this->load->view('main_template', $data);
         
         

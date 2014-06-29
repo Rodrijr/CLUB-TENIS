@@ -79,6 +79,8 @@
            
                 if(isset($MSN)&& !empty($MSN))
                 {
+                    if(strcmp("registrar",$MSN)!=0)
+                    {
                             echo"<div class='alert fade in warning'>";
 							echo"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
                             echo"<strong>ALERTA!</strong> ";
@@ -86,7 +88,7 @@
                             echo "<font color='#FF0000'>";
                             echo validation_errors();
 							echo"</font></div>"; 
-                    
+                    }
                     if(strcmp( "El registro fue existoso" ,$MSN)==0)
                     {
                         $padre = array(
@@ -97,7 +99,7 @@
                     'celular' => '*',
                     'direccion' => '',
                     'email' => '',
-                    'tipo' => 'Entrenador');
+                    'tipo' => 'Padre');
                     }
                 
                 }

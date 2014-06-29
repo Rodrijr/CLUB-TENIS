@@ -39,6 +39,9 @@ class Entrenador_controller extends CI_Controller{
             'login' =>$this->input->post('LOGIN'),
             'password' =>$this->input->post('CONTRACENA')
                 ); 
+        
+        if(!empty($usuario['login']))
+        {
         $registro = $this->padre_model->verificar_ci($padre);    
         $registro1 = $this->persona_model->verificar_usuario($usuario);
         $MSN = $registro;       
@@ -71,18 +74,16 @@ class Entrenador_controller extends CI_Controller{
                     'tipo' => 'Entrenador',
                     'estado'=> 'Activo');
             $data['entrenador'] =$padre;
-             
             $data['MSN'] = $MSN;
-            $data['main_content'] = 'entrenadores/registrar_entrenador_views';
-            
         }
         else
         {
             $data['MSN'] = $MSN;
             $data['usuario'] = $usuario;
             $data['entrenador'] =$padre;
-            $data['main_content'] = 'entrenadores/registrar_entrenador_views';
         }
+        }
+        $data['main_content'] = 'entrenadores/registrar_entrenador_views';
         $this->load->view('main_template', $data); 
     }
 }
