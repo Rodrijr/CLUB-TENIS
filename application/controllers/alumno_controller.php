@@ -43,8 +43,7 @@ class Alumno_controller extends CI_Controller {
     public function mostrar_modificar_perfil($ci)
     {
         $persona = $this->alumno_model->ver_perfil($ci);
-        $data['persona'] = $persona[0];
-        
+        $data['persona'] = $persona[0];        
         $data['perfil'] = "";    
         $data['modificarPerfil'] = "active";
         $data['main_content'] = 'alumnos/ver_perfil_alumno_view';
@@ -54,7 +53,6 @@ class Alumno_controller extends CI_Controller {
     {    
          $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
         $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
-        echo "celui".$this->input->post('CELULAR1');
         $persona = array(
             'ci_persona' => $id,
             'telefono' => $telefonos,
@@ -87,9 +85,10 @@ class Alumno_controller extends CI_Controller {
 
         $persona = $this->alumno_model->ver_perfil($id);
         $data['MSN']= $MSN ;
+        print_r($persona);
         $data['persona'] = $persona[0];
         $data['perfil'] = "";        
-        $data['tipo']=$tipo;
+        $data['tipo1']=$tipo;
         $data['contracenia'] = "";
         $data['modificarPerfil'] = "active";
         $data['main_content'] = 'alumnos/ver_perfil_alumno_view';

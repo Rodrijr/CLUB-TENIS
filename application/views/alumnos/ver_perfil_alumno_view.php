@@ -156,9 +156,46 @@
 
 <div class="tab-pane fade in <?php echo $modificarPerfil;?>" id="modificarPerfil">
          <div class="container">
-             <div class="col-lg-3">   
+             <div class="col-lg-4">   
+         <?php 
+   ?>
+     <div class="row">
+         
+  <?php if(isset($persona))
+        { echo   form_open_multipart('Persona_controller/do_Upload1/'.$persona['ci_persona'],'class="form-horizontal"'); 
+  ?>
+         
+        
          
          
+         
+    <img src="<?php echo base_url(); ?>imagenes\<?php echo $persona['ci_persona'];  ?>.jpg" aling ="center" alt="" width="250" height="270"  class="img-thumbnail"/>
+<br><br><br>
+         
+         <?php 
+         $tipo = $this->session->userdata('tipo_usuario');
+         if($tipo != "Alumno")
+         {
+             
+         ?>
+<input type="file" name="userfile" />
+         <br><br>
+<input type="submit" value="CAMBIAR FOTO" class ="btn btn-default btn-lg btn-block"/>
+         <?php 
+         }
+         ?>
+         </div>
+                 <?php  echo form_close(); }
+                 if(isset($MSN1)&& !empty($MSN1))
+                {
+                    echo"<div class='panel panel-danger'>";
+							echo '<div class="panel-heading">';
+                            echo' <h3 class="panel-title">ALERTA!</h3></div>';
+							echo"<div class='panel-body'><input  readonly='readonly' type='text_Rodri' name='numero' value='$MSN1' style=' border:none; width:350px; height:30px'>";
+                            
+							echo" </div></div>"; 
+                }
+                 ?>
          </div>
      <div class="col-lg-6">   
                  
@@ -173,9 +210,9 @@
     <legend><H3><label >MODIFICAR PERFIL</label></H3></legend>
             <?php if(isset($MSN))
                             {
-                               if(isset($tipo)){
+                               if(isset($tipo1)){
 
-       echo '<div class="'.$tipo.'">';
+       echo '<div class="'.$tipo1.'">';
        echo  '<div class="panel-heading">';
        echo   ' <h3 class="panel-title">ALERTA!</h3>';
        echo '</div>';
@@ -191,7 +228,7 @@
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['ci_persona'];?>"
                              onkeypress ='return validarNro(event)'
-                             maxlength='10' disabled
+                             maxlength='10'  disabled
                              pattern="[0-9]+" title="Ingrese solo Numeros" required="required" 
                              name ='CI'
                              

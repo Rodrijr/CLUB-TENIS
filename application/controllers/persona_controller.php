@@ -97,7 +97,7 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         $data['MSN']= $MSN ;
         $data['persona'] = $persona[0];
         $data['perfil'] = "";        
-        $data['tipo']=$tipo;
+        $data['tipo1']=$tipo;
         $data['contracenia'] = "";
         $data['modificarPerfil'] = "active";
         $data['main_content'] = 'usuarios/ver_perfil_views';
@@ -118,30 +118,27 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
             if(strcasecmp($nueva1,$nueva2)== 0)
             {
                 $usuario['password'] = $nueva1;
-                echo "nueva:".$nueva2;
                $actualizar = $this->persona_model->cambiar_contracenas($id,$usuario);
-                echo "asdcasdc".$actualizar;
                 if($actualizar)
                 {
                     $MSN ="Modificacion Exitosa.";
-                    $tipo ="success";
+                    $tipo1 ="success";
                 } 
             }
             else
-            {
-               
+            {               
                 $MSN = "Confirmcaion de contraceña nueva es invalida.";
-                $tipo ="danger";
+                $tipo1 ="danger";
             }            
         }
         else
         {
             $MSN = "Verifique la contraceña actual.";
-            $tipo ="warning";
+            $tipo1 ="warning";
         }
         $persona = $this->persona_model->ver_mi_perfil();
         $data['MSN']= $MSN ;
-        $data['tipo']=$tipo;
+        $data['tipo1']=$tipo1;
         $data['persona'] = $persona[0];
         $data['perfil'] = "";
         $data['contracenia'] = "active";
@@ -161,8 +158,6 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
     public function subir_foto($id)
     {
         $persona = $this->alumno_model->ver_lista_alumnos();
-
-    
         $config_file = array(
        
            'upload_path' => './imagenes',
@@ -180,9 +175,6 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         {
             $msn = "EL ARCHIVO DEBE SER UNA IMAGEN.";            
         }
-        
-      
-    
         $data['MSN1']= $msn;
         $data['alumnos'] = $persona;
         $data['main_content'] = 'alumnos/lista_alumnos_views';
@@ -220,6 +212,35 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
 		$this->load->view('main_template', $data);   
        
     }
+    public function do_Upload1($ci)
+    {
+    
+        $config_file = array(
+       
+           'upload_path' => './imagenes',
+           'allowed_types' => 'gif|jpg|png',
+           'file_name' => $ci.".jpg",
+           'overwrite' => true,
+           'max_size' => 0,
+           'max_filename'=>0,
+           'encrypt_name'=> false,
+           'remove_spaces' => false
+       );
+        $msn ="";
+        $this->upload->initialize($config_file);
+        if(!$this->upload->do_upload('userfile'))
+        {
+            $msn = "EL ARCHIVO DEBE SER UNA IMAGEN.";            
+        }
+        $persona = $this->alumno_model->ver_perfil($ci);
+        $data['persona'] = $persona[0];
+        $data['perfil'] = "";
+        $data['contracenia'] = "";
+        $data['modificarPerfil'] = "active";
+        $data['main_content'] = 'alumnos/ver_perfil_alumno_view';
+		$this->load->view('main_template', $data);
+       
+    }
     public function buscar_alumno()
     { 
         $apellido = $this->input->post('apellido');
@@ -227,8 +248,6 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         $data['alumnos'] = $personas;
         $data['main_content'] = 'alumnos/lista_alumnos_views';
 		$this->load->view('main_template', $data);
- 
-        
     }
     
     public function buscar_padre()
@@ -238,7 +257,55 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         $data['padres'] = $personas;
         $data['main_content'] = 'alumnos/seleccionar_padre_view';
 		$this->load->view('main_template', $data);
- 
     }
+    public function enviar_cuenta()
+    {
+        $data['personas']= array();
+        $data['main_content'] = 'usuarios/cuentas_usuario_view';
+		$this->load->view('main_template', $data);
+    }
+    public function buscar_persona()
+    {
+        $apellido = $this->input->post('apellido');
+        $personas = $this->persona_model->persona_por_apellido2($apellido);
+        $data['personas'] = $personas;
+        $data['main_content'] = 'usuarios/cuentas_usuario_view';
+		$this->load->view('main_template', $data);
+    }
+    public function enviar($ci)
+    {
+        echo $ci ;
+        $persona = $this->persona_model->persona_por_ci1($ci);
+        $persona = $persona[0];
+        $usuario = $this->persona_model->ususario_por_ci($ci);
+        $usuario = $usuario[0];
+        if (isset($persona['email']) && !empty($persona['email'])) {
+            $email_to = $persona['email'];
+             $email_subject = "Recuperacion de Cuenta";
+        $email_from = "rodri_n@hotmail.es";
+        $email_message = "En las siguientes lineas usted podra ver la informacion necesaria para ingresar a sistema." . "\n";
+        $email_message.= "Usuario:".$usuario['login']. "\n";
+        $email_message.= "Contraceña:".$usuario['password']. "\n";
+        $email_message.= " \n\n\n\n";
+         $email_message.= "CLUB DE TENIS COCHABAMBA - ESCUELA DE TENIS ";    
+        $email_message.= " \n El hogar perfecto para la familia.";
+        $email_message.= " \n Direccion: Ramon Rivero casi puente Cala Cala\n";
+        $email_message.= "Telefono: 591-4-4257080    Fax: 591-4-4257080 \n";
+        $email_message.= " Administracion    ESCUELA DE TENIS COCHABAMBA. \n";
+        $headers = 'From: ' . $email_from . " \r\n" . 'Reply-To: ' . $email_from . " \r\n" . 'X-Mailer: PHP/' . phpversion();
+        mail($email_to, $email_subject, $email_message, $headers);        
+        $data['main_content'] = 'usuarios/envio_cuenta_correcto';
+        }
+        else 
+        {
+            $MSN = "El usuario no registro un email valido.";
+            $persona = $this->persona_model->persona_por_ci1($ci);
+            $data['personas']=$persona;
+            $data['MSN']=$MSN;
+        $data['main_content'] = 'usuarios/cuentas_usuario_view';
+        }    
+		$this->load->view('main_template', $data);
+    }
+    
 }
 ?>

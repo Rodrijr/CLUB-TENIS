@@ -42,7 +42,7 @@
               <ul class="dropdown-menu">
                 <li><a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_lista_entrenadores">Ver lista entrenadores</a></li> <!--  secretaria y administrador -->
                 <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/ver_lista_alumnos">Ver lista de alumnos</a></li><!--   solo el administrador  -->
-                <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/ver_lista_hijos">Ver lista de Hijos</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/persona_controller/enviar_cuenta"> Cuentas de Usuario</a></li>
               </ul>        
             </li>
         </ul> 

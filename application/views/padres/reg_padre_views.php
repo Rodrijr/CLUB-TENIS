@@ -206,7 +206,7 @@
               <input type="text" 
                      class="form-control"
                      pattern="[0-9]+"                    
-                     maxlength='7' 
+                     maxlength='8' 
                      required="required"
                      title="Ingrese numeros"
                      onkeypress='return validarNro(event)'
@@ -228,7 +228,7 @@
               <input type="text" 
                      class="form-control" 
                      pattern="[0-9]+"                    
-                     maxlength='7' 
+                     maxlength='8' 
                      title="Ingrese numeros"
                      onkeypress='return validarNro(event)'
                      NAME='CELULAR2' 

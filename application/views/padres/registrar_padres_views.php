@@ -123,7 +123,7 @@
         </div>
           <div class="row">
             <legend>Datos Personales</legend>
-        <div class="col-lg-3">
+        <div class="col-lg-5">
               
             <div class="input-group">
               <span class="input-group-btn">
@@ -193,9 +193,7 @@
               <br>
             <legend>Contacto</legend>
               
-               <div class="col-lg-1">
-               </div>
-        <div class="col-lg-4">
+        <div class="col-lg-5">
               
             <div class="input-group">
               <span class="input-group-btn">
@@ -218,7 +216,7 @@
                      >
             </div><!-- /input-group -->
           </div> 
-        <div class="col-lg-4">              
+        <div class="col-lg-5">              
             <div class="input-group">
               <span class="input-group-btn">
                 <button class="btn btn-warning" type="button">Celular *</button>
@@ -240,9 +238,8 @@
           </div> 
           </div>
           <div class="row">
-              <br><div class="col-lg-1">
-                   </div>
-        <div class="col-lg-4">
+              <br>
+        <div class="col-lg-5">
               
             <div class="input-group">
               <span class="input-group-btn">
@@ -264,7 +261,7 @@
                      >
             </div><!-- /input-group -->
           </div> 
-        <div class="col-lg-4">              
+        <div class="col-lg-5">              
             <div class="input-group">
               <span class="input-group-btn">
                 <button class="btn btn-warning" type="button">Telefono *</button>
