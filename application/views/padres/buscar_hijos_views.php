@@ -55,7 +55,7 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h3 class="panel-title">Advertencia...!!</h3>
-            <?php echo form_open('Padres_controller/agregar_hijo_por_codigo');?>       
+            <?php echo form_open('padres_controller/agregar_hijo_por_codigo');?>       
           </div>
         </div>
         <div class="panel-body">

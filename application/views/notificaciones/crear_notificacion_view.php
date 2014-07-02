@@ -15,7 +15,7 @@
   <div class="col-md-5">
       <?php
 
-        echo form_open('Notificacion_controller/seleccionar_destinatarios');
+        echo form_open('notificacion_controller/seleccionar_destinatarios');
       ?>
         <div class="input-group">
            <span class="input-group-btn"><button class="btn btn-default" type="button">ASUNTO</button></span>

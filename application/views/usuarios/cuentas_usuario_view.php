@@ -62,7 +62,7 @@
                              </a>      
                             </td>
                             <td style="min-width: 0px; max-width: 10%">
-                             <?PHP echo form_open_multipart('Persona_controller/enviar/'.$persona['ci_persona'],'class="form-horizontal"');
+                             <?PHP echo form_open_multipart('persona_controller/enviar/'.$persona['ci_persona'],'class="form-horizontal"');
            
                echo '<input type="submit" 
                       value="Enviar" 

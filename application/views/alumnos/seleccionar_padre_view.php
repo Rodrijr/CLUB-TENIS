@@ -3,7 +3,7 @@
         <div class="page-header">
         	<h1 id="tables" align="center">Buscar Padre</h1>
             
-            <?php echo form_open('Persona_controller/buscar_padre')?>          
+            <?php echo form_open('persona_controller/buscar_padre')?>          
             <fieldset>
                 <div class="col-lg-10 form-group">
                      <div class="col-lg-3"></div>
@@ -26,7 +26,7 @@
     <div class="col-lg-11 col-lg-offset-2">
 	        <div class="bs-component">
 		      <div class="col-lg-8">
-                   <?php echo form_open('Alumno_controller/terminar_registro_alumno')?>   
+                   <?php echo form_open('alumno_controller/terminar_registro_alumno')?>   
 		          <table class="table table-striped table-hover">
 		          	<thead>
 		              <tr>

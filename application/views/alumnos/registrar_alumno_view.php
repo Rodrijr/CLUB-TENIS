@@ -103,7 +103,7 @@
           <div class="col-lg-2">
           </div>
       <div class="col-lg-7">
-        <?php echo form_open('Alumno_controller/registrar_alumno'); ?>
+        <?php echo form_open('alumno_controller/registrar_alumno'); ?>
        <div class="row">
            <div class="col-lg-3">
           </div>
@@ -352,7 +352,7 @@
               
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Contraceña</button>
+                <button class="btn btn-default" type="button">Contraseña</button>
               </span>
               <input type="password" 
                      class="form-control"

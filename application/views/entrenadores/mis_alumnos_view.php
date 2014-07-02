@@ -8,7 +8,7 @@ foreach($lista as $alumno )
 {
 ?>
     <p>
-       <a href="<?php echo base_url(); ?>index.php/Planilla_controller/registrar_evaluacion_personal/<?php echo $alumno['id_persona']?>">
+       <a href="<?php echo base_url(); ?>index.php/planilla_controller/registrar_evaluacion_personal/<?php echo $alumno['id_persona']?>">
        <?php echo $alumno['nombre_persona']." ".
     $alumno['apellido_persona']; ?>
        </a>

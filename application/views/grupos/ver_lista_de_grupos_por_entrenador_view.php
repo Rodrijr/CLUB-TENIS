@@ -2,7 +2,7 @@
 	<div class="bs-docs-section">
     <div class="row">
       <div class="col-lg-9 col-lg-offset-2">
-      	<?php echo form_open('Grupo_controller/buscar_grupos')?>          
+      	<?php echo form_open('grupo_controller/buscar_grupos')?>          
             <fieldset>
                 <!-- zzzzzzzzzzzzzzzzzzz Datos Basicos zzzzzzzzzzzzzzzzzzzzzzz -->
 
@@ -55,8 +55,8 @@
 		                  echo "<tr>";
 		                    echo "<td>".$cont."</td>";
                             echo "<td>".$itemGrupos['nombreGrupo']."</td>";?>
-		                    <td><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_grupo/<?php echo $itemGrupos['idGrupo']; ?>">Ver</a></td>
-                  			<?php  echo '<td><a href="'.base_url().'index.php/Grupo_controller/editar_grupo/'.$itemGrupos['idGrupo'].'">Editar</a></td>';?>
+		                    <td><a href="<?php echo base_url(); ?>index.php/grupo_controller/ver_grupo/<?php echo $itemGrupos['idGrupo']; ?>">Ver</a></td>
+                  			<?php  echo '<td><a href="'.base_url().'index.php/grupo_controller/editar_grupo/'.$itemGrupos['idGrupo'].'">Editar</a></td>';?>
 							<td><a href="">Eliminar</a></td>
 		                 
                         <?php

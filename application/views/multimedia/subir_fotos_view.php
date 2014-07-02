@@ -1,5 +1,5 @@
 <div class="container">
-<?php  echo   form_open_multipart('Multimedia_controller/upload','class="form-horizontal"'); 
+<?php  echo   form_open_multipart('multimedia_controller/upload','class="form-horizontal"'); 
   ?>
     
      <div class="col-lg-2"> </div> 

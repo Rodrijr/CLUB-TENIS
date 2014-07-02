@@ -2,7 +2,7 @@
 	<div class="bs-docs-section">
     <div class="row">
       <div class="col-lg-9 col-lg-offset-2">
-      	<?php echo form_open('Grupo_controller/buscar_grupos')?>          
+      	<?php echo form_open('grupo_controller/buscar_grupos')?>          
             <fieldset>
                 <div class="col-lg-10 form-group">
                     <label class="col-lg-2 control-label">Buscar Por: </label>
@@ -46,7 +46,7 @@
 		                <tr>
 		                	<td><?php echo $cont; ?></td>
 		                    <td><?php echo $grupo['nombre_grupo']; ?></td>
-		                    <td><a style="color: purple" Title="Editar Grupo" href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-edit"></span></a></td>
+		                    <td><a style="color: purple" Title="Editar Grupo" href="<?php echo base_url(); ?>index.php/grupo_controller/editar_grupo/<?php echo $grupo['id_grupo']; ?>"><span class="glyphicon glyphicon-edit"></span></a></td>
 		                    <td><a data-toggle="modal" href="#myModalEliminarGrupo"><span class="glyphicon glyphicon-trash"></span></a></td>
                         </tr>
 		                <?php $cont++; ?>
@@ -73,7 +73,7 @@
           <div class="panel-body">
             <center><p class="text-danger">Esta Seguro que desea <strong>ELIMINAR</strong> este Grupo?</p></center>
             <div class="modal-footer">
-              <?php echo form_open('Grupo_controller/eliminar_grupo');?>
+              <?php echo form_open('grupo_controller/eliminar_grupo');?>
               <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $grupo['id_grupo']; ?> ">   
               <center><div class="form-group">
                 <div class="col-lg-12">

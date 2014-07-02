@@ -30,7 +30,7 @@
             <div class="col-lg-6">
                   <fieldset>
     <legend><H3><label ></label></H3> </legend>
-                 <?php echo form_open(base_url().'index.php/Alumno_controller/mostrar_modificar_perfil/'.$hijo['ci_persona']); ?>
+                 <?php echo form_open(base_url().'index.php/alumno_controller/mostrar_modificar_perfil/'.$hijo['ci_persona']); ?>
                 <H3><label >ES EL PERFIL DE:</label></H3>
                       <h1> 
                    
@@ -121,9 +121,10 @@
             <div class="col-lg-2">
             
                     <div class="btn-group-vertical">
-<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_de_jugador/<?php echo $hijo['id_persona']?>" class="btn btn-success">Objetivos De Jugador</a>
-<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_perfil_de_jugador/<?php echo $hijo['id_persona']?>" class="btn btn-info">Perfil De Jugador</a>
-<a type="button" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_evaluacion_personal/<?php echo $hijo['id_persona']?>" class="btn btn-warning">Evaluación Personal</a>
+<a type="button" href="<?php echo base_url(); ?>index.php/planilla_controller/ver_objetivos_de_jugador/<?php echo $hijo['id_persona']?>" class="btn btn-success">Objetivos De Jugador</a>
+<a type="button" href="<?php echo base_url(); ?>index.php/planilla_controller/ver_perfil_de_jugador/<?php echo $hijo['id_persona']?>" class="btn btn-info">Perfil De Jugador</a>
+<a type="button" href="<?php echo base_url(); ?>index.php/planilla_controller/ver_evaluacion_personal/<?php echo $hijo['id_persona']?>" class="btn btn-warning">Evaluación Personal</a>
+<a type="button" href="<?php echo base_url(); ?>index.php/planilla_controller/ver_objetivos_individuales/<?php echo $hijo['id_persona']?>" class="btn btn-danger">Objetivos Individuales</a>
                         
 <!-- <button class="btn btn-primary" data-toggle="modal" >planilla de asistencia</button>-->
 <!-- <button class="btn btn-primary" data-toggle="modal" >kardex</button>-->

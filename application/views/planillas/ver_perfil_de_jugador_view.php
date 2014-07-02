@@ -10,7 +10,7 @@
 
   <div class="col-lg-12 col-lg-offset-1">
     <div class="col-lg-10">
-    <?php echo form_open('Planilla_controller/guardar_datos_planilla_perfil_de_jugador');?>   
+    <?php echo form_open('planilla_controller/guardar_datos_planilla_perfil_de_jugador');?>   
       <div class="form-group">
         <label for="inputEmail" class="control-label">Alumno: </label><br>
         <div class="col-lg-4">
