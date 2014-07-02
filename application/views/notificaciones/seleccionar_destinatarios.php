@@ -6,7 +6,7 @@
            </div>
             <div class="col-md-6">            
           
-                <?php echo form_open('Notificacion_controller/enviar_notificacion'); 
+                <?php echo form_open('notificacion_controller/enviar_notificacion'); 
 
                
                 foreach($grupos as $grupo)

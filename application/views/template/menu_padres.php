@@ -17,7 +17,7 @@
         <li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> REPORTES <b class="caret"></b></a>
 	        <ul class="dropdown-menu">
-	          <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/ver_lista_hijos">Ver lista de hijos</a></li>           
+	          <li><a href="<?php echo base_url(); ?>index.php/alumno_controller/ver_lista_hijos">Ver lista de hijos</a></li>           
 	        </ul>
 	    </li>
         </ul>
@@ -25,12 +25,12 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">MULTIMEDIA <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/mostrar">Ver Fotos</a></li> <!--   solo el entrenador  -->
-	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/mostrar_video">Ver Videos</a></li><!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/multimedia_controller/mostrar">Ver Fotos</a></li> <!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/multimedia_controller/mostrar_video">Ver Videos</a></li><!--   solo el entrenador  -->
 	          </ul>        
 	        </li>
 	        <li>
-	            <a href="<?php echo base_url(); ?>index.php/Padres_controller/ingresar_codigo">INGRESAR CÓDIGO</a>
+	            <a href="<?php echo base_url(); ?>index.php/padres_controller/ingresar_codigo">INGRESAR CÓDIGO</a>
             </li>  
         </ul>
 	    <ul class="nav navbar-nav navbar-right">      
@@ -50,19 +50,19 @@
                  <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
 	            <li>
-	            	<a href="<?php echo base_url(); ?>index.php/Notificacion_controller/ver_notificaciones">Ver Lista Notifiaciones</a>
+	            	<a href="<?php echo base_url(); ?>index.php/notificacion_controller/ver_notificaciones">Ver Lista Notifiaciones</a>
                 </li>         
 	          </ul>
 	        </li>
 	        <!--   PERFIL  -->
 	        <li>
-	          <a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_mi_perfil" > 
+	          <a href="<?php echo base_url(); ?>index.php/persona_controller/ver_mi_perfil" > 
 	          	<span class="glyphicon glyphicon-user"></span>
 	          	<?php echo $this->session->userdata('nombre_usuario') ?>
 	          	<b class="caret"></b>
 	          </a>	         
 	        </li>
-            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesión</a></li>   
+            <li><a href="<?php echo base_url(); ?>index.php/sesion_controller/cerrar_sesion">Cerrar Sesión</a></li>   
 	    </ul>
         
     </div><!-- /.navbar-collapse -->

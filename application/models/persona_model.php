@@ -19,8 +19,8 @@ class Persona_model extends CI_Model
 	{
        //$ci= $_SESSION["ci_persona"];
        // $id_persona = $this->session->userdata('id_persona');        
-        $id_persona = $this->session->userdata('id_usuario');
-        $query= $this->db->get_where('persona',array('ci_persona'=> $id_persona));
+        $ci_persona = $this->session->userdata('ci_usuario');
+        $query= $this->db->get_where('persona',array('ci_persona'=> $ci_persona));
         if($query->num_rows() >= 1 )
         {
             return $query->result_array();            
@@ -36,9 +36,10 @@ class Persona_model extends CI_Model
         }
         return "";
 	}
-    public function modificar_mi_perfil($persona)
+    public function modificar_mi_perfil($persona,$ci)
     {
-        $this->db->where('ci_persona',$persona['ci_persona']);
+      print_r($persona);
+        $this->db->where('ci_persona',$ci);
         return $this->db->update('persona',$persona);
         
     }
@@ -58,8 +59,6 @@ class Persona_model extends CI_Model
     }
     public function obtener_persona_CI($persona)
     {
-        
-        
         $query = $this->db->get_where('persona', array('ci_persona' => $persona['ci_persona'])); 
          $per = $query->result_array();
         
@@ -222,10 +221,31 @@ class Persona_model extends CI_Model
     
     
     
-    public function persona_por_ci1($ci)
+    public function persona_por_ci1($nuevo,$ci)
     {
-         $query = $this->db->get_where('persona', array('ci_persona' => $ci)); 
-         return $query->result_array();
+        $query = $this->db->get_where('persona', array('ci_persona' => $nuevo)); 
+        $per = $query->result_array();
+        
+        $query1 = $this->db->get_where('persona', array('ci_persona' => $ci)); 
+        $per1 = $query->result_array();
+        if(count($per)==1 )
+        {
+            $per = $per[0];
+            $per1 = $per1[0];
+            if($per['ci_persona']==$ci)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        if(count($per)> 1 )
+        {
+                return 1;
+        }
+        return 0;
     }
     
     public function cambiar_estado($persona)
@@ -261,6 +281,57 @@ class Persona_model extends CI_Model
     {
       $query = $this->db->get_where('usuario', array('ci_persona' => $ci)); 
          return $query->result_array();   
+    }
+    
+    
+    
+    public function actualizar_destinatarios($ci_nuevo,$ci)
+    {
+        $mensajes=$this->db->get_where('destinatarios',array('ci_destinatario'=>$ci));   
+        $mensajes = $mensajes->result_array();         
+        foreach($mensajes as $mensaje)
+        {
+            $mensaje['ci_destinatario'] = $ci_nuevo."";
+            $this->db->where('ci_destinatario', $ci);
+            $this->db->update('destinatarios', $mensaje); 
+        }
+    }
+    public function actualizar_padre_alumno($ci_nuevo,$ci)
+    {
+$rel1=$this->db->get_where('padre_alumno',array('ci_alumno'=>$ci));
+        $rel1 = $rel1->result_array();
+    
+        $rel2 = $this->db->get_where('padre_alumno',array('ci_padre'=>$ci));
+        $rel2 = $rel2->result_array();
+        foreach($rel1 as $rel )
+        {
+            $rel['ci_alumno']= $ci_nuevo."";
+            $this->db->where('ci_alumno', $ci);
+            $this->db->update('padre_alumno', $rel); 
+        }
+        foreach($rel2 as $rela )
+        {
+            $rela["ci_padre"]= $ci_nuevo."";
+            $this->db->where('ci_padre', $ci);
+            $this->db->update('padre_alumno', $rela); 
+        }
+        
+        
+    }
+   
+    public function actualizar_usuario($ci_nuevo,$ci)
+    {
+        $usuario=$this->db->get_where('usuario',array('ci_persona'=>$ci));   
+        $usuario = $usuario->result_array();    
+        print_r($usuario);
+        $usuario['ci_persona'] = $ci_nuevo."";
+        $this->db->where('ci_persona', $ci);
+        $this->db->update('usuario', $usuario);         
+    }
+    public function actualizar_ci_en_tablas($persona,$ci)
+    {        
+    $this->actualizar_destinatarios($persona['ci_persona'],$ci);
+    $this->actualizar_padre_alumno($persona['ci_persona']."",$ci);
     }
 }
 ?>

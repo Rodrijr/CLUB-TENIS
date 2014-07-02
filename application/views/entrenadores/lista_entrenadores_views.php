@@ -4,7 +4,7 @@
         	<h1 id="tables" align="center">Lista De Entrenadores</h1>
         </div>
         <div class="col-lg-11 col-lg-offset-1">
-        	  <?php echo form_open('Reporte_controller/generar');?>    
+        	  <?php echo form_open('reporte_controller/generar');?>    
 		      <div class="form-group">
 		        <div class="col-lg-12">
 		          <div class="col-lg-12">

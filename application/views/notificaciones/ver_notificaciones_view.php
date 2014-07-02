@@ -4,7 +4,7 @@
     <div class="col-md-2"></div>
   <div class="col-md-9">
       
-<?php echo form_open('Notificacion_controller/eliminar_notificaciones'); ?>
+<?php echo form_open('notificacion_controller/eliminar_notificaciones'); ?>
 
     <table class="table table-bordered">
        

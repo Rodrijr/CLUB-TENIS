@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4" >
       <strong><legend>Datos de Grupo</legend></strong>
-      <?php echo form_open('Grupo_controller/crear_grupo');?>    
+      <?php echo form_open('grupo_controller/crear_grupo');?>    
         <div class="form-group">
           <div class="col-lg-12">
             <div class="col-lg-12">
@@ -25,7 +25,7 @@
           <div class="col-lg-12">
             <br>
             <center>
-            <a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos" class="btn btn-warning">Cancelar</a>
+            <a href="<?php echo base_url(); ?>index.php/grupo_controller/ver_lista_grupos" class="btn btn-warning">Cancelar</a>
             <button type="submit" class="btn btn-primary">Crear Grupo</button>
             </center>
           </div>

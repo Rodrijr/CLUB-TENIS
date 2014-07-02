@@ -10,7 +10,7 @@
 
     <div class="form-group">
       <div class="col-lg-8 col-lg-offset-2">            
-        <?php echo form_open('Grupo_controller/guardar_alumnos_en_sub_grupo');?>
+        <?php echo form_open('grupo_controller/guardar_alumnos_en_sub_grupo');?>
         <input type="HIDDEN" class="form-control" name="id_subgrupo" value="<?php echo $id_subgrupo ?>">
         <div class="form-group">
           <div class="col-lg-12">

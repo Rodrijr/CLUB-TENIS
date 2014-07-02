@@ -6,7 +6,7 @@
         <div class="well">
           <?php $attributes = array('class' => 'bs-example form-horizontal'); ?> 
           <fieldset>
-          <?php echo form_open('Sesion_controller/verificar_login', $attributes);?>       
+          <?php echo form_open('sesion_controller/verificar_login', $attributes);?>       
             <legend>Autentificarse</legend>
             <div class="form-group">
               <label class="col-lg-2 control-label">Usuario</label>
@@ -41,7 +41,7 @@
           <?php echo form_close();?>
             <div class="form-group">
               <div class="col-lg-10 col-lg-offset-2"><br>
-                <a href="<?php echo base_url(); ?>index.php/Padres_controller/ingresar_datos_padre_codigo"> 
+                <a href="<?php echo base_url(); ?>index.php/padres_controller/ingresar_datos_padre_codigo"> 
                   <button class="btn btn-warning"  >Registrarse</button>
                 </a> 
               </div>

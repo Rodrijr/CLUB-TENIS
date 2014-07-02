@@ -8,7 +8,7 @@
 	 </div>
 	 <div class="row">
 	    <div class="col-lg-10 col-lg-offset-3">
-	       <?php echo form_open_multipart('Multimedia_controller/upload_video'); ?>
+	       <?php echo form_open_multipart('multimedia_controller/upload_video'); ?>
 				Seleccionar Video :
 				<br>
 			    <input type="file" id="video" name="video">

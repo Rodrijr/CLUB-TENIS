@@ -163,7 +163,7 @@
      <div class="row">
          
   <?php if(isset($persona))
-        { echo   form_open_multipart('Persona_controller/do_Upload','class="form-horizontal"'); 
+        { echo   form_open_multipart('persona_controller/do_Upload','class="form-horizontal"'); 
   ?>
          
         
@@ -204,7 +204,7 @@
                     <?php 
                         if(isset($persona))
                         {
-                        echo form_open('Persona_controller/modificar_mi_perfil/'.$persona['ci_persona'].""); 
+                        echo form_open('persona_controller/modificar_mi_perfil/'.$persona['ci_persona'].""); 
                          
                     ?>
          <fieldset>
@@ -228,7 +228,7 @@
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['ci_persona'];?>"
                              onkeypress ='return validarNro(event)'
-                             maxlength='7' disabled
+                             maxlength='7'
                              pattern="[0-9]+" title="Ingrese solo Numeros" required="required" 
                              name ='CI'>
                     </div>
@@ -378,7 +378,7 @@
                     <?php 
                         if(isset($persona))
                         {
-                            echo form_open('Persona_controller/cambiar_contracena/'.$persona['id_persona']); 
+                            echo form_open('persona_controller/cambiar_contracena/'.$persona['id_persona']); 
                             
                            
                     ?>

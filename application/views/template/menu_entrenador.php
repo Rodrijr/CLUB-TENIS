@@ -20,7 +20,7 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GRUPOS <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_de_grupos_de_entrenador/<?php echo $this->session->userdata('id_usuario'); ?>">Ver Lista De Grupos</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/grupo_controller/ver_lista_de_grupos_de_entrenador/<?php echo $this->session->userdata('id_usuario'); ?>">Ver Lista De Grupos</a></li>
 	          </ul>    
 	        </li>
       	</ul>      
@@ -30,9 +30,9 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">MULTIMEDIA <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/index">Subir fotos</a></li> <!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/multimedia_controller/index">Subir fotos</a></li> <!--   solo el entrenador  -->
 	              <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/subir_video">Subir videos</a></li><!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/multimedia_controller/subir_video">Subir videos</a></li><!--   solo el entrenador  -->
 	          </ul>        
 	        </li>
         </ul>
@@ -48,8 +48,8 @@
 	          	<b class="caret"></b>
 	          </a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_mi_perfil">Ver Perfil</a></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesion</a></li>   
+	            <li><a href="<?php echo base_url(); ?>index.php/persona_controller/ver_mi_perfil">Ver Perfil</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/sesion_controller/cerrar_sesion">Cerrar Sesion</a></li>   
 	          </ul>
 	        </li>
 	    </ul>

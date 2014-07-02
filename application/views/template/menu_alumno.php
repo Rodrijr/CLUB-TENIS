@@ -14,9 +14,9 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">MULTIMEDIA <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	             <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/mostrar">Ver Fotos</a></li> <!--   solo el entrenador  -->
+	             <li><a href="<?php echo base_url(); ?>index.php/multimedia_controller/mostrar">Ver Fotos</a></li> <!--   solo el entrenador  -->
 	              <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/mostrar_video">Ver Videos</a></li><!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/multimedia_controller/mostrar_video">Ver Videos</a></li><!--   solo el entrenador  -->
 	          </ul>        
 	        </li>
         </ul>
@@ -26,13 +26,13 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">EVALUACIONES <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_de_jugador/<?php echo $this->session->userdata('identificador_usuario') ?>">Objetivos De Jugador</a></li> <!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/planilla_controller/ver_objetivos_de_jugador/<?php echo $this->session->userdata('identificador_usuario') ?>">Objetivos De Jugador</a></li> <!--   solo el entrenador  -->
 	            <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_perfil_de_jugador/<?php echo $this->session->userdata('identificador_usuario') ?>">Perfil de Jugador</a></li><!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/planilla_controller/ver_perfil_de_jugador/<?php echo $this->session->userdata('identificador_usuario') ?>">Perfil de Jugador</a></li><!--   solo el entrenador  -->
 	            <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_evaluacion_personal/<?php echo $this->session->userdata('identificador_usuario') ?>">Evaluación Personal</a></li> <!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/planilla_controller/ver_evaluacion_personal/<?php echo $this->session->userdata('identificador_usuario') ?>">Evaluación Personal</a></li> <!--   solo el entrenador  -->
 	            <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_individuales/<?php echo $this->session->userdata('identificador_usuario') ?>">Objetivos Individuales</a></li> <!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/planilla_controller/ver_objetivos_individuales/<?php echo $this->session->userdata('identificador_usuario') ?>">Objetivos Individuales</a></li> <!--   solo el entrenador  -->
 	          </ul>        
 	        </li>
         </ul>
@@ -53,7 +53,7 @@
                   
                   <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Notificacion_controller/ver_notificaciones">Ver lista Notificaciones
+	            <li><a href="<?php echo base_url(); ?>index.php/notificacion_controller/ver_notificaciones">Ver lista Notificaciones
                     </a></li>
 	            
 	          </ul>
@@ -66,9 +66,9 @@
 	          	<b class="caret"></b>
 	          </a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_mi_perfil">Ver Perfil</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/persona_controller/ver_mi_perfil">Ver Perfil</a></li>
 	            <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesión</a></li>   
+	            <li><a href="<?php echo base_url(); ?>index.php/sesion_controller/cerrar_sesion">Cerrar Sesión</a></li>   
 	          </ul>
 	        </li> 
 	        <!--   NOFICACIONES  -->

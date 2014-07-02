@@ -13,9 +13,9 @@
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 
-		<link rel="stylesheet" href="<?php echo base_url(); ?>dist/dist1/css/skel.css" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>dist/dist1/css/style.css" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>dist/dist1/css/style-noscript.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/skel.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/style.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/style-noscript.css" />
 
 		
 		<noscript>
@@ -26,11 +26,11 @@
 	</head>
 	<body class="index loading">
 	
-		<script src="<?php echo base_url(); ?>dist/dist1/js/jquery.min.js"></script>
-		<script src="<?php echo base_url(); ?>dist/dist1/js/jquery.dropotron.min.js"></script>
-		<script src="<?php echo base_url(); ?>dist/dist1/js/skel.min.js"></script>
-		<script src="<?php echo base_url(); ?>dist/dist1/js/skel-layers.min.js"></script>
-		<script src="<?php echo base_url(); ?>dist/dist1/js/init.js"></script>
+		<script src="<?php echo base_url(); ?>dist/js/jquery.min.js"></script>
+		<script src="<?php echo base_url(); ?>dist/js/jquery.dropotron.min.js"></script>
+		<script src="<?php echo base_url(); ?>dist/js/skel.min.js"></script>
+		<script src="<?php echo base_url(); ?>dist/js/skel-layers.min.js"></script>
+		<script src="<?php echo base_url(); ?>dist/js/init.js"></script>
 	
 		<!-- Header -->
 			<header id="header" class="alt">

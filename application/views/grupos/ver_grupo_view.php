@@ -99,7 +99,7 @@
   <div class="form-group">
     <div class="col-lg-12">
       <br>
-      <a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos" class="btn btn-default">Atr&aacute;s</a>
+      <a href="<?php echo base_url(); ?>index.php/grupo_controller/ver_lista_grupos" class="btn btn-default">Atr&aacute;s</a>
     </div>
   </div>
 </div>

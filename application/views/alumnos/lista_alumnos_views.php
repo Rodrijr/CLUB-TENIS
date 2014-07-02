@@ -3,7 +3,7 @@
         <div class="page-header">
         	<h1 id="tables" align="center">Lista De Alumnos</h1>
             
-            <?php echo form_open('Persona_controller/buscar_alumno')?>          
+            <?php echo form_open('persona_controller/buscar_alumno')?>          
             <fieldset>
                 <div class="col-lg-10 form-group">
                      <div class="col-lg-3"></div>
@@ -19,7 +19,7 @@
         <?php echo form_close() ?>
         </div>
         <div class="col-lg-10 col-lg-offset-2 form-group">
-            <?php echo form_open('Reporte_controller/generar_pdf_alumnos');?>    
+            <?php echo form_open('reporte_controller/generar_pdf_alumnos');?>    
               <div class="form-group">
                 <div class="col-lg-12">
                     <div class="col-lg-6">  
@@ -49,7 +49,7 @@
 		                <tr>
                         <td style="min-width: 0px; max-width: 5%">
                         
-                            <?PHP echo form_open_multipart('Persona_controller/subir_foto/'.$alumno['ci_persona'],'class="form-horizontal"'); 
+                            <?PHP echo form_open_multipart('persona_controller/subir_foto/'.$alumno['ci_persona'],'class="form-horizontal"'); 
     $link = "./imagenes/".$alumno['ci_persona'].".jpg";
                                                              
 $f=file_exists($link);
@@ -74,7 +74,7 @@ if($f){?>
                             </td>
                             <td style="min-width: 0px; max-width: 10%">
                                 <?php echo $alumno['estado']; ?>
-                             <?PHP echo form_open_multipart('Persona_controller/cambiar_estado/'.$alumno['ci_persona'],'class="form-horizontal"');
+                             <?PHP echo form_open_multipart('persona_controller/cambiar_estado/'.$alumno['ci_persona'],'class="form-horizontal"');
             if(strcmp($alumno['estado'],"Activo"))
             {
                echo '<input type="submit" 

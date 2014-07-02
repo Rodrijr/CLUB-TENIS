@@ -10,7 +10,7 @@
 
   <div class="col-lg-6 col-lg-offset-3">
     <legend>Datos de Grupo</legend>
-    <?php echo form_open('Grupo_controller/actualizar_grupo');?>    
+    <?php echo form_open('grupo_controller/actualizar_grupo');?>    
       <div class="form-group">
         <input type="HIDDEN" class="form-control" name="id_grupo" value="<?php echo $grupo['id_grupo']?> ">
         <div class="col-lg-12">
@@ -60,9 +60,9 @@
                 echo '<td>'.$item_sub_grupo['entrenadores'].'</td>';
                 echo '<td><center>'.$item_sub_grupo['horario'].'</center></td>';
                 echo '<td>'.$item_sub_grupo['descripcion'].'</td>';
-                echo '<td><a href="'.base_url().'index.php/Grupo_controller/ver_sub_grupo/'.$item_sub_grupo['id_subgrupo'].'">Ver</a></td>';
-                echo '<td><a href="'.base_url().'index.php/Grupo_controller/editar_sub_grupo/'.$item_sub_grupo['id_subgrupo'].'">Editar</a></td>';
-                echo '<td><a href="'.base_url().'index.php/Grupo_controller/eliminar_sub_grupo/'.$item_sub_grupo['id_subgrupo'].'">Eliminar</a></td>';
+                echo '<td><a href="'.base_url().'index.php/grupo_controller/ver_sub_grupo/'.$item_sub_grupo['id_subgrupo'].'">Ver</a></td>';
+                echo '<td><a href="'.base_url().'index.php/grupo_controller/editar_sub_grupo/'.$item_sub_grupo['id_subgrupo'].'">Editar</a></td>';
+                echo '<td><a href="'.base_url().'index.php/grupo_controller/eliminar_sub_grupo/'.$item_sub_grupo['id_subgrupo'].'">Eliminar</a></td>';
                 #echo '<strong><legend><center><h3>'.$item_sub_grupo['nombre_subgrupo'].'</h3></legend></center></strong>';
                 #echo '<p class="text-success"><strong>Entrenador(es): </strong>'.$item_sub_grupo['entrenadores'].'.</p>';
                 #echo '<p class="text-info"><strong>Horario de: </strong>'.$item_sub_grupo['horario'].' Hrs.</p>';
@@ -82,8 +82,8 @@
   <div class="form-group">
     <div class="col-lg-6 col-lg-offset-5">
       <br>
-      <a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos" class="btn btn-warning">Atr&aacute;s</a>
-      <a href="<?php echo base_url(); ?>index.php/Grupo_controller/nuevo_sub_grupo/<?php echo $grupo['id_grupo'];?>/0/0" class="btn btn-success">Anadir Sub-Grupo</a>
+      <a href="<?php echo base_url(); ?>index.php/grupo_controller/ver_lista_grupos" class="btn btn-warning">Atr&aacute;s</a>
+      <a href="<?php echo base_url(); ?>index.php/grupo_controller/nuevo_sub_grupo/<?php echo $grupo['id_grupo'];?>/0/0" class="btn btn-success">Anadir Sub-Grupo</a>
       <!-- <a data-toggle="modal" href="#myModalAniadirEntrenador" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Añadir Sub-Grupo</a>-->
     </div>
   </div>
@@ -100,7 +100,7 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h3 class="panel-title">Aniadiendo Sub-Grupo</h3>
-            <?php echo form_open('Grupo_controller/agregar_sub_grupo');?>
+            <?php echo form_open('grupo_controller/agregar_sub_grupo');?>
           </div>
         </div>
         <div class="panel-body">

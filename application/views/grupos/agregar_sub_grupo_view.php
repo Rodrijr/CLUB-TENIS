@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="col-lg-9 col-lg-offset-2">
-    <?php echo form_open('Grupo_controller/agregar_sub_grupo');?>
+    <?php echo form_open('grupo_controller/agregar_sub_grupo');?>
      
     <div class="form-group">
       <p class="text-info"><strong>Sub-Grupo: </strong></p>
@@ -93,7 +93,7 @@
     </div>
 
     <div class="modal-footer">
-      <a type="button" class="btn btn-default" href="<?php echo base_url(); ?>index.php/Grupo_controller/editar_grupo/<?php echo $id_grupo?>">Cancelar</a>
+      <a type="button" class="btn btn-default" href="<?php echo base_url(); ?>index.php/grupo_controller/editar_grupo/<?php echo $id_grupo?>">Cancelar</a>
       <button type="submit" class="btn btn-primary">Agregar Sub-Grupo</button>
       <?php echo form_close();?>
     </div>

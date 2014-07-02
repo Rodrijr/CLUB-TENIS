@@ -14,10 +14,10 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">REGISTROS <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Padre_controller/registrar_padre">Registrar Padre</a></li> <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/registrar_alumno">Registrar Alumno</a></li>             
+	            <li><a href="<?php echo base_url(); ?>index.php/padre_controller/registrar_padre">Registrar Padre</a></li> <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/registrar_alumno">Registrar Alumno</a></li>             
 	           
 	            <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Entrenador_controller/registrar_entrenador">Registrar Entrenador</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/entrenador_controller/registrar_entrenador">Registrar Entrenador</a></li>
 	          </ul> 
 	        </li>
 	    </ul>
@@ -27,9 +27,9 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GRUPOS <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/nuevo_grupo">Crear Grupo</a></li> 
+	            <li><a href="<?php echo base_url(); ?>index.php/grupo_controller/nuevo_grupo">Crear Grupo</a></li> 
 	              <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos">Lista De Grupos</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/grupo_controller/ver_lista_grupos">Lista De Grupos</a></li>
                  
 	          </ul>        
 	        </li>
@@ -40,8 +40,8 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">REPORTES <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_lista_entrenadores">Ver lista entrenadores</a></li> <!--  secretaria y administrador -->
-                <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/ver_lista_alumnos">Ver lista de alumnos</a></li><!--   solo el administrador  -->
+                <li><a href="<?php echo base_url(); ?>index.php/persona_controller/ver_lista_entrenadores">Ver lista entrenadores</a></li> <!--  secretaria y administrador -->
+                <li><a href="<?php echo base_url(); ?>index.php/alumno_controller/ver_lista_alumnos">Ver lista de alumnos</a></li><!--   solo el administrador  -->
                 <li><a href="<?php echo base_url(); ?>index.php/persona_controller/enviar_cuenta"> Cuentas de Usuario</a></li>
               </ul>        
             </li>
@@ -51,13 +51,13 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">MULTIMEDIA <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/index">Subir fotos</a></li> <!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/multimedia_controller/index">Subir fotos</a></li> <!--   solo el entrenador  -->
 	              
-	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/subir_video">Subir videos</a></li><!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/multimedia_controller/subir_video">Subir videos</a></li><!--   solo el entrenador  -->
                   <li class="divider"></li>
-                  <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/mostrar">Ver Fotos</a></li> <!--   solo el entrenador  -->
+                  <li><a href="<?php echo base_url(); ?>index.php/multimedia_controller/mostrar">Ver Fotos</a></li> <!--   solo el entrenador  -->
 	              
-	            <li><a href="<?php echo base_url(); ?>index.php/Multimedia_controller/mostrar_video">Ver Videos</a></li><!--   solo el entrenador  -->
+	            <li><a href="<?php echo base_url(); ?>index.php/multimedia_controller/mostrar_video">Ver Videos</a></li><!--   solo el entrenador  -->
 	          </ul>        
 	        </li>
         </ul>
@@ -68,7 +68,7 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> NOTIFICACIONES <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
                 <li>
-                    <a href="<?php echo base_url(); ?>index.php/Notificacion_controller/enviar_notificaciones">Crear Notificacion</a></li>
+                    <a href="<?php echo base_url(); ?>index.php/notificacion_controller/enviar_notificaciones">Crear Notificacion</a></li>
 	            <li class="divider"></li>
 	            <li><a href="#">Historial de Notificaciones</a></li>            
 	          </ul>
@@ -81,8 +81,8 @@
 	          	<b class="caret"></b>
 	          </a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_mi_perfil">Ver Perfil</a></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Sesion_controller/cerrar_sesion">Cerrar Sesión</a></li>                 
+	            <li><a href="<?php echo base_url(); ?>index.php/persona_controller/ver_mi_perfil">Ver Perfil</a></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/sesion_controller/cerrar_sesion">Cerrar Sesión</a></li>                 
 	          </ul>
 	        </li>
         </ul>

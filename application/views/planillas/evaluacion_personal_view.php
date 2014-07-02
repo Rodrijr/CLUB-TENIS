@@ -10,7 +10,7 @@
 
   <div class="col-lg-12 col-lg-offset-1">
     <div class="col-lg-10">
-    <?php echo form_open('Planilla_controller/guardar_datos_planilla_evaluacion_personal');?>   
+    <?php echo form_open('planilla_controller/guardar_datos_planilla_evaluacion_personal');?>   
       <div class="form-group">
         <label for="inputEmail" class="control-label">Alumno: </label><br>
         <div class="col-lg-4">
@@ -450,7 +450,7 @@
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-1">
             <br>
-            <a type="button" class="btn btn-warning" href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_lista_de_alumnos">Atrás</a>
+            <a type="button" class="btn btn-warning" href="<?php echo base_url(); ?>index.php/planilla_controller/ver_lista_de_alumnos">Atrás</a>
             <!--<a type="button" class="btn btn-warning" href="<?php #echo base_url(); ?>index.php/Planilla_controller/ver_lista_de_alumnos">Cancel</a> -->
             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
           </div>

@@ -113,7 +113,7 @@
           <div class="col-lg-2">
           </div>
       <div class="col-lg-7">
-        <?php echo form_open('Padre_controller/registrar_padre'); ?>
+        <?php echo form_open('padre_controller/registrar_padre'); ?>
        <div class="row">
            <div class="col-lg-3">
           </div>
@@ -395,7 +395,7 @@
               <div class="col-lg-3">
               <button 
                       class="btn btn-default btn-lg btn-block"
-                       onClick="location.href='<?php echo base_url(); ?>index.php/Padre_controller/terminar_registro'" 
+                       onClick="location.href='<?php echo base_url(); ?>index.php/padre_controller/terminar_registro'" 
                     >TERMINAR</button>
           </div>
                <?php } ?>

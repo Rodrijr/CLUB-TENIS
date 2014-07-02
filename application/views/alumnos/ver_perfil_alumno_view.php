@@ -162,7 +162,7 @@
      <div class="row">
          
   <?php if(isset($persona))
-        { echo   form_open_multipart('Persona_controller/do_Upload1/'.$persona['ci_persona'],'class="form-horizontal"'); 
+        { echo   form_open_multipart('persona_controller/do_Upload1/'.$persona['ci_persona'],'class="form-horizontal"'); 
   ?>
          
         
@@ -203,7 +203,7 @@
                     <?php 
                         if(isset($persona))
                         {
-                        echo form_open('Alumno_controller/modificar_perfil/'.$persona['ci_persona'].""); 
+                        echo form_open('alumno_controller/modificar_perfil/'.$persona['ci_persona'].""); 
                          
                     ?>
          <fieldset>

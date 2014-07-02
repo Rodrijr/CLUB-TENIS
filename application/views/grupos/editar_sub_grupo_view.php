@@ -88,7 +88,7 @@
                               <div class="panel-body">
                                 <center><p class="text-danger">Esta Seguro que quiere <strong>DESCARTAR</strong> este Entrenador?</p></center>
                                 <div class="modal-footer">
-                                  <?php echo form_open('Grupo_controller/descartar_entrenador_de_sub_grupo');?>
+                                  <?php echo form_open('grupo_controller/descartar_entrenador_de_sub_grupo');?>
                                   <input type="HIDDEN" class="form-control" name="id_entrenador" value="<?php echo $entrenador['id_persona']; ?>">
                                   <input type="HIDDEN" class="form-control" name="id_subgrupo" value="<?php echo $id_subgrupo?>">    
                                   <center><div class="form-group">
@@ -142,7 +142,7 @@
                   echo '<td><center>'.$cont.'</center></td>';
                     echo '<td>'.$alumno['nombre_persona'].'</td>';
                     echo '<td>'.$alumno['apellido_persona'].'</td>';
-                    echo '<td><center><a href="'.base_url().'index.php/Grupo_controller/eliminar_alumno_sub_grupo/'.$id_subgrupo.'/'.$alumno['id_persona'].'">Descartar</a></center></td>';
+                    echo '<td><center><a href="'.base_url().'index.php/grupo_controller/eliminar_alumno_sub_grupo/'.$id_subgrupo.'/'.$alumno['id_persona'].'">Descartar</a></center></td>';
                 echo '</tr>';
                 $cont++;
               }
@@ -153,8 +153,8 @@
       </div>
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
-          <a class="btn btn-default" href="<?php echo base_url();?>index.php/Grupo_controller/editar_grupo/<?php echo $id_grupo?>">Atr&aacute;s</a>
-          <a type="button" href="<?php echo base_url();?>index.php/Grupo_controller/agregar_alumnos_a_sub_grupo/<?php echo $id_subgrupo?>" class="btn btn-warning">Agregar Alumnos</a>
+          <a class="btn btn-default" href="<?php echo base_url();?>index.php/grupo_controller/editar_grupo/<?php echo $id_grupo?>">Atr&aacute;s</a>
+          <a type="button" href="<?php echo base_url();?>index.php/grupo_controller/agregar_alumnos_a_sub_grupo/<?php echo $id_subgrupo?>" class="btn btn-warning">Agregar Alumnos</a>
         </div>
       </div>
       
@@ -172,7 +172,7 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h3 class="panel-title">Aniadiendo Entrenador A Sub-Grupo</h3>
-              <?php echo form_open('Grupo_controller/agregar_entrenador');?>
+              <?php echo form_open('grupo_controller/agregar_entrenador');?>
             </div>
           </div>
           <div class="panel-body">

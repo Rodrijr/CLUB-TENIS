@@ -59,40 +59,40 @@ class Persona_controller extends CI_Controller {
     {
         return $this->alumno_model->obtener_Alumno_ID();
     }
-    public function modificar_mi_perfil($id)
+    public function modificar_mi_perfil($ci)
     {
-       
-  
         $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
 $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         $persona = array(
-            'ci_persona' => $id,
+            'ci_persona' =>$this->input->post("CI"),
             'telefono' =>  $telefonos,
             'celular' => $celular,
             'direccion' => $this->input->post('DIRECCION'),
             'email' => $this->input->post('EMAIL')
         );
-         $actualizar = $this->persona_model->persona_por_ci1($persona['ci_persona']);
+         $actualizar = $this->persona_model->persona_por_ci1($persona['ci_persona'],$ci);
+        echo "$actualizar";
             if( $actualizar ==1 )
             {
-                 $MSN ="El CI ya fue registrado.";
+                $MSN ="El CI ya fue registrado.";
                 $tipo ="panel panel-danger";
             }
             else
             {
-                $actualizar = $this->persona_model->modificar_mi_perfil($persona);
+                $actualizar = $this->persona_model->modificar_mi_perfil($persona,$ci);
                 if($actualizar)
                 {
+                     $this->persona_model->actualizar_ci_en_tablas($persona,$ci);
                      $MSN ="Modificacion Exitosa.";
                      $tipo ="panel panel-success";
                 }
                 else
                 {
                     $MSN = "Verifique los datos actuales.";
-                     $tipo ="panel panel-danger";
+                    $tipo ="panel panel-danger";
                 }  
             }     
-        
+        $this->session->set_userdata('id_usuario', $persona['ci_persona']);
         $persona = $this->persona_model->ver_mi_perfil();
         $data['MSN']= $MSN ;
         $data['persona'] = $persona[0];
@@ -184,6 +184,7 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
     public function do_Upload()
     {
     $id=$this->session->userdata('id_usuario');
+        echo $id;
         $config_file = array(
        
            'upload_path' => './imagenes',
