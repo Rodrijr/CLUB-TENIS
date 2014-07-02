@@ -28,8 +28,8 @@ class Notificacion_model extends CI_Model
     }
     public function ver_notificaciones()
     {
-        $id=$this->session->userdata('id_usuario');
-$query=$this->db->get_where('destinatarios',array('ci_destinatario'=>$id));   
+        $ci=$this->session->userdata('id_usuario');
+$query=$this->db->get_where('destinatarios',array('ci_destinatario'=>$ci));   
             return $query->result_array();
 	}
     public function notificaion_id($id_not)

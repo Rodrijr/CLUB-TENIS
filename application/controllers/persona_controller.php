@@ -59,20 +59,22 @@ class Persona_controller extends CI_Controller {
     {
         return $this->alumno_model->obtener_Alumno_ID();
     }
-    public function modificar_mi_perfil($id)
+    public function modificar_mi_perfil($ci)
     {
-       
-  
+        $ci_persona = $this->session->userdata('ci_usuario');
+         print_r($this->session->userdata($datos_de_session));
+        echo ("hpppppppoooollas <br><br><br><br><br><br><br><br>");
+        print_r($datos_de_session);
         $telefonos = $this->input->post('TELEFONO1')."*".$this->input->post('TELEFONO2');
 $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         $persona = array(
-            'ci_persona' => $id,
+            'ci_persona' =>$this->input->post("CI"),
             'telefono' =>  $telefonos,
             'celular' => $celular,
             'direccion' => $this->input->post('DIRECCION'),
             'email' => $this->input->post('EMAIL')
         );
-         $actualizar = $this->persona_model->persona_por_ci1($persona['ci_persona']);
+         $actualizar = $this->persona_model->persona_por_ci1($ci);
             if( $actualizar ==1 )
             {
                  $MSN ="El CI ya fue registrado.";
@@ -80,9 +82,10 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
             }
             else
             {
-                $actualizar = $this->persona_model->modificar_mi_perfil($persona);
+                $actualizar = $this->persona_model->modificar_mi_perfil($persona,$ci);
                 if($actualizar)
                 {
+                    $this->persona_model->actualizar_ci_en_tablas($persona,$ci);
                      $MSN ="Modificacion Exitosa.";
                      $tipo ="panel panel-success";
                 }
@@ -96,6 +99,7 @@ $celular = $this->input->post('CELULAR1')."*".$this->input->post('CELULAR2');
         $persona = $this->persona_model->ver_mi_perfil();
         $data['MSN']= $MSN ;
         $data['persona'] = $persona[0];
+        print_r($persona);
         $data['perfil'] = "";        
         $data['tipo1']=$tipo;
         $data['contracenia'] = "";

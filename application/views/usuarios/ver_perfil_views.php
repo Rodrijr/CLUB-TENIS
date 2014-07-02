@@ -228,7 +228,7 @@
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['ci_persona'];?>"
                              onkeypress ='return validarNro(event)'
-                             maxlength='7' disabled
+                             maxlength='7'
                              pattern="[0-9]+" title="Ingrese solo Numeros" required="required" 
                              name ='CI'>
                     </div>
