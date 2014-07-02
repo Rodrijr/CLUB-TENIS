@@ -29,6 +29,12 @@
           </div>
           <div class="col-lg-12">
             <textarea class="form-control" rows="3" id="textArea" style="resize:none; margin: 0px -3.84375px 0px 0px" placeholder="Evaluaci&oacute;n" name="comportamiento_primera_evaluacion"><?php echo $evaluacion_personal['comportamiento']['primera_evaluacion'] ?></textarea>
+            <select class="form-control" id="select" name="comportamiento_primera_evaluacion">
+              <option value="0">Malo</option>
+              <option value="1">Regular</option>
+              <option value="2" selected>Bueno</option>
+              <option value="3">Muy Bueno</option>
+            </select>
           </div>
         </div>
 
