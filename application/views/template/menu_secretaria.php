@@ -28,16 +28,10 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GRUPOS <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-<<<<<<< HEAD
 	            <li><a href="<?php echo base_url(); ?>grupo_controller/nuevo_grupo">Crear Grupo</a></li> 
 	              <li class="divider"></li>
 	            <li><a href="<?php echo base_url(); ?>grupo_controller/ver_lista_grupos">Lista De Grupos</a></li>
-=======
-	            <li><a href="<?php echo base_url(); ?>index.php/grupo_controller/nuevo_grupo">Crear Grupo</a></li> 
-	              <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/grupo_controller/ver_lista_grupos">Lista De Grupos</a></li>
->>>>>>> 8101ecdd33266600e97e3b2aad9415a24a7a18d7
-                 
+
 	          </ul>        
 	        </li>
         </ul>       
