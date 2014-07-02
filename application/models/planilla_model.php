@@ -100,13 +100,13 @@ class Planilla_model extends CI_Model
         $id_alumno = $evaluacion_personal['id_alumno'];
         $evaluacion = array(
                 'id_alumno' => $id_alumno,
-                'comportamiendo' => $evaluacion_personal['comportamiento']['primera_evaluacion']."-".$evaluacion_personal['comportamiento']['segunda_evaluacion']."-".$evaluacion_personal['comportamiento']['tercera_evaluacion'],
-                'entrega' => $evaluacion_personal['disposicion_al_trabajo']['primera_evaluacion']."-".$evaluacion_personal['disposicion_al_trabajo']['segunda_evaluacion']."-".$evaluacion_personal['disposicion_al_trabajo']['tercera_evaluacion'],
-                'actitud_cancha' => $evaluacion_personal['actitud_en_cancha']['primera_evaluacion']."-".$evaluacion_personal['actitud_en_cancha']['segunda_evaluacion']."-".$evaluacion_personal['actitud_en_cancha']['tercera_evaluacion'],
-                'actitud_preparacion' => $evaluacion_personal['actitud_en_preparacion_fisica']['primera_evaluacion']."-".$evaluacion_personal['actitud_en_preparacion_fisica']['segunda_evaluacion']."-".$evaluacion_personal['actitud_en_preparacion_fisica']['tercera_evaluacion'],
-                'asistencia' =>  $evaluacion_personal['asistencia']['primera_evaluacion']."-".$evaluacion_personal['asistencia']['segunda_evaluacion']."-".$evaluacion_personal['asistencia']['tercera_evaluacion'],
-                'puntualidad' =>  $evaluacion_personal['puntualidad']['primera_evaluacion']."-".$evaluacion_personal['puntualidad']['segunda_evaluacion']."-".$evaluacion_personal['puntualidad']['tercera_evaluacion'],
-                'rendimiento_torneos' =>  $evaluacion_personal['rendimiento_en_torneos']['primera_evaluacion']."-".$evaluacion_personal['rendimiento_en_torneos']['segunda_evaluacion']."-".$evaluacion_personal['rendimiento_en_torneos']['tercera_evaluacion'],
+                'comportamiendo' => $evaluacion_personal['comportamiento']['primera_evaluacion']."&".$evaluacion_personal['comportamiento']['segunda_evaluacion']."&".$evaluacion_personal['comportamiento']['tercera_evaluacion'],
+                'entrega' => $evaluacion_personal['disposicion_al_trabajo']['primera_evaluacion']."&".$evaluacion_personal['disposicion_al_trabajo']['segunda_evaluacion']."&".$evaluacion_personal['disposicion_al_trabajo']['tercera_evaluacion'],
+                'actitud_cancha' => $evaluacion_personal['actitud_en_cancha']['primera_evaluacion']."&".$evaluacion_personal['actitud_en_cancha']['segunda_evaluacion']."&".$evaluacion_personal['actitud_en_cancha']['tercera_evaluacion'],
+                'actitud_preparacion' => $evaluacion_personal['actitud_en_preparacion_fisica']['primera_evaluacion']."&".$evaluacion_personal['actitud_en_preparacion_fisica']['segunda_evaluacion']."&".$evaluacion_personal['actitud_en_preparacion_fisica']['tercera_evaluacion'],
+                'asistencia' =>  $evaluacion_personal['asistencia']['primera_evaluacion']."&".$evaluacion_personal['asistencia']['segunda_evaluacion']."&".$evaluacion_personal['asistencia']['tercera_evaluacion'],
+                'puntualidad' =>  $evaluacion_personal['puntualidad']['primera_evaluacion']."&".$evaluacion_personal['puntualidad']['segunda_evaluacion']."&".$evaluacion_personal['puntualidad']['tercera_evaluacion'],
+                'rendimiento_torneos' =>  $evaluacion_personal['rendimiento_en_torneos']['primera_evaluacion']."&".$evaluacion_personal['rendimiento_en_torneos']['segunda_evaluacion']."&".$evaluacion_personal['rendimiento_en_torneos']['tercera_evaluacion']
             );
 
         $query = $this->db->get_where('evaluacion_personal', array('id_alumno' => $id_alumno));
@@ -137,6 +137,52 @@ class Planilla_model extends CI_Model
             return 0;
     }
 
+    // ---------------------- Metodos Objetivos Individuales ---------------------- //
+
+    public function llenar_datos_planilla_objetivos_individuales($objetivos_individuales)
+    {
+        $id_alumno = $objetivos_individuales['id_alumno'];
+        $obj_individuales = array(
+                'id_alumno' => $id_alumno,
+                'derecha' => $objetivos_individuales['derecha']['primera']."-".$objetivos_individuales['derecha']['segunda']."-".$objetivos_individuales['derecha']['tercera'],
+                'reves' => $objetivos_individuales['reves']['primera']."-".$objetivos_individuales['reves']['segunda']."-".$objetivos_individuales['reves']['tercera'],
+                'volea_de_drive' => $objetivos_individuales['volea_de_drive']['primera']."-".$objetivos_individuales['volea_de_drive']['segunda']."-".$objetivos_individuales['volea_de_drive']['tercera'],
+                'volea_de_reves' => $objetivos_individuales['volea_de_reves']['primera']."-".$objetivos_individuales['volea_de_reves']['segunda']."-".$objetivos_individuales['volea_de_reves']['tercera'],
+                'saque_mas_smash' => $objetivos_individuales['saque_mas_smash']['primera']."-".$objetivos_individuales['saque_mas_smash']['segunda']."-".$objetivos_individuales['saque_mas_smash']['tercera'],
+                'devolucion' => $objetivos_individuales['devolucion']['primera']."-".$objetivos_individuales['devolucion']['segunda']."-".$objetivos_individuales['devolucion']['tercera'],
+                'slice' => $objetivos_individuales['slice']['primera']."-".$objetivos_individuales['slice']['segunda']."-".$objetivos_individuales['slice']['tercera'],
+                'control_de_direccion' => $objetivos_individuales['control_de_direccion']['primera']."-".$objetivos_individuales['control_de_direccion']['segunda']."-".$objetivos_individuales['control_de_direccion']['tercera'],
+                'control_de_profundidad' => $objetivos_individuales['control_de_profundidad']['primera']."-".$objetivos_individuales['control_de_profundidad']['segunda']."-".$objetivos_individuales['control_de_profundidad']['tercera'],
+                'mecanica' => $objetivos_individuales['mecanica']['primera']."-".$objetivos_individuales['mecanica']['segunda']."-".$objetivos_individuales['mecanica']['tercera'],
+            );
+
+        $query = $this->db->get_where('objetivos_individuales', array('id_alumno' => $id_alumno));
+        if($query->num_rows() >=1 )
+            $this->db->update('objetivos_individuales',$obj_individuales);
+        else
+            $this->db->insert('objetivos_individuales',$obj_individuales);
+    }
+
+     public function obtener_obj_individuales_por_id_alumno($id_alumno)
+    {
+        $data = array(
+            'id_alumno' => $id_alumno
+            );
+        $query = $this->db->get_where('objetivos_individuales', $data);
+        return $query->row_array();
+    }
+
+    public function existe_planilla_obj_individuales_de_alumno($id_alumno)
+    {
+        $data = array(
+            'id_alumno' => $id_alumno
+            );
+        $query = $this->db->get_where('objetivos_individuales', $data);
+        if($query->num_rows() >= 1)
+            return 1;
+        else
+            return 0;
+    }
     
 }
 ?>

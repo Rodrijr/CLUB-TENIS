@@ -31,6 +31,8 @@
 	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_perfil_de_jugador/<?php echo $this->session->userdata('identificador_usuario') ?>">Perfil de Jugador</a></li><!--   solo el entrenador  -->
 	            <li class="divider"></li>
 	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_evaluacion_personal/<?php echo $this->session->userdata('identificador_usuario') ?>">Evaluación Personal</a></li> <!--   solo el entrenador  -->
+	            <li class="divider"></li>
+	            <li><a href="<?php echo base_url(); ?>index.php/Planilla_controller/ver_objetivos_individuales/<?php echo $this->session->userdata('identificador_usuario') ?>">Objetivos Individuales</a></li> <!--   solo el entrenador  -->
 	          </ul>        
 	        </li>
         </ul>

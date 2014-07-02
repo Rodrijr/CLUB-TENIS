@@ -466,9 +466,7 @@ class Grupo_controller extends CI_Controller {
             $itemAlumno['apellido_persona'] = $alumno['apellido_persona'];
             $lista_de_alumnos[] = $itemAlumno;
         }
-
         return $lista_de_alumnos;
-        
     }
 
     function establecer_datos_para_mostrar_lista_de_grupos_de_entrenador($sub_grupos_de_entrenador)
