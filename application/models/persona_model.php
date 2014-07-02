@@ -75,9 +75,9 @@ class Persona_model extends CI_Model
         }
         return 0;
     }
-    public function obtener_usuario($id)
+    public function obtener_usuario($ci)
     {
-        $query = $this->db->get_where('usuario', array('ci_persona' => $id)); 
+        $query = $this->db->get_where('usuario', array('ci_persona' => $ci)); 
         if($query->num_rows() >= 1 )
         {
             return $query->result_array();
@@ -195,6 +195,33 @@ class Persona_model extends CI_Model
          $query = $this->db->get_where('persona', array('ci_persona' => $ci,'tipo'=>'Alumno')); 
          return $query->result_array();
     }
+    public function persona_por_apellido($apellido)
+    {
+        $this->db->select('*');
+        $this->db->like('apellido_persona', $apellido);
+        $this->db->where('tipo', 'Alumno');
+        $query=$this->db->get('persona');
+        return $query->result_array();    
+    }
+    
+    public function persona_por_apellido1($apellido)
+    {
+        $this->db->select('*');
+        $this->db->like('apellido_persona', $apellido);
+        $this->db->where('tipo', 'Padre');
+        $query=$this->db->get('persona');
+        return $query->result_array();    
+    }
+    public function persona_por_apellido2($apellido)
+    {
+        $this->db->select('*');
+        $this->db->like('apellido_persona', $apellido);
+        $query=$this->db->get('persona');
+        return $query->result_array();    
+    }
+    
+    
+    
     public function persona_por_ci1($ci)
     {
          $query = $this->db->get_where('persona', array('ci_persona' => $ci)); 
@@ -229,6 +256,11 @@ class Persona_model extends CI_Model
     {
          $query = $this->db->get_where('persona', array('codigo' => $codigo)); 
          return $query->result_array();
+    }
+    public function ususario_por_ci($ci)
+    {
+      $query = $this->db->get_where('usuario', array('ci_persona' => $ci)); 
+         return $query->result_array();   
     }
 }
 ?>

@@ -211,8 +211,8 @@
     <legend><H3><label >MODIFICAR PERFIL</label></H3></legend>
             <?php if(isset($MSN))
                             {
-                               if(isset($tipo)){
-                               echo '<div class="'.$tipo.'">';
+                               if(isset($tipo1)){
+                               echo '<div class="'.$tipo1.'">';
      echo  '<div class="panel-heading">';
      echo   ' <h3 class="panel-title">ALERTA!</h3>';
       echo '</div>';
@@ -228,7 +228,7 @@
                       <input type="text" class="form-control" 
                              value="<?php echo $persona['ci_persona'];?>"
                              onkeypress ='return validarNro(event)'
-                             maxlength='10' DISABLED
+                             maxlength='7' disabled
                              pattern="[0-9]+" title="Ingrese solo Numeros" required="required" 
                              name ='CI'>
                     </div>
@@ -261,7 +261,7 @@
                              $telefono = explode('*',$persona['telefono']);
                             echo $telefono[0];?>"
                              onkeypress ='return validarNro(event)'
-                             maxlength='10'
+                             maxlength='7'
                              pattern="[0-9]+" 
                              title="Ingrese solo Numeros" 
                              
@@ -280,7 +280,7 @@
                             echo $telefono[1];
                             }?>"
                              onkeypress ='return validarNro(event)'
-                             maxlength='10'
+                             maxlength='7'
                              pattern="[0-9]+" 
                              title="Ingrese solo Numeros" 
                              name ='TELEFONO2'>
@@ -298,7 +298,7 @@
                             $celular = explode('*',$persona['celular']);
                             echo $celular[0];?>"
                              onkeypress ='return validarNro(event)'
-                             maxlength='10'
+                             maxlength='8'
                              <?php if(strcmp($persona['tipo'],"Entrenador"))
                             {
                                 echo 'required="required"';
@@ -320,7 +320,7 @@
                             echo $celular[1];
                             }?>"
                              onkeypress ='return validarNro(event)'
-                             maxlength='10'
+                             maxlength='8'
                              pattern="[0-9]+" 
                              title="Ingrese solo Numeros" 
                              name ='CELULAR2'>
@@ -386,9 +386,9 @@
     <legend><H3><label >CAMBIAR CONTRASEÑA </label></H3></legend>
              
              <?php if(isset($MSN))
-                            {
-                        if(isset($tipo)){
-    echo '<div class="panel panel-'.$tipo.'">';
+                    {
+                        if(isset($tipo1)){
+    echo '<div class="panel panel-'.$tipo1.'">';
      echo  '<div class="panel-heading">';
      echo   ' <h3 class="panel-title">ALERTA!</h3>';
       echo '</div>';

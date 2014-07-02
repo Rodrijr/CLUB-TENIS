@@ -30,9 +30,9 @@ class Alumno_model extends CI_Model
         return $query->result_array();
        
     }
-    public function ver_perfil($id_persona)
+    public function ver_perfil($ci_persona)
     {
-        $query= $this->db->get_where('persona',array('id_persona'=> $id_persona));
+        $query= $this->db->get_where('persona',array('ci_persona'=> $ci_persona));
         if($query->num_rows() >= 1 )
         {
             return $query->result_array();            

@@ -49,9 +49,9 @@
 </script>
 <div class="container">
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-2">
         </div>
-      <div class="col-lg-6">
+      <div class="col-lg-8">
         <div class="page-header">
           <h1 id="forms"> Registrar Entrenador</h1>
         </div>
@@ -105,7 +105,7 @@
         </div>
           <div class="row">
             <legend style="color:blue">Datos Personales</legend>
-        <div class="col-lg-3">
+        <div class="col-lg-5">
               
             <div class="input-group">
               <span class="input-group-btn">
@@ -175,9 +175,8 @@
               <br>
             <legend style="color:blue">Contacto</legend>
               
-               <div class="col-lg-1">
-               </div>
-        <div class="col-lg-4">
+               
+        <div class="col-lg-5">
               
             <div class="input-group">
               <span class="input-group-btn">
@@ -186,7 +185,7 @@
               <input type="text" 
                      class="form-control"
                      pattern="[0-9]+"                    
-                     maxlength='7' 
+                     maxlength='8' 
                      required="required"
                      title="Ingrese numeros"
                      onkeypress='return validarNro(event)'
@@ -200,7 +199,7 @@
                      >
             </div><!-- /input-group -->
           </div> 
-        <div class="col-lg-4">              
+        <div class="col-lg-5">              
             <div class="input-group">
               <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Celular *</button>
@@ -208,7 +207,7 @@
               <input type="text" 
                      class="form-control" 
                      pattern="[0-9]+"                    
-                     maxlength='7' 
+                     maxlength='8' 
                      title="Ingrese numeros"
                      onkeypress='return validarNro(event)'
                      NAME='CELULAR2' 
@@ -222,9 +221,8 @@
           </div> 
           </div>
           <div class="row">
-              <br><div class="col-lg-1">
-                   </div>
-        <div class="col-lg-4">
+              <br>
+        <div class="col-lg-5">
               
             <div class="input-group">
               <span class="input-group-btn">
@@ -246,7 +244,7 @@
                      >
             </div><!-- /input-group -->
           </div> 
-        <div class="col-lg-4">              
+        <div class="col-lg-5">              
             <div class="input-group">
               <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Telefono *</button>

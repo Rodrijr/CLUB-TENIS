@@ -9,7 +9,7 @@
                      <div class="col-lg-3"></div>
                     <div class="col-lg-5">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="ci" placeholder="CI del  alumno ">
+                            <input type="text" class="form-control" name="apellido" placeholder="APELLIDO del padre a Buscar">
                             <span class="input-group-addon"> <span class="glyphicon glyphicon-search"></span> </span>
                         </div>
                     </div>

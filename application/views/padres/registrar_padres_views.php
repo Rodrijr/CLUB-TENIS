@@ -79,6 +79,8 @@
            
                 if(isset($MSN)&& !empty($MSN))
                 {
+                    if(strcmp("registrar",$MSN)!=0)
+                    {
                             echo"<div class='alert fade in warning'>";
 							echo"<button type='button' class='close' data-dismiss='alert'>&times;</button>";
                             echo"<strong>ALERTA!</strong> ";
@@ -86,7 +88,7 @@
                             echo "<font color='#FF0000'>";
                             echo validation_errors();
 							echo"</font></div>"; 
-                    
+                    }
                     if(strcmp( "El registro fue existoso" ,$MSN)==0)
                     {
                         $padre = array(
@@ -97,7 +99,7 @@
                     'celular' => '*',
                     'direccion' => '',
                     'email' => '',
-                    'tipo' => 'Entrenador');
+                    'tipo' => 'Padre');
                     }
                 
                 }
@@ -121,7 +123,7 @@
         </div>
           <div class="row">
             <legend>Datos Personales</legend>
-        <div class="col-lg-3">
+        <div class="col-lg-5">
               
             <div class="input-group">
               <span class="input-group-btn">
@@ -191,9 +193,7 @@
               <br>
             <legend>Contacto</legend>
               
-               <div class="col-lg-1">
-               </div>
-        <div class="col-lg-4">
+        <div class="col-lg-5">
               
             <div class="input-group">
               <span class="input-group-btn">
@@ -216,7 +216,7 @@
                      >
             </div><!-- /input-group -->
           </div> 
-        <div class="col-lg-4">              
+        <div class="col-lg-5">              
             <div class="input-group">
               <span class="input-group-btn">
                 <button class="btn btn-warning" type="button">Celular *</button>
@@ -238,9 +238,8 @@
           </div> 
           </div>
           <div class="row">
-              <br><div class="col-lg-1">
-                   </div>
-        <div class="col-lg-4">
+              <br>
+        <div class="col-lg-5">
               
             <div class="input-group">
               <span class="input-group-btn">
@@ -262,7 +261,7 @@
                      >
             </div><!-- /input-group -->
           </div> 
-        <div class="col-lg-4">              
+        <div class="col-lg-5">              
             <div class="input-group">
               <span class="input-group-btn">
                 <button class="btn btn-warning" type="button">Telefono *</button>
