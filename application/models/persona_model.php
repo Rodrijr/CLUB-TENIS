@@ -38,7 +38,7 @@ class Persona_model extends CI_Model
 	}
     public function modificar_mi_perfil($persona,$ci)
     {
-      
+      print_r($persona);
         $this->db->where('ci_persona',$ci);
         return $this->db->update('persona',$persona);
         
@@ -59,8 +59,6 @@ class Persona_model extends CI_Model
     }
     public function obtener_persona_CI($persona)
     {
-        
-        
         $query = $this->db->get_where('persona', array('ci_persona' => $persona['ci_persona'])); 
          $per = $query->result_array();
         
@@ -223,10 +221,31 @@ class Persona_model extends CI_Model
     
     
     
-    public function persona_por_ci1($ci)
+    public function persona_por_ci1($nuevo,$ci)
     {
-         $query = $this->db->get_where('persona', array('ci_persona' => $ci)); 
-         return $query->result_array();
+        $query = $this->db->get_where('persona', array('ci_persona' => $nuevo)); 
+        $per = $query->result_array();
+        
+        $query1 = $this->db->get_where('persona', array('ci_persona' => $ci)); 
+        $per1 = $query->result_array();
+        if(count($per)==1 )
+        {
+            $per = $per[0];
+            $per1 = $per1[0];
+            if($per['ci_persona']==$ci)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        if(count($per)> 1 )
+        {
+                return 1;
+        }
+        return 0;
     }
     
     public function cambiar_estado($persona)
