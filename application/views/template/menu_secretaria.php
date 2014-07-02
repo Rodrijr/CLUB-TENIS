@@ -14,10 +14,10 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">REGISTROS <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Padre_controller/registrar_padre">Registrar Padre</a></li> <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/registrar_alumno">Registrar Alumno</a></li>             
+	            <li><a href="<?php echo base_url(); ?>padre_controller/registrar_padre">Registrar Padre</a></li> <li><a href="<?php echo base_url(); ?>alumno_controller/registrar_alumno">Registrar Alumno</a></li>             
 	           
 	            <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Entrenador_controller/registrar_entrenador">Registrar Entrenador</a></li>
+	            <li><a href="<?php echo base_url(); ?>entrenador_controller/registrar_entrenador">Registrar Entrenador</a></li>
 	          </ul> 
 	        </li>
 	    </ul>
@@ -27,9 +27,9 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GRUPOS <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/nuevo_grupo">Crear Grupo</a></li> 
+	            <li><a href="<?php echo base_url(); ?>grupo_controller/nuevo_grupo">Crear Grupo</a></li> 
 	              <li class="divider"></li>
-	            <li><a href="<?php echo base_url(); ?>index.php/Grupo_controller/ver_lista_grupos">Lista De Grupos</a></li>
+	            <li><a href="<?php echo base_url(); ?>grupo_controller/ver_lista_grupos">Lista De Grupos</a></li>
                  
 	          </ul>        
 	        </li>
@@ -40,9 +40,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">REPORTES <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="<?php echo base_url(); ?>index.php/Persona_controller/ver_lista_entrenadores">Ver lista entrenadores</a></li> <!--  secretaria y administrador -->
-                <li><a href="<?php echo base_url(); ?>index.php/Alumno_controller/ver_lista_alumnos">Ver lista de alumnos</a></li><!--   solo el administrador  -->
-                <li><a href="<?php echo base_url(); ?>index.php/persona_controller/enviar_cuenta"> Cuentas de Usuario</a></li>
+                <li><a href="<?php echo base_url(); ?>persona_controller/ver_lista_entrenadores">Ver lista entrenadores</a></li> <!--  secretaria y administrador -->
+                <li><a href="<?php echo base_url(); ?>alumno_controller/ver_lista_alumnos">Ver lista de alumnos</a></li><!--   solo el administrador  -->
+                <li><a href="<?php echo base_url(); ?>persona_controller/enviar_cuenta"> Cuentas de Usuario</a></li>
               </ul>        
             </li>
         </ul> 
